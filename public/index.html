@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Camera quan sát</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/classic.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/quangcao.css">
+  <link rel="stylesheet" href="css/modal.css">
+  <link rel="stylesheet" href="css/re.css">
+  <link rel="stylesheet" type="text/css" href="css/hover-min.css">
+  <link href="css/animate.min.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/classic.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/themsp.css">
+  <script src="js/jquery.validate.js" type="text/javascript"></script>
+  <script src="js/additional-methods.js" type="text/javascript"></script>
+  <script src="danhsachsanpham.js" type="text/javascript"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+
+      $("#formdk").validate({
+        rules: {
+          dname: {
+            required: true,
+            rangelength: [6, 20]
+          },
+          demail: {
+            email: true
+          },
+          drepass: {
+            required: true,
+            equalTo: "#dpass"
+          }
+        }
+      });
+      $('#top').load('top.html');
+      $("#bdk3").click(function () {
+        var dname = $("#dname").val();
+        var duser = $("#duser").val();
+        var demail = $("#demail").val();
+        var dpass = $("#dpass").val();
+        var drepass = $("#drepass").val();
+//                    alert('fff');
+
+});
+    });
+  </script>
+</head>
+<body>
+  <!-- <div id="top"></div> -->
+  <!-- navbar -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="margin-right: 100px"> <span class="sr-only">Logo</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        <a class="navbar-brand" href="#">Camera P3T</a> </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li class="active"><a href="#home"><span class="glyphicon glyphicon-home"></span></a></li>            
+            <li><a href="#about"><span class="glyphicon glyphicon-bookmark"></span> Giới thiệu</a></li>
+            <li><a href="#contact"><span class="glyphicon glyphicon-envelope"></span> Liên hệ</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right" style="margin-right: 100px;">
+            <li class="dropdown"><a href="#cart" data-toggle="dropdown" class="dropdown-toggle" ><span class="glyphicon glyphicon-shopping-cart"> <span id="badgegh" class="badge">0</span></span></a>
+              <div class="dropdown-menu" style="border: 2px solid red;  margin-right: -260px; ">
+                <div style="overflow: auto; max-height: 500px; width: 500px;">
+                  <table class="table table-hover table-bordered" style="background: white; ">
+                   <tr style="vertical-align: middle; text-align: center; font-weight:bold;"><td style="width: 17%;">Sản phẩm</td> <td style="width: 43%;"> Tên sản phẩm </td> <td style="width: 14%;"> Số lượng </td><td style="width: 23%;"> Thành tiền(VNĐ) </td><td style="width: 30%;"></td></tr>
+                   <tbody id="giohang" class="center" style="vertical-align: middle;">
+                   </tbody>
+                 </table>
+               </div>
+               <div style="float: right; clear: bold;">
+                 <label for="" style="width: 300px; font-size: 21px; font-weight: bold; color: red;" ><span style="color: black;">Tổng tiền: </span> <span class="pricegh"> </span></label>
+                 <button onclick="window.open('giohang.html')" type="button" class=" btn btn-primary">Thanh toán</button>
+               </div>
+             </div>
+           </li>
+           <div class="login1 hidden" style="display: inline-block; color: white; font-weight: bold; margin-right: 25px">
+            <li>Xin chào: <span class="namedn" style="color: #F60;"> User </span> </li>
+            <li><a style="text-decoration: none; color: blue;" href="#" onclick="logout()"> Thoát </a></li>
+          </div>
+          <li class="log"><a href="#" data-toggle="modal" data-target="#dangnhap"><span class="glyphicon glyphicon-user"> </span>  Đăng nhập </a></li>
+          <li class="log"><a href="#" data-toggle="modal" data-target="#dangki"><span class="glyphicon glyphicon-log-in" style="margin-right: 4px;"></span>  Đăng ký</a></li>
+          <li class="log"><a href="admin/" > Admin</a></li>
+        </ul>
+        <form class="navbar-form navbar-right search">
+          <input type="search" placeholder="Nhập từ cần tìm...">
+        </form>
+      </div>
+    </div>
+  </nav>
+  <link rel="stylesheet" type="text/css" href="engine1/style.css" />
+  <!-- End WOWSlider.com HEAD section -->
+  <div class="text-center" style="width: 87%; margin: 50px auto 0px auto;">
+    <!-- Start WOWSlider.com BODY section -->
+    <div id="wowslider-container1">
+      <div class="ws_images"><ul>
+        <li><img src="data1/images/b1.jpg" alt="" title="" id="wows1_0"/></li>
+        <li><a href="#"><img src="data1/images/b2.png"  title="" id="wows1_1"/></a></li>
+        <li><img src="data1/images/b3.png" alt="" title="" id="wows1_2"/></li>
+      </ul></div>
+      <div class="ws_bullets"><div>
+        <a href="#" title=""><span><img src="data1/tooltips/b1.jpg" alt=""/>1</span></a>
+        <a href="#" title=""><span><img src="data1/tooltips/b2.png" alt=""/>2</span></a>
+        <a href="#" title=""><span><img src="data1/tooltips/b3.png" alt=""/>3</span></a>
+      </div></div><div class="ws_script" style="position:absolute;left:-99%"><a href="#">slider</a> by WOWSlider.com v8.7</div>
+      <div class="ws_shadow"></div>
+    </div>  
+    <script type="text/javascript" src="engine1/wowslider.js"></script>
+    <script type="text/javascript" src="engine1/script.js"></script>
+    <!-- End WOWSlider.com BODY section -->
+  </div>
+  <div id="menu" class="row" style="margin: auto;">
+    <ul id="ul2" class="col-md-12">
+      <li class="menufirst"><a href="">Camera quan sát trọn bộ</a></li>
+      <li><a href="">Đầu ghi hình camera</a></li>
+      <li><a href="">Camera IP</a></li>
+      <li><a href="">Đầu ghi hình IP</a></li>
+      <li><a href="">Thiết bị an ninh</a></li>
+      <li><a href="">Phụ kiện bị camera</a></li>
+      <li><a href="">Máy chấm công</a></li>
+      <li><a href="">Tin tức công nghệ</a></li>
+    </ul>
+
+  </div>
+  <div class="container row " style="border: 1px solid #ddd; padding-left: 0px;padding-left: 0px;">
+    <div class="row">
+      <div id="left" class="col-md-3">
+        <div class="menuleft">
+          <div class="box_cat">
+            <div class="bc_title">
+              <h5><a href="#"><span>CAMERA QUAN SÁT TRỌN BỘ</span></a></h5>
+            </div>
+            <div class="bc_content">
+              <ul>
+                <li class="show_left_big">
+                  <p><a href=""> Trọn bộ camera giá rẻ</a></p>
+                  <ul class="show_left">
+                    <li><a href=""><span>Trọn bộ camera Avtech</span></a></li>
+                    <li><a href=""><span>Trọn bộ camera AHD Vantech</span></a></li>
+                    <li><a href=""><span>Camera trọn bộ giá rẻ</span></a></li>
+                    <li><a href=""><span>Trọn Bộ Camera KB Vision</span></a></li>
+                  </ul>
+                </li>
+                <li class="show_left_big">
+                  <p><a href=""> Trọn bộ camera HD</a></p>
+                  <ul class="show_left">
+                    <li><a href=""><span>Camera Analog HIKVISION</span></a></li>
+                    <li><a href=""><span>Đầu ghi hình Analog HIKVISION</span></a></li>
+                    <li><a href=""><span>Camera HDTVI HIKVISION</span></a></li>
+                    <li><a href=""><span>Đầu ghi hình HDTVI HIKVISION</span></a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="box_cat">
+            <div class="bc_title">
+              <h5><a href=""><span>Camera quan sát</span></a></h5>
+            </div>
+            <div class="bc_content">
+              <ul>
+                <li class="show_left_big">
+                  <p><a href=""> Camera theo hãng sản xuất</a></p>
+                  <ul class="show_left">
+                    <li><a href=""><span>Camera IP HIKVISION</span></a></li>
+                    <li><a href=""><span>Đầu ghi hình IP HIKVISION</span></a></li>
+                  </ul>
+                </li>
+                <li class="show_left_big">
+                  <p><a href=""> Camera theo loại sản phẩm</a></p>
+                  <ul class="show_left">
+                    <li><a href=""><span>Camera IP AVTECH</span></a></li>
+                    <li><a href=""><span>Đầu ghi hình IP AVTECH</span></a></li>
+                  </ul>
+                </li>
+                <li class="show_left_big">
+                  <p><a href=""> Camera theo chức năng</a></p>
+                  <ul class="show_left">
+                    <li><a href=""><span>Camera quan sát IP Dahua</span></a></li>
+                    <li><a href=""><span>Đầu ghi hình IP Dahua</span></a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="box_cat">
+            <div class="bc_title">
+              <h5><a href=""><span>Đầu ghi hình camera</span></a></h5>
+            </div>
+            <div class="bc_content">
+              <ul>
+                <li class="show_left_big">
+                  <p><a href=""> Đầu ghi theo hãng</a></p>
+                  <ul class="show_left">
+                    <li><a href=""><span>Camera IP HIKVISION</span></a></li>
+                    <li><a href=""><span>Đầu ghi hình IP HIKVISION</span></a></li>
+                  </ul>
+                </li>
+                <li class="show_left_big">
+                  <p><a href=""> Đầu ghi theo loại</a></p>
+                  <ul class="show_left">
+                    <li><a href=""><span>Camera IP AVTECH</span></a></li>
+                    <li><a href=""><span>Đầu ghi hình IP AVTECH</span></a></li>
+                  </ul>
+                </li>
+                <li class="show_left_big">
+                  <p><a href="/dau-ghi-camera-ip-dahua.html"> Đầu ghi theo kênh</a></p>
+                  <ul class="show_left">
+                    <li><a href="/camera-quan-sat-ip-dahua.html"><span>Camera quan sát IP Dahua</span></a></li>
+                    <li><a href="/dau-ghi-hinh-ip-dahua.html"><span>Đầu ghi hình IP Dahua</span></a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="box_cat">
+            <div class="bc_title">
+              <h5><a href="/camera-ip.html"><span>Phụ kiện camera</span></a></h5>
+            </div>
+            <div class="bc_content">
+              <ul>
+                <li class="show_left_big">
+                  <p><a href="/camera-ip-gia-re.html"> Ổ lưu dữ liệu camera</a></p>
+                  <ul class="show_left">
+                    <li><a href="/camera-ip-hikvision.html"><span>Camera IP HIKVISION</span></a></li>
+                    <li><a href="/dau-ghi-hinh-ip-hikvision.html"><span>Đầu ghi hình IP HIKVISION</span></a></li>
+                  </ul>
+                </li>
+                <li class="show_left_big">
+                  <p><a href="/camera-dau-ghi-ip-avtech.html"> Phụ kiện chính hãng</a></p>
+                  <ul class="show_left">
+                    <li><a href="/camera-ip-avtech.html"><span>Camera IP AVTECH</span></a></li>
+                    <li><a href="/dau-ghi-hinh-ip-avtech.html"><span>Đầu ghi hình IP AVTECH</span></a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="box_cat">
+            <div class="bc_title">
+              <h5><a href="/camera-ip.html"><span>Thiết bị an ninh</span></a></h5>
+            </div>
+            <div class="bc_content">
+              <ul>
+                <li class="show_left_big">
+                  <p><a href="/camera-ip-gia-re.html"> Thiết bị chống trộm</a></p>
+                  <ul class="show_left">
+                    <li><a href="/camera-ip-hikvision.html"><span>Camera IP HIKVISION</span></a></li>
+                    <li><a href="/dau-ghi-hinh-ip-hikvision.html"><span>Đầu ghi hình IP HIKVISION</span></a></li>
+                  </ul>
+                </li>
+                <li class="show_left_big">
+                  <p><a href="/camera-dau-ghi-ip-avtech.html"> Chuông cửa - Màn hình</a></p>
+                  <ul class="show_left">
+                    <li><a href="/camera-ip-avtech.html"><span>Camera IP AVTECH</span></a></li>
+                    <li><a href="/dau-ghi-hinh-ip-avtech.html"><span>Đầu ghi hình IP AVTECH</span></a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="box_cat">
+            <div class="bc_title">
+              <h5><a href="/camera-ip.html"><span>Máy chấm công</span></a></h5>
+            </div>
+            <div class="bc_content">
+              <ul>
+                <li class="show_left_big">
+                  <p><a href="/camera-ip-gia-re.html"> Theo hãng sản xuất</a></p>
+                  <ul class="show_left">
+                    <li><a href="/camera-ip-hikvision.html"><span>Camera IP HIKVISION</span></a></li>
+                    <li><a href="/dau-ghi-hinh-ip-hikvision.html"><span>Đầu ghi hình IP HIKVISION</span></a></li>
+                  </ul>
+                </li>
+                <li class="show_left_big">
+                  <p><a href="/camera-dau-ghi-ip-avtech.html"> Theo loại ứng dụng</a></p>
+                  <ul class="show_left">
+                    <li><a href="/camera-ip-avtech.html"><span>Camera IP AVTECH</span></a></li>
+                    <li><a href="/dau-ghi-hinh-ip-avtech.html"><span>Đầu ghi hình IP AVTECH</span></a></li>
+                  </ul>
+                </li>
+                <li class="show_left_big">
+                  <p><a href="/camera-dau-ghi-ip-avtech.html"> Số lượng quản lí</a></p>
+                  <ul class="show_left">
+                    <li><a href="/camera-ip-avtech.html"><span>Camera IP AVTECH</span></a></li>
+                    <li><a href="/dau-ghi-hinh-ip-avtech.html"><span>Đầu ghi hình IP AVTECH</span></a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="box_cat">
+            <div class="bc_title">
+              <h5><a href="/thiet-bi-van-phong.html"><span>Thiết bị văn phòng</span></a></h5>
+            </div>
+            <div class="bc_content">
+              <div class="box_category">
+                <ul>
+                  <li class="show_left_big">
+                    <p><a href="/may-fax.html"> Máy fax</a></p>
+                    <ul class="show_left">
+                      <li><a href="/may-fax-panasonic.html"><span>Máy fax PANASONIC</span></a></li>
+                      <li><a href="/may-fax-brother.html"><span>Máy fax BROTHER</span></a></li>
+                    </ul>
+                  </li>
+                  <li class="show_left_big">
+                    <p><a href="/may-cham-cong.html"> Máy chấm công</a></p>
+                    <ul class="show_left">
+                      <li><a href="/may-cham-cong-ronal-jack.html"><span>Máy chấm công RONALD JACK</span></a></li>
+                      <li><a href="/may-cham-cong-gigata.html"><span>Máy chấm công GIGATA</span></a></li>
+                    </ul>
+                  </li>
+                  <li class="show_left_big">
+                    <p><a href="/bao-trom-bao-chay.html"> Báo trộm – báo cháy</a></p>
+                    <ul class="show_left">
+                      <li><a href="/bao-trom-bao-chay-karassn.html"><span>Báo trộm - báo cháy KARASSN</span></a></li>
+                      <li><a href="/bao-trom-bao-chay-escort.html"><span>Báo trộm - báo cháy ESCORT</span></a></li>
+                      <li><a href="/bao-trom-bao-chay-networx.html"><span>Báo trộm - báo cháy NetworX</span></a></li>
+                      <li><a href="/bao-trom-bao-chay-bosch.html"><span>Báo trộm - báo cháy BOSCH</span></a></li>
+                      <li><a href="/bao-trom-bao-chay-dsc.html"><span>Báo trộm - báo cháy DSC</span></a></li>
+                    </ul>
+                  </li>
+                  <li class="show_left_big">
+                    <p><a href="/may-in.html"> Máy in</a></p>
+                    <ul class="show_left">
+                      <li><a href="/may-in-brother.html"><span>Máy in BROTHER</span></a></li>
+                      <li><a href="/may-in-hp.html"><span>Máy in HP</span></a></li>
+                      <li><a href="/may-in-canon.html"><span>Máy in CANON</span></a></li>
+                      <li><a href="/may-in-panasonic.html"><span>Máy in PANASONIC</span></a></li>
+                      <li><a href="/may-in-epson.html"><span>Máy in EPSON</span></a></li>
+                      <li><a href="/may-in-samsung.html"><span>Máy in SAMSUNG</span></a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="box_cat">
+            <div class="bc_title">
+              <h5><a href="/san-pham-moi.html"><span>Sản phẩm mới</span></a></h5>
+            </div>
+            <div class="bc_content">
+              <div class="box_category">
+                <ul>
+                  <li class="show_left_big">
+                    <p><a href="/phu-kien-camera.html"> Phụ kiện camera</a></p>
+                    <ul class="show_left">
+                      <li><a href="#"><span>Dây cable - dây tín hiệu camera</span></a></li>
+                      <li><a href="#"><span>Nguồn - ADAPTOR camera</span></a></li>
+                      <li><a href="#"><span>Chân đế cho camera</span></a></li>
+                      <li><a href="#"><span>Ống kính camera</span></a></li>
+                      <li><a href="#"><span>Bàn điều khiển</span></a></li>
+                      <li><a href="#"><span>Phụ kiện khác</span></a></li>
+                      <li><a href="#"><span>Ổ cứng ghi hình cho đầu ghi camera</span></a></li>
+                    </ul>
+                  </li>
+                  <li class="show_left_big">
+                    <p><a href="/phu-kien-tong-dai.html"> Phụ kiện tổng đài</a></p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="box_statistics"><div class="s-title" style="font-size: 21px;">Thống kê truy cập</div><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tbody><tr>
+            <td width="100" nowrap="">Online</td>
+            <td width="15" align="center"> : </td>
+            <td><span id="stats_online">305</span></td>
+          </tr><tr>
+          <td nowrap="">Truy cập hôm qua</td>
+          <td width="10" align="center"> : </td>
+          <td><span id="stats_yesterday">2976</span></td>
+        </tr><tr>
+        <td nowrap="">Truy cập hôm nay</td>
+        <td width="10" align="center"> : </td>
+        <td><span id="stats_today">675</span></td>
+      </tr><tr>
+      <td nowrap=""><b class="font_err">Lượt truy cập</b></td>
+      <td width="10" align="center"> : </td>
+      <td></td>
+    </tr></tbody></table><div class="stats_totals" id="stats_totals"><span>1</span><span>2</span><span>4</span><span>4</span><span>2</span><span>0</span><span>4</span></div></div>
+  </div>
+
+</div>
+<div id="content" class="col-md-9">
+  <div class="mid-title product">
+    <div class="titleL">Camera quan sát Analog</div>
+  </div>
+  <div id="box_search_top">
+    <form id="formSearch" name="formSearch" method="get" action="/san-pham/tim-kiem.html/" >
+      <input type="hidden" name="do_search" value="1">
+      <table width="100%" >
+        <tbody>
+          <tr>
+            <td><select size="1" id="catfeature_id" name="catfeature_id" class="select_search" >
+              <option value="0">- - Theo loại sản phẩm - -</option>
+              <option value="20"  >Camera không dây (Wifi)</option>
+              <option value="19"  >Đầu ghi hình HDI</option>
+              <option value="18"  >Camera HDI</option>
+              <option value="17"  >Đầu ghi hình HD-TVI</option>
+              <option value="16"  >Camera HD-TVI</option>
+              <option value="1"  >Camera analog</option>
+              <option value="13"  >Camera AHD</option>
+              <option value="11"  >Camera HD-SDI</option>
+              <option value="9"  >Camera HDCVI</option>
+              <option value="14"  >Đầu ghi hình AHD</option>
+              <option value="15"  >Phụ kiện camera quan sát</option>
+              <option value="12"  >Đầu ghi hình HD-SDI</option>
+              <option value="4"  >Camera IP</option>
+              <option value="5"  >Đầu ghi hình Analog</option>
+              <option value="6"  >Đầu ghi hình IP</option>
+              <option value="10"  >Đầu ghi hình HDCVI</option>
+              <option value="7"  >Điện thoại bàn</option>
+            </select></td>
+            <td><select name="price_id" id="price_id" class="select_search">
+              <option value="" selected="">- - Theo khoảng giá - -</option>
+              <option value="0_500000">0 - &nbsp;500,000 VND</option>
+              <option value="500000_700000">&nbsp;500,000 VND - &nbsp;700,000 VND</option>
+              <option value="700000_1000000">&nbsp;700,000 VND - &nbsp;1,000,000 VND</option>
+              <option value="1000000_1500000">&nbsp;1,000,000 VND - &nbsp;1,500,000 VND</option>
+              <option value="1500000_2000000">&nbsp;1,500,000 VND - &nbsp;2,000,000 VND</option>
+              <option value="2000000_5000000">&nbsp;2,000,000 VND - &nbsp;5,000,000 VND</option>
+              <option value="5000000_10000000">&nbsp;5,000,000 VND - &nbspnbsp;10,000,000 VND</option>
+            </select></td>
+            <td id="display_feature"><select name="feature_id" id="feature_id" class="select_search">
+              <option value="" selected="">- - Chức năng sản phẩm - -</option>
+              <option value="14">Từ 500 TVL trở xuống</option>
+              <option value="15">Từ 500TVL-700TVL</option>
+              <option value="16">Từ 720TVL-1000TVL</option>
+              <option value="17">4 kênh</option>
+              <option value="18">8 kênh</option>
+              <option value="19">16 kênh</option>
+              <option value="20">24 kênh</option>
+              <option value="21">32 kênh</option>
+            </select></td>
+            <td><select name="status_id" id="status_id" class="select_search">
+              <option value="" selected="">- - Trạng thái sản phẩm - -</option>
+              <option value="1">Sản phẩm khuyến mãi</option>
+              <option value="3">Sản phẩm mới</option>
+              <option value="4">Sản phẩm bán chạy</option>
+              <option value="2">Hàng tồn kho thanh lý</option>
+            </select></td>
+            <td align="left"><button id="btnSearch" name="btnSearch" type="submit" class="btn_search" value="Tìm sản phẩm"> <span>Tìm sản phẩm</span> </button></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+
+  <div class="tab" style="width: 100%;
+  margin-left: -1.4%;">
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Sản phẩm bán chạy nhất</a></li>
+    <li><a data-toggle="tab" href="#menu1">Sản phẩm đang khuyến mãi</a></li>
+    <li><a data-toggle="tab" href="#menu2">Sản phẩm mới về</a></li>
+  </ul>
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+
+      <script src="slide/jssor.slider-21.1.6.mini.js" type="text/javascript"></script>
+      <script src="slide/slide.js" type="text/javascript"></script>
+      <link rel="stylesheet" type="text/css" href="slide/slide.css">
+      <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 860px; height: 260px; overflow: hidden; visibility: hidden; border:1px solid #f58a3a; ">
+        <!-- Loading Screen -->
+        <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+          <div style="filter: alpha(opacity=70); opacity: 0.7;  display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+          <div style="position:absolute;display:block;background:url('') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+        </div>
+        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 860px;  height: 300px; overflow: hidden;">
+          <div>
+            <div class="item hvr-glow">
+              <span style="position: absolute;"> <img src="anh/banchay.png" alt="" style="width: 100px; height:100px "> </span>
+              <div class="img_cat_con"> <a href="/camera-quan-sat-tron-bo.html"><img src="img/z1.jpg" alt="CAMERA QUAN SÁT TRỌN BỘ"></a> <span> </span> </div>
+              <div class="title">
+                <p class="tensanpham"> <a href=""> Camera AHD VANTECH VP-223AHDM 1.3 Megapixel </a></p>
+                <p class="price text-muted"> Giá bán: <span class="giaban" ;">1,600,000 VNĐ </span></p>
+              </div>
+            </div>
+          </div>
+
+          <a data-u="any" href="#" style="display:none">Carousel</a>
+          <div style="display: none;">
+            <div class="item hvr-glow">
+              <span style="position: absolute;"> <img src="anh/banchay.png" alt="" style="width: 100px; height:100px "> </span>
+              <div class="img_cat_con"> <a href="/camera-quan-sat-tron-bo.html"><img src="img/z2.jpg" alt="CAMERA QUAN SÁT TRỌN BỘ"></a> <span> </span> </div>
+              <div class="title">
+                <p class="tensanpham"> <a href=""> Camera AHD VANTECH VP-163AHDM 1.3 Megapixel </a></p>
+                <p class="price text-muted"> Giá bán: <span class="giaban" ;">3,999,000 VNĐ </span></p>
+              </div>
+            </div>
+          </div>
+          <div style="display: none;">
+            <div class="item hvr-glow">
+              <span style="position: absolute;"> <img src="anh/banchay.png" alt="" style="width: 100px; height:100px "> </span>
+              <div class="img_cat_con"> <a href="/camera-quan-sat-tron-bo.html"><img src="img/z3.jpg" alt="CAMERA QUAN SÁT TRỌN BỘ"></a> <span> </span> </div>
+              <div class="title">
+                <p class="tensanpham"> <a href=""> Camera AHD VANTECH VP-153AHDM 1.3Megapixel </a></p>
+                <p class="price text-muted"> Giá bán: <span class="giaban" ;">2,999,000 VNĐ </span></p>
+              </div>
+            </div>
+          </div>
+          <div style="display: none;">
+            <div class="item hvr-glow">
+              <span style="position: absolute;"> <img src="anh/banchay.png" alt="" style="width: 100px; height:100px "> </span>
+              <div class="img_cat_con"> <a href="/camera-quan-sat-tron-bo.html"><img src="img/c4.jpg" alt="CAMERA QUAN SÁT TRỌN BỘ"></a> <span> </span> </div>
+              <div class="title">
+                <p class="tensanpham"> <a href=""> Camera AHD 1.3 VANTECH VP-113AHDM </a></p>
+                <p class="price text-muted"> Giá bán: <span class="giaban" ;">1,999,000 VNĐ </span></p>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: none;">
+            <div class="item hvr-glow">
+              <span style="position: absolute;"> <img src="anh/banchay.png" alt="" style="width: 100px; height:100px "> </span>
+              <div class="img_cat_con"> <a href="/camera-quan-sat-tron-bo.html"><img src="img/z5.jpg" alt="CAMERA QUAN SÁT TRỌN BỘ"></a> <span> </span> </div>
+              <div class="title">
+                <p class="tensanpham"> <a href=""> Camera Dome AHD VANTECH VP-222AHDM </a></p>
+                <p class="price text-muted"> Giá bán: <span class="giaban" ;">3,999,000 VNĐ </span></p>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: none;">
+            <div class="item hvr-glow">
+              <span style="position: absolute;"> <img src="anh/banchay.png" alt="" style="width: 100px; height:100px "> </span>
+              <div class="img_cat_con"> <a href="/camera-quan-sat-tron-bo.html"><img src="img/c2.jpg" alt="CAMERA QUAN SÁT TRỌN BỘ"></a> <span> </span> </div>
+              <div class="title">
+                <p class="tensanpham"> <a href=""> Lắp đặt 1 camera HIKVISION </a></p>
+                <p class="price text-muted"> Giá bán: <span class="giaban" ;">2,449,000 VNĐ </span></p>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: none;">
+            <div class="item hvr-glow">
+              <span style="position: absolute;"> <img src="anh/banchay.png" alt="" style="width: 100px; height:100px "> </span>
+              <div class="img_cat_con"> <a href="/camera-quan-sat-tron-bo.html"><img src="img/z6.jpg" alt="CAMERA QUAN SÁT TRỌN BỘ"></a> <span> </span> </div>
+              <div class="title">
+                <p class="tensanpham"> <a href=""> Camera AHD VANTECH VP-152AHDM </a></p>
+                <p class="price text-muted"> Giá bán: <span class="giaban" ;">999,000 VNĐ </span></p>
+              </div>
+            </div>
+          </div>
+          <div style="display: none;">
+           <div class="item hvr-glow">
+             <span style="position: absolute;"> <img src="anh/banchay.png" alt="" style="width: 100px; height:100px "> </span>
+             <div class="img_cat_con"> <a href="/camera-quan-sat-tron-bo.html"><img src="img/z7.jpg" alt="CAMERA QUAN SÁT TRỌN BỘ"></a> <span> </span> </div>
+             <div class="title">
+              <p class="tensanpham"> <a href=""> Camera Ngụy Trang VANTECH VT-1005H </a></p>
+              <p class="price text-muted"> Giá bán: <span class="giaban" ;">1,600,000 VNĐ </span></p>
+            </div><div></div>
+          </div>
+        </div>
+      </div>
+      <span data-u="arrowleft" class="jssora03l" style="top:0px;left:8px;width:55px;height:55px;" data-autocenter="2"></span>
+      <span data-u="arrowright" class="jssora03r" style="top:0px;right:8px;width:55px;height:55px;" data-autocenter="2"></span>
+    </div>
+    <!-- kết thức slider-->
+  </div>
+  <div id="menu1" class="tab-pane fade">
+    <div id="jssor_3" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 860px; height: 260px; overflow: hidden; visibility: hidden; border:1px solid #f58a3a; ">
+      <!-- Loading Screen -->
+      <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+        <div style="filter: alpha(opacity=70); opacity: 0.7;  display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+        <div style="position:absolute;display:block;background:url('') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+      </div>
+      <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 860px;  height: 300px; overflow: hidden;">
+        <div>
+          <div class="item">
+            <label class="label label-danger" style="width: 70px; height:20px; position: absolute; font-weight: bold; font-size: 17px; right: 0px; margin:5px;" > -30% </label>
+            <div class="img_cat_con"> <a href="/camera-quan-sat-tron-bo.html"><img src="img/c1.jpg" alt="CAMERA QUAN SÁT TRỌN BỘ"></a> <span> </span> </div>
+            <div class="title">
+              <p class="tensanpham"> <a href=""> Camera IP Wifi Không Dây VANTECH VT-6300A </a></p>
+              <p class="price text-muted"> Giá bán: <span class="giaban" ;">1,600,000 VNĐ </span></p>
+            </div>
+          </div>
+        </div>
+
+        <a data-u="any" href="#" style="display:none">Carousel</a>
+        <div style="display: none;">
+          <div class="item">
+            <label class="label label-danger" style="width: 70px; height:20px; position: absolute; font-weight: bold; font-size: 17px; right: 0px; margin:5px;" > -30% </label>
+            <div class="img_cat_con"> <a href="/camera-quan-sat-tron-bo.html"><img src="img/c2.jpg" alt="CAMERA QUAN SÁT TRỌN BỘ"></a> <span> </span> </div>
+            <div class="title">
+              <p class="tensanpham"> <a href=""> Lắp đặt 1 camera HIKVISION </a></p>
+              <p class="price text-muted"> Giá bán: <span class="giaban" ;">3,999,000 VNĐ </span></p>
+            </div>
+          </div>
+        </div>
+        <div style="display: none;">
+          <div class="item">
+            <label class="label label-danger" style="width: 70px; height:20px; position: absolute; font-weight: bold; font-size: 17px; right: 0px; margin:5px;" > -30% </label>
+            <div class="img_cat_con"> <a href="/camera-quan-sat-tron-bo.html"><img src="img/z2.jpg" alt="CAMERA QUAN SÁT TRỌN BỘ"></a> <span> </span> </div>
+            <div class="title">
+              <p class="tensanpham"> <a href=""> Lắp đặt 1 camera HIKVISION </a></p>
+              <p class="price text-muted"> Giá bán: <span class="giaban" ;">3,999,000 VNĐ </span></p>
+            </div>
+          </div>
+        </div>
+        <div style="display: none;">
+          <div class="item">
+            <label class="label label-danger" style="width: 70px; height:20px; position: absolute; font-weight: bold; font-size: 17px; right: 0px; margin:5px;" > -30% </label>
+            <div class="img_cat_con"> <a href="/camera-quan-sat-tron-bo.html"><img src="img/z5.jpg" alt="CAMERA QUAN SÁT TRỌN BỘ"></a> <span> </span> </div>
+            <div class="title">
+              <p class="tensanpham"> <a href=""> Lắp đặt 1 camera HIKVISION </a></p>
+              <p class="price text-muted"> Giá bán: <span class="giaban" ;">3,999,000 VNĐ </span></p>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: none;">
+          <div class="item">
+            <label class="label label-danger" style="width: 70px; height:20px; position: absolute; font-weight: bold; font-size: 17px; right: 0px; margin:5px;" > -30% </label>
+            <div class="img_cat_con"> <a href="/camera-quan-sat-tron-bo.html"><img src="img/c1.jpg" alt="CAMERA QUAN SÁT TRỌN BỘ"></a> <span> </span> </div>
+            <div class="title">
+              <p class="tensanpham"> <a href=""> Lắp đặt 1 camera HIKVISION </a></p>
+              <p class="price text-muted"> Giá bán: <span class="giaban" ;">3,999,000 VNĐ </span></p>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: none;">
+          <div class="item">
+            <label class="label label-danger" style="width: 70px; height:20px; position: absolute; font-weight: bold; font-size: 17px; right: 0px; margin:5px;" > -30% </label>
+            <div class="img_cat_con"> <a href="/camera-quan-sat-tron-bo.html"><img src="img/z7.jpg" alt="CAMERA QUAN SÁT TRỌN BỘ"></a> <span> </span> </div>
+            <div class="title">
+              <p class="tensanpham"> <a href=""> Lắp đặt 1 camera HIKVISION </a></p>
+              <p class="price text-muted"> Giá bán: <span class="giaban" ;">3,999,000 VNĐ </span></p>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: none;">
+          <div class="item">
+            <label class="label label-danger" style="width: 70px; height:20px; position: absolute; font-weight: bold; font-size: 17px; right: 0px; margin:5px;" > -30% </label>
+            <div class="img_cat_con"> <a href="/camera-quan-sat-tron-bo.html"><img src="img/z10.jpg" alt="CAMERA QUAN SÁT TRỌN BỘ"></a> <span> </span> </div>
+            <div class="title">
+              <p class="tensanpham"> <a href=""> Lắp đặt 1 camera HIKVISION </a></p>
+              <p class="price text-muted"> Giá bán: <span class="giaban" ;">3,999,000 VNĐ </span></p>
+            </div>
+          </div>
+        </div>
+        <div style="display: none;">
+         <div class="item">
+           <label class="label label-danger" style="width: 70px; height:20px; position: absolute; font-weight: bold; font-size: 17px; right: 0px; margin:5px;" > -30% </label>
+           <div class="img_cat_con"> <a href="/camera-quan-sat-tron-bo.html"><img src="img/c1.jpg" alt="CAMERA QUAN SÁT TRỌN BỘ"></a> <span> </span> </div>
+           <div class="title">
+            <p class="tensanpham"> <a href=""> Camera IP Wifi Không Dây VANTECH VT-6300A </a></p>
+            <p class="price text-muted"> Giá bán: <span class="giaban" ;">1,600,000 VNĐ </span></p>
+          </div><div></div>
+        </div>
+      </div>
+    </div>
+    <span data-u="arrowleft" class="jssora03l" style="top:0px;left:8px;width:55px;height:55px;" data-autocenter="2"></span>
+    <span data-u="arrowright" class="jssora03r" style="top:0px;right:8px;width:55px;height:55px;" data-autocenter="2"></span>
+  </div>
+</div>
+<div id="menu2" class="tab-pane fade"></div>
+<div id="menu3" class="tab-pane fade"></div>
+</div>
+</div>
+<div id="home1" style="margin: auto" >
+
+</div>
+<div id="phantrang" class="col-md-12"> <ul class="pagination navbar-right" style="margin-right: 20px"></ul>
+</div>
+<!-- <div class="tintuc"  style="float: left;"> -->
+  <!-- <div class="tintuc-sukien" >
+    <div class="hearder" > <a href="#">
+      <h1>TIN TỨC-SỰ KIỆN</h1>
+    </a> </div>
+    <div class="noidung">
+      <div class="noidungtrai">
+        <div class="img"> <img src="img/335_kbvision_about_us.jpg" class="img-responsive"/> </div>
+        <div class="noidungleft">
+          <p class="tieude"><a href="#">NHÀ PHÂN PHỐI CAMERA QUAN SÁT KB VISION - USA - THƯƠNG HIỆU MỸ</a></p>
+          <br>
+          <p>Hoàng Gia Camera chuyên phân phối camera KB Vision giá tốt nhất. Liên hệ 0917172226 hoặc 0837172226 để nhận giá</p>
+        </div>
+      </div>
+      <div class="noidungphai" style="border-top:none">
+        <div class="imgphai" > <a href="#"><img src="img/111_Vuvantien.jpg"/></a> </div>
+        <div class="noidungright" >
+          <p class="tieude"><a href="#">Đã bắt được 2 tên nghi phạm trong vụ Giết cả nhà tại Bình Phước</a></p>
+          <p>Thiếu tướng Hồ Sỹ Tiến - Cục trưởng Cục cảnh sát hình sự cho biết, sau 4 ngày xảy ra ...</p>
+        </div>
+      </div>
+      <div class="noidungphai">
+        <div class="imgphai" > <a href="#"><img src="img/111_Vuvantien.jpg"/></a> </div>
+        <div class="noidungright" >
+          <p class="tieude"><a href="#">Đã bắt được 2 tên nghi phạm trong vụ Giết cả nhà tại Bình Phước</a></p>
+          <p>Thiếu tướng Hồ Sỹ Tiến - Cục trưởng Cục cảnh sát hình sự cho biết, sau 4 ngày xảy ra ...</p>
+        </div>
+      </div>
+      <div class="noidungphai">
+        <div class="imgphai" > <a href="#"><img src="img/111_Vuvantien.jpg"/></a> </div>
+        <div class="noidungright" >
+          <p class="tieude"><a href="#">Đã bắt được 2 tên nghi phạm trong vụ Giết cả nhà tại Bình Phước</a></p>
+          <p>Thiếu tướng Hồ Sỹ Tiến - Cục trưởng Cục cảnh sát hình sự cho biết, sau 4 ngày xảy ra ...</p>
+        </div>
+      </div>
+      <div class="noidungphai" >
+        <div class="imgphai" > <a href="#"><img src="img/111_Vuvantien.jpg"/></a> </div>
+        <div class="noidungright" >
+          <p class="tieude"><a href="#">Đã bắt được 2 tên nghi phạm trong vụ Giết cả nhà tại Bình Phước</a></p>
+          <p>Thiếu tướng Hồ Sỹ Tiến - Cục trưởng Cục cảnh sát hình sự cho biết, sau 4 ngày xảy ra ...</p>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <!-- </div> -->
+</div>
+</div>
+<div class="quangcao row">
+  <div class="col-xs-12 hidden-xs hidden-sm">
+    <div class="text-header text-danger">Camera các hãng</div>
+    <div id="jssor_2" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1200%; height: 100px; overflow: hidden; visibility: hidden;">
+      <!-- Loading Screen -->
+
+      <div class="flex-viewport" data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 100%; height: 73px; overflow: hidden;">
+        <div>
+          <li data-u="image" style="width: 122px; float: left; display: block;"> <a href="#"><img alt="Camera Vantech Giá Rẻ" src="quang-cao/camera-vantech.jpg"></a> </li>
+        </div>
+        <div style="display: none;">
+          <li style="width: 122px; float: left; display: block;"> <a href="#camera-benco"><img alt="Camera Benco Giá Rẻ" src="quang-cao/camera-hang-benco1.jpg"></a> </li>
+
+        </div>
+        <div style="display: none;">
+          <li style="width: 122px; float: left; display: block;"> <a href="#camera-dahua"><img alt="Camera Dahua Đài Loan" src="quang-cao/camera-dahua.jpg"></a> </li>
+        </div>
+        <div style="display: none;">
+          <li style="width: 122px; float: left; display: block;"> <a href="#camera-questek"><img alt="Camera Questek Việt Nam" src="quang-cao/camera-questek.jpg"></a> </li>
+        </div>
+        <div style="display: none;">
+         <li style="width: 122px; float: left; display: block;"> <a href="#camera-hikvision"><img alt="Camera HIKVISION" src="quang-cao/camera-hikvision-dai-loan.jpg"></a> </li>
+       </div>
+       <div style="display: none;">
+        <li style="width: 122px; float: left; display: block;"> <a href="#camera-spyeye"><img alt="Camera Spyeye" src="quang-cao/camera-spyeye-gia-re1.jpg"></a> </li>
+      </div>
+      <div style="display: none;">
+        <li style="width: 122px; float: left; display: block;"> <a href="#camera-avtech"><img alt="Camera AVTECH ĐÀI LOAN" src="quang-cao/camera-samsung.jpg"></a> </li>
+      </div>
+      <div style="display: none;">
+        <li style="width: 122px; float: left; display: block;"> <a href="#camera-kce"><img alt="Camera KCE HÀN QUỐC" src="quang-cao/camera-KCE-han-quoc.jpg"></a> </li>
+      </div>
+      <div style="display: none;">
+        <li style="width: 122px; float: left; display: block;"> <a href="#camera-kce"><img alt="Camera SAMSUNG HÀN QUỐC" src="quang-cao/camera-hang-samsung.jpg"></a> </li>
+      </div>
+    </div>
+
+    <!-- Bullet Navigator -->
+    <!-- Arrow Navigator -->
+    
+  </div>
+  <!-- #endregion Jssor Slider End -->
+
+</div>
+<div class="col-xs-12 hidden-xs hidden-sm">
+  <div class="text-header">Chấp nhận thanh toán</div>
+  <img style="width:100%;margin:10px 0;" alt="Chấp nhận thanh toán" src="quang-cao/payments.png"> </div>
+</div>
+<div class="col-xs-12">
+  <div class="row">
+    <div class="col-xs-12 col-md-4 col-lg-3">
+      <div class="social-claim">
+        <div class="claim_header">Cam kết</div>
+        <div class="claim">Sản phẩm hàng hóa chính hãng, đa dạng, phong phú</div>
+        <div class="claim">Luôn luôn giá rẻ và khuyến mại không ngừng</div>
+        <div class="claim">Dịch vụ chăm sóc khách hàng uy tín, tận tâm</div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-4 col-lg-3">
+      <div class="social-claim2">
+        <div class="claim_header">Hỗ trợ khách hàng</div>
+        <ul>
+          <li><a href="#xem-camera-giam-sat-qua-dien-thoai">Xem camera giám sát qua điện thoại</a></li>
+          <li><a href="#xem-camera-quan-sat-qua-may-tinh">Xem camera quan sát qua máy tính</a></li>
+          <li><a href="#download-tai-lieu">Download tài liệu</a></li>
+          <li><a href="#hd-cai-dat-phan-mem-teamviewer">HD cài đặt phần mềm Teamviewer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-4 col-lg-3">
+      <div class="social-claim2">
+        <div class="claim_header">Thông tin công ty</div>
+        <ul>
+          <li><a href="#gioi-thieu">Giới thiệu</a></li>
+          <li><a href="#tuyen-dung">Tuyển dụng</a></li>
+          <li><a href="#chinh-sach">Chính sách</a></li>
+        </ul>
+        <div id="social_us">
+          <div class="social_us_header">Kết nối với chúng tôi</div>
+          <div id="f_social"> <a target="_blank" rel="nofollow" href="#"> <img src="quang-cao/f_fb.png"> </a> <a target="_blank" rel="nofollow" href=""> <img src="quang-cao/f_gplus.png"> </a> <a target="_blank" rel="nofollow" href=""> <img src="quang-cao/f_yt.png"> </a> </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-4 col-lg-3 hidden-md">
+      <div class="social-claim2">
+        <div class="claim_header">Tổng đài trợ giúp</div>
+        <div style="margin:10px;">
+          <table border="0" cellpadding="1" cellspacing="1" style="width: 100%;">
+            <tbody>
+              <tr>
+                <td><img alt="" src="quang-cao/tro-giup.png" style="width: 68px; height: 81px;"></td>
+                <td style="vertical-align: middle;"><p><span style="color:#333333;"><span style="font-size:14px;">Tư vấn bán hàng</span></span></p>
+                  <p><span style="color:#ba0000;"><span style="font-size:20px;"><strong>0163 263 5825</strong></span></span></p></td>
+                </tr>
+                <tr>
+                  <td colspan="2"><hr>
+                    <span style="color:#555555;"><span style="font-size:13px;"><img alt="" src="quang-cao/life_saver.png">&nbsp; Chăm sóc và hỗ trợ sau bán hàng</span></span></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" style="text-align: center;"><span style="color:#B22222;"><strong><span style="font-size:16px;">(04)6328 2964</span></strong></span></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2"><span style="font-size:13px;"><span style="color:#555555;"><img alt="" src="quang-cao/mailer.png">&nbsp; nguyenwipwa.@gmail.com</span></span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="footer" style="background:#555555; clear:both;">
+    <div class="row" style="margin:0">
+      <div class="col-md-4">
+        <h4>CAMERA</h4>
+      </div>
+      <div class="col-md-4">
+        <h4 style="color: #F60">LẮP ĐẶT CAMERA</h4>
+        <p>Địa chỉ: <span style="color:#FC0;">Thủ Đức, thành phố Hồ Chí Minh</span></p>
+        <p>Điện thoại: <span style="color:#FC0;">0163 263 5825</span></p>
+        <p>Hiện chúng tôi đang phát triển kết hợp với một số đơn vị lắp đặt camera uy tín tạo nên một thị trường dịch vụ công nghệ uy tín trên toàn quốc.</p>
+      </div>
+      <div class="col-md-4">
+        <h4>KẾT NỐI VỚI CHÚNG TÔI</h4>
+        <a href="#"><i class="fa fa-facebook-square" style="color: #039"></i></a> <a href="#"><i class="fa fa-twitter-square" style="color: #09F"></i></a> <a href="#"><i class="fa fa-instagram" style="color: #F00"></i>
+      </a> </div>
+    </div>
+  </div>
+  <div class="modal fade" id="dangnhap" role="dialog" style="z-index: 99999;">
+    <div class="modal-dialog" >
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <div id="title" class="panle-title text-center" > <span class="textbold"> Đăng nhập</span> </div>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+          <form role="form" id="formdn">
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Tên đăng nhập</label>
+              <input type="text" required class="form-control" id="usrname" name="userdn" placeholder="Tên đăng nhập">
+            </div>
+            <div class="form-group">
+              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Mật khẩu</label>
+              <input type="text" class="form-control" id="psw" name="passdn" placeholder="Mật khẩu">
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="" checked>Ghi nhớ</label>
+            </div>
+            <button type="button" onclick="dangnhap(userdn.value, passdn.value)" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Đăng nhập</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button id="thoatdn" type="button" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove btnthoat"></span> Cancel</button>
+          <p><a href="#"  data-toggle="modal" data-target="#dangki" onclick="$('#thoatdn').click()">Đăng kí</a></p>
+          <p> <a href="#">Quên mật khẩu</a></p>
+        </div>
+      </div>
+
+    </div>
+  </div> 
+  <div id="dangki" class="modal fade" role="dialog" style="z-index: 999999;">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content" style="width: 500px;">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <div id="title" class="panle-title text-center" > <span class="textbold"> Đăng kí</span> </div>
+        </div>
+        <div class="modal-body">
+          <div>
+            <form id="formdk" action="#" method="post" accept-charset="utf-8">
+              <div class="themsp" style="width: 100%;">
+                <div id=""> <label class="lbthem"> Họ tên</label> <input id="namedk" type="text" name="dname" value="" placeholder="Họ tên" class="input-sm form-control" required>
+                </div>
+                <div > <label class="lbthem"> Tên đăng nhập</label> <input id="duser"  type="text" name="duser" value="" placeholder="Tên đăng nhập" class="input-sm form-control" required>
+                </div>
+                <div id=""> <label class="lbthem"> Email</label> <input id="demail" type="text" name="demail" value="" placeholder="Email" class="input-sm form-control" required>
+                </div>
+                <div id=""> <label class="lbthem"> Mật khẩu</label> <input id="dpass" type="password" name="dpass" value="" placeholder="Mật khẩu" class="input-sm form-control" required>
+                </div>
+                <div id=""> <label class="lbthem"> Nhập lại mật khẩu</label> <input id="drepass"  type="password" name="drepass" value="" placeholder="Nhập lại mật khẩu" class="input-sm form-control" required>
+                </div>
+              </div>
+              <div style="margin-left: 45%"> <input type="button" onclick="dangki(dname.value,duser.value,demail.value,dpass.value);" id="bdk" class="btn btn-info" value="Cập nhật">  <button type="button" class="btn btn-info btnthoat" data-dismiss="modal">Thoát</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/trangchu.js" type="text/javascript"></script>
+  <script type="text/javascript">
+
+  </script>
+  <script type="text/javascript">
+//load danh sach
+var tong=0;
+$(document).ready(function() {
+  var t2 = 1;
+  tong= parseInt(danhsach.length/12);
+  if((danhsach.length%12)!=0){
+    tong = tong+1;
+  }
+  // alert(tong);
+  //phan trang:
+  var t1 = '<li class="page-item"><a class="page-link" onclick="nextPage('+Number(t2)+')" href="javascript:void(0)" aria-label="Previous"><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a></li>'
+  for(var i=1; i<= tong; i++){
+    t1+='<li class="li'+i+'"><a href="javascript:void(0)" onclick="phantrang('+i+')">'+i+'</a></li>';
+    // $('.pagination').append('<li><a href="javascript:void(0)" onclick="phantrang('+i+')">'+i+'</a></li>');
+  }
+  t1+='<li class="page-item"><a class="page-link"href="javascript:void(0)" onclick="nextPage('+Number(1+t2)+')" aria-label="Next"><span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a></li>'
+  $('.pagination').html(t1);
+  $('.li1').addClass('active');
+  lo(danhsach, 12, 0);
+});
+
+function phantrang (e) {
+ $('.pagination li').removeClass('active');
+ $('.li'+e).addClass('active');
+ var z = parseInt((e-1)*12);
+ lo(danhsach,12,z);
+ t2 = e;
+}
+function nextPage (e) {
+  var a = Number(e);
+  phantrang(a);
+}
+function prevPage (e) {
+  var a = Number(e-1);
+  if(a>1){
+    phantrang(a);
+  }
+}
+</script>
+<div class="progress hidden" style="width: 500px; height: 40px; position: fixed;top: 100px; margin-left: 40%; z-index: 999;">
+  <div class="progress-bar progress-bar-striped active" role="progressbar"
+  style="width:100%; font-size: 19px;">
+  Đang cập nhật
+</div>
+
+</div>
+
+<script type="text/javascript">
+  jQuery(document).ready(function($){   
+    if($(".btn-top").length > 0){
+      $(window).scroll(function () {
+        var e = $(window).scrollTop();
+        if (e > 300) {
+          $(".btn-top").show()
+        } else {
+          $(".btn-top").hide()
+        }
+      });
+      $(".btn-top").click(function () {
+        $('body,html').animate({
+          scrollTop: 0
+        })
+      })
+    }   
+  });
+</script>
+<script type='text/javascript'>window._sbzq||function(e){e._sbzq=[];var t=e._sbzq;t.push(["_setAccount",50848]);var n=e.location.protocol=="https:"?"https:":"http:";var r=document.createElement("script");r.type="text/javascript";r.async=true;r.src=n+"//static.subiz.com/public/js/loader.js";var i=document.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)}(window);</script>
+
+</html>

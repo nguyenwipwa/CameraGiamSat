@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Camera quan sát</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/classic.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style1.css">
+  <link rel="stylesheet" href="css/buttonhover.css">
+  <link rel="stylesheet" href="css/buttonstyle.css">
+  <link rel="stylesheet" href="css/imagehover.css">
+  <link rel="stylesheet" href="css/quangcao.css">
+  <script src="js/jquery-3.1.1.min.js"></script> 
+  <script src="danhsachsanpham.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+    // $('#top').load('top.html');
+    $("#bdk3").click(function () {
+      var dname = $("#dname").val();
+      var duser = $("#duser").val();
+      var demail = $("#demail").val();
+      var dpass = $("#dpass").val();
+      var drepass = $("#drepass").val();
+//                    alert('fff');
+
+});
+  });
+</script>
+</head>
+<body>
+  <div id="top"></div>
+  <div class="container">
+    <legend><h2>CHI TIẾT SẢN PHẨM</h2></legend>  
+    <div class="row" id="chitietsanpham">
+      <h3 class="namesp"></h3>
+      <div id="hinhsp" class="col-md-6 product-image" >
+        <!-- <img id="hinhsp" src="images/ben.jpg"> -->
+      </div>
+      <div class="col-md-6 product-info">
+        <div id="thongtin">
+          <p>Mã sản phẩm: <span>BEN-910IP</span></p>
+          <p>Thương hiệu: <span><a href="#">Camera BENCO</a></span></p>
+          <p>Giá thị trường: <span id="gia">2.800.000 đ</span></p>
+          <p>Giá bán ra: <span id="giaban">1.990.000 đ</span></p>
+          <p>Tình trạng: <span id="ghichu">Còn hàng</span></p>
+          <p>Bảo hành: <span id="ghichu">24 tháng</span></p>
+
+          <div id="dathang">
+            <p><div id="lblsoluong" style="font-family:sans-serif;font-size:18px"><span>Số lượng:</span></div>
+              <span><input type="number" value="0" min="0" max="100" id="input" size="1"></span>
+            </p>
+          </div>
+          <p><a href="#" class="hvr-sweep-to-right"  id="addtocart"><span class="glyphicon glyphicon-shopping-cart"></span> Cho vào giỏ</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="noidungchitiet">
+    <div class="row">
+     <div class="col-md-8">
+       <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#home">Chi tiết sản phẩm</a></li>
+        <li><a data-toggle="tab" href="#menu1">Thông số kỹ thuật</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+          <h3>Camera IP Wifi BENCO BEN-910IP</h3>
+          <p>Camera IP wifi không dây BEN-910IP độ phân giải HD 720P (1280 x 720) 1.0 Megapixel, Hồng ngoại: 11 IR LED  Quan sát trong đêm xa 10m ngày đêm. Với thiết kế camera wifi không dây kiểu dáng mẫu mã sang trọng, phù hợp lắp đặt cho gia đình.</p>
+          <img src="images/ben1.jpg" class="img-responsive">
+          <p>Camera Wifi Benco BEN910IP hỗ trợ âm thanh 2 chiều cho phép bạn có thể nói chuyện trực tiếp với đầu bên kia của camera, camera được trang bị loa và microphone với khả năng truyền tải âm thanh song song với tín hiệu hình ảnh.</p>
+          <img src="images/ben2.jpg" class="img-responsive">
+          <p>Khả năng điều kiển quay của camera BEN-910IP cho phép điều khiển từ xa ngay trên thiết bị quan sát với góc quan sát lên đến 360 độ theo chiều ngang và 120 độ theo chiều dọc để bao quát toàn bộ không gian.</p>
+          <img src="images/ben3.jpg" class="img-responsive">
+          <p>Camera với tính năng P2P chỉ cắm là chạy không cần cài đặt giúp người sử dụng dễ dàng, trên điện thoại chỉ cần tải phần mềm 2CU về quý khách có thể kết nối xem camera trên điện thoại từ xa.</p>
+          <img src="images/ben4.jpg" class="img-responsive">
+        </div>
+        <div id="menu1" class="tab-pane fade">
+          <h3>Thông số và tính năng nổi bật của camera BEN-910IP</h3>
+          <p>
+           <ul>
+             <li>Cảm biến hình ảnh: 1/4 CMOS Sensor</li>
+             <li>Độ phân giải: HD 720P (1280 x 720)</li>
+             <li>Độ nhạy sáng: 0.5Lux@550nm</li>
+             <li>HỐng kính: 3.6 - 6mm </li>
+             <li>Audio: hỗ trợ âm thanh 2 chiều</li>
+             <li>Mạng LAN: 1 10/100Mbps RJ-45</li>
+             <li>Giao thức: HTTP, FTP, TCP/IP, UDP, SMTP, DHCP, PPoE, DDNS, UPnP</li>
+             <li>Góc quay: Ngang 355 độ - Dọc 120 độ</li>
+             <li>Hồng ngoại: 11 IR LED - Quan sát trong đêm xa 10m</li>
+             <li>Nguồn điện: DC5V/2A</li>
+             <li>Hỗ trợ OnVif</li>
+             <li>Kích thước: (D)100mm x (H)150mm</li>
+             <li>Thẻ nhớ chuẩn MicroSD dung lượng tối đa 32GB</li>
+           </ul>
+         </p>
+
+         <h3>Thông số kỹ thuật camera IP Wifi VANTECH VT-6300A</h3>
+         <img src="images/ben5.jpg" width="90%;">
+         <p>* Ghi chú: Thông số kỹ thuật và hình ảnh có thể thay đổi tùy theo nhà sản xuất đưa ra.</p>
+       </div>
+     </div>
+   </div>
+
+   <div class="col-md-4" style="margin-top: 50px;">
+     <div id="sanphamlienquan">
+       <div class="project-list">
+        <div class="project">
+          <div class="project__card">
+            <a href="B1Camera.html" class="project__image"><img src="images/1camera.jpg" width=600 height=400 alt=""></a>
+            <div class="project__detail">
+              <h2 class="project__title"><a href="#">2.199.000 đ</a></h2>
+              <small class="project__category"><a href="#">Lắp đặt trọn bộ camera giá rẻ</a></small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="sanphamlienquan">
+     <div class="project-list">
+      <div class="project">
+        <div class="project__card">
+          <a href="B4Camera.html" class="project__image"><img src="images/4camera.jpg" width=600 height=400 alt=""></a>
+          <div class="project__detail">
+            <h2 class="project__title"><a href="#">6.499.000 đ</a></h2>
+            <small class="project__category"><a href="#">Lắp đặt trọn bộ camera giá rẻ 4 cái</a></small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sanphamlienquan">
+   <div class="project-list">
+    <div class="project">
+      <div class="project__card">
+        <a href="VT-6300A.html" class="project__image"><img src="images/vt.jpg" width=600 height=400 alt=""></a>
+        <div class="project__detail">
+          <h2 class="project__title"><a href="#">1.600.000 đ</a></h2>
+          <small class="project__category"><a href="#">Camera IP Wifi Không Dây VANTECH VT-6300A</a></small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="sanphamlienquan">
+ <div class="project-list">
+  <div class="project">
+    <div class="project__card">
+      <a href="IPC-KW12WP.html" class="project__image"><img src="images/ipc.jpg" width=600 height=400 alt=""></a>
+      <div class="project__detail">
+        <h2 class="project__title"><a href="#">2.900.000 đ</a></h2>
+        <small class="project__category"><a href="#">Camera IP Wifi DAHUA IPC-KW12WP</a></small>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>    
+</div>
+
+<div id="footer">
+
+</div>
+<script src="js/jquery.hover3d.js" ></script>
+<script>
+  $(document).ready(function(){
+    $('#top').load("top.html");
+    $('#footer').load("bottom.html");
+    $('#top').css('z-index', '9999');
+    $(".project").hover3d({
+      selector: ".project__card",
+      shine: false,
+    });
+
+    $(".movie").hover3d({
+      selector: ".movie__card",
+      shine: true,
+      sensitivity: 20,
+    });
+  });
+
+</script>
+<script type="text/javascript">
+  function formatMoney(num) {
+
+    var p = Number(num).toFixed();
+    return p.split("").reverse().reduce(function(acc, num, i, orig) {
+      return  num + (i && !(i % 3) ? "," : "") + acc ;
+    },"");
+  }
+  $(document).ready(function() {
+    var sp = danhsach[sessionStorage.id];
+    $('#hinhsp').html('<img src="'+danhsach[sessionStorage.id].img+'">');
+    $('.namesp').html(danhsach[sessionStorage.id].tensp);
+    var s = '<p>Mã sản phẩm: <span>'+sp.id+'</span></p><p>Thương hiệu: <span><a href="#">'+sp.tensp+'</a></span></p>        <p>Giá thị trường: <span id="gia">2,800,000 đ</span></p><p>Giá bán ra: <span id="giaban">'+formatMoney(sp.gia)+' đ</span></p><p>Tình trạng: <span id="ghichu">Còn hàng</span></p><p>Bảo hành: <span id="ghichu">24 tháng</span></p><div id="dathang"><p><div id="lblsoluong" style="font-family:sans-serif;font-size:18px">Số lượng:</div><span><input type="number" value="1" min="1" max="30" id="input1" size="1"></span></p></div><p><a class="hvr-sweep-to-right"  id="addtocart"  onclick="mua(\''+sp.id+'\',$(input1).val())"><span class="glyphicon glyphicon-shopping-cart"></span> Cho vào giỏ</a></p>'
+    $('#thongtin').html(s)
+  });
+
+</script>
+<script src="js/trangchu.js" type="text/javascript" charset="utf-8" async defer></script>
+
+
+</body>
+</html>

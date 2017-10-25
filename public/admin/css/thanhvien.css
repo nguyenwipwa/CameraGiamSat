@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+#example1 th{
+text-align: center;
+
+}
+#tablethem td{
+	width:80px;
+	height:50px;
+	
+	}
+#phantrang ul{
+list-style-type:none;
+text-align:right;	
+}
+#phantrang ul li{
+	float:left;
+	
+}
+#phantrang ul li button{
+	border-radius:0px;
+	
+}
+.hovera:hover{
+cursor:pointer;	
+}/* CSS Document */
+

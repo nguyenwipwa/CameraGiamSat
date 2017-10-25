@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* CSS Document */
+ table th{
+text-align:center;
+
+}
+#phantrang ul{
+list-style-type:none;
+text-align:right;	
+}
+#phantrang ul li{
+	float:left;
+
+}
+#phantrang ul li button{
+	border-radius:0px;
+
+}

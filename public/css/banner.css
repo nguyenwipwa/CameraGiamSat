@@ -1,0 +1,13 @@
+.titlebanner{
+	color: red;
+}
+.video_carousel_caption_text h1, .video_carousel_caption_text p {
+    background:none;
+}
+.video_carousel_caption_text p {
+	background:none;
+}
+.video_carousel_video {
+    width: 100%;
+    opacity: 0.8; /* do mo vide */ 
+}

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Camera quan sát</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/classic.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/giohang.css">
+    <link rel="stylesheet" href="css/buttonhover.css">
+    <link rel="stylesheet" href="css/buttonstyle.css">
+    <link rel="stylesheet" href="css/quangcao.css">
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="danhsachsanpham.js" type="text/javascript"></script>
+    <script src="js/trangchu.js" type="text/javascript" charset="utf-8" async defer></script>
+</head>
+<body>
+    <div id="top"></div>
+    <div class="container" style="margin: auto;margin-top:10%; margin-bottom: 7%">
+        <legend></legend>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody><tr>
+                <td width="45%" valign="top">
+
+                    <script language="javascript">
+                        function checkLog(f) {
+                            if (f.username.value == '') {
+                                alert("Vui lòng nhập Tài khoản");
+                                f.username.focus();
+                                return false;
+                            }
+
+                            if (f.password.value == '') {
+                                alert("Vui lòng nhập mật khẩu");
+                                f.password.focus();
+                                return false;
+                            }
+
+                            return true;
+                        }
+                    </script>
+                    <br>
+                    <form method="post" action="" name="fLogin" onsubmit="return checkLog(this)">
+                        <div class="shopping_title"><span>Đăng nhập thành viên</span></div>
+                        <table width="100%" border="0" cellspacing="2" cellpadding="2" class="tbl_from">
+                            <tbody><tr>
+                                <td width="100px" class="td1">Email</td>
+                                <td><input type="text" size="25" class="textfiled" name="email" style="width:100%" onfocus="if (this.value == '')
+                                    this.value = '';" onblur="if (this.value == '')
+                                    this.value = '';" value=""></td>
+                                </tr>
+                                <tr>
+                                    <td width="100px" class="td1">Mật khẩu</td>
+                                    <td><input type="password" size="25" class="textfiled" name="password" style="width:100%" onfocus="if (this.value == 'password')
+                                        this.value = '';" onblur="if (this.value == '')
+                                        this.value = 'password';" value="password"></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td><input type="checkbox" name="ch_remember" id="ch_remember" value="1" checked="checked">&nbsp; <span class="font_err">Ghi nhớ đăng nhập</span> | <a href="#"><b>Bạn quên mật khẩu ?</b></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td><button id="btnLogin" name="btnLogin" class="btn btn-danger" type="submit" class="btn" value="Đăng nhập"><span>Đăng nhập</span></button> <input type="hidden" name="do_login" value="1"> &nbsp; </td>
+                                    </tr>
+                                </tbody></table>
+                            </form>
+
+                        </td>
+                        <td valign="top" style="padding-left:20px;">
+
+                            <script type="text/javascript">
+                                function checkform(f)
+                                {
+                                    var re = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,5})$/gi;
+
+
+                                    if (f.d_name.value == '') {
+                                        alert("Vui lòng nhập họ tên");
+                                        f.d_name.focus();
+                                        return false;
+                                    }
+
+                                    if (f.d_address.value == '') {
+                                        alert("Vui lòng nhập địa chỉ");
+                                        f.d_address.focus();
+                                        return false;
+                                    }
+
+                                    var d_email = f.d_email.value;
+                                    if (d_email == '') {
+                                        alert("Vui lòng nhập email");
+                                        f.d_email.focus();
+                                        return false;
+                                    }
+
+                                    if (d_email != '' && d_email.match(re) == null) {
+                                        alert("Email không hợp lệ");
+                                        f.d_email.focus();
+                                        return false;
+                                    }
+
+
+
+                                    if (f.d_phone.value == '') {
+                                        alert("Vui lòng nhập điện thoại");
+                                        f.d_phone.focus();
+                                        return false;
+                                    }
+
+
+
+                                    return true;
+                                }
+                            </script>
+                            <br>
+                            <div class="shopping_title"><span>Khách hàng mới (Mua hàng không cần đăng ký)</span></div>
+
+                            <form id="thanhtoan1" method="post" action="" name="f_shopping" onsubmit="return checkform(this)">
+                                <div style="padding-bottom:8px;">Hãy nhập thông tin của bạn cho việc xác nhận hóa đơn và giao hàng</div>
+                                <table width="100%" cellspacing="0" cellpadding="2" border="0" class="tbl_from">
+
+                                    <tbody><tr>
+                                        <td width="150" class="td1">Họ tên (<span class="font_err">*</span>)</td>
+                                        <td>
+                                            <input type="text" style="width:98%;" id="d_name" class="textfiled" name="d_name" value=""></td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td class="td1">Địa chỉ (Số nhà, đường) (<span class="font_err">*</span>)</td>
+                                            <td class="td2">
+                                                <input type="text" style="width:98%;" class="textfiled" name="d_address" value=""></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="td1">E-mail (<span class="font_err">*</span>)</td>
+                                                <td class="td2">
+                                                    <input type="text" style="width:98%;" class="textfiled" name="d_email" value=""></td>
+                                                </tr>  
+                                                <tr>
+                                                    <td class="td1">Điện thoại (<span class="font_err">*</span>)</td>
+                                                    <td class="td2"> <input type="text" style="width:98%;" class="textfiled" name="d_phone" value="">  </td>
+                                                </tr>
+
+                                            </tbody></table>
+                                            <br>
+                                            <div class="extButton" align="right"> <button id="btnConfirm" class="btn btn-danger" name="btnConfirm" type="submit" class="btn" value="Tiếp tục mua hàng"><span>Tiếp tục mua hàng</span></button>
+                                                <input type="hidden" id="" name="btnConfirm" value="1">
+                                            </div>
+
+                                        </form>
+
+
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </div>
+                    </div>    
+
+                    <div id="bottom"></div>
+
+
+
+                    <!-- <script type="text/javascript">
+                        $('#thanhtoan').submit(function (e) {
+                            e.preventDefault();
+                            $.ajax({
+                                url: '<%=request.getContextPath()%>/order',
+                                type: 'post',
+                                data: $('#thanhtoan').serialize(),
+                                success: function (e) {
+                                    alert(e);
+                                    window.location = '<%=request.getContextPath()%>/index.jsp';
+                                },
+                                statusCode: {
+                                    404: function () {
+                                        alert('404');
+                                    }
+                                }
+                            });
+
+                        });
+
+                        function giohang() {
+                            $('.tongTien').html(<%=new DecimalFormat().format(GioHang.tongTien())%>);
+
+                        }
+                    </script> -->
+                    <style>
+                        .shopping_title {
+                            border-bottom: 2px solid #f58634;
+                            color: #f58634;
+                            font-size: 16px;
+                            font-weight: bold;
+                            height: 25px;
+                            line-height: 25px;
+                            margin-bottom: 15px;
+                            padding: 2px 0;
+                            text-transform: uppercase;
+                        }
+                        button.btn {
+                            /*padding: 2px 10px;/**/
+                            /*height: 40px;
+                            border: none;
+                            background: #f58634;
+                            -moz-border-radius: 0px;
+                            -webkit-border-radius: 0px;
+                            border-radius: 0px;
+                            white-space: nowrap;
+                            vertical-align: middle;
+                            cursor: pointer;
+                            overflow: visible;*/
+                            text-transform: uppercase;
+                        }
+                        #BoxShopping .navShopping {
+                            padding-bottom: 8px;
+                            border-bottom: 1px dotted #b2b2b2;
+                            margin-bottom: 10px;
+                            text-align: center;
+                            font-family: Arial, Helvetica, sans-serif;
+                            font-size: 12px;
+                            color: #bbbbbb;
+                            font-weight: bold;
+                        }
+                        #BoxShopping {
+                            padding: 0px;
+                            line-height: 18px;
+                            font-family: Arial, Helvetica, sans-serif;
+                            font-size: 12px;
+                            color: #333333;
+                            font-weight: normal;
+                        }
+                        #BoxShopping .navShopping .bg_num {
+                            text-align: center;
+                            margin-bottom: 10px;
+                        }
+                        .font_err {
+                            color: #FF0000;
+                        }
+                    </style>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                           $('#top').load('top.html');
+                           $('#top').css('z-index', '9999');
+                           $('#bottom').load('bottom.html');
+                           $("#bdk3").click(function () {
+                              var dname = $("#dname").val();
+                              var duser = $("#duser").val();
+                              var demail = $("#demail").val();
+                              var dpass = $("#dpass").val();
+                              var drepass = $("#drepass").val();
+//                    alert('fff');
+
+});
+                       });
+                   </script>
+               </body>
+               </html>
+

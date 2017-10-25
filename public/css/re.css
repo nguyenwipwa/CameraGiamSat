@@ -1,0 +1,61 @@
+@media (max-width: 480px){
+	body{
+		font-size:13px;
+	}
+	.item {
+    width: 170px;
+    float: left;
+    margin: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+.tensanpham {
+    margin-bottom: 0px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+}
+.giaban {
+    font-weight: bold;
+    font-size: 13px;
+    color: red;
+}
+.btn {
+	font-size: 13px;
+}
+.tintuc {
+    display: none;
+}
+.nav-tabs {
+    font-size: 13px;
+}
+#box_search_top .select_search {
+    width: 69px;
+    border: 1px solid #cfcfcf;
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #858585;
+    font-weight: normal;
+}
+#btnSearch{
+	font-size: 13px;
+}
+#ul2 li {
+    line-height: 10px;
+    font-size: 15px;
+    width: auto;
+    text-align: center;
+    font-weight: bold;
+    border-right: 1px dotted #666;
+}
+#slide1{
+	height:200px;
+}
+#menu{
+	display:none;
+}
+.show_left{
+	
+}
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Camera quan sát</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/classic.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/giohang.css">
+  <link rel="stylesheet" href="css/buttonhover.css">
+  <link rel="stylesheet" href="css/buttonstyle.css">
+  <link rel="stylesheet" href="css/quangcao.css">
+  <link rel="stylesheet" href="css/responsive_giohang.css">
+  <link rel="stylesheet" type="text/css" href="css/hover-min.css">
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="danhsachsanpham.js" type="text/javascript"></script>
+  <!-- <script src="js/trangchu.js" type="text/javascript" charset="utf-8" async defer></script> -->
+  <script src="danhsachsanpham.js" type="text/javascript"></script>
+  <script src="js/trangchu.js" type="text/javascript" charset="utf-8" async defer></script>
+  <style type="text/css" media="screen">
+    a#thanhtoan:hover{
+      text-decoration: none;
+    }
+  </style>
+  <script type="text/javascript">
+    $(document).ready(function () {
+
+     $('#top').load('top.html');
+     $('#top').css('z-index', '9999');
+     $('#bottom').load('bottom.html');
+     loadgh();
+     $('.tongTien').text(formatMoney(tongtien()));  
+     $("#bdk3").click(function () {
+      var dname = $("#dname").val();
+      var duser = $("#duser").val();
+      var demail = $("#demail").val();
+      var dpass = $("#dpass").val();
+      var drepass = $("#drepass").val();
+
+    });
+   });
+ </script>
+ <style type="text/css">
+   table tr th{
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+  <div id="top"></div>
+  <div class="container" style="margin-top:7%;">
+    <legend><h2>Giỏ hàng của bạn</h2></legend>
+    <div id="tab" style="overflow: auto;  max-height: 40%; width: 100%; margin: auto">
+      <table border = 2 bordercolor = red align = center style="min-width: 80%; min-height: 50px">
+        <tr>
+          <th >STT</th>
+          <th >Hình ảnh</th>
+          <th >Tên sản phẩm</th>
+          <th >Đơn giá</th>
+          <th >Số lượng</th>
+          <th >Thành tiền(VNĐ)</th>
+          <th >Thao tác</th>
+        </tr>
+        <tbody id="giohang1">
+
+        </tbody>
+      </table>
+    </div>
+    <div class="bottom1"><p class="text-left" style="float: left; margin-left: 300px;">
+     <a href="index.html" class="hvr-sweep-to-left" id="thanhtoan" style="color: white; font-weight: bold;"><span class="glyphicon glyphicon-hand-left"></span> Tiếp tục mua hàng</a>
+   </p>
+   <p class="text-right" style="margin-right: 220px"><span class="textbold" style="font-weight: bold; font-size: 20px;"> Tổng Tiền: <span class="tongTien" style="font-weight: bold; color: red;">  </span> VĐN </span><a href="thanhtoan.html" class="hvr-sweep-to-right" id="thanhtoan" style="color: white; font-weight: bold;"><span class="glyphicon glyphicon-shopping-cart"></span> Thanh toán ngay</a></p></div>
+ </div>    
+
+ <div id="bottom"></div>
+
+
+ <!-- <script src="js/jquery-3.1.1.min.js"></script>  -->
+ <!-- <script src="js/bootstrap.min.js"></script>  -->
+ <script type="text/javascript">
+  function loadgh() {
+   var a = [];
+   var kq ="";
+   for(var i =0; i < (a = getCookie1()).length;i++){
+    for(var j=0; j < danhsach.length; j++){
+     if(a[i].trim()== danhsach[j].id.trim()){
+      kq += '<tr><td >'+(i+1)+'</td><td ><img src="'+danhsach[j].img +'" alt="" border=3 height=100 width=100></img></td><td >'+danhsach[j].tensp+'</td><td >'+formatMoney(danhsach[j].gia)+'</td><td ><input type="number"  onchange="setsl(\''+danhsach[j].id+'\',$(this).val());thanhtien1(\''+a[i].trim()+'\','+i+')" style="width: 50px;" value="'+getCookie(a[i].trim())+'" min="1" max="30" id="inputadd" size="5"></td><td class="thanhtien'+i+'">'+formatMoney(thanhtien(a[i].trim()))+'</td><td ><button class="btn btn-danger" onclick="xoa(\''+danhsach[j].id+'\'); window.location.reload();"><span class="glyphicon glyphicon-trash"></span></span></button></th></tr>';
+    }
+  }
+}
+
+if(kq==""){
+  kq = '<tr style="font-weight:bold;"><td colspan="7">K có sản phẩm </td> </tr>';
+  $('.bottom1').css('margin-top', '20%');
+  // $('#bottom').css('margin-top', '16.2%');
+} 
+$('#giohang1').html(kq);
+}
+function thanhtien1(e,id) {
+  $('.thanhtien'+id).text(formatMoney(thanhtien(e)));
+  $('.tongTien').text(formatMoney(tongtien()));
+}
+</script>
+
+</body>
+</html>
+

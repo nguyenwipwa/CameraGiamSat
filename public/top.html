@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/classic.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/quangcao.css">
+  <link rel="stylesheet" href="css/modal.css">
+  <link rel="stylesheet" href="css/re.css">
+  <link rel="stylesheet" type="text/css" href="css/hover-min.css">
+  <link href="css/animate.min.css" rel="stylesheet">
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/classic.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/themsp.css">
+  <script src="js/jquery.validate.js" type="text/javascript"></script>
+  <script src="js/additional-methods.js" type="text/javascript"></script>
+  <script src="danhsachsanpham.js" type="text/javascript"></script>
+  <script src="js/trangchu.js" type="text/javascript" charset="utf-8" async defer></script>
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Logo</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        <a href="index.html" title=""><img src="slide/logo.png" style="margin-left: -74px" alt=""></a> </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li class="active"><a href="#home"><span class="glyphicon glyphicon-home"></span></a></li>
+            <li><a href="#news"><span class="glyphicon glyphicon-camera"></span> Sản phẩm</a></li>
+            <li><a href="#news"><span class="glyphicon glyphicon-th-list"></span> Hướng dẫn</a></li>
+            <li><a href="#news"><span class="glyphicon glyphicon-th-large"></span> Dịch vụ</a></li>
+            <li><a href="#about"><span class="glyphicon glyphicon-bookmark"></span> Giới thiệu</a></li>
+            <li><a href="#contact"><span class="glyphicon glyphicon-envelope"></span> Liên hệ</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown"><a href="#cart" data-toggle="dropdown" class="dropdown-toggle" ><span class="glyphicon glyphicon-shopping-cart"> <span id="badgegh" class="badge">0</span></span></a>
+              <div class="dropdown-menu" style="border: 2px solid red;  margin-right: -240px; ">
+                <div style="overflow: auto; max-height: 500px; width: 500px;">
+                  <table class="table table-hover table-bordered" style="background: white; ">
+                    <tr style="vertical-align: middle; text-align: center; font-weight:bold;"><td style="width: 17%;">Sản phẩm</td> <td style="width: 43%;"> Tên sản phẩm </td> <td style="width: 14%;"> Số lượng </td><td style="width: 23%;"> Thành tiền(VNĐ) </td><td style="width: 30%;"></td></tr>
+                    <tbody id="giohang" class="center" style="vertical-align: middle;">
+                    </tbody>
+                  </table>
+                </div>
+                <div style="float: right; clear: bold;">
+                 <label for="" style="width: 300px; font-size: 21px; font-weight: bold; color: red;" ><span style="color: black;">Tổng tiền: </span> <span class="pricegh"> </span></label>
+                 <button type="button" class=" btn btn-primary" onclick="window.location.href='giohang.html'">Thanh toán</button>
+               </div>
+             </div>
+           </li>
+           <div class="login1 hidden" style="display: inline-block; color: white; font-weight: bold; margin-right: 25px">
+            <li>Xin chào: <span class="namedn" style="color: #F60;"> User </span> </li>
+            <li><a style="text-decoration: none; color: blue;" href="#" onclick="logout()"> Thoát </a></li>
+          </div>
+          <li class="log"><a href="#" data-toggle="modal" data-target="#dangnhap"><span class="glyphicon glyphicon-user"></span>  Đăng nhập</a></li>
+          <li class="log"><a href="#" data-toggle="modal" data-target="#dangki"><span class="glyphicon glyphicon-log-in" style="margin-right: 4px;"></span>  Đăng ký</a></li>
+          <li class="log"><a href="admin/" > Admin</a></li>
+        </ul>
+        <form class="navbar-form navbar-right search">
+          <input type="search" placeholder="Nhập từ cần tìm...">
+        </form>
+      </div>
+    </div>
+  </nav>
+  <div class="modal fade" id="dangnhap" role="dialog" style="z-index: 99999;">
+    <div class="modal-dialog" >
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <div id="title" class="panle-title text-center" > <span class="textbold"> Đăng nhập</span> </div>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+          <form role="form" id="formdn">
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Tên đăng nhập</label>
+              <input type="text" required="true" class="form-control" id="usrname" name="userdn" placeholder="Tên đăng nhập">
+            </div>
+            <div class="form-group">
+              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Mật khẩu</label>
+              <input type="text" class="form-control" id="psw" name="passdn" placeholder="Mật khẩu">
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="" checked>Ghi nhớ</label>
+            </div>
+            <button type="button" onclick="dangnhap(userdn.value, passdn.value)" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Đăng nhập</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button id="thoatdn" type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove btnthoat"></span> Cancel</button>
+          <p><a href="#"  data-toggle="modal" data-target="#dangki" onclick="$('#thoatdn').click()">Đăng kí</a></p>
+          <p> <a href="#">Quên mật khẩu</a></p>
+        </div>
+      </div>
+
+    </div>
+  </div> 
+  <div id="dangki" class="modal fade" role="dialog" style="z-index: 999999;">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content" style="width: 500px;">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <div id="title" class="panle-title text-center" > <span class="textbold"> Đăng kí</span> </div>
+        </div>
+        <div class="modal-body">
+          <div>
+            <form id="formdk" action="#" method="post" accept-charset="utf-8">
+              <div class="themsp" style="width: 100%;">
+                <div id=""> <label class="lbthem"> Họ tên</label> <input id="namedk" type="text" name="dname" value="" placeholder="Họ tên" class="input-sm form-control" required="true">
+                </div>
+                <div > <label class="lbthem"> Tên đăng nhập</label> <input id="duser"  type="text" name="duser" value="" placeholder="Tên đăng nhập" class="input-sm form-control" required="true">
+                </div>
+                <div id=""> <label class="lbthem"> Email</label> <input id="demail" type="text" name="demail" value="" placeholder="Email" class="input-sm form-control" required="true">
+                </div>
+                <div id=""> <label class="lbthem"> Mật khẩu</label> <input id="dpass" type="password" name="dpass" value="" placeholder="Mật khẩu" class="input-sm form-control" required="true">
+                </div>
+                <div id=""> <label class="lbthem"> Nhập lại mật khẩu</label> <input id="drepass"  type="password" name="drepass" value="" placeholder="Nhập lại mật khẩu" class="input-sm form-control" required="true">
+                </div>
+              </div>
+              <div style="margin-left: 50%"> <input type="button" onclick="dangki(dname.value,duser.value,demail.value,dpass.value);" id="bdk" class="btn btn-info" value="Cập nhật">  <button type="submit" class="btn btn-info btnthoat" data-dismiss="modal">Thoát</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="progress hidden" style="width: 500px; height: 40px; position: fixed;top: 100px; margin-left: 40%; z-index: 999;">
+    <div class="progress-bar progress-bar-striped active" role="progressbar"
+    style="width:100%; font-size: 19px;">
+    Đang cập nhật
+  </div>
+</div>
+</body>
+</html>

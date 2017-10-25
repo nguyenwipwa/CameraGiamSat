@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Camera quan sát</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/classic.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/style1.css">
+<link rel="stylesheet" href="../css/giohang.css">
+<link rel="stylesheet" href="../css/buttonhover.css">
+<link rel="stylesheet" href="../css/buttonstyle.css">
+</head>
+<body>
+<!-- navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Logo</span> <span class="icon-bar">																		 		</span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            <a class="navbar-brand" href="#index">Camera</a> </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="../index.html"><span class="glyphicon glyphicon-home"></span></a></li>
+                    <li><a href="#news"><span class="glyphicon glyphicon-camera"></span> Sản phẩm</a></li>
+                    <li><a href="#news"><span class="glyphicon glyphicon-th-list"></span> Hướng dẫn</a></li>
+                    <li><a href="#news"><span class="glyphicon glyphicon-th-large"></span> Dịch vụ</a></li>
+                    <li><a href="#about"><span class="glyphicon glyphicon-bookmark"></span> Giới thiệu</a></li>
+                    <li><a href="#contact"><span class="glyphicon glyphicon-envelope"></span> Liên hệ</a></li>
+                </ul>
+              	<ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+                    <li><a href="#signup"><span class="glyphicon glyphicon-user"></span> Đăng nhập</a></li>
+                    <li><a href="#login"><span class="glyphicon glyphicon-log-in"></span> Đăng ký</a></li>
+              	</ul>
+              	<form class="navbar-form navbar-right search">
+                	<input type="search" placeholder="Nhập từ cần tìm...">
+              	</form>
+        	</div>
+      	</div>
+    </nav>
+
+    <div class="container">
+      <legend><h2>Giỏ hàng của bạn</h2></legend>
+      <table border = 2 bordercolor = red align = center>
+          <tr>
+              <th colspan = 4>STT</th>
+              <th colspan = 4>Hình ảnh</th>
+              <th colspan = 4>Tên sản phẩm</th>
+              <th colspan = 4>Giá gốc</th>
+              <th colspan = 4>Giá bán ra</th>
+              <th colspan = 4>Thêm</th>
+              <th colspan = 4>Thao tác</th>
+          </tr>
+          <tr>
+              <td colspan = 4>1</th>
+              <td colspan = 4><img src="../images/ben.jpg" alt="" border=3 height=100 width=100></img></td>
+              <td colspan = 4>Camera IP Wifi BENCO BEN-910IP</td>
+              <td colspan = 4>3.500.000 đ</td>
+              <td colspan = 4>2.900.000 đ</td>
+              <td colspan = 4><input type="number" value="1" min="0" max="100" id="inputadd" size="5"></td>
+              <td colspan = 4><button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></span></button></th>
+          </tr>
+          <tr>
+              <td colspan = 4>1</th>
+              <td colspan = 4><img src="../images/ipc.jpg" alt="" border=3 height=100 width=100></img></td>
+              <td colspan = 4>Camera IP Wifi DAHUA KW-12WP</td>
+              <td colspan = 4>2.800.000 đ</td>
+              <td colspan = 4>1.990.000 đ</td>
+              <td colspan = 4><input type="number" value="1" min="0" max="100" id="inputadd" size="5"></td>
+              <td colspan = 4><button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></span></button></th>
+          </tr>
+          
+      </table>
+      <p class="text-right">Tổng cộng: <input type="text" id="tien" disabled="" value="0" class="text-right"> đồng <a href="#" class="hvr-sweep-to-right" id="thanhtoan"><span class="glyphicon glyphicon-shopping-cart"></span> Thanh toán ngay</a></p>
+    </div>    
+    
+    <div id="footer">
+   		<div class="row">
+        <div class="col-md-4">
+         	<h4>CAMERA</h4>
+        </div>
+            
+        <div class="col-md-4">
+         	<h4 style="color: #F60">LẮP ĐẶT CAMERA</h4>
+          <p>Địa chỉ: <span style="color:#FC0;">Thủ Đức, thành phố Hồ Chí Minh</span></p>
+          <p>Điện thoại: <span style="color:#FC0;">000.000.000</span></p>
+          <p>Hiện chúng tôi đang phát triển kết hợp với một số đơn vị lắp đặt camera uy tín tạo nên một thị trường dịch vụ công nghệ uy tín trên toàn quốc.</p>
+        </div>
+            
+        <div class="col-md-4">
+          <h4>KẾT NỐI VỚI CHÚNG TÔI</h4>
+              <a href="#"><i class="fa fa-facebook-square" style="color: #039"></i></a> 
+              <a href="#"><i class="fa fa-twitter-square" style="color: #09F"></i></a> 
+              <a href="#"><i class="fa fa-instagram" style="color: #F00"></i></h2></a>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<script src="../js/jquery-3.1.1.min.js"></script> 
+<script src="../js/bootstrap.min.js"></script> 
+<script type="text/javascript">
+/*viet tong cong tien o day*/
+</script>
+
+</body>
+</html>
