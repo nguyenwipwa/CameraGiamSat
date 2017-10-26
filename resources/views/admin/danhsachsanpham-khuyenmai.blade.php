@@ -5,8 +5,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
     @include('admin.link')
-    <script src="{{asset('public/admin/js/jQuery-2.1.4.min.js')}}" type="text/javascript"></script>
-    <script src="{{asset('public/admin/js/jquery.js')}}" type="text/javascript"></script>
    <script src="{{asset('public/admin/js/danhsachspkm.js')}}" type="text/javascript"></script>
    <script src="{{asset('public/admin/js/functionspkm.js')}}" type="text/javascript"></script>
     <script src="{{asset('public/admin/js/jquery.quicksearch.js')}}"></script>

@@ -26,12 +26,12 @@
     </div><!-- ./wrapper -->
     <!-- jQuery 2.1.4 -->
 
-{{--        <script type="text/javascript">
+<!-- {{--        <script type="text/javascript">
       $('#top').load('top.html');
       $('#left').load('left.html');
        $('#content').load('content.html');
       $('#bottom').load('bottom.html');
 
-    </script> --}}
+    </script> --}} -->
   </body>
 </html>

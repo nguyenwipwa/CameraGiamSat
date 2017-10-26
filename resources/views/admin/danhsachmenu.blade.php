@@ -5,10 +5,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
  @include('admin.link')
-    <script src="{{asset('public/admin/js/jQuery-2.1.4.min.js')}}" type="text/javascript"></script>
-
-   <link href="{{asset('public/admin/css/bootstrap.css')}}" rel="stylesheet" type="text/css" />
-   <link href="{{asset('public/admin/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
 
        <script src="{{asset('public/admin/js/danhsachmenu.js')}}" type="text/javascript"></script>
       <script src="{{asset('public/admin/js/functionmenu.js')}}" type="text/javascript"></script>

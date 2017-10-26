@@ -120,7 +120,6 @@
 
       </div><!-- /.content-wrapper -->
 
-       <script src="{{asset('public/admin/js/jquery.js')}}" type="text/javascript"></script>
     <script src="{{asset('public/admin/js/tkspbanchay.js')}}"></script>
  <script src="{{asset('public/admin/js/Chart.min.js')}}"></script>
  <script src="{{asset('public/admin/js/Chart.bundle.js')}}"></script>

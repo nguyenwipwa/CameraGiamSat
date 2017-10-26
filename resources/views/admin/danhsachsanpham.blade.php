@@ -5,13 +5,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
   @include('admin.link')
-    <script src="{{asset('public/admin/js/jQuery-2.1.4.min.js')}}" type="text/javascript"></script>
     <script src="{{ asset('public/admin/ckeditor/ckeditor.js') }}"></script>
     <script src=" {{ asset('public/admin/js/danhsachsanpham.js') }}"></script>
-    <script src=" {{ asset('public/admin/js/functionsp.js"') }}"></script>
+    <script src=" {{ asset('public/admin/js/functionsp.js') }}"></script>
     <script src="{{ asset('public/admin/js/jquery.quicksearch.js') }}"></script>
-    <link rel="stylesheet" type="text/css" href=" {{ asset('public/admin/css/bootstrap.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/admin/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href=" {{ asset('public/admin/css/danhsachsanpham.css') }}">
 </head>
 <body>

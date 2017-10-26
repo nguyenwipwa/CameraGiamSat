@@ -5,10 +5,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>3TP Camera Store Admin</title>
   @include('admin.link')
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-
-
 
 </head>
 <body>
@@ -111,10 +107,9 @@
 
       </div><!-- /.content-wrapper -->
 
-       <script src="js/jquery.js" type="text/javascript"></script>
-    <script src="js/tkdoanhthu.js"></script>
- <script src="js/Chart.min.js" type="text/javascript"></script>
-    <script src="js/jquery.quicksearch.js"></script>
+    <script src="{{asset('public/admin/js/tkdoanhthu.js')}}"></script>
+ <script src="{{asset('public/admin/js/Chart.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('public/admin/js/jquery.quicksearch.js')}}"></script>
 
       </div>
       <div id="bottom">

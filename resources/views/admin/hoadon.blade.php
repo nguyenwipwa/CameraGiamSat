@@ -5,7 +5,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
     @include('admin.link')
-    <script src=" {{asset('public/admin/js/jquery.js')}}" type="text/javascript"></script>
    <script src=" {{asset('public/admin/js/danhsachhoadon.js')}}" type="text/javascript"></script>
    <script src=" {{asset('public/admin/js/functionhoadon.js')}}" type="text/javascript"></script>
     <script src=" {{asset('public/admin/js/jquery.quicksearch.js')}}"></script>
