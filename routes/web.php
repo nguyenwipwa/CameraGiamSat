@@ -18,6 +18,6 @@ Route::get('/', function () {
 Route::get('/abc', function () {
 	return "ngon";
 });
-Route::get('tung', function () {
-	return "thơm";
+Route::get('/admin', function () {
+	return view('admin.indexadmin');
 });
