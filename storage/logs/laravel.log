@@ -193,3 +193,12 @@
 #15 C:\\xampp\\htdocs\\CameraGiamSat\\index.php(60): Illuminate\\Foundation\\Http\\Kernel->terminate(Object(Illuminate\\Http\\Request), Object(Illuminate\\Http\\Response))
 #16 {main}
 "} 
+[2017-10-26 02:11:09] local.ERROR: Maximum execution time of 30 seconds exceeded {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 1): Maximum execution time of 30 seconds exceeded at C:\\xampp\\htdocs\\CameraGiamSat\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\SessionManager.php:8)
+[stacktrace]
+#0 {main}
+"} 
+[2017-10-26 02:11:13] local.ERROR: Maximum execution time of 30 seconds exceeded {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 1): Maximum execution time of 30 seconds exceeded at C:\\xampp\\htdocs\\CameraGiamSat\\vendor\
+esbot\\carbon\\src\\Carbon\\Carbon.php:53)
+[stacktrace]
+#0 {main}
+"} 
