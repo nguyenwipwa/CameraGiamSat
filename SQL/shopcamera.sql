@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-10-27 14:48:41
+Date: 2017-10-28 14:54:48
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,9 +20,10 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `auth_order`;
 CREATE TABLE `auth_order` (
-  `id_order` int(11) DEFAULT NULL,
+  `id_order` int(11) NOT NULL AUTO_INCREMENT,
+  `key` varchar(255) DEFAULT NULL,
   `date_order` date DEFAULT NULL,
-  KEY `id_order` (`id_order`),
+  PRIMARY KEY (`id_order`),
   CONSTRAINT `auth_order_ibfk_1` FOREIGN KEY (`id_order`) REFERENCES `order` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -37,7 +38,7 @@ CREATE TABLE `category` (
   `status` bit(1) DEFAULT NULL,
   `menu` bit(1) DEFAULT b'1' COMMENT 'insert menu top',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for forgot_pass
@@ -62,11 +63,14 @@ CREATE TABLE `order` (
   `date_purchase` date DEFAULT NULL,
   `address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `phone_number` varchar(11) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `id_sales_off` int(11) DEFAULT NULL,
   `total` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id` (`id`),
   KEY `id_user` (`id_user`),
-  CONSTRAINT `order_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`)
+  KEY `id_sales_off` (`id_sales_off`),
+  CONSTRAINT `order_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`),
+  CONSTRAINT `order_ibfk_2` FOREIGN KEY (`id_sales_off`) REFERENCES `sales_off` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
@@ -101,7 +105,7 @@ CREATE TABLE `product` (
   KEY `idcap3` (`id_category`),
   KEY `id` (`id`),
   CONSTRAINT `product_ibfk_1` FOREIGN KEY (`id_category`) REFERENCES `category` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Table structure for product_detail
@@ -117,12 +121,47 @@ CREATE TABLE `product_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
+-- Table structure for product_sales
+-- ----------------------------
+DROP TABLE IF EXISTS `product_sales`;
+CREATE TABLE `product_sales` (
+  `id_sales` int(11) NOT NULL AUTO_INCREMENT,
+  `id_product` int(11) NOT NULL,
+  `percent` int(2) DEFAULT NULL,
+  PRIMARY KEY (`id_sales`,`id_product`),
+  KEY `id_product` (`id_product`),
+  CONSTRAINT `product_sales_ibfk_2` FOREIGN KEY (`id_sales`) REFERENCES `sales` (`id`),
+  CONSTRAINT `product_sales_ibfk_3` FOREIGN KEY (`id_product`) REFERENCES `product` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
 -- Table structure for role_detail
 -- ----------------------------
 DROP TABLE IF EXISTS `role_detail`;
 CREATE TABLE `role_detail` (
   `id` tinyint(1) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Table structure for sales
+-- ----------------------------
+DROP TABLE IF EXISTS `sales`;
+CREATE TABLE `sales` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Table structure for sales_off
+-- ----------------------------
+DROP TABLE IF EXISTS `sales_off`;
+CREATE TABLE `sales_off` (
+  `id` int(11) NOT NULL,
+  `key` varchar(255) NOT NULL,
+  `percent` int(2) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -139,7 +178,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`),
   KEY `role` (`role`),
   CONSTRAINT `user_ibfk_1` FOREIGN KEY (`role`) REFERENCES `role_detail` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Table structure for user_detail
