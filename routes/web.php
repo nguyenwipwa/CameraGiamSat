@@ -11,9 +11,7 @@
 |
  */
 
-Route::get('/', function () {
-	return view('index');
-});
+Route::get('/', 'PageController@trangchu');
 
 Route::get('/abc', function () {
 	return "ngon";
@@ -45,4 +43,27 @@ Route::get('/tkspbanchay.html', function () {
 // danhsachsanpham-khuyenmai
 Route::get('/danhsachsanpham-khuyenmai.html', function () {
 	return view('admin.danhsachsanpham-khuyenmai');
+});
+
+Route::get('/model/save', function () {
+	$user = new App\User();
+	$user->name = "Mai";
+	$user->email = "Nguyenwipwa@gmail.com";
+	$user->password = "Mat khau";
+
+	$user->save();
+	echo "Đã Thực hiện save";
+});
+
+Route::get('/model/query', function(){
+	$user = App\User::find(1);
+	echo $user->name;
+});
+Route::get('model/category', function(){
+	$category = App\Category::all()->toJson();
+	echo $category;
+});
+Route::get('model/category/ten', function(){
+	$category = App\Category::where('id', 10)->get()->toArray();
+	var_dump($category);
 });
