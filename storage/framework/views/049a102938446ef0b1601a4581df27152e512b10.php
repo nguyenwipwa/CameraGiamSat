@@ -9,7 +9,7 @@
       <script src="<?php echo e(asset('public/slide/jssor.slider-21.1.6.mini.js')); ?>" type="text/javascript"></script>
       <script src="<?php echo e(asset('public/slide/slide.js')); ?>" type="text/javascript"></script>
       <link rel="stylesheet" type="text/css" href="<?php echo e(asset('public/slide/slide.css')); ?>">
-      <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 860px; height: 260px; overflow: hidden; visibility: hidden; border:1px solid #f58a3a; ">
+      <div class="col-xs-12" id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; overflow: hidden; visibility: hidden; border:1px solid #f58a3a; ">
         <!-- Loading Screen -->
         <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
           <div style="filter: alpha(opacity=70); opacity: 0.7;  display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>

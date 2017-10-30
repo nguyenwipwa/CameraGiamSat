@@ -1,6 +1,6 @@
 <div class="menuleft">
   <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cate): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <?php if($cate->id_root == 0): ?>
+    <?php if($cate->id_root == 0 && $cate->status==1): ?>
   <div class="box_cat">
     <div class="bc_title">
       <h5><a href="#"><span><?php echo e($cate->name); ?></span></a></h5>
@@ -8,12 +8,12 @@
     <div class="bc_content">
       <ul>
          <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cate1): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-          <?php if($cate->id == $cate1->id_root): ?>
+          <?php if($cate->id == $cate1->id_root && $cate1->status==1): ?>
         <li class="show_left_big">
           <p><a href=""> <?php echo e($cate1->name); ?></a></p>
           <ul class="show_left">
             <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cate2): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-              <?php if($cate1->id == $cate2->id_root): ?>
+              <?php if($cate1->id == $cate2->id_root && $cate2->status==1): ?>
             <li><a href=""><span><?php echo e($cate2->name); ?></span></a></li>
              <?php endif; ?>
              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -26,6 +26,7 @@
   </div>
     <?php endif; ?>
   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
   
   
   <div class="box_statistics"><div class="s-title" style="font-size: 21px;">Thống kê truy cập</div>

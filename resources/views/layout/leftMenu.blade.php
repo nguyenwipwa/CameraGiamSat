@@ -1,6 +1,6 @@
 <div class="menuleft">
   @foreach($category as $cate)
-    @if($cate->id_root == 0)
+    @if($cate->id_root == 0 && $cate->status==1)
   <div class="box_cat">
     <div class="bc_title">
       <h5><a href="#"><span>{{$cate->name}}</span></a></h5>
@@ -8,12 +8,12 @@
     <div class="bc_content">
       <ul>
          @foreach($category as $cate1)
-          @if($cate->id == $cate1->id_root)
+          @if($cate->id == $cate1->id_root && $cate1->status==1)
         <li class="show_left_big">
           <p><a href=""> {{$cate1->name}}</a></p>
           <ul class="show_left">
             @foreach($category as $cate2)
-              @if($cate1->id == $cate2->id_root)
+              @if($cate1->id == $cate2->id_root && $cate2->status==1)
             <li><a href=""><span>{{$cate2->name}}</span></a></li>
              @endif
              @endforeach
@@ -26,6 +26,7 @@
   </div>
     @endif
   @endforeach
+
   
   
   <div class="box_statistics"><div class="s-title" style="font-size: 21px;">Thống kê truy cập</div>
