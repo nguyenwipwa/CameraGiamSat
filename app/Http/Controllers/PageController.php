@@ -17,8 +17,8 @@ class PageController extends Controller
     	$category = Category::all();
     	$contact = Contact::all();
     	// $product = Category::where('id_category', 10)->get();
-		// $users = DB::select('select * from Category where status = ?', [1]);
+		$slides = DB::select('SELECT category.*, slide.img FROM slide INNER JOIN category ON slide.id_category = category.id');
   //   	var_dump($users);
-    	return view('index',['category'=>$category, 'contact'=>$contact]);
+    	return view('index',['category'=>$category, 'contact'=>$contact, 'slides'=>$slides]);
     }
 }

@@ -30,31 +30,31 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
     <script>
-    (function(i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function() {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
             m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', 'UA-66346872-1', 'auto');
-    ga('send', 'pageview');
+        ga('create', 'UA-66346872-1', 'auto');
+        ga('send', 'pageview');
     </script>
     <script type="text/javascript">
-    function lookup(keyword) {
-        var keyword = document.getElementById("searchSgg").value;
-        if (keyword.length == 0) {
-            $('#autoSuggestionsList').fadeOut(400);
-        } else {
-            $.post("http://fptcamera.vn/ajaxhandle/client_products_ajaxhandler/Ajax_Get_All_Product_Client", { keyword: keyword },
-                function(data) {
-                    if (data.length > 14) {
-                        $('#autoSuggestionsList').fadeIn(400);
+        function lookup(keyword) {
+            var keyword = document.getElementById("searchSgg").value;
+            if (keyword.length == 0) {
+                $('#autoSuggestionsList').fadeOut(400);
+            } else {
+                $.post("http://fptcamera.vn/ajaxhandle/client_products_ajaxhandler/Ajax_Get_All_Product_Client", { keyword: keyword },
+                    function(data) {
+                        if (data.length > 14) {
+                            $('#autoSuggestionsList').fadeIn(400);
                         // var obj = jQuery.parseJSON(data);
                         var obj = JSON.parse(data);
                         var strhtml = '';
@@ -90,10 +90,10 @@
             // Ajax_Suggestion(keyword);
         }
     }
-    </script>
-    <link rel="stylesheet" type="text/css" href="http://fptcamera.vn/resources/stylesheets/client/social-likes_birman.css" />
-    <script src="http://fptcamera.vn/resources/js/client/social-likes.min.js"></script>
-    <!-- CSS and Jquery end here -->
+</script>
+<link rel="stylesheet" type="text/css" href="http://fptcamera.vn/resources/stylesheets/client/social-likes_birman.css" />
+<script src="http://fptcamera.vn/resources/js/client/social-likes.min.js"></script>
+<!-- CSS and Jquery end here -->
 </head>
 
 <body lang="vi">
@@ -104,14 +104,14 @@
         <div id="top">
             <div id="fb-root"></div>
             <script>
-            (function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
+                (function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
             </script>
             <div id="top-menu" class="hidden-sm hidden-xs">
                 <div class="container">
@@ -144,27 +144,27 @@
                     <ul class="slides">
                         <li>
                             <a href="#">
-                                        <img alt="camera quan sát trên điện thoại" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/lap-dat-camera-quan-sat-fpt.jpg" />
-                                        <div class="clear"></div>
-                                    </a>
+                                <img alt="camera quan sát trên điện thoại" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/lap-dat-camera-quan-sat-fpt.jpg" />
+                                <div class="clear"></div>
+                            </a>
                         </li>
                         <li>
                             <a href="#">
-                                        <img alt="camera quan sát trên điện thoại 2" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-quan-sat-tren-dien-thoai-2.jpg" />
-                                        <div class="clear"></div>
-                                    </a>
+                                <img alt="camera quan sát trên điện thoại 2" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-quan-sat-tren-dien-thoai-2.jpg" />
+                                <div class="clear"></div>
+                            </a>
                         </li>
                         <li>
                             <a target="_blank" href="http://fptcamera.vn/tin-tuc/xem-camera-giam-sat-qua-dien-thoai">
-                                        <img alt="xem camera trên điện thoại di động" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/xem-camera-tren-dien-thoai-di-dong.jpg" />
-                                        <div class="clear"></div>
-                                    </a>
+                                <img alt="xem camera trên điện thoại di động" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/xem-camera-tren-dien-thoai-di-dong.jpg" />
+                                <div class="clear"></div>
+                            </a>
                         </li>
                         <li>
                             <a href="#">
-                                        <img alt="Đầu ghi hình camera quan sát" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/dau-ghi-hinh-camera-quan-sat1.jpg" />
-                                        <div class="clear"></div>
-                                    </a>
+                                <img alt="Đầu ghi hình camera quan sát" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/dau-ghi-hinh-camera-quan-sat1.jpg" />
+                                <div class="clear"></div>
+                            </a>
                         </li>
                     </ul>
                     <div class="clear"></div>
@@ -177,8 +177,8 @@
                             <div class="col-xs-12 col-md-3">
                                 <div id="logo">
                                     <a href="{{url('/')}}">
-                                            <img title="LẮP ĐẶT CAMERA QUAN SÁT GIÁ RẺ" alt="Camera FPT Việt Nam tự hào Nhà cung cấp thiết bị camera giám sát giá rẻ uy tín trên toàn quốc" src="http://fptcamera.vn/resources/uploads/images/automatic/logo/logo-fpt-camera-giam-sat.png">
-                                        </a>
+                                        <img title="LẮP ĐẶT CAMERA QUAN SÁT GIÁ RẺ" alt="Camera FPT Việt Nam tự hào Nhà cung cấp thiết bị camera giám sát giá rẻ uy tín trên toàn quốc" src="http://fptcamera.vn/resources/uploads/images/automatic/logo/logo-fpt-camera-giam-sat.png">
+                                    </a>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-md-6">
@@ -204,414 +204,408 @@
                             </div>
                         </div>
                     </div> -->
-            </div>
-            <div class="container-fluid">
-                <div class="row hidden-md hidden-lg">
-                    <nav class="navbar navbar-inverse navbar-fixed-top custom-navbar">
-                        <div class="container-fluid">
-                            <!-- Brand and toggle get grouped for better mobile display -->
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                                <a class="navbar-brand" href="http://fptcamera.vn/">
-                                  <img alt="Camera FPT Việt Nam tự hào Nhà cung cấp thiết bị camera giám sát giá rẻ uy tín trên toàn quốc" src="http://fptcamera.vn/resources/ui_images/client/background/logo_mobile.png">
+                </div>
+                <div class="container-fluid">
+                    <div class="row hidden-md hidden-lg">
+                        <nav class="navbar navbar-inverse navbar-fixed-top custom-navbar">
+                            <div class="container-fluid">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href="http://fptcamera.vn/">
+                                      <img alt="Camera FPT Việt Nam tự hào Nhà cung cấp thiết bị camera giám sát giá rẻ uy tín trên toàn quốc" src="http://fptcamera.vn/resources/ui_images/client/background/logo_mobile.png">
                                   </a>
-                            </div>
-                            <!-- Collect the nav links, forms, and other content for toggling -->
-                            <div class="collapse navbar-collapse" aria-expanded="false" id="bs-example-navbar-collapse-1">
+                              </div>
+                              <!-- Collect the nav links, forms, and other content for toggling -->
+                              <div class="collapse navbar-collapse" aria-expanded="false" id="bs-example-navbar-collapse-1">
                                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="true" style="position: fixed; top:40px; right: 0; border: none; padding: 3px; margin-right: 5px;">
                                     <i class="fa fa-times-circle" style="font-size: 25px;"></i>
                                 </button>
                                 <ul class="nav navbar-nav">
-                                    <li><a href="http://fptcamera.vn/camera-tron-bo"><img src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//lap-dat-camera-tron-bo.png />&nbsp;&nbsp;Camera trọn bộ</a></li>
-                                    <li><a href="http://fptcamera.vn/camera-giam-sat"><img src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//camera-giam-sat.png />&nbsp;&nbsp;Camera giám sát</a></li>
-                                    <li><a href="http://fptcamera.vn/dau-ghi-hinh-camera"><img src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//dau-ghi-hinh-camera-quan-sat.png />&nbsp;&nbsp;Đầu ghi hình camera</a></li>
-                                    <li><a href="http://fptcamera.vn/phu-kien-camera"><img src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//phu-kien-camera.png />&nbsp;&nbsp;Phụ kiện camera</a></li>
-                                    <li><a href="http://fptcamera.vn/thiet-bi-an-ninh"><img src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//camera-thiet-bi-an-ninh.png />&nbsp;&nbsp;Thiết bị an ninh</a></li>
-                                    <li><a href="http://fptcamera.vn/may-cham-cong"><img src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//may-cham-cong-gia-re.png />&nbsp;&nbsp;Máy chấm công</a></li>
-                                    <li><a href="http://fptcamera.vn/tong-dai-bo-dam"><img src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//78-32.png />&nbsp;&nbsp;Tổng đài - Bộ đàm</a></li>
-                                    <li><a href="http://fptcamera.vn/thiet-bi-van-phong"><img src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//thiet-bi-van-phong.png />&nbsp;&nbsp;Thiết bị văn phòng</a></li>
-                                    <li><a href="http://fptcamera.vn/tin-tuc/tin-camera"><i class="fa fa-newspaper-o"></i>&nbsp;&nbsp;tin tức</a></li>
-                                </ul>
+                                   @foreach($category as $cate)
+                                   @if($cate->id_root == 0 && $cate->status==1)
+                                   <li><a href="http://fptcamera.vn/camera-tron-bo"><img src = "http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//{!!$cate->icon!!}"/>&nbsp;&nbsp;{!!$cate->name!!}</a></li>
+                                   @endif
+                                   @endforeach
+                               </ul>
+                           </div>
+                           <!-- /.navbar-collapse -->
+                       </div>
+                       <!-- /.container-fluid -->
+                   </nav>
+               </div>
+           </div>
+           <div class="clear"></div>
+       </div>
+       <!-- Top end here -->
+       <div class="container menu_bg">
+        <div class="row menu_bg">
+            <div class="col-xs-12 col-xs-offset-0 menu_bg">
+                <div class="row">
+                    <div class="col-md-4 col-lg-3 hidden-xs hidden-sm" style="padding-right:0;">
+                        <div id="prd-cate-list">
+                            <div class="prd-cate-header">
+                                <span>Danh mục sản phẩm<i class="fa fa-chevron-circle-down"></i></span>
                             </div>
-                            <!-- /.navbar-collapse -->
+                            <ul class="main-page equalheightbanner">
+                                <ul>
+                                   @foreach($category as $cate)
+                                   @if($cate->id_root == 0 && $cate->status==1)
+                                   <li><a href="http://fptcamera.vn/tong-dai-bo-dam"><img alt = "{{$cate->name}}" src = "http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//{!!$cate->icon!!}" /><span class="mc_title">{{$cate->name}}<i class="fa fa-chevron-right hidden-md"></i></span></a>
+                                    <ul>
+                                        @foreach($category as $cate1)
+                                        @if($cate->id == $cate1->id_root && $cate1->status==1)
+                                        <li><a href="http://fptcamera.vn/bo-dam-cam-tay"><img alt = "{{$cate1->name}}" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">{{$cate1->name}}<i class="fa fa-chevron-right hidden-md"></i></span></a>
+                                            <ul>
+                                               @foreach($category as $cate2)
+                                               @if($cate1->id == $cate2->id_root && $cate2->status==1)
+                                               <li><a href="http://fptcamera.vn/bo-dam-iradio"><img alt = "{{$cate2->name}}" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">{{$cate2->name}}<i class="fa fa-chevron-right hidden-md"></i></span></a>
+                                                <div class="clear"></div>
+                                            </li>
+                                            @endif
+                                            @endforeach
+                                        </ul>
+                                        <div class="clear"></div>
+                                    </li>
+                                    @endif
+                                    @endforeach
+                                </ul>
+                                <div class="clear"></div>
+                            </li>
+                            @endif
+                            @endforeach
+                        </ul>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-8 col-lg-9">
+                <div class="row">
+                    <div class="col-xs-12 col-lg-8" style="padding:0;">
+                        <div id="searchform">
+                            <form action="http://fptcamera.vn/tim-kiem" accept-charset="utf-8" method="get"> <img style="display: none;" class="loader" src="http://fptcamera.vn/resources/ui_images/client/background/loader.gif" />
+                                <input type="text" name="t" value="" id="searchSgg" class="searchfield" onkeyup="lookup()" autocomplete="off" placeholder="Tìm kiếm sản phẩm ..." />
+                                <input type="submit" name="submit_search" value="Tìm kiếm" id="search_btn" class="searchbutton" />
+                                <div class="clear"></div>
+                                <div class="autoSuggestionsList_l" id="autoSuggestionsList">
+                                </div>
+                            </form>
                         </div>
-                        <!-- /.container-fluid -->
-                    </nav>
+                        <div id="banner" class="hidden-xs hidden-sm equalheightbanner">
+                            <div class="bannerslider">
+                                <ul class="slides">
+                                    <li>
+                                        <a href="#">
+                                            <img title="công ty lắp đặt camera uy tín" alt="Dịch vụ lắp đặt camera quan sát uy tín giá rẻ tại FPT việt nam đạt chất lượng hàng đầu. Khuyến mãi lắp đặt trọn gói không phát sinh" src="http://fptcamera.vn/resources/uploads/images/automatic/banner/chung-nhan-dai-ly-camera-hikvision.jpg" />
+                                            <div class="clear"></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" href="http://fptcamera.vn/tin-tuc/lap-dat-mang-fpt-cap-quang-tai-fpt-viet-nam">
+                                            <img title="lắp đặt mạng FPT" alt="lap-dat-mang-fpt" src="http://fptcamera.vn/resources/uploads/images/automatic/banner/lap-dat-mang-fpt.jpg" />
+                                            <div class="clear"></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" href="http://fptcamera.vn/tron-bo-camera-gia-re">
+                                            <img title="lắp đặt camera trọn bộ gía rẻ" alt="Lắp đặt camera benco trọn bộ dịch vụ của FPT VIỆT NAM quý khách không phải phát sinh bất kỳ chi phí nào. Camera an ninh uy tín" src="http://fptcamera.vn/resources/uploads/images/automatic/banner/camera-benco-gia-re.jpg" />
+                                            <div class="clear"></div>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 hidden-xs hidden-sm hidden-md" style="padding-left:0;">
+                        <button type="button" class="btn btn-danger button-support" data-toggle="modal" data-target="#supportonlineModal"><img src="http://fptcamera.vn/resources/ui_images/client/background/yahoo-smile.png">&nbsp;Hỗ trợ trực tuyến</button>
+                        <a class="b_a" href="http://fptcamera.vn/tin-tuc/lap-dat-mang-fpt-cap-quang-tai-fpt-viet-nam"><img alt="Lắp camera, Internet FPT" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/lap-mang-fpt.jpg"></a>
+                        <a class="b_a" href="http://fptcamera.vn/tin-tuc/chuong-trinh-doi-camera-cu-lay-camera-moi-tai-fpt"><img alt="Lắp đặt camera tặng báo trộm" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/doi_camera_cu_lay_moi.jpg"></a>
+                    </div>
                 </div>
             </div>
             <div class="clear"></div>
-        </div>
-        <!-- Top end here -->
-        <div class="container menu_bg">
-            <div class="row menu_bg">
-                <div class="col-xs-12 col-xs-offset-0 menu_bg">
+            <div class="col-xs-12 hidden-xs hidden-sm">
+                <div id="sub-menu">
                     <div class="row">
-                        <div class="col-md-4 col-lg-3 hidden-xs hidden-sm" style="padding-right:0;">
-                            <div id="prd-cate-list">
-                                <div class="prd-cate-header">
-                                    <span>Danh mục sản phẩm<i class="fa fa-chevron-circle-down"></i></span>
-                                </div>
-                                <ul class="main-page equalheightbanner">
-                                    <ul>
-                                         @foreach($category as $cate)
-                                            @if($cate->id_root == 0 && $cate->status==1)
-                                        <li><a href="http://fptcamera.vn/tong-dai-bo-dam"><img alt = "{{$cate->name}}" src = "http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//{!!$cate->icon!!}" /><span class="mc_title">{{$cate->name}}<i class="fa fa-chevron-right hidden-md"></i></span></a>
-                                            <ul>
-                                                @foreach($category as $cate1)
-                                                    @if($cate->id == $cate1->id_root && $cate1->status==1)
-                                                <li><a href="http://fptcamera.vn/bo-dam-cam-tay"><img alt = "{{$cate1->name}}" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">{{$cate1->name}}<i class="fa fa-chevron-right hidden-md"></i></span></a>
-                                                    <ul>
-                                                         @foreach($category as $cate2)
-                                                            @if($cate1->id == $cate2->id_root && $cate2->status==1)
-                                                        <li><a href="http://fptcamera.vn/bo-dam-iradio"><img alt = "{{$cate2->name}}" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">{{$cate2->name}}<i class="fa fa-chevron-right hidden-md"></i></span></a>
-                                                            <div class="clear"></div>
-                                                        </li>
-                                                            @endif
-                                                        @endforeach
-                                                    </ul>
-                                                    <div class="clear"></div>
-                                                </li>
-                                                    @endif
-                                                @endforeach
-                                            </ul>
-                                            <div class="clear"></div>
-                                        </li>
-                                            @endif
-                                        @endforeach
-                                    </ul>
-                                    <div class="clear"></div>
-                                </ul>
+                        <div class="col-xs-12 col-lg-7">
+                            <div class="contain">
+                                <a href='http://fptcamera.vn/tin-tuc/gioi-thieu'>Sơ lược công ty</a>
+                                <a href='http://fptcamera.vn/tin-tuc/chinh-sach'>Chính sách ưu đãi</a>
+                                <a href='http://fptcamera.vn/tin-tuc/tin-camera'>Tin camera</a>
+                                <a href='http://fptcamera.vn/lien-he'>Liên hệ</a>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-md-8 col-lg-9">
-                            <div class="row">
-                                <div class="col-xs-12 col-lg-8" style="padding:0;">
-                                    <div id="searchform">
-                                        <form action="http://fptcamera.vn/tim-kiem" accept-charset="utf-8" method="get"> <img style="display: none;" class="loader" src="http://fptcamera.vn/resources/ui_images/client/background/loader.gif" />
-                                            <input type="text" name="t" value="" id="searchSgg" class="searchfield" onkeyup="lookup()" autocomplete="off" placeholder="Tìm kiếm sản phẩm ..." />
-                                            <input type="submit" name="submit_search" value="Tìm kiếm" id="search_btn" class="searchbutton" />
-                                            <div class="clear"></div>
-                                            <div class="autoSuggestionsList_l" id="autoSuggestionsList">
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div id="banner" class="hidden-xs hidden-sm equalheightbanner">
-                                        <div class="bannerslider">
-                                            <ul class="slides">
-                                                <li>
-                                                    <a href="#">
-                                                                <img title="công ty lắp đặt camera uy tín" alt="Dịch vụ lắp đặt camera quan sát uy tín giá rẻ tại FPT việt nam đạt chất lượng hàng đầu. Khuyến mãi lắp đặt trọn gói không phát sinh" src="http://fptcamera.vn/resources/uploads/images/automatic/banner/chung-nhan-dai-ly-camera-hikvision.jpg" />
-                                                                <div class="clear"></div>
-                                                            </a>
-                                                </li>
-                                                <li>
-                                                    <a target="_blank" href="http://fptcamera.vn/tin-tuc/lap-dat-mang-fpt-cap-quang-tai-fpt-viet-nam">
-                                                                <img title="lắp đặt mạng FPT" alt="lap-dat-mang-fpt" src="http://fptcamera.vn/resources/uploads/images/automatic/banner/lap-dat-mang-fpt.jpg" />
-                                                                <div class="clear"></div>
-                                                            </a>
-                                                </li>
-                                                <li>
-                                                    <a target="_blank" href="http://fptcamera.vn/tron-bo-camera-gia-re">
-                                                                <img title="lắp đặt camera trọn bộ gía rẻ" alt="Lắp đặt camera benco trọn bộ dịch vụ của FPT VIỆT NAM quý khách không phải phát sinh bất kỳ chi phí nào. Camera an ninh uy tín" src="http://fptcamera.vn/resources/uploads/images/automatic/banner/camera-benco-gia-re.jpg" />
-                                                                <div class="clear"></div>
-                                                            </a>
-                                                </li>
-                                            </ul>
-                                            <div class="clear"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 hidden-xs hidden-sm hidden-md" style="padding-left:0;">
-                                    <button type="button" class="btn btn-danger button-support" data-toggle="modal" data-target="#supportonlineModal"><img src="http://fptcamera.vn/resources/ui_images/client/background/yahoo-smile.png">&nbsp;Hỗ trợ trực tuyến</button>
-                                    <a class="b_a" href="http://fptcamera.vn/tin-tuc/lap-dat-mang-fpt-cap-quang-tai-fpt-viet-nam"><img alt="Lắp camera, Internet FPT" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/lap-mang-fpt.jpg"></a>
-                                    <a class="b_a" href="http://fptcamera.vn/tin-tuc/chuong-trinh-doi-camera-cu-lay-camera-moi-tai-fpt"><img alt="Lắp đặt camera tặng báo trộm" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/doi_camera_cu_lay_moi.jpg"></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="clear"></div>
-                        <div class="col-xs-12 hidden-xs hidden-sm">
-                            <div id="sub-menu">
-                                <div class="row">
-                                    <div class="col-xs-12 col-lg-7">
-                                        <div class="contain">
-                                            <a href='http://fptcamera.vn/tin-tuc/gioi-thieu'>Sơ lược công ty</a>
-                                            <a href='http://fptcamera.vn/tin-tuc/chinh-sach'>Chính sách ưu đãi</a>
-                                            <a href='http://fptcamera.vn/tin-tuc/tin-camera'>Tin camera</a>
-                                            <a href='http://fptcamera.vn/lien-he'>Liên hệ</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-5 hidden-xs hidden-sm hidden-md">
-                                        <div class="newsslider">
-                                            <ul class="slides">
-                                                <li>
-                                                    <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-giam-sat-khu-cong-nghiep">Lắp đặt camera giám sát khu công nghiệp</a>
-                                                </li>
-                                                <li>
-                                                    <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-quan-sat-tai-bac-giang">lắp đặt camera quan sát tại  Bắc Giang</a>
-                                                </li>
-                                                <li>
-                                                    <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-gia-dinh-gia-bao-nhieu">lap dat camera gia dinh gia bao nhieu</a>
-                                                </li>
-                                                <li>
-                                                    <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-quan-sat-cho-nha-xuong-can-luu-y-gi-">Lắp đặt camera quan sát cho nhà xưởng cần lưu ý gì?</a>
-                                                </li>
-                                                <li>
-                                                    <a href="http://fptcamera.vn/tin-tuc/chuong-trinh-doi-camera-cu-lay-camera-moi-tai-fpt">Chương trình đổi camera cũ lấy camera mới tại FPT</a>
-                                                </li>
-                                                <li>
-                                                    <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-tai-bac-ninh">Lắp đặt camera tại Bắc Ninh</a>
-                                                </li>
-                                                <li>
-                                                    <a href="http://fptcamera.vn/tin-tuc/chi-phi-lap-dat-camera-quan-sat-tron-goi-tai-ha-noi">Chi phí lắp đặt camera quan sát trọn gói tại hà nội</a>
-                                                </li>
-                                                <li>
-                                                    <a href="http://fptcamera.vn/tin-tuc/tu-van-lap-dat-camera-quan-sat-an-toan-gia-dinh">Tư vấn lắp đặt camera quan sát an toàn gia đình</a>
-                                                </li>
-                                                <div class="clear"></div>
-                                            </ul>
-                                            <div class="clear"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="clear"></div>
-                        <div class="col-xs-12">
-                            @foreach($category as $cate)
-                                @if($cate->id_root==0 && $cate->status==1)
-                            <ul class="nav nav-tabs custom-tabs " role="tablist">
-                                <li role="presentation" class="active"><a href="http://fptcamera.vn/camera-giam-sat">{{$cate->name}}</a></li>
-                                @foreach($category as $cate1)
-                                   @if($cate->id == $cate1->id_root && $cate1->status==1)
-                                <li class="hidden-xs hidden-sm" role="presentation"><a href="http://fptcamera.vn/camera-hikvision">{{$cate1->name}}</a></li>
-                                    @endif
-                                @endforeach
-                            </ul>
-                            <div class="tab-content ">
-                                <div role="tabpanel" class="tab-pane active" id="dmsp-camera-giam-sat">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-lg-9">
-                                            <div class="row">
-                                                @php
-                                                    $products = DB::select('SELECT * FROM product WHERE id_category IN (SELECT id FROM category WHERE id_root IN(SELECT id FROM category WHERE id_root = ?))LIMIT 8', [$cate->id]);
-                                                @endphp
-                                                @foreach ($products as $element)
-                                                <div class="col-xs-6 col-sm-4 col-lg-3 hidden-sm hidden-md">
-                                                    <div class="thumbnail products">
-                                                        <a href="http://fptcamera.vn/camera-ip-wifi-hikvision-ds-2cd2420f-iw-2-0mb"><img alt="camera-ip-cube-wifi-hikvision-DS-2CD2420F-IW" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/{!!$element->img!!}"></a>
-                                                        <div class="caption">
-                                                            <a href="http://fptcamera.vn/camera-ip-wifi-hikvision-ds-2cd2420f-iw-2-0mb"><h3>{!!$element->name!!}</h3></a>
-                                                            <div class="clear"></div>
-                                                            <span class="new-price">{!!number_format($element->price)!!} VNĐ</span>
-                                                            {{-- <span class="old-price">2.500.000 đ</span> --}}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                        @php
-                                            $slide = DB::select('SELECT * FROM slide WHERE id_category = ?', [$cate->id]);
-                                        @endphp
-                                        <div class="col-md-3 hidden-xs hidden-sm hidden-md">
-                                            <a class="b_a2" href="http://fptcamera.vn/camera-khong-day"><img alt="lap-camera-giam-sat-khong-day-wifi" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/{{$slide[0]->img}}"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            @endif
-                            @endforeach
-                            
-                        </div>
-                        <div class="col-xs-12 hidden-xs hidden-sm">
-                            <div class="text-header">Camera các hãng</div>
-                            <div class="galleryslider">
+                        <div class="col-lg-5 hidden-xs hidden-sm hidden-md">
+                            <div class="newsslider">
                                 <ul class="slides">
                                     <li>
-                                        <a href="http://fptcamera.vn/camera-vantech"><img alt="Camera Vantech Giá Rẻ" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-vantech.jpg"/></a>
+                                        <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-giam-sat-khu-cong-nghiep">Lắp đặt camera giám sát khu công nghiệp</a>
                                     </li>
                                     <li>
-                                        <a href="http://fptcamera.vn/camera-benco"><img alt="Camera Benco Giá Rẻ" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-hang-benco1.jpg"/></a>
+                                        <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-quan-sat-tai-bac-giang">lắp đặt camera quan sát tại  Bắc Giang</a>
                                     </li>
                                     <li>
-                                        <a href="http://fptcamera.vn/camera-dahua"><img alt="Camera Dahua Đài Loan" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-dahua.jpg"/></a>
+                                        <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-gia-dinh-gia-bao-nhieu">lap dat camera gia dinh gia bao nhieu</a>
                                     </li>
                                     <li>
-                                        <a href="http://fptcamera.vn/camera-questek"><img alt="Camera Questek Việt Nam" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-questek.jpg"/></a>
+                                        <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-quan-sat-cho-nha-xuong-can-luu-y-gi-">Lắp đặt camera quan sát cho nhà xưởng cần lưu ý gì?</a>
                                     </li>
                                     <li>
-                                        <a href="http://fptcamera.vn/camera-hikvision"><img alt="Camera HIKVISION" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-hikvision-dai-loan.jpg"/></a>
+                                        <a href="http://fptcamera.vn/tin-tuc/chuong-trinh-doi-camera-cu-lay-camera-moi-tai-fpt">Chương trình đổi camera cũ lấy camera mới tại FPT</a>
                                     </li>
                                     <li>
-                                        <a href="http://fptcamera.vn/camera-spyeye"><img alt="Camera Spyeye" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-spyeye-gia-re1.jpg"/></a>
+                                        <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-tai-bac-ninh">Lắp đặt camera tại Bắc Ninh</a>
                                     </li>
                                     <li>
-                                        <a href="http://fptcamera.vn/camera-avtech"><img alt="Camera AVTECH ĐÀI LOAN" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-samsung.jpg"/></a>
+                                        <a href="http://fptcamera.vn/tin-tuc/chi-phi-lap-dat-camera-quan-sat-tron-goi-tai-ha-noi">Chi phí lắp đặt camera quan sát trọn gói tại hà nội</a>
                                     </li>
                                     <li>
-                                        <a href="http://fptcamera.vn/camera-kce"><img alt="Camera KCE HÀN QUỐC" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-KCE-han-quoc.jpg"/></a>
-                                    </li>
-                                    <li>
-                                        <a href="http://fptcamera.vn/camera-kce"><img alt="Camera SAMSUNG HÀN QUỐC" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-hang-samsung.jpg"/></a>
+                                        <a href="http://fptcamera.vn/tin-tuc/tu-van-lap-dat-camera-quan-sat-an-toan-gia-dinh">Tư vấn lắp đặt camera quan sát an toàn gia đình</a>
                                     </li>
                                     <div class="clear"></div>
                                 </ul>
                                 <div class="clear"></div>
                             </div>
                         </div>
-                        <div class="col-xs-12 hidden-xs hidden-sm">
-                            <div class="text-header">Chấp nhận thanh toán</div>
-                            <img style="width:100%;margin:10px 0;" alt="Chấp nhận thanh toán" src="http://fptcamera.vn/resources/ui_images/client/background/payments.png">
-                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Bottom end here -->
-        <div id="bottom">
-            <div class="container bg-social">
-                <div class="row">
-                    <div class="col-xs-12">
+            <div class="clear"></div>
+            <div class="col-xs-12">
+                @foreach($slides as $e)
+                @if($e->id_root==0 && $e->status==1)
+                <ul class="nav nav-tabs custom-tabs " role="tablist">
+                    <li role="presentation" class="active"><a href="http://fptcamera.vn/camera-giam-sat">{{$e->name}}</a></li>
+                    @foreach($category as $cate1)
+                    @if($e->id == $cate1->id_root && $cate1->status==1)
+                    <li class="hidden-xs hidden-sm" role="presentation"><a href="http://fptcamera.vn/camera-hikvision">{{$cate1->name}}</a></li>
+                    @endif
+                    @endforeach
+                </ul>
+                <div class="tab-content ">
+                    <div role="tabpanel" class="tab-pane active" id="dmsp-camera-giam-sat">
                         <div class="row">
-                            <div class="col-xs-12 col-md-4 col-lg-3">
-                                <div class="social-claim">
-                                    <div class="claim_header">Cam kết</div>
-                                    <div class="claim">Sản phẩm hàng hóa chính hãng, đa dạng, phong phú</div>
-                                    <div class="claim">Luôn luôn giá rẻ và khuyến mại không ngừng</div>
-                                    <div class="claim">Dịch vụ chăm sóc khách hàng uy tín, tận tâm</div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-md-4 col-lg-3">
-                                <div class="social-claim2">
-                                    <div class="claim_header">Hỗ trợ khách hàng</div>
-                                    <ul>
-                                        <li><a href="http://fptcamera.vn/tin-tuc/xem-camera-giam-sat-qua-dien-thoai">Xem camera giám sát qua điện thoại</a></li>
-                                        <li><a href="http://fptcamera.vn/tin-tuc/xem-camera-quan-sat-qua-may-tinh">Xem camera quan sát qua máy tính</a></li>
-                                        <li><a href="http://fptcamera.vn/tin-tuc/download-tai-lieu">Download tài liệu</a></li>
-                                        <li><a href="http://fptcamera.vn/tin-tuc/hd-cai-dat-phan-mem-teamviewer">HD cài đặt phần mềm Teamviewer</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-md-4 col-lg-3">
-                                <div class="social-claim2">
-                                    <div class="claim_header">Thông tin công ty</div>
-                                    <ul>
-                                        <li><a href="http://fptcamera.vn/tin-tuc/gioi-thieu">Giới thiệu</a></li>
-                                        <li><a href="http://fptcamera.vn/tin-tuc/tuyen-dung">Tuyển dụng</a></li>
-                                        <li><a href="http://fptcamera.vn/tin-tuc/chinh-sach">Chính sách</a></li>
-                                    </ul>
-                                    <div id="social_us">
-                                        <div class="social_us_header">Kết nối với chúng tôi</div>
-                                        <div id="f_social">
-                                            <a target="_blank" rel="nofollow" href="https://www.facebook.com/FptCamera.vn">
-                                                    <img src="http://fptcamera.vn/resources/ui_images/client/background/social/f_fb.png">
-                                                </a>
-                                            <a target="_blank" rel="nofollow" href="https://plus.google.com//+FptCamera">
-                                                    <img src="http://fptcamera.vn/resources/ui_images/client/background/social/f_gplus.png">
-                                                </a>
-                                            <a target="_blank" rel="nofollow" href="https://www.youtube.com/c/FptCamera">
-                                                    <img src="http://fptcamera.vn/resources/ui_images/client/background/social/f_yt.png">
-                                                </a>
+                            <div class="col-xs-12 col-lg-9">
+                                <div class="row">
+                                    @php
+                                    $products = DB::select('SELECT product.* FROM slide INNER JOIN slide_product ON slide_product.id_slide = slide.id INNER JOIN product ON slide_product.id_product = product.id
+                                        WHERE slide.id_category = ?', [$e->id]);
+                                        @endphp
+                                        @foreach ($products as $element)
+                                        <div class="col-xs-6 col-sm-4 col-lg-3 hidden-sm hidden-md">
+                                            <div class="thumbnail products">
+                                                <a href="http://fptcamera.vn/camera-ip-wifi-hikvision-ds-2cd2420f-iw-2-0mb"><img alt="camera-ip-cube-wifi-hikvision-DS-2CD2420F-IW" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/{!!$element->img!!}"></a>
+                                                <div class="caption">
+                                                    <a href="http://fptcamera.vn/camera-ip-wifi-hikvision-ds-2cd2420f-iw-2-0mb"><h3>{!!$element->name!!}</h3></a>
+                                                    <div class="clear"></div>
+                                                    <span class="new-price">{!!number_format($element->price)!!} VNĐ</span>
+                                                    {{-- <span class="old-price">2.500.000 đ</span> --}}
+                                                </div>
+                                            </div>
                                         </div>
+                                        @endforeach
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-xs-12 col-md-4 col-lg-3 hidden-md">
-                                <div class="social-claim2">
-                                    <div class="claim_header">Tổng đài trợ giúp</div>
-                                    <div style="margin:10px;">
-                                        <table border="0" cellpadding="1" cellspacing="1" style="width: 100%;">
-                                            <tbody>
-                                                <tr>
-                                                    <td><img alt="" src="/resources/uploads/images/anhtintuc/tro-giup.png" style="width: 68px; height: 81px;" /></td>
-                                                    <td style="vertical-align: middle;">
-                                                        <p><span style="color:#333333;"><span style="font-size:14px;">Tư vấn bán hàng</span></span>
-                                                        </p>
-                                                        <p><span style="color:#ba0000;"><span style="font-size:20px;"><strong>0984 489 688</strong></span></span>
-                                                        </p>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2">
-                                                        <hr /><span style="color:#555555;"><span style="font-size:13px;"><img alt="" src="/resources/uploads/images/anhtintuc/life_saver.png" />&nbsp; Chăm sóc và hỗ trợ sau bán hàng</span></span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2" style="text-align: center;"><span style="color:#B22222;"><strong><span style="font-size:16px;">(04)6328 2964</span></strong>
-                                                        </span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2"><span style="font-size:13px;"><span style="color:#555555;"><img alt="" src="/resources/uploads/images/anhtintuc/mailer.png" />&nbsp; fptcamera.vn@gmail.com</span></span>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                <div class="col-md-3 hidden-xs hidden-sm hidden-md">
+                                    <a class="b_a2" href="http://fptcamera.vn/camera-khong-day"><img alt="lap-camera-giam-sat-khong-day-wifi" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/{{$e->img}}"></a>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    @endif
+                    @endforeach
+
+                </div>
+                <div class="col-xs-12 hidden-xs hidden-sm">
+                    <div class="text-header">Camera các hãng</div>
+                    <div class="galleryslider">
+                        <ul class="slides">
+                            <li>
+                                <a href="http://fptcamera.vn/camera-vantech"><img alt="Camera Vantech Giá Rẻ" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-vantech.jpg"/></a>
+                            </li>
+                            <li>
+                                <a href="http://fptcamera.vn/camera-benco"><img alt="Camera Benco Giá Rẻ" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-hang-benco1.jpg"/></a>
+                            </li>
+                            <li>
+                                <a href="http://fptcamera.vn/camera-dahua"><img alt="Camera Dahua Đài Loan" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-dahua.jpg"/></a>
+                            </li>
+                            <li>
+                                <a href="http://fptcamera.vn/camera-questek"><img alt="Camera Questek Việt Nam" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-questek.jpg"/></a>
+                            </li>
+                            <li>
+                                <a href="http://fptcamera.vn/camera-hikvision"><img alt="Camera HIKVISION" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-hikvision-dai-loan.jpg"/></a>
+                            </li>
+                            <li>
+                                <a href="http://fptcamera.vn/camera-spyeye"><img alt="Camera Spyeye" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-spyeye-gia-re1.jpg"/></a>
+                            </li>
+                            <li>
+                                <a href="http://fptcamera.vn/camera-avtech"><img alt="Camera AVTECH ĐÀI LOAN" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-samsung.jpg"/></a>
+                            </li>
+                            <li>
+                                <a href="http://fptcamera.vn/camera-kce"><img alt="Camera KCE HÀN QUỐC" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-KCE-han-quoc.jpg"/></a>
+                            </li>
+                            <li>
+                                <a href="http://fptcamera.vn/camera-kce"><img alt="Camera SAMSUNG HÀN QUỐC" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-hang-samsung.jpg"/></a>
+                            </li>
+                            <div class="clear"></div>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="col-xs-12 hidden-xs hidden-sm">
+                    <div class="text-header">Chấp nhận thanh toán</div>
+                    <img style="width:100%;margin:10px 0;" alt="Chấp nhận thanh toán" src="http://fptcamera.vn/resources/ui_images/client/background/payments.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Bottom end here -->
+<div id="bottom">
+    <div class="container bg-social">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-12 col-md-4 col-lg-3">
+                        <div class="social-claim">
+                            <div class="claim_header">Cam kết</div>
+                            <div class="claim">Sản phẩm hàng hóa chính hãng, đa dạng, phong phú</div>
+                            <div class="claim">Luôn luôn giá rẻ và khuyến mại không ngừng</div>
+                            <div class="claim">Dịch vụ chăm sóc khách hàng uy tín, tận tâm</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-4 col-lg-3">
+                        <div class="social-claim2">
+                            <div class="claim_header">Hỗ trợ khách hàng</div>
+                            <ul>
+                                <li><a href="http://fptcamera.vn/tin-tuc/xem-camera-giam-sat-qua-dien-thoai">Xem camera giám sát qua điện thoại</a></li>
+                                <li><a href="http://fptcamera.vn/tin-tuc/xem-camera-quan-sat-qua-may-tinh">Xem camera quan sát qua máy tính</a></li>
+                                <li><a href="http://fptcamera.vn/tin-tuc/download-tai-lieu">Download tài liệu</a></li>
+                                <li><a href="http://fptcamera.vn/tin-tuc/hd-cai-dat-phan-mem-teamviewer">HD cài đặt phần mềm Teamviewer</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-4 col-lg-3">
+                        <div class="social-claim2">
+                            <div class="claim_header">Thông tin công ty</div>
+                            <ul>
+                                <li><a href="http://fptcamera.vn/tin-tuc/gioi-thieu">Giới thiệu</a></li>
+                                <li><a href="http://fptcamera.vn/tin-tuc/tuyen-dung">Tuyển dụng</a></li>
+                                <li><a href="http://fptcamera.vn/tin-tuc/chinh-sach">Chính sách</a></li>
+                            </ul>
+                            <div id="social_us">
+                                <div class="social_us_header">Kết nối với chúng tôi</div>
+                                <div id="f_social">
+                                    <a target="_blank" rel="nofollow" href="https://www.facebook.com/FptCamera.vn">
+                                        <img src="http://fptcamera.vn/resources/ui_images/client/background/social/f_fb.png">
+                                    </a>
+                                    <a target="_blank" rel="nofollow" href="https://plus.google.com//+FptCamera">
+                                        <img src="http://fptcamera.vn/resources/ui_images/client/background/social/f_gplus.png">
+                                    </a>
+                                    <a target="_blank" rel="nofollow" href="https://www.youtube.com/c/FptCamera">
+                                        <img src="http://fptcamera.vn/resources/ui_images/client/background/social/f_yt.png">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-4 col-lg-3 hidden-md">
+                        <div class="social-claim2">
+                            <div class="claim_header">Tổng đài trợ giúp</div>
+                            <div style="margin:10px;">
+                                <table border="0" cellpadding="1" cellspacing="1" style="width: 100%;">
+                                    <tbody>
+                                        <tr>
+                                            <td><img alt="" src="/resources/uploads/images/anhtintuc/tro-giup.png" style="width: 68px; height: 81px;" /></td>
+                                            <td style="vertical-align: middle;">
+                                                <p><span style="color:#333333;"><span style="font-size:14px;">Tư vấn bán hàng</span></span>
+                                                </p>
+                                                <p><span style="color:#ba0000;"><span style="font-size:20px;"><strong>0984 489 688</strong></span></span>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <hr /><span style="color:#555555;"><span style="font-size:13px;"><img alt="" src="/resources/uploads/images/anhtintuc/life_saver.png" />&nbsp; Chăm sóc và hỗ trợ sau bán hàng</span></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" style="text-align: center;"><span style="color:#B22222;"><strong><span style="font-size:16px;">(04)6328 2964</span></strong>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><span style="font-size:13px;"><span style="color:#555555;"><img alt="" src="/resources/uploads/images/anhtintuc/mailer.png" />&nbsp; fptcamera.vn@gmail.com</span></span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container-fluid bg-footer">
+    </div>
+</div>
+</div>
+<div class="container-fluid bg-footer">
+    <div class="row">
+        <div class="col-xs-12 col-xs-offset-0 col-md-10 col-md-offset-1">
             <div class="row">
-                <div class="col-xs-12 col-xs-offset-0 col-md-10 col-md-offset-1">
-                    <div class="row">
-                        <div class="col-md-2 hidden-xs hidden-sm">
-                            <div class="f-logo">
-                                <a href="http://fptcamera.vn/">
-                                            <img title="LẮP ĐẶT CAMERA QUAN SÁT GIÁ RẺ" alt="Camera FPT Việt Nam tự hào Nhà cung cấp thiết bị camera giám sát giá rẻ uy tín trên toàn quốc" src="http://fptcamera.vn/resources/uploads/images/automatic/logo/logo-fpt-camera-giam-sat.png">
-                                        </a>
-                            </div>
-                        </div>
-                        @foreach($contact as $value)
-                        <div class="col-xs-12 col-md-5">
-                            <!-- <div class="f-address"> -->
-                                {!!$value->content!!}
-                            <!-- </div> -->
-                        </div>
-                        @endforeach
+                <div class="col-md-2 hidden-xs hidden-sm">
+                    <div class="f-logo">
+                        <a href="http://fptcamera.vn/">
+                            <img title="LẮP ĐẶT CAMERA QUAN SÁT GIÁ RẺ" alt="Camera FPT Việt Nam tự hào Nhà cung cấp thiết bị camera giám sát giá rẻ uy tín trên toàn quốc" src="http://fptcamera.vn/resources/uploads/images/automatic/logo/logo-fpt-camera-giam-sat.png">
+                        </a>
                     </div>
                 </div>
-                <div class="clear"></div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-xs-offset-0 col-md-10 col-md-offset-1">
-                    <div class="f-copyright">Copyright © 2015. All Rights Reserved by FPT Camera</div>
+                @foreach($contact as $value)
+                <div class="col-xs-12 col-md-5">
+                    <!-- <div class="f-address"> -->
+                        {!!$value->content!!}
+                        <!-- </div> -->
+                    </div>
+                    @endforeach
                 </div>
-                <div class="clear"></div>
             </div>
+            <div class="clear"></div>
         </div>
-        <div style="display: none">
-            <!-- Histats.com  START  (standard)-->
-            <script type="text/javascript">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-xs-offset-0 col-md-10 col-md-offset-1">
+                <div class="f-copyright">Copyright © 2015. All Rights Reserved by FPT Camera</div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div style="display: none">
+        <!-- Histats.com  START  (standard)-->
+        <script type="text/javascript">
             document.write(unescape("%3Cscript src=%27http://s10.histats.com/js15.js%27 type=%27text/javascript%27%3E%3C/script%3E"));
-            </script>
-            <a href="http://www.histats.com" target="_blank" title="">
-                <script type="text/javascript">
+        </script>
+        <a href="http://www.histats.com" target="_blank" title="">
+            <script type="text/javascript">
                 try {
                     Histats.start(1, 3313430, 4, 438, 112, 75, "00011111");
                     Histats.track_hits();
                 } catch (err) {};
-                </script>
-            </a>
-            <noscript><a href="http://www.histats.com" target="_blank"><img  src="http://sstatic1.histats.com/0.gif?3313430&101" alt="" border="0"></a></noscript>
-            <!-- Histats.com  END  -->
-        </div>
-        <div class="clear"></div>
+            </script>
+        </a>
+        <noscript><a href="http://www.histats.com" target="_blank"><img  src="http://sstatic1.histats.com/0.gif?3313430&101" alt="" border="0"></a></noscript>
+        <!-- Histats.com  END  -->
     </div>
-    <!-- Bottom end here -->
-    </div>
-    <div class="sticky-container hidden-xs hidden-md">
+    <div class="clear"></div>
+</div>
+<!-- Bottom end here -->
+</div>
+<div class="sticky-container hidden-xs hidden-md">
         <!-- <ul class="sticky">
                 <li>
                     <a rel="no-follow" target="_blank" href="">
@@ -638,11 +632,11 @@
                     </a>
                 </li>
             </ul> -->
-    </div>
-    <div class="sticky-buttons hidden-xs hidden-md">
-        <!-- <a data-toggle="modal" data-target="#supportonlineModal">Hỗ trợ trực tuyến</a> -->
-        <!-- <a data-toggle="modal" data-target="#hotlineModal">HOTLINE</a> -->
-    </div>
+        </div>
+        <div class="sticky-buttons hidden-xs hidden-md">
+            <!-- <a data-toggle="modal" data-target="#supportonlineModal">Hỗ trợ trực tuyến</a> -->
+            <!-- <a data-toggle="modal" data-target="#hotlineModal">HOTLINE</a> -->
+        </div>
     <!-- <div class="modal fade" id="hotlineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -674,38 +668,39 @@
                 </div>
             </div>
         </div> -->
-    <div class="modal fade" id="supportonlineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Hỗ trợ trực tuyến</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div id="modal_hotline_list">
-                            <div class="col-xs-6 col-md-4">
-                                <div class="hotline">
-                                    <p class="title">Mr: Xuân</p>
-                                    <p>Tư vấn bán hàng</p>
-                                    <p>Tel: 098 448 9688</p>
-                                    <a style="float:left" href="skype:kd_fptcamera?chat" class="icons skype"><i style="font-size:25px;margin-left:10px;" class="fa fa-skype"></i></a>
+        <div class="modal fade" id="supportonlineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Hỗ trợ trực tuyến</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div id="modal_hotline_list">
+                                <div class="col-xs-6 col-md-4">
+                                    <div class="hotline">
+                                        <p class="title">Mr: Xuân</p>
+                                        <p>Tư vấn bán hàng</p>
+                                        <p>Tel: 098 448 9688</p>
+                                        <a style="float:left" href="skype:kd_fptcamera?chat" class="icons skype"><i style="font-size:25px;margin-left:10px;" class="fa fa-skype"></i></a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xs-6 col-md-4">
-                                <div class="hotline">
-                                    <p class="title">Mr: Thành</p>
-                                    <p>Tư vấn bán hàng</p>
-                                    <p>Tel: 0971.767.285</p>
-                                    <a style="float:left" href="skype:kd_fptcamera?chat" class="icons skype"><i style="font-size:25px;margin-left:10px;" class="fa fa-skype"></i></a>
+                                <div class="col-xs-6 col-md-4">
+                                    <div class="hotline">
+                                        <p class="title">Mr: Thành</p>
+                                        <p>Tư vấn bán hàng</p>
+                                        <p>Tel: 0971.767.285</p>
+                                        <a style="float:left" href="skype:kd_fptcamera?chat" class="icons skype"><i style="font-size:25px;margin-left:10px;" class="fa fa-skype"></i></a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xs-6 col-md-4">
-                                <div class="hotline">
-                                    <p class="title">Mr: Duy</p>
-                                    <p>Chi nhánh Sài Gòn</p>
-                                    <p>Tel: 0931.588.886</p>
-                                    <a style="float:left" href="skype:kd_fptcamera?chat" class="icons skype"><i style="font-size:25px;margin-left:10px;" class="fa fa-skype"></i></a>
+                                <div class="col-xs-6 col-md-4">
+                                    <div class="hotline">
+                                        <p class="title">Mr: Duy</p>
+                                        <p>Chi nhánh Sài Gòn</p>
+                                        <p>Tel: 0931.588.886</p>
+                                        <a style="float:left" href="skype:kd_fptcamera?chat" class="icons skype"><i style="font-size:25px;margin-left:10px;" class="fa fa-skype"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -713,103 +708,102 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div id="go_top" class="hidden-xs hidden-sm"><i class="fa fa-arrow-circle-up"></i></div>
-    <div id="fixed-bottom" class="hidden-lg hidden-md">
-        <div id="call-xs-sm"><a href="tel:0984 489 688"><i class="fa fa-phone">&nbsp;&nbsp;</i>Gọi 0984 489 688</a></div>
-    </div>
-    <script type="text/javascript" charset="utf-8">
-    $(window).load(function() {
-        equalheight('.thumbnail.products');
-        equalheight('.thumbnail.news');
-        equalheight('.equalheight1');
-        equalheight('.equalheightbanner');
-    });
+        <div id="go_top" class="hidden-xs hidden-sm"><i class="fa fa-arrow-circle-up"></i></div>
+        <div id="fixed-bottom" class="hidden-lg hidden-md">
+            <div id="call-xs-sm"><a href="tel:0984 489 688"><i class="fa fa-phone">&nbsp;&nbsp;</i>Gọi 0984 489 688</a></div>
+        </div>
+        <script type="text/javascript" charset="utf-8">
+            $(window).load(function() {
+                equalheight('.thumbnail.products');
+                equalheight('.thumbnail.news');
+                equalheight('.equalheight1');
+                equalheight('.equalheightbanner');
+            });
 
 
-    $(window).resize(function() {
-        equalheight('.thumbnail.products');
-        equalheight('.thumbnail.news');
-        equalheight('.equalheight1');
-        equalheight('.equalheightbanner');
-    });
+            $(window).resize(function() {
+                equalheight('.thumbnail.products');
+                equalheight('.thumbnail.news');
+                equalheight('.equalheight1');
+                equalheight('.equalheightbanner');
+            });
 
-    $('#menu ul > li').hover(function() {
-        $(this).children('ul').stop(true, true).delay(200).fadeIn(300);
-    }, function() {
-        $(this).children('ul').stop(true, true).fadeOut(300);
-    });
+            $('#menu ul > li').hover(function() {
+                $(this).children('ul').stop(true, true).delay(200).fadeIn(300);
+            }, function() {
+                $(this).children('ul').stop(true, true).fadeOut(300);
+            });
 
-    $('#prd-cate-list .sub-page > ul > li').hover(function() {
-        $(this).children('ul').stop(true, true).delay(200).fadeIn(300);
-    }, function() {
-        $(this).children('ul').stop(true, true).fadeOut(300);
-    });
+            $('#prd-cate-list .sub-page > ul > li').hover(function() {
+                $(this).children('ul').stop(true, true).delay(200).fadeIn(300);
+            }, function() {
+                $(this).children('ul').stop(true, true).fadeOut(300);
+            });
 
-    $('#prd-cate-list').hover(function() {
-        $(this).children('ul.sub-page').stop(true, true).delay(200).slideDown(300);
-    }, function() {
-        $(this).children('ul.sub-page').stop(true, true).slideUp(300);
-    });
+            $('#prd-cate-list').hover(function() {
+                $(this).children('ul.sub-page').stop(true, true).delay(200).slideDown(300);
+            }, function() {
+                $(this).children('ul.sub-page').stop(true, true).slideUp(300);
+            });
 
-    $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        $(this).parent().siblings().removeClass('open');
-        $(this).parent().toggleClass('open');
-    });
+            $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                $(this).parent().siblings().removeClass('open');
+                $(this).parent().toggleClass('open');
+            });
 
-    $('.scrollfix').scrollFix({ fixTop: 40 });
+            $('.scrollfix').scrollFix({ fixTop: 40 });
 
-    if ($(window).scrollTop() != "0")
-        $("#go_top").fadeIn("slow");
-    var scrollDiv = $("#go_top");
-    $(window).scroll(function() {
-        if ($(window).scrollTop() == "0")
-            $(scrollDiv).fadeOut("slow")
-        else
-            $(scrollDiv).fadeIn("slow")
-    });
-    $("#go_top").click(function() {
-        $("html, body").animate({
-            scrollTop: $("#ScrollTo").offset().top
-        }, "slow")
-    });
+            if ($(window).scrollTop() != "0")
+                $("#go_top").fadeIn("slow");
+            var scrollDiv = $("#go_top");
+            $(window).scroll(function() {
+                if ($(window).scrollTop() == "0")
+                    $(scrollDiv).fadeOut("slow")
+                else
+                    $(scrollDiv).fadeIn("slow")
+            });
+            $("#go_top").click(function() {
+                $("html, body").animate({
+                    scrollTop: $("#ScrollTo").offset().top
+                }, "slow")
+            });
 
-    $('.mobileslider').flexslider({
-        animation: "fade",
-        animationLoop: true,
-        directionNav: false,
-        controlNav: false,
-    });
-    $('.bannerslider').flexslider({
-        animation: "fade",
-        animationLoop: true,
-        directionNav: false,
-    });
+            $('.mobileslider').flexslider({
+                animation: "fade",
+                animationLoop: true,
+                directionNav: false,
+                controlNav: false,
+            });
+            $('.bannerslider').flexslider({
+                animation: "fade",
+                animationLoop: true,
+                directionNav: false,
+            });
 
-    $('.galleryslider').flexslider({
-        animation: "slide",
-        itemWidth: 122,
-        controlNav: false,
-    });
+            $('.galleryslider').flexslider({
+                animation: "slide",
+                itemWidth: 122,
+                controlNav: false,
+            });
 
-    $('.newsslider').flexslider({
-        animation: "slide",
-        direction: "vertical",
-        controlNav: false,
-        directionNav: false,
-        slideshowSpeed: 3000,
-    });
+            $('.newsslider').flexslider({
+                animation: "slide",
+                direction: "vertical",
+                controlNav: false,
+                directionNav: false,
+                slideshowSpeed: 3000,
+            });
 
-    $('#prd-cate-list .main-page > ul > li').hover(function() {
-        $(this).children('ul').stop(true, true).delay(200).fadeIn(500);
-    }, function() {
-        $(this).children('ul').stop(true, true).fadeOut(500);
-    });
-    </script>
-    <!-- Subiz -->
-    <script type='text/javascript'>window._sbzq||function(e){e._sbzq=[];var t=e._sbzq;t.push(["_setAccount",50848]);var n=e.location.protocol=="https:"?"https:":"http:";var r=document.createElement("script");r.type="text/javascript";r.async=true;r.src=n+"//static.subiz.com/public/js/loader.js";var i=document.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)}(window);</script>
-</body>
+            $('#prd-cate-list .main-page > ul > li').hover(function() {
+                $(this).children('ul').stop(true, true).delay(200).fadeIn(500);
+            }, function() {
+                $(this).children('ul').stop(true, true).fadeOut(500);
+            });
+        </script>
+        <!-- Subiz -->
+        <script type='text/javascript'>window._sbzq||function(e){e._sbzq=[];var t=e._sbzq;t.push(["_setAccount",50848]);var n=e.location.protocol=="https:"?"https:":"http:";var r=document.createElement("script");r.type="text/javascript";r.async=true;r.src=n+"//static.subiz.com/public/js/loader.js";var i=document.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)}(window);</script>
+    </body>
 
-</html>
+    </html>
