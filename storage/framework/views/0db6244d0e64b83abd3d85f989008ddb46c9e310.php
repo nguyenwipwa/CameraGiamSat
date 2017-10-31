@@ -229,7 +229,7 @@
                                 <ul class="nav navbar-nav">
                                    <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cate): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                    <?php if($cate->id_root == 0 && $cate->status==1): ?>
-                                   <li><a href="http://fptcamera.vn/camera-tron-bo"><img src = "http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//<?php echo $cate->icon; ?>"/>&nbsp;&nbsp;<?php echo $cate->name; ?></a></li>
+                                   <li><a href="<?php echo e(url('/category/'.$cate->id)); ?>"><img src = "http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//<?php echo $cate->icon; ?>"/>&nbsp;&nbsp;<?php echo $cate->name; ?></a></li>
                                    <?php endif; ?>
                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                </ul>
@@ -256,15 +256,15 @@
                                 <ul>
                                    <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cate): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                    <?php if($cate->id_root == 0 && $cate->status==1): ?>
-                                   <li><a href="http://fptcamera.vn/tong-dai-bo-dam"><img alt = "<?php echo e($cate->name); ?>" src = "http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//<?php echo $cate->icon; ?>" /><span class="mc_title"><?php echo e($cate->name); ?><i class="fa fa-chevron-right hidden-md"></i></span></a>
+                                   <li><a href="<?php echo e(url('/category/'.$cate->id.'/1')); ?>"><img alt = "<?php echo e($cate->name); ?>" src = "http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//<?php echo $cate->icon; ?>" /><span class="mc_title"><?php echo e($cate->name); ?><i class="fa fa-chevron-right hidden-md"></i></span></a>
                                     <ul>
                                         <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cate1): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <?php if($cate->id == $cate1->id_root && $cate1->status==1): ?>
-                                        <li><a href="http://fptcamera.vn/bo-dam-cam-tay"><img alt = "<?php echo e($cate1->name); ?>" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title"><?php echo e($cate1->name); ?><i class="fa fa-chevron-right hidden-md"></i></span></a>
+                                        <li><a href="<?php echo e(url('/category/'.$cate1->id.'/1')); ?>"><img alt = "<?php echo e($cate1->name); ?>" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title"><?php echo e($cate1->name); ?><i class="fa fa-chevron-right hidden-md"></i></span></a>
                                             <ul>
                                                <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cate2): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                <?php if($cate1->id == $cate2->id_root && $cate2->status==1): ?>
-                                               <li><a href="http://fptcamera.vn/bo-dam-iradio"><img alt = "<?php echo e($cate2->name); ?>" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title"><?php echo e($cate2->name); ?><i class="fa fa-chevron-right hidden-md"></i></span></a>
+                                               <li><a href="<?php echo e(url('/category/'.$cate2->id.'/1')); ?>"><img alt = "<?php echo e($cate2->name); ?>" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title"><?php echo e($cate2->name); ?><i class="fa fa-chevron-right hidden-md"></i></span></a>
                                                 <div class="clear"></div>
                                             </li>
                                             <?php endif; ?>
@@ -467,142 +467,9 @@
     </div>
 </div>
 <!-- Bottom end here -->
-<div id="bottom">
-    <div class="container bg-social">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="row">
-                    <div class="col-xs-12 col-md-4 col-lg-3">
-                        <div class="social-claim">
-                            <div class="claim_header">Cam kết</div>
-                            <div class="claim">Sản phẩm hàng hóa chính hãng, đa dạng, phong phú</div>
-                            <div class="claim">Luôn luôn giá rẻ và khuyến mại không ngừng</div>
-                            <div class="claim">Dịch vụ chăm sóc khách hàng uy tín, tận tâm</div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-md-4 col-lg-3">
-                        <div class="social-claim2">
-                            <div class="claim_header">Hỗ trợ khách hàng</div>
-                            <ul>
-                                <li><a href="http://fptcamera.vn/tin-tuc/xem-camera-giam-sat-qua-dien-thoai">Xem camera giám sát qua điện thoại</a></li>
-                                <li><a href="http://fptcamera.vn/tin-tuc/xem-camera-quan-sat-qua-may-tinh">Xem camera quan sát qua máy tính</a></li>
-                                <li><a href="http://fptcamera.vn/tin-tuc/download-tai-lieu">Download tài liệu</a></li>
-                                <li><a href="http://fptcamera.vn/tin-tuc/hd-cai-dat-phan-mem-teamviewer">HD cài đặt phần mềm Teamviewer</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-md-4 col-lg-3">
-                        <div class="social-claim2">
-                            <div class="claim_header">Thông tin công ty</div>
-                            <ul>
-                                <li><a href="http://fptcamera.vn/tin-tuc/gioi-thieu">Giới thiệu</a></li>
-                                <li><a href="http://fptcamera.vn/tin-tuc/tuyen-dung">Tuyển dụng</a></li>
-                                <li><a href="http://fptcamera.vn/tin-tuc/chinh-sach">Chính sách</a></li>
-                            </ul>
-                            <div id="social_us">
-                                <div class="social_us_header">Kết nối với chúng tôi</div>
-                                <div id="f_social">
-                                    <a target="_blank" rel="nofollow" href="https://www.facebook.com/FptCamera.vn">
-                                        <img src="http://fptcamera.vn/resources/ui_images/client/background/social/f_fb.png">
-                                    </a>
-                                    <a target="_blank" rel="nofollow" href="https://plus.google.com//+FptCamera">
-                                        <img src="http://fptcamera.vn/resources/ui_images/client/background/social/f_gplus.png">
-                                    </a>
-                                    <a target="_blank" rel="nofollow" href="https://www.youtube.com/c/FptCamera">
-                                        <img src="http://fptcamera.vn/resources/ui_images/client/background/social/f_yt.png">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-md-4 col-lg-3 hidden-md">
-                        <div class="social-claim2">
-                            <div class="claim_header">Tổng đài trợ giúp</div>
-                            <div style="margin:10px;">
-                                <table border="0" cellpadding="1" cellspacing="1" style="width: 100%;">
-                                    <tbody>
-                                        <tr>
-                                            <td><img alt="" src="/resources/uploads/images/anhtintuc/tro-giup.png" style="width: 68px; height: 81px;" /></td>
-                                            <td style="vertical-align: middle;">
-                                                <p><span style="color:#333333;"><span style="font-size:14px;">Tư vấn bán hàng</span></span>
-                                                </p>
-                                                <p><span style="color:#ba0000;"><span style="font-size:20px;"><strong>0984 489 688</strong></span></span>
-                                                </p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2">
-                                                <hr /><span style="color:#555555;"><span style="font-size:13px;"><img alt="" src="/resources/uploads/images/anhtintuc/life_saver.png" />&nbsp; Chăm sóc và hỗ trợ sau bán hàng</span></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2" style="text-align: center;"><span style="color:#B22222;"><strong><span style="font-size:16px;">(04)6328 2964</span></strong>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2"><span style="font-size:13px;"><span style="color:#555555;"><img alt="" src="/resources/uploads/images/anhtintuc/mailer.png" />&nbsp; fptcamera.vn@gmail.com</span></span>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-<div class="container-fluid bg-footer">
-    <div class="row">
-        <div class="col-xs-12 col-xs-offset-0 col-md-10 col-md-offset-1">
-            <div class="row">
-                <div class="col-md-2 hidden-xs hidden-sm">
-                    <div class="f-logo">
-                        <a href="http://fptcamera.vn/">
-                            <img title="LẮP ĐẶT CAMERA QUAN SÁT GIÁ RẺ" alt="Camera FPT Việt Nam tự hào Nhà cung cấp thiết bị camera giám sát giá rẻ uy tín trên toàn quốc" src="http://fptcamera.vn/resources/uploads/images/automatic/logo/logo-fpt-camera-giam-sat.png">
-                        </a>
-                    </div>
-                </div>
-                <?php $__currentLoopData = $contact; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <div class="col-xs-12 col-md-5">
-                    <!-- <div class="f-address"> -->
-                        <?php echo $value->content; ?>
+<?php echo $__env->make("index.bottom", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-                        <!-- </div> -->
-                    </div>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                </div>
-            </div>
-            <div class="clear"></div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-xs-offset-0 col-md-10 col-md-offset-1">
-                <div class="f-copyright">Copyright © 2015. All Rights Reserved by FPT Camera</div>
-            </div>
-            <div class="clear"></div>
-        </div>
-    </div>
-    <div style="display: none">
-        <!-- Histats.com  START  (standard)-->
-        <script type="text/javascript">
-            document.write(unescape("%3Cscript src=%27http://s10.histats.com/js15.js%27 type=%27text/javascript%27%3E%3C/script%3E"));
-        </script>
-        <a href="http://www.histats.com" target="_blank" title="">
-            <script type="text/javascript">
-                try {
-                    Histats.start(1, 3313430, 4, 438, 112, 75, "00011111");
-                    Histats.track_hits();
-                } catch (err) {};
-            </script>
-        </a>
-        <noscript><a href="http://www.histats.com" target="_blank"><img  src="http://sstatic1.histats.com/0.gif?3313430&101" alt="" border="0"></a></noscript>
-        <!-- Histats.com  END  -->
-    </div>
-    <div class="clear"></div>
+<?php echo $__env->make("index.footer", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 </div>
 <!-- Bottom end here -->
 </div>

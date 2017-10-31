@@ -11,7 +11,15 @@
 |
  */
 
-Route::get('/', 'PageController@trangchu');
+Route::group(['prefix'=>'/'], function()
+{
+	Route::get('/','PageController@trangchu' );
+
+});
+
+
+Route::get('/category/{id_category}/{start}', 'PageController@category');
+
 
 Route::get('/abc', function () {
 	return "ngon";
@@ -67,3 +75,4 @@ Route::get('model/category/ten', function(){
 	$category = App\Category::where('id', 10)->get()->toArray();
 	var_dump($category);
 });
+
