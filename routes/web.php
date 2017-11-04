@@ -17,6 +17,11 @@ Route::group(['prefix'=>'/'], function()
 
 });
 
+Route::get('/cart-detail', 'PageController@cartDetail');
+
+Route::get('/news', 'PageController@news');
+
+Route::get('/detail-product', 'PageController@detailProduct');
 
 Route::get('/category/{id_category}/{start}', 'PageController@category');
 
