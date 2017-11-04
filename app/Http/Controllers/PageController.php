@@ -11,6 +11,35 @@ use DB;
 
 class PageController extends Controller
 {
+	function cartDetail()
+	{
+		$category = Category::all();
+		$contact = Contact::all();
+    	// $product = Category::where('id_category', 10)->get();
+		$slides = DB::select('SELECT category.*, slide.img FROM slide INNER JOIN category ON slide.id_category = category.id');
+  //   	var_dump($users);
+		return view('index.carts.cart',['category'=>$category, 'contact'=>$contact, 'slides'=>$slides]);
+	}
+
+	function news()
+	{
+		$category = Category::all();
+		$contact = Contact::all();
+    	// $product = Category::where('id_category', 10)->get();
+		$slides = DB::select('SELECT category.*, slide.img FROM slide INNER JOIN category ON slide.id_category = category.id');
+  //   	var_dump($users);
+		return view('index.news.news',['category'=>$category, 'contact'=>$contact, 'slides'=>$slides]);
+	}
+
+	function detailProduct()
+	{
+		$category = Category::all();
+		$contact = Contact::all();
+    	// $product = Category::where('id_category', 10)->get();
+		$slides = DB::select('SELECT category.*, slide.img FROM slide INNER JOIN category ON slide.id_category = category.id');
+  //   	var_dump($users);
+		return view('index.product.chitietsanpham',['category'=>$category, 'contact'=>$contact, 'slides'=>$slides]);
+	}
     //
 	function trangchu(ProductRepository $product_cate)
 	{
