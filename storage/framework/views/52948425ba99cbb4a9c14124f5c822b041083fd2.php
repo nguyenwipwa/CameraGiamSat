@@ -124,7 +124,7 @@
                                       <?php $__currentLoopData = $list_product; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $e): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                       <div class="col-xs-6 col-sm-4 col-lg-3">
                                         <div class="thumbnail products">
-                                          <a href="http://fptcamera.vn/may-chieu-sony-vpl-dx122"><img alt="may-chieu-sony-VPL-DX-122" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/<?php echo e($e->img); ?>"></a>
+                                          <a href="<?php echo e(url('/detail-product')); ?>"><img alt="may-chieu-sony-VPL-DX-122" src="<?php echo e(asset('public/images/san-pham/'.$e->img)); ?>"></a>
                                           <div class="caption">
                                             <a href="http://fptcamera.vn/may-chieu-sony-vpl-dx122"><h3><?php echo e($e->name); ?></h3></a>
                                             <div class="clear"></div>

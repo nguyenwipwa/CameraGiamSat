@@ -124,7 +124,7 @@
                                       @foreach ($list_product as $e)
                                       <div class="col-xs-6 col-sm-4 col-lg-3">
                                         <div class="thumbnail products">
-                                          <a href="http://fptcamera.vn/may-chieu-sony-vpl-dx122"><img alt="may-chieu-sony-VPL-DX-122" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/{{$e->img}}"></a>
+                                          <a href="{{ url('/detail-product') }}"><img alt="may-chieu-sony-VPL-DX-122" src="{{ asset('public/images/san-pham/'.$e->img) }}"></a>
                                           <div class="caption">
                                             <a href="http://fptcamera.vn/may-chieu-sony-vpl-dx122"><h3>{{$e->name}}</h3></a>
                                             <div class="clear"></div>

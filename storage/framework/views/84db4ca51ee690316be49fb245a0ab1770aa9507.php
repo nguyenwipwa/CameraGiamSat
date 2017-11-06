@@ -246,7 +246,7 @@
                                         <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $element): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <div class="col-xs-6 col-sm-4 col-lg-3 hidden-sm hidden-md">
                                             <div class="thumbnail products">
-                                                <a href="<?php echo e(url('/detail-product')); ?>"><img alt="camera-ip-cube-wifi-hikvision-DS-2CD2420F-IW" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/<?php echo $element->img; ?>"></a>
+                                                <a href="<?php echo e(url('/detail-product')); ?>"><img alt="<?php echo e($element->name); ?>" src="<?php echo e(asset('public/images/san-pham/'.$element->img)); ?>"></a>
                                                 <div class="caption">
                                                     <a href="<?php echo e(url('/detail-product')); ?>"><h3><?php echo $element->name; ?></h3></a>
                                                     <div class="clear"></div>

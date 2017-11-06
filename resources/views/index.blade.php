@@ -246,7 +246,7 @@
                                         @foreach ($products as $element)
                                         <div class="col-xs-6 col-sm-4 col-lg-3 hidden-sm hidden-md">
                                             <div class="thumbnail products">
-                                                <a href="{{url('/detail-product')}}"><img alt="camera-ip-cube-wifi-hikvision-DS-2CD2420F-IW" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/{!!$element->img!!}"></a>
+                                                <a href="{{url('/detail-product')}}"><img alt="{{$element->name}}" src="{{ asset('public/images/san-pham/'.$element->img) }}"></a>
                                                 <div class="caption">
                                                     <a href="{{url('/detail-product')}}"><h3>{!!$element->name!!}</h3></a>
                                                     <div class="clear"></div>
