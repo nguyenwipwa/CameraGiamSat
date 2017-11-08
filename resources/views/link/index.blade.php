@@ -13,5 +13,5 @@
     <script src="{{asset('public/js/scrollfix.js')}}"></script>
     <script src="{{asset('public/js/equalheight.js')}}"></script>
     <script src="{{asset('public/js/jquery.flexslider-min.js')}}"></script>
-    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic&subset=latin,vietnamese' rel='stylesheet' type='text/css'> -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic&subset=latin,vietnamese' rel='stylesheet' type='text/css'>

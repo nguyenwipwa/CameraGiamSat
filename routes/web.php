@@ -16,6 +16,7 @@ Route::group(['prefix'=>'/'], function()
 	Route::get('/','PageController@trangchu' );
 
 });
+Route::get('/test','PageController@trangchu1' );
 
 Route::get('/cart-detail', 'PageController@cartDetail');
 

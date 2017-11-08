@@ -64,4 +64,13 @@ class PageController extends Controller
     	// var_dump($list_product);
     	// echo $page_number;
 	}
+	function trangchu1(ProductRepository $product_cate)
+	{
+		$category = Category::all();
+		$contact = Contact::all();
+    	// $product = Category::where('id_category', 10)->get();
+		$slides = DB::select('SELECT category.*, slide.img FROM slide INNER JOIN category ON slide.id_category = category.id');
+  //   	var_dump($users);
+		return view('test',['category'=>$category, 'contact'=>$contact, 'slides'=>$slides]);
+	}
 }
