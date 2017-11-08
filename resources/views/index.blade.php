@@ -14,7 +14,7 @@
     <meta name="geo.placename" content="Hà nội" />
     <meta name="geo.position" content="20.984321;105.818546" />
     <meta name="ICBM" content="20.984321, 105.818546" />
-    @include("link.index")
+    @include("link.index");
     <script>
         (function(i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
@@ -235,7 +235,7 @@
                     @endforeach
                 </ul>
                 <div class="tab-content ">
-                    <div role="tabpanel" class="tab-pane active" >
+                    <div role="tabpanel" class="tab-pane active" id="dmsp-camera-giam-sat">
                         <div class="row">
                             <div class="col-xs-12 col-lg-9">
                                 <div class="row">
@@ -244,11 +244,11 @@
                                         WHERE slide.id_category = ?', [$e->id]);
                                         @endphp
                                         @foreach ($products as $element)
-                                        <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                        <div class="col-xs-6 col-sm-4 col-lg-3 hidden-sm hidden-md">
                                             <div class="thumbnail products">
-                                                <a href="{{url('/detail-product')}}"><img alt="{{$element->name}}" src="{{ asset('public/images/san-pham/'.$element->img) }}"></a>
+                                                <a href="{{url('/detail-product'.$element->id)}}"><img alt="{{$element->name}}" src="{{ asset('public/images/san-pham/'.$element->img) }}"></a>
                                                 <div class="caption">
-                                                    <a href="{{url('/detail-product')}}"><h3>{!!$element->name!!}</h3></a>
+                                                    <a href="{{url('/detail-product/.$element->id')}}"><h3>{!!$element->name!!}</h3></a>
                                                     <div class="clear"></div>
                                                     <span class="new-price">{!!number_format($element->price)!!} VNĐ</span>
                                                     {{-- <span class="old-price">2.500.000 đ</span> --}}

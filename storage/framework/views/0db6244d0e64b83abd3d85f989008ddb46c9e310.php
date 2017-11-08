@@ -14,7 +14,7 @@
     <meta name="geo.placename" content="Hà nội" />
     <meta name="geo.position" content="20.984321;105.818546" />
     <meta name="ICBM" content="20.984321, 105.818546" />
-    <?php echo $__env->make("link.index", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php echo $__env->make("link.index", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>;
     <script>
         (function(i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
@@ -235,7 +235,7 @@
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </ul>
                 <div class="tab-content ">
-                    <div role="tabpanel" class="tab-pane active" >
+                    <div role="tabpanel" class="tab-pane active" id="dmsp-camera-giam-sat">
                         <div class="row">
                             <div class="col-xs-12 col-lg-9">
                                 <div class="row">
@@ -244,11 +244,11 @@
                                         WHERE slide.id_category = ?', [$e->id]);
                                         ?>
                                         <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $element): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                        <div class="col-xs-6 col-sm-4 col-lg-3 hidden-sm hidden-md">
                                             <div class="thumbnail products">
                                                 <a href="<?php echo e(url('/detail-product')); ?>"><img alt="<?php echo e($element->name); ?>" src="<?php echo e(asset('public/images/san-pham/'.$element->img)); ?>"></a>
                                                 <div class="caption">
-                                                    <a href="<?php echo e(url('/detail-product')); ?>"><h3><?php echo $element->name; ?></h3></a>
+                                                    <a href="<?php echo e(url('/detail-product/'.$element->id)); ?>"><h3><?php echo $element->name; ?></h3></a>
                                                     <div class="clear"></div>
                                                     <span class="new-price"><?php echo number_format($element->price); ?> VNĐ</span>
                                                     

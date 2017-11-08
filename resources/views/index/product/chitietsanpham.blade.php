@@ -21,7 +21,7 @@
             i[r] = i[r] || function() {
                 (i[r].q = i[r].q || []).push(arguments)
             }, i[r].l = 1 * new Date();
-            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a = s.createproduct(o), m = s.getproductsByTagName(o)[0];
             a.async = 1;
             a.src = g;
             m.parentNode.insertBefore(a, m)
@@ -31,7 +31,7 @@
     </script>
     <script type="text/javascript">
         function lookup(keyword) {
-                var keyword = document.getElementById("searchSgg").value;
+                var keyword = document.getproductById("searchSgg").value;
                 if (keyword.length == 0) {
                     $('#autoSuggestionsList').fadeOut(400);
                 } else {
@@ -72,20 +72,21 @@
                             <div class="row">
                                 <div class="col-xs-12 col-md-7">
                                     <div class="" style="width:100%;background:#fff;border:1px solid #ccc;padding:10px;">
-                                        <a data-toggle="modal" data-target=".bs-example-modal-lg"> <img style="cursor:pointer;display:block;margin:0 auto;background:#fff;" alt="Lắp đặt camera giá rẻ bộ 1 đến 8 mắt" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/lap-dat-camera-gia-re-benco.jpg"> </a>
+                                        <a data-toggle="modal" data-target=".bs-example-modal-lg"> <img style="cursor:pointer;display:block;margin:0 auto;background:#fff;" alt="Lắp đặt camera giá rẻ bộ 1 đến 8 mắt" src="{{asset('public/images/san-pham/'.$product->img)}}"> </a>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-md-5">
+
                                     <div class="prd-desc equalheight1">
-                                        <h1 class="header2"> Lắp đặt camera giá rẻ bộ 1 đến 8 mắt </h1>
+                                        <h1 class="header2"> {{$product->name}} </h1>
                                         <div class="clear"></div>
-                                        <p>Mã sản phẩm: <b>KM-BENCO-18</b>
+                                        {{-- <p>Mã sản phẩm: <b>KM-BENCO-18</b> --}}
                                         </p>
-                                        <p>Thương hiệu: <a href="http://fptcamera.vn/benco-viet-nam">Benco Việt Nam</a>
+                                        <p>Thương hiệu: <a href="http://fptcamera.vn/benco-viet-nam">{{$product->name}}</a>
                                         </p>
-                                        <p>Giá thị trường: <span class='detail-oldprice'>2.400.000 đ</span>
+                                        {{-- <p>Giá thị trường: <span class='detail-oldprice'>{{$product->price}}</span> --}}
                                         </p>
-                                        <p>Giá bán: <span class='detail-price'>2.199.000 đ</span>
+                                        <p>Giá bán: <span class='detail-price'>{{$product->price}}</span>
                                         </p>
                                         <p>Tình trạng: <span class='detail-stock'>Còn hàng</span>
                                         </p>
@@ -109,6 +110,7 @@
                                             <input type="submit" name="action" value="Mua ngay" class="cart_submit" />
                                         </form>
                                     </div>
+
                                 </div>
                                 <div class="clear"></div>
                             </div>
@@ -123,197 +125,10 @@
                                 </ul>
                                 <div class="tab-content">
                                     <div role="tabpanel" class="tab-pane active" id="chitiet">
-                                        <div class="prd-body">
-                                            <h2><span style="color:#0000CD;"><span style="font-size:20px;">Giải pháp lắp đặt camera hình ảnh HD hàng Việt Nam chất lượng cao</span></span><br /> &nbsp;</h2>
-                                            <p><span style="color:#FF0000;">Kính thưa quý khách!</span> để đáp ứng nhu cầu sử dụng cho các hộ gia đình, các cửa hàng và công ty vừa và nhỏ chúng tôi xin gửi tới quý khách chương trình khuyến mãi camera Benco Việt Nam Với chất lượng hình ảnh HD cho sắc màu chân thật rõ nét, độ bền ổn định và đặc biệt hỗ trợ xem qua mạng điện thoại từ xa hoàn toàn miễn phí trọn đời.</p>
-                                            <p><span style="color:#FF0000;">Thương hiệu camera Việt Nam</span> hàng sản xuất lắp ráp tại Số 27 Ngõ 281 Lĩnh Nam Hoàng Mai, Hà Nội. Với công nghệ sản xuất Thái Lan Camera benco đã đưa ra thị trường một dòng sản phẩm an ninh giám sát có sức cạnh tranh cao trên thị trường và được người tiêu dùng bình chọn sản phẩm uy tín.</p>
-                                            <p><span style="color:#FF0000;">Dịch Vụ lắp đặt camera công ty FPT</span> Việt Nam đơn vị đại lý ủy quyền của Nhà sản xuất CAMERA Việt Nam chúng tôi chuyên cung cấp phân phối và thi công trực tiếp trên khắp cả nước.</p>
-                                            <p>&nbsp;</p>
-                                            <h3><strong><span style="color:#0000FF;"><span style="font-size:18px;">Thông tin chi tiết sản phẩm trọn bộ camera</span></span></strong></h3>
-                                            <p><em><strong><span style="color:#FF0000;">Camera giám sát:</span></strong></em> Tùy thuộc vào vị trí<a href="http://fptcamera.vn"><span style="color:#B22222;"> lắp đặt camera </span></a>chúng tôi sẽ lắp cho quý khách loại camera dome trong nhà hoặc camera thân ống chịu nước ngoài trời. Với độ phân giải <span style="color:#B22222;">1.0 Megapixel</span> cho hình ảnh sắc nét.</p>
-                                            <p>&nbsp;</p>
-                                            <p style="text-align: center;"><img alt="DP-1213TVI" src="/resources/uploads/images/HDP-1213TVI-sieu-re.jpg" />
-                                                <br /> Lắp trong phòng gọn và sang trọng</p>
-                                            <p style="text-align: center;"><img alt="CAMERA HDPRO HDP-1313TVI" src="/resources/uploads/images/CAMERA-HPRO-HDP-1313TVI.jpg" />
-                                                <br /> Lắp ngoài trời chống mưa nắng tốt</p>
-                                            <p><span style="color:#FF0000;"><em><strong>Đầu ghi hình cho camera:</strong></em></span> Đối với bộ từ 1 đến 4 camera sẽ sử dụng đầu ghi 4 kênh HD sử dụng lắp được cho 5 loại camera khác nhau</p>
-                                            <p><img alt="dau-ghi-hinh-4-kenh-hdpro-HDP-1700AHD" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/dau-ghi-hinh-4-kenh-hdpro-HDP-1700AHD.jpg" style="float: left; margin-left: 25px; margin-right: 25px;" />
-                                            </p>
-                                            <p><strong>Thông số đầu ghi:</strong>
-                                            </p>
-                                            <ul>
-                                                <li>Đầu ghi &nbsp;<strong>HDP-1700AHD</strong> 4 kênh Full HD&nbsp;</li>
-                                                <li>Chuẩn nén H.264+/H.264 tăng lưu trữ và băng thông tới 50% với chuẩn nén hình ảnh mới</li>
-                                                <li>Hỗ trợ camera 720P/1080N</li>
-                                                <li>Hỗ trợ: 1 Sata port x 6TB</li>
-                                                <li>Cổng xuất hình: HDMI/VGA</li>
-                                                <li>Số kênh camera IP hỗ trợ: 4+1 và tính năng xem qua mạng P2P siêu nhanh ứng dụng công nghệ CDN&nbsp;</li>
-                                                <li>Tính năng mạng lưới: HTTP, HTTPS, TCP/IP, IPv4/IPv6, RTSP, UDP, NTP, DHCP, DNS, IP Filter, DDNS, IP Search và P2P</li>
-                                                <li>Nguồn DV12V/2A</li>
-                                                <li>Kích thước (L)205×(W)205×(H)40mm</li>
-                                                <li>Khối lượng 1000g</li>
-                                            </ul>
-                                            <p>&nbsp;</p>
-                                            <p><em><strong><span style="color:#FF0000;">Thiết bị phụ kiện camera</span></strong></em>:&nbsp;thiết bị như ổ cứng chuyên dụng cho camera tùy theo bộ sẽ có dung lượng tương ứng là 160G, 250 G, 320G.... đến 1TB, 2TB... Trong trọn gói bao gồm nhân công lắp đặt trong nội thành Hà Nội Và TP.HCM, đã bao gồm toàn bộ phụ kiện để lắp đặt trọng gói. Trong trường hợp phát sinh do số lượng dây tín hiệu kéo quá dài 10,15 mét sẽ tính 5000đ/ mét đối với dây tín hiệu và điện, 8,000đ/mét đối với dây liền nguồn.</p>
-                                            <table border="1" cellpadding="5" cellspacing="5" style="background-color:transparent;border-collapse:collapse;border-spacing:0px;box-sizing:border-box;font-family:helvatica,sans-serif;font-size:15px;margin:0px;max-width:100%;outline:0px;padding:0px;text-align:justify;width:100%;">
-                                                <caption style="box-sizing: border-box; margin: 0px; padding: 8px 0px; outline: 0px; color: rgb(119, 119, 119); text-align: left;">
-                                                    <p style="box-sizing: border-box; margin: 10px 0px; padding: 0px; outline: 0px; text-align: center;"><strong style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;">TRỌN GÓI CAMERA BENCO VIỆT NAM&nbsp;CAO CẤP</strong>
-                                                    </p>
-                                                </caption>
-                                                <tbody style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;">
-                                                    <tr style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;">
-                                                        <td style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; width: 378px;">
-                                                            <p style="box-sizing: border-box; margin: 10px 0px; padding: 0px; outline: 0px; text-align: left;"><span style="font-family: helvatica, sans-serif; font-size: 15px; text-align: justify;">&nbsp;<span style="font-size:16px;">Bộ&nbsp;</span></span><span style="font-size:16px;"><span style="background-color: transparent;">1 camera HD</span><span style="background-color: transparent; box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; color: rgb(0, 0, 205);">&nbsp;<strong style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;">VIỆT NAM&nbsp;&nbsp;</strong></span><span style="background-color: transparent; box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; color: rgb(255, 0, 0);"><strong style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;">&nbsp;2,199,000đ</strong></span></span>
-                                                            </p>
-                                                        </td>
-                                                        <td style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; width: 533px;">
-                                                            <p style="box-sizing: border-box; margin: 10px 0px; padding: 0px; outline: 0px; text-align: left;"><span style="font-size:16px;">&nbsp;Bộ&nbsp;5 camera&nbsp;HD<span style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; color: rgb(0, 0, 205);">&nbsp;<strong style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;">VIỆT NAM</strong></span>&nbsp; &nbsp;<strong style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; color: rgb(255, 0, 0);">6,199,000đ</span></strong>
-                                                                </span>
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;">
-                                                        <td style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; width: 378px;">
-                                                            <p style="box-sizing: border-box; margin: 10px 0px; padding: 0px; outline: 0px; text-align: left;"><span style="font-size:16px;">&nbsp;<span style="background-color: transparent;">Bộ 2&nbsp;camera HD</span><span style="background-color: transparent; box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; color: rgb(0, 0, 205);">&nbsp;<strong style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;">VIỆT NAM</strong></span><span style="background-color: transparent;">&nbsp; &nbsp;</span><strong style="background-color: transparent; box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; color: rgb(255, 0, 0);">2,999,000đ</span></strong>
-                                                                </span>
-                                                            </p>
-                                                        </td>
-                                                        <td style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; text-align: left; width: 533px;"><span style="font-size:16px;">&nbsp;Bộ 6 camera&nbsp;HD<span style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; color: rgb(0, 0, 205);">&nbsp;<strong style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;">VIỆT NAM</strong></span>&nbsp; &nbsp;<span style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; color: rgb(255, 0, 0);"><strong style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;">7,099,000đ</strong></span></span>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;">
-                                                        <td style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; width: 378px;">
-                                                            <p style="box-sizing: border-box; margin: 10px 0px; padding: 0px; outline: 0px; text-align: left;"><span style="font-size:16px;">&nbsp;Bộ&nbsp;3&nbsp;camera HD<span style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; color: rgb(0, 0, 205);">&nbsp;<strong style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;">VIỆT NAM</strong></span>&nbsp; &nbsp;<span style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; color: rgb(255, 0, 0);"><strong style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;">3,799,000đ</strong></span></span>
-                                                            </p>
-                                                        </td>
-                                                        <td style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; text-align: left; width: 533px;"><span style="font-size:16px;">&nbsp;Bộ&nbsp;7 camera&nbsp;HD<span style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; color: rgb(0, 0, 205);">&nbsp;<strong style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;">VIỆT NAM</strong></span>&nbsp; &nbsp;<span style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; color: rgb(255, 0, 0);"><strong style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;">7,899,000đ</strong></span></span>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;">
-                                                        <td style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; width: 378px;">
-                                                            <p style="box-sizing: border-box; margin: 10px 0px; padding: 0px; outline: 0px; text-align: left;"><span style="font-size:16px;">&nbsp;Bộ 4&nbsp;camera HD<span style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; color: rgb(0, 0, 205);">&nbsp;<strong style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;">VIỆT NAM</strong></span>&nbsp; &nbsp;<strong style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; color: rgb(255, 0, 0);">4,899,000đ</span></strong>
-                                                                </span>
-                                                            </p>
-                                                        </td>
-                                                        <td style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; text-align: left; width: 533px;"><span style="font-size:16px;">&nbsp;Bộ&nbsp;8 camera&nbsp;HD<span style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; color: rgb(0, 0, 205);">&nbsp;<strong style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;">VIỆT NAM</strong></span>&nbsp; &nbsp;</span><span style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; color: rgb(255, 0, 0);"><strong style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;"><span style="font-size:16px;">8,699,000đ</span>&nbsp;</strong>
-                                                            </span>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <h3><span style="color:#0000FF;"><span style="font-size:18px;">Hình ảnh thực tế từ bộ camera Việt Nam</span></span></h3>
-                                            <p>Chúng tôi cam kết toàn bộ hình ảnh là của các thiết bị trong gói lắp đặt</p>
-                                            <p>&nbsp;</p>
-                                            <p style="text-align: center;"><img alt="camera benco viet nam" src="/resources/uploads/images/camera%20benco%20viet%20nam.jpg" />
-                                            </p>
-                                            <p style="text-align: center;">&nbsp;</p>
-                                            <p style="text-align: center;">Demo lắp đặt camera gia đình</p>
-                                            <p style="text-align: center;">&nbsp;</p>
-                                            <p style="text-align: center;"><img alt="camera benco truong hoc" src="/resources/uploads/images/camera%20benco%20truong%20hoc.jpg" style="text-align: start;" />
-                                            </p>
-                                            <p style="text-align: center;">Hình ảnh camera Benco lắp trường mầm non</p>
-                                            <p>&nbsp;</p>
-                                            <h3 style="box-sizing: border-box; margin: 20px 0px 10px; padding: 0px; font-family: helvatica, sans-serif; outline: 0px; line-height: 1.1; font-size: 24px; text-align: justify;"><strong style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; color: rgb(0, 0, 255);"><span style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; font-size: 18px;">Quy định &amp; Chính sách bảo hành tại FPT</span></span></strong></h3>
-                                            <p style="box-sizing: border-box; margin: 10px 0px; padding: 0px; font-family: helvatica, sans-serif; outline: 0px; font-size: 15px; text-align: justify;">+&nbsp;<em style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;"><strong style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; color: rgb(255, 0, 0);">Bảo hành 24 tháng</span></strong></em>&nbsp;(12 tháng đầu tiên bảo hành lắp đặt camera 1 đổi 1 tận nơi +&nbsp;12 tháng bảo trì, bảo dưỡng, vệ sinh thiết bị miễn phí). Sau thời gian bảo hành tính phí dịch vụ.
-                                                <br style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;" /> +&nbsp;<em style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;"><strong style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; color: rgb(255, 0, 0);">Tùy chọn nâng cấp camera</span></strong>:</em>&nbsp;Quý khách có thể lựa chọn camera, đầu ghi hình khác giá trị tương đương để thay thế.
-                                                <br style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;" /> +&nbsp;<em style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; color: rgb(255, 0, 0);"><strong style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;">Hệ thống giá niêm yết:</strong></span>&nbsp;</em>Dây cáp tín hiệu 5C chống nhiễu 5.000đ/mét, dây điện nguồn 5.000đ/mét, dây cáp mạng 5.000đ /mét. (Tính theo thực tế sử dụng do phát sinh ngoài khuyến mãi).
-                                                <br style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;" /> +&nbsp;<em style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;"><strong style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;"><span style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; color: rgb(255, 0, 0);">Gói khuyến mãi trọn bộ</span></strong></em>&nbsp;Camera giá rẻ này đã&nbsp;bao gồm thuế&nbsp;<span style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; color: rgb(255, 0, 0);"><strong style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px;">VAT 10%</strong></span>.</p>
-                                            <p>&nbsp;</p>
-                                            <p>&nbsp;</p>
-                                            <hr />
-                                            <h3><span style="font-family:arial,helvetica,sans-serif;"><strong><span style="color: rgb(255, 102, 0);">​</span></strong><strong><span style="color: rgb(255, 102, 0);">Fpt cam kết sản phẩm và&nbsp;dịch vụ&nbsp;</span><a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-tai-ha-noi"><span style="color: rgb(255, 102, 0);">lắp đặt camera</span></a><span style="color: rgb(255, 102, 0);">&nbsp;uy tín:</span></strong></span></h3>
-                                            <ol style="line-height: 20.7999992370605px;">
-                                                <li><span style="font-family:arial,helvetica,sans-serif;"><span style="color: rgb(255, 0, 0);">Sản phẩm đúng như mô tả trên website (về màu sắc, kiểu dáng, chức năng, giá cả).</span></span>
-                                                </li>
-                                                <li><span style="font-family:arial,helvetica,sans-serif;"><span style="color: rgb(255, 0, 0);">Giao hàng tận nơi khu vực Hà Nội và ship hàng Toàn Quốc.</span></span>
-                                                </li>
-                                                <li><span style="font-family:arial,helvetica,sans-serif;"><span style="color: rgb(255, 0, 0);">Bảo hành từ 12 đến 24 tháng tùy theo chủng loại sản phẩm.</span></span>
-                                                </li>
-                                                <li><span style="font-family:arial,helvetica,sans-serif;"><span style="color: rgb(255, 0, 0);">Hỗ trợ, tư vấn, thông tin, giá cả, mua bán sản phẩm hãy liên hệ qua: Yahoo, Facebook, skype hoặc số điện thoại trên website!</span></span>
-                                                </li>
-                                            </ol>
-                                            <hr />
-                                            <h3 style="text-align: center;"><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size: 15px; line-height: 21.4286px; text-align: justify;">​</span><span style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; font-size: 15px; text-align: justify; line-height: 1.6;">Liên hệ ngay với <strong>Camera FPT Việt Nam</strong></span><span style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; font-size: 15px; text-align: justify; line-height: 1.6;">&nbsp;để nhận được <strong>Báo giá <a href="http://fptcamera.vn/">camera an ninh</a></strong></span><span style="box-sizing: border-box; margin: 0px; padding: 0px; outline: 0px; font-size: 15px; text-align: justify; line-height: 1.6;">&nbsp;tốt nhất thị trường.</span></span></h3> </div>
+                                            {!! $product->detail_product!!}
                                     </div>
                                     <div role="tabpanel" class="tab-pane" id="thongso">
-                                        <div class="prd-body">
-                                            <table border="1" cellpadding="10" cellspacing="1" class="table" style="width: 100%;">
-                                                <tbody>
-                                                    <tr>
-                                                        <td><b>Mã sản phẩm</b>
-                                                        </td>
-                                                        <td>Trọn bộ HDPRO 1.0</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><b>Hãng sản xuất</b>
-                                                        </td>
-                                                        <td>HDPRO</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><b>Bảo hành camera</b>
-                                                        </td>
-                                                        <td>24 tháng</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><b>Độ phân giải</b>
-                                                        </td>
-                                                        <td><strong><span style="color:#FF0000;">1.0 Megapixel</span></strong>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><strong>Camera theo số lượng đèn LEDs</strong>
-                                                        </td>
-                                                        <td>12 HP LEDs</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><strong>Camera theo loại chip</strong>
-                                                        </td>
-                                                        <td>Chip CMOS</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><strong>Tốc độ ghi hình</strong>
-                                                        </td>
-                                                        <td>25/30fps@720P - HD (1280 x 720 )</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><strong>Camera theo ống kính</strong>
-                                                        </td>
-                                                        <td>Loại 3.6mm</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><strong>Camera theo loại đèn LEDs</strong>
-                                                        </td>
-                                                        <td>Đèn ARRAY Led</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><strong>Tầm xạ hồng ngoại</strong>
-                                                        </td>
-                                                        <td>Từ 25-30m</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><strong>Hỗ trợ WDR</strong>
-                                                        </td>
-                                                        <td>Có</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><strong>Hỗ trợ khác</strong>
-                                                        </td>
-                                                        <td>Hỗ trợ các chức năng : Day/Night (ICR), AWB, AGC, BLC, 3D-DNR</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><strong>Nguồn điện</strong>
-                                                        </td>
-                                                        <td>DC 12V</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><strong>Nhiệt độ hoạt động</strong>
-                                                        </td>
-                                                        <td>-20℃~50℃</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
+                                        {!! $product->dignital!!}
                                 </div>
                                 <div id="tags"> <span><i class="fa fa-tags"></i>Xem thêm</span> <a href="http://fptcamera.vn/tag-san-pham/bo-camera-gia-re">bộ camera giá rẻ</a> <a href="http://fptcamera.vn/tag-san-pham/lap-dat-camera-gia-re">lắp đặt camera giá rẻ</a> <a href="http://fptcamera.vn/tag-san-pham/camera-gia-re">camera gia re</a> </div>
                             </div> <span class="header3">Sản phẩm liên quan</span>
