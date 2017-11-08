@@ -14,7 +14,7 @@
   <meta name="geo.position" content="20.984321;105.818546" />
   <meta name="ICBM" content="20.984321, 105.818546" />
   
-  <?php echo $__env->make("../../.link.index", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>;
+  <?php echo $__env->make("../../.link.index", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -126,7 +126,7 @@
                                         <div class="thumbnail products">
                                           <a href="<?php echo e(url('/detail-product')); ?>"><img alt="may-chieu-sony-VPL-DX-122" src="<?php echo e(asset('public/images/san-pham/'.$e->img)); ?>"></a>
                                           <div class="caption">
-                                            <a href="http://fptcamera.vn/may-chieu-sony-vpl-dx122"><h3><?php echo e($e->name); ?></h3></a>
+                                            <a href="<?php echo e(url('/detail-product')); ?>"><h3><?php echo e($e->name); ?></h3></a>
                                             <div class="clear"></div>
                                             <span class="new-price"><?php echo e(number_format($e->price)); ?> VNĐ</span>
                                             

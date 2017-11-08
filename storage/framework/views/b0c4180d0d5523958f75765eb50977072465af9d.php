@@ -1,4 +1,4 @@
- <link rel="stylesheet" href="{{asset('public/css/modal.css')}}">
+ <link rel="stylesheet" href="<?php echo e(asset('public/css/modal.css')); ?>">
 
  
  <nav class="navbar navbar-default navbar-fixed-top">

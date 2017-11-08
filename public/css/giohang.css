@@ -1,0 +1,27 @@
+
+table {
+	text-align: center;
+	border-radius: 5px;
+}
+
+#inputadd {
+	box-shadow: none;
+	float: none;
+  	width: 50%;
+  	margin-left: -1px;
+	text-align: center;	
+}
+
+th, td {
+	padding: 10px;
+}
+
+#thanhtoan {
+	background: #33CCFF;
+}
+
+#tien {
+	border: none;
+	box-shadow: none;
+	background: none;
+}

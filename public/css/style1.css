@@ -1,0 +1,97 @@
+
+body {
+	margin: 0;
+	padding: 40px 0 0 0;
+	color: #333;
+	line-height: 140%;
+}
+
+hr {
+	margin-top: 2em;
+	background-color: #ddd;
+	border: none;
+	height: 1px;
+}
+
+#chitietsanpham {
+	margin-top: 20px;	
+}
+
+.product-image {
+	border: 1px solid	#999;
+	text-align: center;
+	width: 550px;
+	height: 300px;
+}
+
+.product-image:hover {
+	border: 1px solid	#06F;
+	cursor: pointer;
+	box-shadow: 1px 1px 1px 1px #999999;
+}
+
+#thongtin {
+	padding-left: 50px;
+	font-size: 18px;	
+}
+
+#gia {
+	text-decoration: line-through;	
+}
+
+#giaban {
+	color: #F00;
+	font-weight: bold;	
+}
+
+#ghichu {
+	color: #090;
+	font-weight: bold;	
+}
+
+#input {
+	box-shadow: none;
+	border: none;
+	float: none;
+	width: 13%;
+	padding: 8px;
+	margin-left: -1px;
+	text-align: center;	
+}
+
+#lblsoluong {
+	float: left;
+	margin-right: 10px;
+	padding-top: 7px;
+	color: red;
+}
+
+#lblsoluong span {
+	font-size: 18px;
+}
+
+#noidungchitiet {
+	margin-top: 10px;	
+}
+
+#sanphamlienquan {
+	border: 1px solid #CCC;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+#sanphamlienquan:hover {
+	border: 1px solid	#06F;
+	cursor: pointer;
+}
+
+
+#addtocart {
+	background-color: #F00;
+	color: #fff;	
+}
+
+#addtocart {
+	text-decoration: none;
+}
+
