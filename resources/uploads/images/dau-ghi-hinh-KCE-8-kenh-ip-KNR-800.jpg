@@ -1,0 +1,1376 @@
+﻿<!DOCTYPE html>
+<html class="no-js" lang="vi">
+    <head>
+        <!-- CSS and Jquery start here -->
+        		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>LẮP ĐẶT CAMERA QUAN SÁT GIÁ RẺ UY TÍN TẠI FPT VN</title>
+	    <meta name="description" content="Công ty FPT Việt Nam cung cấp lắp đặt camera quan sát, lắp camera chống trộm cho gia đình, camera giám sát cửa hàng… lắp camera giá rẻ, uy tín toàn quốc.">
+	    <meta property="fb:app_id" content="" />
+	    <meta name="DC.title" content="Camera FPT Việt Nam" />
+        <meta name="geo.region" content="VN-HN" />
+        <meta name="geo.placename" content="Hà nội" />
+        <meta name="geo.position" content="20.984321;105.818546" />
+        <meta name="ICBM" content="20.984321, 105.818546" />
+	    <link rel="shortcut icon" href="http://fptcamera.vn/resources/uploads/images/automatic/favicon/camera-giam-sat-fpt.png" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="http://fptcamera.vn/resources/stylesheets/client/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="http://fptcamera.vn/resources/stylesheets/client/bootstrap-theme.css" />
+		<link rel="stylesheet" type="text/css" href="http://fptcamera.vn/resources/stylesheets/client/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="http://fptcamera.vn/resources/stylesheets/client/app.css" />
+		<link rel="stylesheet" type="text/css" href="http://fptcamera.vn/resources/stylesheets/client/font-awesome.css" />
+		<link rel="stylesheet" type="text/css" href="http://fptcamera.vn/resources/stylesheets/client/flexslider.css" />
+		
+		<script src="http://fptcamera.vn/resources/js/client/jquery-2.1.3.min.js"></script>
+		<script src="http://fptcamera.vn/resources/js/client/jquery-ui-1.9.2.custom.min.js"></script>
+		<script src="http://fptcamera.vn/resources/js/client/bootstrap.js"></script>
+		<script src="http://fptcamera.vn/resources/js/client/scrollfix.js"></script>
+		<script src="http://fptcamera.vn/resources/js/client/equalheight.js"></script>
+		<script src="http://fptcamera.vn/resources/js/client/jquery.flexslider-min.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic&subset=latin,vietnamese' rel='stylesheet' type='text/css'>
+		
+		<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-66346872-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+        <script type="text/javascript">
+	    	function lookup(keyword) {
+	    		var keyword = document.getElementById("searchSgg").value;
+	    		if(keyword.length == 0) {
+	        		$('#autoSuggestionsList').fadeOut(400);
+	    		} else {
+	        		$.post("http://fptcamera.vn/ajaxhandle/client_products_ajaxhandler/Ajax_Get_All_Product_Client", 
+	        		{keyword : keyword},
+	        		function(data){
+		            	if(data.length > 14) {
+			                $('#autoSuggestionsList').fadeIn(400);
+	               			// var obj = jQuery.parseJSON(data);
+			                var obj = JSON.parse(data);
+			                var strhtml = '';
+			                //$('#autoSuggestionsList').html(data['message']);
+			                strhtml += '<div class="sgg-outer">';
+			                for(var index in obj) {
+			                    //alert(obj.message[1].label);
+			                    //alert(obj.length());
+			                    for(var i=0;i<obj[index].length;i++) {
+			                        //alert(obj.message[i].value);
+			                        //append
+			                        strhtml += '<div class="sgg-row">';
+			                            strhtml += '<div class="sgg-image"><img width="50" height="50" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/thumbs/' + obj.message[i].Image + '"/></div>';
+			                            strhtml += '<div class="sgg-right">';
+			                                strhtml += '<div class="sgg-title"><a href="http://fptcamera.vn/' + obj.message[i].Slug + '">' + obj.message[i].Title + '</a></div>';
+			                                strhtml += '<div class="sgg-sellprice">' + parseFloat(obj.message[i].SellPrice).toFixed().replace(/./g, function(c, i, a) {return i && c !== "." && ((a.length - i) % 3 === 0) ? '.' + c : c;}) + ' đ</div>';
+			                            strhtml += '</div>';
+			                        strhtml += '</div>';
+	                    		}
+	               			}
+	               			strhtml += '</div>';
+				            $('#autoSuggestionsList').html(strhtml);
+					    } else {
+				        	var strhtml = '';
+				        	strhtml += '<div class="sgg-outer">';
+					        	strhtml += '<div class="sgg-row">';
+					        		strhtml += '<div class="sgg-title"><a>Không có sản phẩm nào tương ứng</a></div>';
+					            strhtml += '</div>';
+					        strhtml += '</div>';
+				            $('#autoSuggestionsList').html(strhtml);
+				    	}
+	        		});
+	       		// Ajax_Suggestion(keyword);
+	    		}
+			}
+		</script>        <link rel="stylesheet" type="text/css" href="http://fptcamera.vn/resources/stylesheets/client/social-likes_birman.css" />
+        <script src="http://fptcamera.vn/resources/js/client/social-likes.min.js"></script>
+        <!-- CSS and Jquery end here -->
+    </head>
+    <body lang="vi">
+        <div id="wrapper">
+	<h1 style="display:none;"><b>Lắp đặt camera quan sát giá rẻ </b>,<b> camera FPT</b></h1>
+            <h2 style="display: none;">Tư vấn lắp đặt camera</h2>
+            <!-- Top start here -->
+            <div id="top">
+                                                        <div id="fb-root"></div>
+                                        <script>(function(d, s, id) {
+                                          var js, fjs = d.getElementsByTagName(s)[0];
+                                          if (d.getElementById(id)) return;
+                                          js = d.createElement(s); js.id = id;
+                                          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+                                          fjs.parentNode.insertBefore(js, fjs);
+                                        }(document, 'script', 'facebook-jssdk'));</script>
+                
+                <div id="top-menu" class="hidden-sm hidden-xs">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="row">
+                                    <div class="col-xs-7">
+                                        <div id="top-hotline">
+                                            <div class="name">
+                                                <a href="http://fptcamera.vn/camera-giam-sat-tot">Sản phẩm bán chạy</a>|
+                                                <a href="http://fptcamera.vn/lap-dat-camera-khuyen-mai">Sản phẩm khuyến mại</a>|
+                                                <a href="http://fptcamera.vn/camera-quan-sat-moi">Sản phẩm mới</a><img style="margin:-4px 0 0 2px;" src="http://fptcamera.vn/resources/ui_images/client/background/new.gif">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-5">
+                                        <div id="top-hotline" style="float:right;">
+                                            <div class="name">
+                                            <a class="name_cart" href="http://fptcamera.vn/gio-hang">Giỏ hàng (<b>0</b> sản phẩm)</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                <div style="margin-top:50px;" class='hidden-lg hidden-md'>
+                    <div class="mobileslider">
+                        <ul class="slides">
+                                                            <li>
+                                    <a href="#">
+                                        <img alt="camera quan sát trên điện thoại" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/lap-dat-camera-quan-sat-fpt.jpg" />
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                                                            <li>
+                                    <a href="#">
+                                        <img alt="camera quan sát trên điện thoại 2" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-quan-sat-tren-dien-thoai-2.jpg" />
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                                                            <li>
+                                    <a target="_blank" href="http://fptcamera.vn/tin-tuc/xem-camera-giam-sat-qua-dien-thoai">
+                                        <img alt="xem camera trên điện thoại di động" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/xem-camera-tren-dien-thoai-di-dong.jpg" />
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                                                            <li>
+                                    <a href="#">
+                                        <img alt="Đầu ghi hình camera quan sát" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/dau-ghi-hinh-camera-quan-sat1.jpg" />
+                                        <div class="clear"></div>
+                                    </a>
+                                </li>
+                                                    </ul>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                                <div class="container hidden-xs hidden-sm">
+                    <div class="row top-header" id="ScrollTo">
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div class="col-xs-12 col-md-3">
+                                    <div id="logo">
+                                        <a href="http://fptcamera.vn/">
+                                            <img title="LẮP ĐẶT CAMERA QUAN SÁT GIÁ RẺ" alt="Camera FPT Việt Nam tự hào Nhà cung cấp thiết bị camera giám sát giá rẻ uy tín trên toàn quốc" src="http://fptcamera.vn/resources/uploads/images/automatic/logo/logo-fpt-camera-giam-sat.png">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-6">
+                                    <img style="width:100%;margin-top:25px;" alt="Cam kết dịch vụ" src="http://fptcamera.vn/resources/ui_images/client/background/promise.png">
+                                </div>
+                                <div class="col-xs-12 col-md-3">
+                                    <div id="hotline">
+                                        <div class="name">Tư vấn lắp đặt camera</div>
+                                        <div class="clear"></div>
+                                        <div class="phone">
+                                                                                            <a href="tel:024.6328.2964">024.6328.2964</a>
+                                                                                            <a href="tel:0984 489 688">0984 489 688</a>
+                                                                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="row hidden-xs hidden-sm hidden-md">
+                        <div class="col-xs-12 col-xs-offset-0 col-md-10 col-md-offset-1">
+                            <div id="menu">
+                                <ul><li class="hasChild"  ><a href="http://fptcamera.vn/camera-giam-sat">Camara giam sat</a><ul><li  ><a href="http://fptcamera.vn/camera-ip">Camara IP</a></li></ul></li></ul>                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="container-fluid">
+                    <div class="row hidden-md hidden-lg">
+                        <nav class="navbar navbar-inverse navbar-fixed-top custom-navbar">
+                            <div class="container-fluid">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                  </button>
+
+                                  <a class="navbar-brand" href="http://fptcamera.vn/">
+                                  <img alt="Camera FPT Việt Nam tự hào Nhà cung cấp thiết bị camera giám sát giá rẻ uy tín trên toàn quốc" src="http://fptcamera.vn/resources/ui_images/client/background/logo_mobile.png">
+                                  </a>
+                                </div>
+
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                                <div class="collapse navbar-collapse" aria-expanded="false" id="bs-example-navbar-collapse-1">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="true" style="position: fixed; top:40px; right: 0; border: none; padding: 3px; margin-right: 5px;">
+                                        <i class="fa fa-times-circle" style="font-size: 25px;"></i>
+                                    </button>
+                                    <ul class="nav navbar-nav"><li><a href="http://fptcamera.vn/camera-tron-bo"><img src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//lap-dat-camera-tron-bo.png />&nbsp;&nbsp;Camera trọn bộ</a></li><li><a href="http://fptcamera.vn/camera-giam-sat"><img src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//camera-giam-sat.png />&nbsp;&nbsp;Camera giám sát</a></li><li><a href="http://fptcamera.vn/dau-ghi-hinh-camera"><img src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//dau-ghi-hinh-camera-quan-sat.png />&nbsp;&nbsp;Đầu ghi hình camera</a></li><li><a href="http://fptcamera.vn/phu-kien-camera"><img src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//phu-kien-camera.png />&nbsp;&nbsp;Phụ kiện camera</a></li><li><a href="http://fptcamera.vn/thiet-bi-an-ninh"><img src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//camera-thiet-bi-an-ninh.png />&nbsp;&nbsp;Thiết bị an ninh</a></li><li><a href="http://fptcamera.vn/may-cham-cong"><img src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//may-cham-cong-gia-re.png />&nbsp;&nbsp;Máy chấm công</a></li><li><a href="http://fptcamera.vn/tong-dai-bo-dam"><img src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//78-32.png />&nbsp;&nbsp;Tổng đài - Bộ đàm</a></li><li><a href="http://fptcamera.vn/thiet-bi-van-phong"><img src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//thiet-bi-van-phong.png />&nbsp;&nbsp;Thiết bị văn phòng</a></li><li><a href="http://fptcamera.vn/tin-tuc/tin-camera"><i class="fa fa-newspaper-o"></i>&nbsp;&nbsp;tin tức</a></li></ul>                                </div><!-- /.navbar-collapse -->
+                            </div><!-- /.container-fluid -->
+                        </nav>
+                    </div>
+                </div>                <div class="clear"></div>
+            </div>
+            <!-- Top end here -->
+            <div class="container menu_bg">
+                <div class="row menu_bg">
+                    <div class="col-xs-12 col-xs-offset-0 menu_bg">
+                        <div class="row">
+                            <div class="col-md-4 col-lg-3 hidden-xs hidden-sm" style="padding-right:0;">
+                                <div id="prd-cate-list">
+                                    <div class="prd-cate-header">
+                                        <span>Danh mục sản phẩm<i class="fa fa-chevron-circle-down"></i></span>
+                                    </div>
+                                    <ul class="main-page equalheightbanner">
+                                        <ul><li><a href="http://fptcamera.vn/camera-tron-bo"><img alt = "Camera trọn bộ" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//lap-dat-camera-tron-bo.png /><span class="mc_title">Camera trọn bộ<i class="fa fa-chevron-right hidden-md"></i></span></a><ul><li><a href="http://fptcamera.vn/tron-bo-camera-gia-re"><img alt = "Trọn bộ camera giá rẻ" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Trọn bộ camera giá rẻ<i class="fa fa-chevron-right hidden-md"></i></span></a><ul><li><a href="http://fptcamera.vn/tron-bo-1-camera-gia-re"><img alt = "Trọn bộ 1 Camera giá rẻ" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Trọn bộ 1 Camera giá rẻ<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/tron-bo-2-camera-gia-re"><img alt = "Trọn bộ 2 camera giá rẻ" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Trọn bộ 2 camera giá rẻ<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/tron-bo-3-camera-gia-re"><img alt = "Trọn bộ 3 Camera giá rẻ" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Trọn bộ 3 Camera giá rẻ<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/tron-bo-4-camera-gia-re"><img alt = "Trọn bộ 4 Camera giá rẻ" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Trọn bộ 4 Camera giá rẻ<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li></ul><div class="clear"></div></li><li><a href="http://fptcamera.vn/tron-bo-camera-hd"><img alt = "Trọn bộ camera HD" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Trọn bộ camera HD<i class="fa fa-chevron-right hidden-md"></i></span></a><ul><li><a href="http://fptcamera.vn/tron-bo-1-camera-hd"><img alt = "Trọn bộ 1 Camera HD" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Trọn bộ 1 Camera HD<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/tron-bo-2-camera-hd"><img alt = "Trọn bộ 2 Camera HD" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Trọn bộ 2 Camera HD<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/tron-bo-3-camera-hd"><img alt = "Trọn bộ 3 Camera HD" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Trọn bộ 3 Camera HD<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/tron-bo-4-camera-hd"><img alt = "Trọn bộ 4 Camera HD" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Trọn bộ 4 Camera HD<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li></ul><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-nhap-khau"><img alt = "Camera Nhập khẩu" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera Nhập khẩu<i class="fa fa-chevron-right hidden-md"></i></span></a><ul><li><a href="http://fptcamera.vn/bo-2-camera-hikvision"><img alt = "Bộ 2 Camera HIKVISION" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Bộ 2 Camera HIKVISION<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/lap-1-camera-hikvision"><img alt = "Lắp 1 Camera HIKVISION" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//tron-bo-1-camera-hd-tvi-hikvision.jpg /><span class="mc_title">Lắp 1 Camera HIKVISION<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/bo-camera-kce-han-quoc"><img alt = "Bộ camera KCE HÀN QUỐC" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Bộ camera KCE HÀN QUỐC<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li></ul><div class="clear"></div></li></ul><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-giam-sat"><img alt = "Camera giám sát" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//camera-giam-sat.png /><span class="mc_title">Camera giám sát<i class="fa fa-chevron-right hidden-md"></i></span></a><ul><li><a href="http://fptcamera.vn/camera-theo-hang"><img alt = "Camera theo hãng" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera theo hãng<i class="fa fa-chevron-right hidden-md"></i></span></a><ul><li><a href="http://fptcamera.vn/camera-dahua"><img alt = "Camera Dahua" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera Dahua<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-vantech"><img alt = "Camera Vantech" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera Vantech<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-hikvision"><img alt = "Camera Hikvision" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera Hikvision<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-benco"><img alt = "Camera Benco" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera Benco<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-kbvision"><img alt = "Camera Kbvision" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera Kbvision<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-samsung"><img alt = "Camera SAMSUNG" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera SAMSUNG<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-kce"><img alt = "Camera KCE" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera KCE<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-panasonic"><img alt = "Camera Panasonic" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera Panasonic<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-hdpro"><img alt = "Camera HDPRO" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera HDPRO<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-gia-re"><img alt = "Camera giá rẻ" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera giá rẻ<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-spyeye"><img alt = "Camera SPYEYE" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera SPYEYE<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-questek"><img alt = "Camera Questek" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera Questek<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li></ul><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-theo-loai"><img alt = "Camera theo loại" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera theo loại<i class="fa fa-chevron-right hidden-md"></i></span></a><ul><li><a href="http://fptcamera.vn/camera-analog"><img alt = "Camera Analog" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera Analog<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-ahd"><img alt = "Camera AHD" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera AHD<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-ip"><img alt = "Camera IP" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera IP<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-hdcvi"><img alt = "Camera HDCVI" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera HDCVI<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-hd-sdi"><img alt = "Camera HD-SDI" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera HD-SDI<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-hd-tvi"><img alt = "Camera HD-TVI" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera HD-TVI<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li></ul><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-theo-chuc-nang"><img alt = "Camera theo chức năng" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera theo chức năng<i class="fa fa-chevron-right hidden-md"></i></span></a><ul><li><a href="http://fptcamera.vn/camera-quan-sat"><img alt = "Camera quan sát" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera quan sát<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-khong-day"><img alt = "Camera Không Dây" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera Không Dây<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-wifi"><img alt = "Camera Wifi" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera Wifi<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-zoom"><img alt = "Camera Zoom" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera Zoom<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-quay-quet"><img alt = "Camera quay quét" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera quay quét<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-than"><img alt = "Camera Thân" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera Thân<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-dome"><img alt = "Camera Dome" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera Dome<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-nguy-trang"><img alt = "Camera ngụy trang" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera ngụy trang<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-hanh-trinh"><img alt = "Camera hành trình" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera hành trình<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-poc"><img alt = "Camera POC" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera POC<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-poe"><img alt = "Camera POE" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera POE<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/camera-nhin-dem-co-mau"><img alt = "Camera nhìn đêm có màu" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Camera nhìn đêm có màu<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li></ul><div class="clear"></div></li></ul><div class="clear"></div></li><li><a href="http://fptcamera.vn/dau-ghi-hinh-camera"><img alt = "Đầu ghi hình camera" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//dau-ghi-hinh-camera-quan-sat.png /><span class="mc_title">Đầu ghi hình camera<i class="fa fa-chevron-right hidden-md"></i></span></a><ul><li><a href="http://fptcamera.vn/dau-ghi-hinh-theo-hang"><img alt = "Đầu ghi hình theo hãng" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Đầu ghi hình theo hãng<i class="fa fa-chevron-right hidden-md"></i></span></a><ul><li><a href="http://fptcamera.vn/dau-ghi-hinh-vantech"><img alt = "Đầu ghi hình Vantech" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Đầu ghi hình Vantech<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/dau-ghi-hinh-benco"><img alt = "Đầu ghi hình BENCO" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Đầu ghi hình BENCO<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/dau-ghi-hinh-questek"><img alt = "Đầu ghi hình Questek" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Đầu ghi hình Questek<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/dau-ghi-hinh-dahua"><img alt = "Đầu ghi hình Dahua" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Đầu ghi hình Dahua<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/dau-ghi-hinh-spyeye"><img alt = "Đầu ghi hình SPYEYE" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Đầu ghi hình SPYEYE<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/dau-ghi-hinh-hikvision"><img alt = "Đầu ghi hình Hikvision" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Đầu ghi hình Hikvision<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/dau-ghi-hinh-hdpro"><img alt = "Đầu ghi hình HDPRO" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Đầu ghi hình HDPRO<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/dau-ghi-hinh-kce"><img alt = "Đầu Ghi Hình KCE" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Đầu Ghi Hình KCE<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/dau-ghi-hinh-gia-re"><img alt = "Đầu ghi hình giá rẻ" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Đầu ghi hình giá rẻ<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/dau-ghi-hinh-kbvision"><img alt = "Đầu ghi hình Kbvision" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Đầu ghi hình Kbvision<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/dau-ghi-hinh-samsung"><img alt = "Đầu ghi hình Samsung" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Đầu ghi hình Samsung<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li></ul><div class="clear"></div></li><li><a href="http://fptcamera.vn/dau-ghi-hinh-theo-loai"><img alt = "Đầu ghi hình theo loại" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Đầu ghi hình theo loại<i class="fa fa-chevron-right hidden-md"></i></span></a><ul><li><a href="http://fptcamera.vn/dau-ghi-hinh-analog"><img alt = "Đầu ghi hình Analog" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Đầu ghi hình Analog<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/dau-ghi-hinh-ahd"><img alt = "Đầu ghi hình AHD" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Đầu ghi hình AHD<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/dau-ghi-hinh-ip"><img alt = "Đầu ghi hình IP" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Đầu ghi hình IP<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/dau-ghi-hinh-hdcvi"><img alt = "Đầu ghi hình HDCVI" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Đầu ghi hình HDCVI<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/dau-ghi-hinh-hd-sdi"><img alt = "Đầu ghi hình HD-SDI" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Đầu ghi hình HD-SDI<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/dau-ghi-hinh-hd-tvi"><img alt = "Đầu ghi hình HD-TVI" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Đầu ghi hình HD-TVI<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li></ul><div class="clear"></div></li><li><a href="http://fptcamera.vn/dau-ghi-hinh-theo-kenh"><img alt = "Đầu ghi hình theo kênh" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Đầu ghi hình theo kênh<i class="fa fa-chevron-right hidden-md"></i></span></a><ul><li><a href="http://fptcamera.vn/dau-ghi-hinh-4-kenh"><img alt = "Đầu ghi hình 4 Kênh" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Đầu ghi hình 4 Kênh<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/dau-ghi-hinh-8-kenh"><img alt = "Đầu ghi hình 8 Kênh" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Đầu ghi hình 8 Kênh<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/dau-ghi-hinh-16-kenh"><img alt = "Đầu ghi hình 16 Kênh" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Đầu ghi hình 16 Kênh<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/dau-ghi-hinh-24-kenh"><img alt = "Đầu ghi hình 24 Kênh" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Đầu ghi hình 24 Kênh<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/dau-ghi-hinh-32-kenh"><img alt = "Đầu ghi hình 32 Kênh" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Đầu ghi hình 32 Kênh<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li></ul><div class="clear"></div></li></ul><div class="clear"></div></li><li><a href="http://fptcamera.vn/phu-kien-camera"><img alt = "Phụ kiện camera" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//phu-kien-camera.png /><span class="mc_title">Phụ kiện camera<i class="fa fa-chevron-right hidden-md"></i></span></a><ul><li><a href="http://fptcamera.vn/o-luu-du-lieu-camera"><img alt = "Ổ lưu dữ liệu Camera" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Ổ lưu dữ liệu Camera<i class="fa fa-chevron-right hidden-md"></i></span></a><ul><li><a href="http://fptcamera.vn/o-luu-tru-80g"><img alt = "Ổ lưu trữ 80G" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Ổ lưu trữ 80G<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/o-luu-tru-160g"><img alt = "Ổ lưu trữ 160G" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Ổ lưu trữ 160G<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/o-luu-du-lieu-250g"><img alt = "Ổ Lưu dữ liệu 250G" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Ổ Lưu dữ liệu 250G<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/o-luu-du-lieu-500g"><img alt = "Ổ lưu dữ liệu 500G" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Ổ lưu dữ liệu 500G<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/hdd-dung-luong-1t"><img alt = "HDD dung lượng 1T" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">HDD dung lượng 1T<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/hdd-dung-luong-2t"><img alt = "HDD dung lượng 2T" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">HDD dung lượng 2T<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/hdd-dung-luong-3000g"><img alt = "HDD dung lượng 3000G" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">HDD dung lượng 3000G<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li></ul><div class="clear"></div></li><li><a href="http://fptcamera.vn/phu-kien-chinh-hang"><img alt = "Phụ kiện chính hãng" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Phụ kiện chính hãng<i class="fa fa-chevron-right hidden-md"></i></span></a><ul><li><a href="http://fptcamera.vn/nguon-camera"><img alt = "Nguồn Camera" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Nguồn Camera<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/vo-bao-ve-camera"><img alt = "Vỏ bảo vệ Camera" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Vỏ bảo vệ Camera<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/day-cap-camera"><img alt = "Dây cáp Camera" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Dây cáp Camera<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/jack-ket-noi-camera"><img alt = "Jack kết nối Camera" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Jack kết nối Camera<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/chan-de-xoay-camera"><img alt = "Chân đế xoay camera" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Chân đế xoay camera<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li></ul><div class="clear"></div></li><li><a href="http://fptcamera.vn/bo-luu-dien-ups"><img alt = "Bộ lưu điện UPS" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Bộ lưu điện UPS<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li></ul><div class="clear"></div></li><li><a href="http://fptcamera.vn/thiet-bi-an-ninh"><img alt = "Thiết bị an ninh" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//camera-thiet-bi-an-ninh.png /><span class="mc_title">Thiết bị an ninh<i class="fa fa-chevron-right hidden-md"></i></span></a><ul><li><a href="http://fptcamera.vn/thiet-bi-chong-trom"><img alt = "Thiết bị chống trộm" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Thiết bị chống trộm<i class="fa fa-chevron-right hidden-md"></i></span></a><ul><li><a href="http://fptcamera.vn/bo-bao-trom-thong-minh"><img alt = "Bộ báo trộm thông minh" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Bộ báo trộm thông minh<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li></ul><div class="clear"></div></li><li><a href="http://fptcamera.vn/chuong-cua-man-hinh"><img alt = "Chuông cửa màn hình" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Chuông cửa màn hình<i class="fa fa-chevron-right hidden-md"></i></span></a><ul><li><a href="http://fptcamera.vn/chuong-cua-camera"><img alt = "Chuông cửa camera" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Chuông cửa camera<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/man-hinh"><img alt = "Màn hình" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Màn hình<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li></ul><div class="clear"></div></li></ul><div class="clear"></div></li><li><a href="http://fptcamera.vn/may-cham-cong"><img alt = "Máy chấm công" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//may-cham-cong-gia-re.png /><span class="mc_title">Máy chấm công<i class="fa fa-chevron-right hidden-md"></i></span></a><ul><li><a href="http://fptcamera.vn/theo-hang-sx"><img alt = "Theo hãng SX" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Theo hãng SX<i class="fa fa-chevron-right hidden-md"></i></span></a><ul><li><a href="http://fptcamera.vn/ronald-jack"><img alt = "RONALD JACK" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">RONALD JACK<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/wise-eye"><img alt = "WISE EYE" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">WISE EYE<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li></ul><div class="clear"></div></li><li><a href="http://fptcamera.vn/theo-loai-ung-dung"><img alt = "Theo loại ứng dụng" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Theo loại ứng dụng<i class="fa fa-chevron-right hidden-md"></i></span></a><ul><li><a href="http://fptcamera.vn/bang-van-tay"><img alt = "Bằng vân tay" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Bằng vân tay<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/van-tay-the-tu-cam-ung"><img alt = "Vân tay & Thẻ từ cảm ứng" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Vân tay & Thẻ từ cảm ứng<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li></ul><div class="clear"></div></li><li><a href="http://fptcamera.vn/so-luong-quan-ly"><img alt = "Số lượng quản lý" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Số lượng quản lý<i class="fa fa-chevron-right hidden-md"></i></span></a><ul><li><a href="http://fptcamera.vn/500-van-tay"><img alt = "500 Vân tay" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">500 Vân tay<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/3000-van-tay"><img alt = "3000 Vân tay" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">3000 Vân tay<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li></ul><div class="clear"></div></li></ul><div class="clear"></div></li><li><a href="http://fptcamera.vn/tong-dai-bo-dam"><img alt = "Tổng đài - Bộ đàm" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//78-32.png /><span class="mc_title">Tổng đài - Bộ đàm<i class="fa fa-chevron-right hidden-md"></i></span></a><ul><li><a href="http://fptcamera.vn/bo-dam-cam-tay"><img alt = "Bộ đàm cầm tay" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Bộ đàm cầm tay<i class="fa fa-chevron-right hidden-md"></i></span></a><ul><li><a href="http://fptcamera.vn/bo-dam-iradio"><img alt = "Bộ đàm IRADIO" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Bộ đàm IRADIO<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li><li><a href="http://fptcamera.vn/bo-dam-kenwood"><img alt = "Bộ đàm KENWOOD" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Bộ đàm KENWOOD<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li></ul><div class="clear"></div></li></ul><div class="clear"></div></li><li><a href="http://fptcamera.vn/thiet-bi-van-phong"><img alt = "Thiết bị văn phòng" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//thiet-bi-van-phong.png /><span class="mc_title">Thiết bị văn phòng<i class="fa fa-chevron-right hidden-md"></i></span></a><ul><li><a href="http://fptcamera.vn/may-chieu"><img alt = "Máy chiếu" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Máy chiếu<i class="fa fa-chevron-right hidden-md"></i></span></a><ul><li><a href="http://fptcamera.vn/may-chieu-sony"><img alt = "Máy chiếu SONY" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Máy chiếu SONY<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li></ul><div class="clear"></div></li><li><a href="http://fptcamera.vn/phu-kien-may-chieu"><img alt = "Phụ kiện máy chiếu" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Phụ kiện máy chiếu<i class="fa fa-chevron-right hidden-md"></i></span></a><ul><li><a href="http://fptcamera.vn/man-chieu-treo-tuong"><img alt = "Màn chiếu treo tường" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title">Màn chiếu treo tường<i class="fa fa-chevron-right hidden-md"></i></span></a><div class="clear"></div></li></ul><div class="clear"></div></li></ul><div class="clear"></div></li></ul>                                        <div class="clear"></div>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-8 col-lg-9">
+                                <div class="row">
+                                    <div class="col-xs-12 col-lg-8" style="padding:0;">
+                                        <div id="searchform">
+                                            <form action="http://fptcamera.vn/tim-kiem" accept-charset="utf-8" method="get">                                                <img style="display: none;" class="loader" src="http://fptcamera.vn/resources/ui_images/client/background/loader.gif"/>
+                                                <input type="text" name="t" value="" id="searchSgg" class="searchfield" onkeyup="lookup()" autocomplete="off" placeholder="Tìm kiếm sản phẩm ..."  />                                                <input type="submit" name="submit_search" value="Tìm kiếm" id="search_btn" class="searchbutton" />                                                <div class="clear"></div>
+                                                <div class="autoSuggestionsList_l" id="autoSuggestionsList">
+                                                </div>
+                                            </form>                                        </div>
+                                        <div id="banner" class="hidden-xs hidden-sm equalheightbanner">
+                                            <div class="bannerslider">
+                                                <ul class="slides">
+                                                                                                            <li>
+                                                            <a href="#">
+                                                                <img title="công ty lắp đặt camera uy tín" alt="Dịch vụ lắp đặt camera quan sát uy tín giá rẻ tại FPT việt nam đạt chất lượng hàng đầu. Khuyến mãi lắp đặt trọn gói không phát sinh" src="http://fptcamera.vn/resources/uploads/images/automatic/banner/chung-nhan-dai-ly-camera-hikvision.jpg" />
+                                                                <div class="clear"></div>
+                                                            </a>
+                                                        </li>
+                                                                                                            <li>
+                                                            <a target="_blank" href="http://fptcamera.vn/tin-tuc/lap-dat-mang-fpt-cap-quang-tai-fpt-viet-nam">
+                                                                <img title="lắp đặt mạng FPT" alt="lap-dat-mang-fpt" src="http://fptcamera.vn/resources/uploads/images/automatic/banner/lap-dat-mang-fpt.jpg" />
+                                                                <div class="clear"></div>
+                                                            </a>
+                                                        </li>
+                                                                                                            <li>
+                                                            <a target="_blank" href="http://fptcamera.vn/tron-bo-camera-gia-re">
+                                                                <img title="lắp đặt camera trọn bộ gía rẻ" alt="Lắp đặt camera benco trọn bộ dịch vụ của FPT VIỆT NAM quý khách không phải phát sinh bất kỳ chi phí nào. Camera an ninh uy tín" src="http://fptcamera.vn/resources/uploads/images/automatic/banner/camera-benco-gia-re.jpg" />
+                                                                <div class="clear"></div>
+                                                            </a>
+                                                        </li>
+                                                                                                    </ul>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 hidden-xs hidden-sm hidden-md" style="padding-left:0;">
+                                        <button type="button" class="btn btn-danger button-support" data-toggle="modal" data-target="#supportonlineModal"><img src="http://fptcamera.vn/resources/ui_images/client/background/yahoo-smile.png">&nbsp;Hỗ trợ trực tuyến</button>
+                                                                                    <a class="b_a" href="http://fptcamera.vn/tin-tuc/lap-dat-mang-fpt-cap-quang-tai-fpt-viet-nam"><img alt="Lắp camera, Internet FPT" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/lap-mang-fpt.jpg"></a>
+                                                                                    <a class="b_a" href="http://fptcamera.vn/tin-tuc/chuong-trinh-doi-camera-cu-lay-camera-moi-tai-fpt"><img alt="Lắp đặt camera tặng báo trộm" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/doi_camera_cu_lay_moi.jpg"></a>
+                                                                            </div>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="col-xs-12 hidden-xs hidden-sm">
+                                <div id="sub-menu">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-lg-7">
+                                            <div class="contain">
+                                                                                                    <a 
+                                                    href='http://fptcamera.vn/tin-tuc/gioi-thieu'                                                     >Sơ lược công ty</a>
+                                                                                                    <a 
+                                                    href='http://fptcamera.vn/tin-tuc/chinh-sach'                                                     >Chính sách ưu đãi</a>
+                                                                                                    <a 
+                                                    href='http://fptcamera.vn/tin-tuc/tin-camera'                                                     >Tin camera</a>
+                                                                                                    <a 
+                                                    href='http://fptcamera.vn/lien-he'                                                     >Liên hệ</a>
+                                                                                            </div>
+                                        </div>
+                                        <div class="col-lg-5 hidden-xs hidden-sm hidden-md">
+                                            <div class="newsslider">
+                                                <ul class="slides">
+                                                                                                        <li>
+                                                        <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-giam-sat-khu-cong-nghiep">Lắp đặt camera giám sát khu công nghiệp</a>
+                                                    </li>
+                                                                                                        <li>
+                                                        <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-quan-sat-tai-bac-giang">lắp đặt camera quan sát tại  Bắc Giang</a>
+                                                    </li>
+                                                                                                        <li>
+                                                        <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-gia-dinh-gia-bao-nhieu">lap dat camera gia dinh gia bao nhieu</a>
+                                                    </li>
+                                                                                                        <li>
+                                                        <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-quan-sat-cho-nha-xuong-can-luu-y-gi-">Lắp đặt camera quan sát cho nhà xưởng cần lưu ý gì?</a>
+                                                    </li>
+                                                                                                        <li>
+                                                        <a href="http://fptcamera.vn/tin-tuc/chuong-trinh-doi-camera-cu-lay-camera-moi-tai-fpt">Chương trình đổi camera cũ lấy camera mới tại FPT</a>
+                                                    </li>
+                                                                                                        <li>
+                                                        <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-tai-bac-ninh">Lắp đặt camera tại Bắc Ninh</a>
+                                                    </li>
+                                                                                                        <li>
+                                                        <a href="http://fptcamera.vn/tin-tuc/chi-phi-lap-dat-camera-quan-sat-tron-goi-tai-ha-noi">Chi phí lắp đặt camera quan sát trọn gói tại hà nội</a>
+                                                    </li>
+                                                                                                        <li>
+                                                        <a href="http://fptcamera.vn/tin-tuc/tu-van-lap-dat-camera-quan-sat-an-toan-gia-dinh">Tư vấn lắp đặt camera quan sát an toàn gia đình</a>
+                                                    </li>
+                                                                                                        <div class="clear"></div>
+                                                </ul>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="col-xs-12">
+                                                                    <ul class="nav nav-tabs custom-tabs " role="tablist">
+                                        <li role="presentation" class="active"><a href="http://fptcamera.vn/camera-tron-bo">Camera trọn bộ</a></li>
+                                                                                    <li class="hidden-xs hidden-sm" role="presentation"><a href="http://fptcamera.vn/tron-bo-camera-gia-re">Trọn bộ camera giá rẻ</a></li>
+                                                                                    <li class="hidden-xs hidden-sm" role="presentation"><a href="http://fptcamera.vn/tron-bo-camera-hd">Trọn bộ camera HD</a></li>
+                                                                                    <li class="hidden-xs hidden-sm" role="presentation"><a href="http://fptcamera.vn/camera-nhap-khau">Camera Nhập khẩu</a></li>
+                                                                            </ul>
+                                    <div class="tab-content ">
+                                        <div role="tabpanel" class="tab-pane active" id="dmsp-camera-tron-bo">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-lg-9">
+                                                    <div class="row">
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/lap-dat-camera-gia-dinh-tron-bo"><img alt="Lắp đặt camera gia đình trọn bộ" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/lap-dat-camera-gia-dinh-tron-bo.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/lap-dat-camera-gia-dinh-tron-bo"><h3>Lắp đặt camera gia đình trọn bộ</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">3.000.000 đ</span>
+                                                                                                                                                <span class="old-price">3.200.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/camera-full-hd-cho-nha-biet-thu-dep"><img alt="Camera Full HD Cho Nhà Biệt Thự Đẹp" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/tron-goi-camera-gia-dinh1.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/camera-full-hd-cho-nha-biet-thu-dep"><h3>Camera Full HD Cho Nhà Biệt Thự Đẹp</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">3.666.670 đ</span>
+                                                                                                                                                <span class="old-price">4.300.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/lap-dat-camera-gia-re-bo-1-den-8-mat"><img alt="Lắp đặt camera giá rẻ bộ 1 đến 8 mắt" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/lap-dat-camera-gia-re-benco.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/lap-dat-camera-gia-re-bo-1-den-8-mat"><h3>Lắp đặt camera giá rẻ bộ 1 đến 8 mắt</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">2.199.000 đ</span>
+                                                                                                                                                <span class="old-price">2.400.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/lap-2-camera-hikvision"><img alt="lap-2-camera-hikvision" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/lap-2-camera-hikvision.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/lap-2-camera-hikvision"><h3>Lắp 2 Camera HIKVISION</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">4.299.000 đ</span>
+                                                                                                                                                <span class="old-price">4.800.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/lap-dat-tron-bo-4-camera-gia-re"><img alt="Lắp Đặt Trọn Bộ 4 Camera Giá Rẻ" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/lap-dat-tron-bo-4-camera-gia-re.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/lap-dat-tron-bo-4-camera-gia-re"><h3>Lắp Đặt Trọn Bộ 4 Camera Giá Rẻ</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">4.899.000 đ</span>
+                                                                                                                                                <span class="old-price">5.499.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/lap-dat-tron-bo-3-camera-hd"><img alt="Lắp Đặt Trọn Bộ 3 Camera HD" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/lap-dat-tron-bo-3-camera-AHD.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/lap-dat-tron-bo-3-camera-hd"><h3>Lắp Đặt Trọn Bộ 3 Camera HD</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">3.799.000 đ</span>
+                                                                                                                                                <span class="old-price">4.500.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 hidden-sm hidden-md">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/lap-dat-camera-dahua-full-hd-khuyen-mai"><img alt="Lắp đặt camera dahua full hd khuyến mãi" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/tron-bo-camera-dahua-full-hd.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/lap-dat-camera-dahua-full-hd-khuyen-mai"><h3>Lắp đặt camera dahua full hd khuyến mãi</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">3.399.000 đ</span>
+                                                                                                                                                <span class="old-price">3.800.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 hidden-sm hidden-md">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/tron-bo-camera-kce-nhap-khau-han-quoc"><img alt="Trọn bộ Camera KEC nhập khẩu HÀN QUỐC" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/tron-bo-camera-kec-han-quoc.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/tron-bo-camera-kce-nhap-khau-han-quoc"><h3>Trọn bộ Camera KCE nhập khẩu HÀN QUỐC</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">8.500.000 đ</span>
+                                                                                                                                                <span class="old-price">9.600.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                            </div>
+                                                </div>
+                                                <div class="col-md-3 hidden-xs hidden-sm hidden-md">
+                                                                                                            <a class="b_a2" href="http://fptcamera.vn/camera-tron-bo"><img alt="lap-dat-camera-quan-sat-tron-bo-hd-gia-re1" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/lap-dat-camera-quan-sat-tron-bo-hd-gia-re1.jpg"></a>
+                                                     
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <ul class="nav nav-tabs custom-tabs " role="tablist">
+                                        <li role="presentation" class="active"><a href="http://fptcamera.vn/camera-giam-sat">Camera giám sát</a></li>
+                                                                                    <li class="hidden-xs hidden-sm" role="presentation"><a href="http://fptcamera.vn/camera-hikvision">Camera Hikvision</a></li>
+                                                                                    <li class="hidden-xs hidden-sm" role="presentation"><a href="http://fptcamera.vn/camera-benco">Camera Benco</a></li>
+                                                                                    <li class="hidden-xs hidden-sm" role="presentation"><a href="http://fptcamera.vn/camera-khong-day">Camera Không Dây</a></li>
+                                                                                    <li class="hidden-xs hidden-sm" role="presentation"><a href="http://fptcamera.vn/camera-gia-re">Camera giá rẻ</a></li>
+                                                                                    <li class="hidden-xs hidden-sm" role="presentation"><a href="http://fptcamera.vn/camera-nguy-trang">Camera ngụy trang</a></li>
+                                                                            </ul>
+                                    <div class="tab-content ">
+                                        <div role="tabpanel" class="tab-pane active" id="dmsp-camera-giam-sat">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-lg-9">
+                                                    <div class="row">
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/lap-dat-camera-wifi-dahua-dh-ipc-c15p"><img alt="Lắp đặt camera wifi Dahua DH-IPC-C15P" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/camera-ip-wifi-dahua-ipc-c15.png"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/lap-dat-camera-wifi-dahua-dh-ipc-c15p"><h3>Lắp đặt camera wifi Dahua DH-IPC-C15P</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">1.350.000 đ</span>
+                                                                                                                                                <span class="old-price">1.800.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/camera-quay-quet-ptz-dahua-sd49225i-hc"><img alt="camera-quay-quet-SD49225I-HC" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/camera-quay-quet-SD49225I-HC.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/camera-quay-quet-ptz-dahua-sd49225i-hc"><h3>Camera Quay Quét PTZ DAHUA SD49225I-HC</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">7.750.000 đ</span>
+                                                                                                                                                <span class="old-price">11.000.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/camera-wifi-ipc-1310chw"><img alt="Camera Wifi IPC – 1310CHW" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/camera-wifi-benco-BEN-IPC1310CHW.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/camera-wifi-ipc-1310chw"><h3>Camera Wifi  IPC – 1310CHW</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">1.699.000 đ</span>
+                                                                                                                                                <span class="old-price">2.300.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/camera-kce-sptia6024-han-quoc-full-hd"><img alt="Camera KCE-SPTIA6024 Hàn Quốc Full HD" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/camera-HD-SDI-han-quoc-KCE---SPTIA6024.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/camera-kce-sptia6024-han-quoc-full-hd"><h3>Camera KCE-SPTIA6024 Hàn Quốc Full HD</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">2.150.000 đ</span>
+                                                                                                                                                <span class="old-price">2.300.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/camera-ptz-quay-quet-benco-ben-300ahd2-0"><img alt="camera-BEN-300AHD2.0" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/camera-BEN-300AHD2.0_.png"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/camera-ptz-quay-quet-benco-ben-300ahd2-0"><h3>Camera PTZ Quay Quét BENCO BEN-300AHD2.0</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">14.070.000 đ</span>
+                                                                                                                                                <span class="old-price">19.000.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/camera-ip-khong-day-hdpro-hdp-888ip1-0"><img alt="camera-ip-wifi-HDP-888IP1.0" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/camera-ip-wifi-HDP-888IP1.0_.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/camera-ip-khong-day-hdpro-hdp-888ip1-0"><h3>Camera IP Không dây HDPRO HDP-888IP1.0</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">1.050.000 đ</span>
+                                                                                                                                                <span class="old-price">1.350.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 hidden-sm hidden-md">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/camera-ip-pan-til-wifi-hikvision-ds-2cd2q10"><img alt="Camera IP Pan/Til Wifi HIKVISION DS-2CD2Q10" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/camera-pan-tit-hikvision-DS-2CD2Q101.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/camera-ip-pan-til-wifi-hikvision-ds-2cd2q10"><h3>Camera IP Pan/Til Wifi HIKVISION DS-2CD2Q10</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">2.500.000 đ</span>
+                                                                                                                                                <span class="old-price">3.800.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 hidden-sm hidden-md">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/camera-ip-wifi-hikvision-ds-2cd2420f-iw-2-0mb"><img alt="camera-ip-cube-wifi-hikvision-DS-2CD2420F-IW" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/camera-ip-cube-wifi-hikvision-DS-2CD2420F-IW1.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/camera-ip-wifi-hikvision-ds-2cd2420f-iw-2-0mb"><h3>Camera IP Wifi HIKVISION DS-2CD2420F-IW 2.0MB</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">1.744.000 đ</span>
+                                                                                                                                                <span class="old-price">2.500.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                            </div>
+                                                </div>
+                                                <div class="col-md-3 hidden-xs hidden-sm hidden-md">
+                                                                                                            <a class="b_a2" href="http://fptcamera.vn/camera-khong-day"><img alt="lap-camera-giam-sat-khong-day-wifi" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/lap-camera-giam-sat-khong-day-wifi.gif"></a>
+                                                     
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <ul class="nav nav-tabs custom-tabs " role="tablist">
+                                        <li role="presentation" class="active"><a href="http://fptcamera.vn/dau-ghi-hinh-camera">Đầu ghi hình camera</a></li>
+                                                                                    <li class="hidden-xs hidden-sm" role="presentation"><a href="http://fptcamera.vn/dau-ghi-hinh-4-kenh">Đầu ghi hình 4 Kênh</a></li>
+                                                                                    <li class="hidden-xs hidden-sm" role="presentation"><a href="http://fptcamera.vn/dau-ghi-hinh-benco">Đầu ghi hình BENCO</a></li>
+                                                                                    <li class="hidden-xs hidden-sm" role="presentation"><a href="http://fptcamera.vn/dau-ghi-hinh-8-kenh">Đầu ghi hình 8 Kênh</a></li>
+                                                                                    <li class="hidden-xs hidden-sm" role="presentation"><a href="http://fptcamera.vn/dau-ghi-hinh-gia-re">Đầu ghi hình giá rẻ</a></li>
+                                                                            </ul>
+                                    <div class="tab-content ">
+                                        <div role="tabpanel" class="tab-pane active" id="dmsp-dau-ghi-hinh-camera">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-lg-9">
+                                                    <div class="row">
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/dau-hikvision-16-kenh-turbo-hd-3-0-ds-8116hqhi-f8-n"><img alt="Đầu HIKVISION 16 Kênh Turbo HD 3.0 DS-8116HQHI-F8/N" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/dau-ghi-hinh-HIKVISION-16-KENH-DS-8116HQHI-F8-N.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/dau-hikvision-16-kenh-turbo-hd-3-0-ds-8116hqhi-f8-n"><h3>Đầu HIKVISION 16 Kênh Turbo HD 3.0 DS-8116HQHI-F8/N</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">29.000.000 đ</span>
+                                                                                                                                                <span class="old-price">35.000.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/dau-ghi-hinh-han-quoc-kce-16-kenh-khd-1600a"><img alt="Đầu ghi hình Hàn Quốc KCE 16 Kênh KHD-1600A" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/dau-ghi-hinh-hdsdi-4-kenh-KHD-1600A.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/dau-ghi-hinh-han-quoc-kce-16-kenh-khd-1600a"><h3>Đầu ghi hình Hàn Quốc KCE 16 Kênh KHD-1600A</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">11.900.000 đ</span>
+                                                                                                                                                <span class="old-price">13.000.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/dau-ghi-8-kenh-hikvision-ds-7108hqhi-f1-n"><img alt="Đầu ghi 8 kênh HIKVISION DS-7108HQHI-F1/N" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/dau-ghi-hinh--kenh-hikvision-DS-7108HQHI-F1N.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/dau-ghi-8-kenh-hikvision-ds-7108hqhi-f1-n"><h3>Đầu ghi 8 kênh HIKVISION DS-7108HQHI-F1/N</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">3.600.000 đ</span>
+                                                                                                                                                <span class="old-price">4.100.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 hidden-sm hidden-md">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/dau-ghi-4-kenh-hikvision-full-hd-ds-7104hqhi-f1-n"><img alt="Đầu ghi 4 kênh HIKVISION FULL HD DS-7104HQHI-F1/N" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/dau-ghi-hinh-4-kenh-hikvision-DS-7104HQHI-F1N.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/dau-ghi-4-kenh-hikvision-full-hd-ds-7104hqhi-f1-n"><h3>Đầu ghi 4 kênh HIKVISION FULL HD DS-7104HQHI-F1/N</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">2.340.000 đ</span>
+                                                                                                                                                <span class="old-price">2.520.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 hidden-xs hidden-sm hidden-md">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/dau-ghi-hinh-4-kenh-hang-kce-han-quoc-khd-400a"><img alt="Đầu ghi hình 4 kênh hãng KCE Hàn Quốc KHD - 400A" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/dau-ghi-hinh-hdsdi-4-kenh-KHD-400A1.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/dau-ghi-hinh-4-kenh-hang-kce-han-quoc-khd-400a"><h3>Đầu ghi hình 4 kênh hãng KCE Hàn Quốc KHD - 400A</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">5.500.000 đ</span>
+                                                                                                                                                <span class="old-price">6.000.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 hidden-xs hidden-sm hidden-md">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/dau-ghi-ip-32-kenh-hang-hikvision-ds-7732ni-e4"><img alt="Đầu ghi IP 32 Kênh hãng HIKVISION DS-7732NI-E4" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/dau-ghi-hinh-hikvision-32-kenh-ip-DS-7732NI-E4.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/dau-ghi-ip-32-kenh-hang-hikvision-ds-7732ni-e4"><h3>Đầu ghi IP 32 Kênh hãng HIKVISION DS-7732NI-E4</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">9.980.000 đ</span>
+                                                                                                                                                <span class="old-price">1.120.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 hidden-xs hidden-sm hidden-md">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/dau-ghi-hinh-hdpro-4-kenh-ahd-hdp-1700ahd"><img alt="dau-ghi-hinh-4-kenh-hdpro-HDP-1700AHD" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/dau-ghi-hinh-4-kenh-hdpro-HDP-1700AHD.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/dau-ghi-hinh-hdpro-4-kenh-ahd-hdp-1700ahd"><h3>Đầu Ghi Hình HDPRO 4 Kênh AHD HDP-1700AHD</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">1.599.000 đ</span>
+                                                                                                                                                <span class="old-price">2.120.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 hidden-xs hidden-sm hidden-md">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/dau-ghi-hd-cvi-4-kenh-dahua-hcvr4104c-v2"><img alt="dau-ghi-hinh-hdcvi-dahua-HCVR4104C-V2" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/dau-ghi-hinh-hdcvi-dahua-HCVR4104C-V2.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/dau-ghi-hd-cvi-4-kenh-dahua-hcvr4104c-v2"><h3>Đầu Ghi HD-CVI 4 Kênh DAHUA HCVR4104C-V2</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">1.650.000 đ</span>
+                                                                                                                                                <span class="old-price">2.180.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                            </div>
+                                                </div>
+                                                <div class="col-md-3 hidden-xs hidden-sm hidden-md">
+                                                                                                            <a class="b_a2" href="http://fptcamera.vn/dau-ghi-hinh-gia-re"><img alt="dau-ghi-hinh-camera-DVR" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/dau-ghi-hinh-camera-DVR.jpg"></a>
+                                                     
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <ul class="nav nav-tabs custom-tabs hidden-xs hidden-sm" role="tablist">
+                                        <li role="presentation" class="active"><a href="http://fptcamera.vn/phu-kien-camera">Phụ kiện camera</a></li>
+                                                                                    <li class="hidden-xs hidden-sm" role="presentation"><a href="http://fptcamera.vn/o-luu-du-lieu-camera">Ổ lưu dữ liệu Camera</a></li>
+                                                                                    <li class="hidden-xs hidden-sm" role="presentation"><a href="http://fptcamera.vn/nguon-camera">Nguồn Camera</a></li>
+                                                                                    <li class="hidden-xs hidden-sm" role="presentation"><a href="http://fptcamera.vn/day-cap-camera">Dây cáp Camera</a></li>
+                                                                            </ul>
+                                    <div class="tab-content hidden-xs hidden-sm">
+                                        <div role="tabpanel" class="tab-pane active" id="dmsp-phu-kien-camera">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-lg-9">
+                                                    <div class="row">
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/nguon-tong-camera-12v-5a"><img alt="nguon-tong-12V-5A-gia-re" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/nguon-tong-12V-5A-gia-re.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/nguon-tong-camera-12v-5a"><h3>Nguồn Tổng Camera 12V-5A</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">250.000 đ</span>
+                                                                                                                                                <span class="old-price">275.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/vo-bao-ve-camera-ngoai-troi-kk02"><img alt="vo-bao-ve-kk02" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/vo-bao-ve-kk02.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/vo-bao-ve-camera-ngoai-troi-kk02"><h3>Vỏ Bảo Vệ Camera Ngoài Trời KK02</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">190.000 đ</span>
+                                                                                                                                                <span class="old-price"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/day-tin-hieu-dong-truc-cable-5c"><img alt="day-tin-hieu-cab-5c-camera" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/day-tin-hieu-cab-5c-chuyen-cho-camera.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/day-tin-hieu-dong-truc-cable-5c"><h3>Dây Tín Hiệu Đồng Trục Cable 5C</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">6.000 đ</span>
+                                                                                                                                                <span class="old-price"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 hidden-sm hidden-md">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/hdd-chuyen-dung-seagate-1tb"><img alt="hdd-seagate-1t" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/hdd-seagate-1t.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/hdd-chuyen-dung-seagate-1tb"><h3>HDD Chuyên Dụng SEAGATE 1TB</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">1.350.000 đ</span>
+                                                                                                                                                <span class="old-price">1.450.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                            </div>
+                                                </div>
+                                                <div class="col-md-3 hidden-xs hidden-sm hidden-md">
+                                                                                                            <a class="b_a2" href="http://fptcamera.vn/phu-kien-camera"><img alt="phu-kien-camera-quan-sat" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/phu-kien-camera-quan-sat.jpg"></a>
+                                                     
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <ul class="nav nav-tabs custom-tabs hidden-xs hidden-sm" role="tablist">
+                                        <li role="presentation" class="active"><a href="http://fptcamera.vn/thiet-bi-an-ninh">Thiết bị an ninh</a></li>
+                                                                                    <li class="hidden-xs hidden-sm" role="presentation"><a href="http://fptcamera.vn/chuong-cua-camera">Chuông cửa camera</a></li>
+                                                                                    <li class="hidden-xs hidden-sm" role="presentation"><a href="http://fptcamera.vn/thiet-bi-chong-trom">Thiết bị chống trộm</a></li>
+                                                                            </ul>
+                                    <div class="tab-content hidden-xs hidden-sm">
+                                        <div role="tabpanel" class="tab-pane active" id="dmsp-thiet-bi-an-ninh">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-lg-9">
+                                                    <div class="row">
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/camera-chuong-cua-samsung-sht-cw610e-en"><img alt="camera-chuong-cua-samsung-SHT-CW610E-EN" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/camera-chuong-cua-samsung-SHT-CW610E-EN.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/camera-chuong-cua-samsung-sht-cw610e-en"><h3>Camera Chuông Cửa SAMSUNG SHT-CW610E/EN</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">1.530.000 đ</span>
+                                                                                                                                                <span class="old-price">1.800.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/bao-trom-khong-day-karassn-ks-258b"><img alt="bao-trom-khong-day-Karassn-KS-258B" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/bao-trom-khong-day-Karassn-KS-258B.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/bao-trom-khong-day-karassn-ks-258b"><h3>Báo Trộm Không Dây Karassn KS-258B</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">950.000 đ</span>
+                                                                                                                                                <span class="old-price">1.000.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/bao-trom-thong-minh-karassn-ks-899gsm"><img alt="bao-trom-thong-minh-Karassn-KS-899GSM" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/bao-trom-thong-minh-Karassn-KS-899GSM.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/bao-trom-thong-minh-karassn-ks-899gsm"><h3>Báo Trộm Thông Minh Karassn KS-899GSM</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">3.350.000 đ</span>
+                                                                                                                                                <span class="old-price">3.500.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                            </div>
+                                                </div>
+                                                <div class="col-md-3 hidden-xs hidden-sm hidden-md">
+                                                                                                            <a class="b_a2" href="http://fptcamera.vn/thiet-bi-an-ninh"><img alt="lap-camera-khuyen-mai-bao-trom" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/lap-camera-khuyen-mai-bao-trom.jpg"></a>
+                                                     
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <ul class="nav nav-tabs custom-tabs hidden-xs hidden-sm" role="tablist">
+                                        <li role="presentation" class="active"><a href="http://fptcamera.vn/may-cham-cong">Máy chấm công</a></li>
+                                                                                    <li class="hidden-xs hidden-sm" role="presentation"><a href="http://fptcamera.vn/500-van-tay">500 Vân tay</a></li>
+                                                                                    <li class="hidden-xs hidden-sm" role="presentation"><a href="http://fptcamera.vn/3000-van-tay">3000 Vân tay</a></li>
+                                                                                    <li class="hidden-xs hidden-sm" role="presentation"><a href="http://fptcamera.vn/van-tay-the-tu-cam-ung">Vân tay & Thẻ từ cảm ứng</a></li>
+                                                                            </ul>
+                                    <div class="tab-content hidden-xs hidden-sm">
+                                        <div role="tabpanel" class="tab-pane active" id="dmsp-may-cham-cong">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-lg-9">
+                                                    <div class="row">
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/may-cham-cong-van-tay-wise-eye-wse-268"><img alt="may-cham-cong-van-tay-WISE-EYE-WSE-268" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/may-cham-cong-van-tay-WISE-EYE-WSE-268.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/may-cham-cong-van-tay-wise-eye-wse-268"><h3>Máy Chấm Công Vân Tay WISE EYE WSE-268</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">2.600.000 đ</span>
+                                                                                                                                                <span class="old-price">2.900.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/may-cham-cong-van-tay-the-wise-eye-808"><img alt="may-cham-cong-van-tay-WISE-EYE-808" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/may-cham-cong-van-tay-WISE-EYE-808.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/may-cham-cong-van-tay-the-wise-eye-808"><h3>Máy Chấm Công Vân Tay + Thẻ WISE EYE 808</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">3.450.000 đ</span>
+                                                                                                                                                <span class="old-price">3.900.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/may-cham-cong-van-tay-the-ronald-jack-x628"><img alt="may-cham-cong-van-tay-RONALD-JACK-X628" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/may-cham-cong-van-tay-RONALD-JACK-X628.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/may-cham-cong-van-tay-the-ronald-jack-x628"><h3>Máy Chấm Công Vân Tay - Thẻ RONALD JACK X628</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">3.400.000 đ</span>
+                                                                                                                                                <span class="old-price">3.900.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 hidden-sm hidden-md">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/may-cham-cong-van-tay-the-ronald-jack-x938-c"><img alt="may-cham-cong-RONALD-JACK-X-938-C" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/may-cham-cong-RONALD-JACK-X-938-C.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/may-cham-cong-van-tay-the-ronald-jack-x938-c"><h3>Máy Chấm Công Vân Tay - Thẻ RONALD JACK X938-C</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">3.550.000 đ</span>
+                                                                                                                                                <span class="old-price">3.890.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                            </div>
+                                                </div>
+                                                <div class="col-md-3 hidden-xs hidden-sm hidden-md">
+                                                                                                            <a class="b_a2" href="http://fptcamera.vn/may-cham-cong"><img alt="may-cham-cong-van-tay-the-gia-re" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/may-cham-cong-van-tay-the-gia-re.jpg"></a>
+                                                     
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <ul class="nav nav-tabs custom-tabs hidden-xs hidden-sm" role="tablist">
+                                        <li role="presentation" class="active"><a href="http://fptcamera.vn/tong-dai-bo-dam">Tổng đài - Bộ đàm</a></li>
+                                                                                    <li class="hidden-xs hidden-sm" role="presentation"><a href="http://fptcamera.vn/bo-dam-iradio">Bộ đàm IRADIO</a></li>
+                                                                                    <li class="hidden-xs hidden-sm" role="presentation"><a href="http://fptcamera.vn/bo-dam-kenwood">Bộ đàm KENWOOD</a></li>
+                                                                            </ul>
+                                    <div class="tab-content hidden-xs hidden-sm">
+                                        <div role="tabpanel" class="tab-pane active" id="dmsp-tong-dai-bo-dam">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-lg-9">
+                                                    <div class="row">
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/bo-dam-cam-tay-iradio-ir-668"><img alt="bo-dam-cam-tay-IRADIO-IR-668" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/bo-dam-cam-tay-IRADIO-IR-668.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/bo-dam-cam-tay-iradio-ir-668"><h3>Bộ Đàm Cầm Tay IRADIO IR-668</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">800.000 đ</span>
+                                                                                                                                                <span class="old-price">900.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/bo-dam-kenwood-tk-3107"><img alt="bo-dam-kenwood-tk-3170" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/bo-dam-kenwood-tk-3107.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/bo-dam-kenwood-tk-3107"><h3>Bộ Đàm KENWOOD TK-3107</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">1.650.000 đ</span>
+                                                                                                                                                <span class="old-price">1.700.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/bo-dam-kenwood-tk-2000"><img alt="bo-dam-kenwood-tk-2000" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/bo-dam-kenwood-tk-2000.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/bo-dam-kenwood-tk-2000"><h3>Bộ Đàm KENWOOD TK-2000</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">1.880.000 đ</span>
+                                                                                                                                                <span class="old-price">2.100.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 hidden-sm hidden-md">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/bo-dam-kenwood-tk-3102s"><img alt="bo-dam-kenwood-tk-3102s" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/bo-dam-kenwood-tk-3102s.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/bo-dam-kenwood-tk-3102s"><h3>Bộ Đàm KENWOOD TK-3102S</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">1.200.000 đ</span>
+                                                                                                                                                <span class="old-price">1.300.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                            </div>
+                                                </div>
+                                                <div class="col-md-3 hidden-xs hidden-sm hidden-md">
+                                                                                                            <a class="b_a2" href="http://fptcamera.vn/bo-dam-kenwood"><img alt="bo-dam-tong-dai-gia-re-fpt" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/bo-dam-tong-dai-gia-re-fpt.jpg"></a>
+                                                     
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <ul class="nav nav-tabs custom-tabs hidden-xs hidden-sm" role="tablist">
+                                        <li role="presentation" class="active"><a href="http://fptcamera.vn/thiet-bi-van-phong">Thiết bị văn phòng</a></li>
+                                                                                    <li class="hidden-xs hidden-sm" role="presentation"><a href="http://fptcamera.vn/phu-kien-may-chieu">Phụ kiện máy chiếu</a></li>
+                                                                                    <li class="hidden-xs hidden-sm" role="presentation"><a href="http://fptcamera.vn/may-chieu-sony">Máy chiếu SONY</a></li>
+                                                                            </ul>
+                                    <div class="tab-content hidden-xs hidden-sm">
+                                        <div role="tabpanel" class="tab-pane active" id="dmsp-thiet-bi-van-phong">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-lg-9">
+                                                    <div class="row">
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/may-chieu-sony-vpl-dx122"><img alt="may-chieu-sony-VPL-DX-122" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/may-chieu-sony-VPL-DX-122.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/may-chieu-sony-vpl-dx122"><h3>Máy Chiếu SONY VPL-DX122</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">11.400.000 đ</span>
+                                                                                                                                                <span class="old-price">11.800.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/may-chieu-sony-vpl-dx-102"><img alt="may-chieu-sony-VPL-DX-102" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/may-chieu-sony-VPL-DX-102.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/may-chieu-sony-vpl-dx-102"><h3>Máy Chiếu SONY VPL-DX 102</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">9.200.000 đ</span>
+                                                                                                                                                <span class="old-price">9.500.000 đ</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                                    <div class="col-xs-6 col-sm-4 col-lg-3 ">
+                                                                <div class="thumbnail products">
+                                                                    <a href="http://fptcamera.vn/man-chieu-treo-tuong-cac-loai"><img alt="man-may-chieu-gia-re" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/man-may-chieu-gia-re.jpg"></a>
+                                                                    <div class="caption">
+                                                                        <a href="http://fptcamera.vn/man-chieu-treo-tuong-cac-loai"><h3>Màn Chiếu Treo tường Các Loại</h3></a>
+                                                                        <div class="clear"></div>
+                                                                                                                                                    <span class="new-price">Liên hệ</span>
+                                                                                                                                                <span class="old-price"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                                                            </div>
+                                                </div>
+                                                <div class="col-md-3 hidden-xs hidden-sm hidden-md">
+                                                                                                            <a class="b_a2" href="http://fptcamera.vn/thiet-bi-van-phong"><img alt="may-chieu-sony-chinh-hang" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/may-chieu-sony-chinh-hang.jpg"></a>
+                                                     
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                            </div>
+                             <div class="col-xs-12 hidden-xs hidden-sm">
+                                <div class="text-header">Camera các hãng</div>
+                                <div class="galleryslider">
+                                    <ul class="slides">
+                                                                                <li>
+                                            <a href="http://fptcamera.vn/camera-vantech"><img alt="Camera Vantech Giá Rẻ" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-vantech.jpg"/></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="http://fptcamera.vn/camera-benco"><img alt="Camera Benco Giá Rẻ" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-hang-benco1.jpg"/></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="http://fptcamera.vn/camera-dahua"><img alt="Camera Dahua Đài Loan" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-dahua.jpg"/></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="http://fptcamera.vn/camera-questek"><img alt="Camera Questek Việt Nam" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-questek.jpg"/></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="http://fptcamera.vn/camera-hikvision"><img alt="Camera HIKVISION" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-hikvision-dai-loan.jpg"/></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="http://fptcamera.vn/camera-spyeye"><img alt="Camera Spyeye" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-spyeye-gia-re1.jpg"/></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="http://fptcamera.vn/camera-avtech"><img alt="Camera AVTECH ĐÀI LOAN" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-samsung.jpg"/></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="http://fptcamera.vn/camera-kce"><img alt="Camera KCE HÀN QUỐC" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-KCE-han-quoc.jpg"/></a>
+                                        </li>
+                                                                                <li>
+                                            <a href="http://fptcamera.vn/camera-kce"><img alt="Camera SAMSUNG HÀN QUỐC" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/camera-hang-samsung.jpg"/></a>
+                                        </li>
+                                                                                <div class="clear"></div>
+                                    </ul>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 hidden-xs hidden-sm">
+                                <div class="text-header">Chấp nhận thanh toán</div>
+                                <img style="width:100%;margin:10px 0;" alt="Chấp nhận thanh toán" src="http://fptcamera.vn/resources/ui_images/client/background/payments.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom end here -->
+            <div id="bottom">
+                                <div class="container bg-social">
+	                <div class="row">
+	                	<div class="col-xs-12">
+	                		<div class="row">
+	                			<div class="col-xs-12 col-md-4 col-lg-3">
+			                		<div class="social-claim">
+			                			<div class="claim_header">Cam kết</div>
+			                			<div class="claim">Sản phẩm hàng hóa chính hãng, đa dạng, phong phú</div>
+			                			<div class="claim">Luôn luôn giá rẻ và khuyến mại không ngừng</div>
+			                			<div class="claim">Dịch vụ chăm sóc khách hàng uy tín, tận tâm</div>
+			                		</div>
+			                	</div>
+			                	<div class="col-xs-12 col-md-4 col-lg-3">
+			                		<div class="social-claim2">
+			                			<div class="claim_header">Hỗ trợ khách hàng</div>
+			                			<ul>
+			                							                				<li><a href="http://fptcamera.vn/tin-tuc/xem-camera-giam-sat-qua-dien-thoai">Xem camera giám sát qua điện thoại</a></li>
+			                							                				<li><a href="http://fptcamera.vn/tin-tuc/xem-camera-quan-sat-qua-may-tinh">Xem camera quan sát qua máy tính</a></li>
+			                							                				<li><a href="http://fptcamera.vn/tin-tuc/download-tai-lieu">Download tài liệu</a></li>
+			                							                				<li><a href="http://fptcamera.vn/tin-tuc/hd-cai-dat-phan-mem-teamviewer">HD cài đặt phần mềm Teamviewer</a></li>
+			                							                			</ul>
+			                		</div>
+			                	</div>
+			                	<div class="col-xs-12 col-md-4 col-lg-3">
+			                		<div class="social-claim2">
+			                			<div class="claim_header">Thông tin công ty</div>
+			                			<ul>
+			                				<li><a href="http://fptcamera.vn/tin-tuc/gioi-thieu">Giới thiệu</a></li>
+			                				<li><a href="http://fptcamera.vn/tin-tuc/tuyen-dung">Tuyển dụng</a></li>
+			                				<li><a href="http://fptcamera.vn/tin-tuc/chinh-sach">Chính sách</a></li>
+			                			</ul>
+			                			<div id="social_us">
+			                				<div class="social_us_header">Kết nối với chúng tôi</div>
+			                				<div id="f_social">
+				                				<a target="_blank" rel="nofollow" href="https://www.facebook.com/FptCamera.vn">
+				                					<img src="http://fptcamera.vn/resources/ui_images/client/background/social/f_fb.png">
+					                			</a>
+					                			<a target="_blank" rel="nofollow" href="https://plus.google.com//+FptCamera">
+					                				<img src="http://fptcamera.vn/resources/ui_images/client/background/social/f_gplus.png">
+					                			</a>
+					                			<a target="_blank" rel="nofollow" href="https://www.youtube.com/c/FptCamera">
+					                				<img src="http://fptcamera.vn/resources/ui_images/client/background/social/f_yt.png">
+					                			</a>
+				                			</div>
+			                			</div>
+			                		</div>
+			                	</div>
+			                	<div class="col-xs-12 col-md-4 col-lg-3 hidden-md">
+			                		<div class="social-claim2">
+			                			<div class="claim_header">Tổng đài trợ giúp</div>
+			                				<div style="margin:10px;">
+			                					<table border="0" cellpadding="1" cellspacing="1" style="width: 100%;">
+	<tbody>
+		<tr>
+			<td><img alt="" src="/resources/uploads/images/anhtintuc/tro-giup.png" style="width: 68px; height: 81px;" /></td>
+			<td style="vertical-align: middle;">
+			<p><span style="color:#333333;"><span style="font-size:14px;">Tư vấn bán hàng</span></span></p>
+
+			<p><span style="color:#ba0000;"><span style="font-size:20px;"><strong>0984 489 688</strong></span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+			<hr /><span style="color:#555555;"><span style="font-size:13px;"><img alt="" src="/resources/uploads/images/anhtintuc/life_saver.png" />&nbsp; Chăm sóc và hỗ trợ sau bán hàng</span></span></td>
+		</tr>
+		<tr>
+			<td colspan="2" style="text-align: center;"><span style="color:#B22222;"><strong><span style="font-size:16px;">(04)6328 2964</span></strong></span></td>
+		</tr>
+		<tr>
+			<td colspan="2"><span style="font-size:13px;"><span style="color:#555555;"><img alt="" src="/resources/uploads/images/anhtintuc/mailer.png" />&nbsp; fptcamera.vn@gmail.com</span></span></td>
+		</tr>
+	</tbody>
+</table>
+			                				</div>
+			                			</div>
+			                		</div>
+			                	</div>
+	                		</div>
+	                	</div>
+	                </div>
+	            </div>
+                <div class="container-fluid bg-footer">
+	                <div class="row">
+	                	<div class="col-xs-12 col-xs-offset-0 col-md-10 col-md-offset-1">
+	                		<div class="row">
+		                		<div class="col-md-2 hidden-xs hidden-sm">
+		                			<div class="f-logo">
+		                				<a href="http://fptcamera.vn/">
+                                            <img title="LẮP ĐẶT CAMERA QUAN SÁT GIÁ RẺ" alt="Camera FPT Việt Nam tự hào Nhà cung cấp thiết bị camera giám sát giá rẻ uy tín trên toàn quốc" src="http://fptcamera.vn/resources/uploads/images/automatic/logo/logo-fpt-camera-giam-sat.png">
+                                        </a>
+		                			</div>
+		                		</div>
+		                		<div class="col-xs-12 col-md-5">
+		                			<div class="f-address">
+			                				<p><span style="color:#ff6600;"><strong>LẮP ĐẶT CAMERA&nbsp;DỊCH VỤ&nbsp;FPT&nbsp;&nbsp;VIỆT NAM TẠI HÀ NỘI</strong></span><span style="color:#FF8C00;"><strong>&nbsp;</strong></span><br />
+Địa chỉ : <span style="color:#FFD700;">Số 12 Ngõ 18/46 Định Công Thượng, Q.Hoàng Mai, TP. Hà Nội</span><br />
+Điện thoại : <span style="color:#FFD700;">024&nbsp;6328 2964 &nbsp;- 0919 654 688</span><br />
+Website : <span style="color:#FFD700;">http://fptcamera.vn</span></p>
+
+<p><strong><span style="color:#ff6600;">LẮP ĐẶT CAMERA CHI NHÁNH QUẢNG NINH</span></strong><br />
+Địa chỉ : <span style="color:#FFD700;">Số 42 Trần Hưng Đạo, TP. Hạ Long, Quảng Ninh</span><br />
+Điện thoại :&nbsp;<span style="color:#FFD700;">&nbsp; 0971 767 258</span></p>
+
+<p><strong><span style="color: rgb(255, 102, 0);">LẮP ĐẶT CAMERA CHI NHÁNH TP.HCM</span></strong><br />
+Địa chỉ :&nbsp;<span style="color: rgb(255, 215, 0);">Số 192/81 Nguyễn Oanh, Quận Gò Vấp, TP.HCM</span><br />
+Điện thoại :&nbsp;<span style="color: rgb(255, 215, 0);">&nbsp;&nbsp;</span><span style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;">&nbsp;</span><span style="color: rgb(255, 215, 0);">08 7307 4567 - 0931 588 886</span></p>
+
+<p><span style="color:#FF8C00;">Giới thiệu dịch vụ </span><a href="https://sites.google.com/site/camerafptvietnam/"><span style="color:#FF8C00;">lắp đặt camera</span></a><span style="color:#FF8C00;"> của FPT Việt Nam</span></p>
+
+<p><em>Trước nhu cầu của thị trường và mở rộng ngành dịch vụ Công ty FPT Việt Nam được sáng lập hoạt động kết hợp với Tập đoàn FPT triển khai lắp đặt Internet Cáp quang – Camera giám sát tại&nbsp;khắp các tỉnh thành cả nước. "Hiện chúng tôi đang phát triển kết hợp với một số <strong>đơn vị lắp đặt camera uy tín</strong> tạo nên một thị trường dịch vụ công nghệ uy tín trên toàn quốc".</em></p>
+
+<p>&nbsp;</p>
+			                		</div>
+		                		</div>
+		                				                		<div class="col-xs-12 col-md-5">
+		                			<div class="f-address">
+			                				<p><strong><span style="color:#FF8C00;">Trụ sở&nbsp;FPT VN CO., LTD</span></strong><br style="font-size: 14px; line-height: 22.3999996185303px;" />
+<span style="font-size: 14px; line-height: 22.3999996185303px;">Địa chỉ : <span style="color:#FFD700;">KCN THUẬN THÀNH, TP. Bắc Ninh</span></span><br />
+Điện thoại: <span style="color:#FFD700;">0222&nbsp;3505 475</span></p>
+
+<p><strong><span style="color: rgb(255, 102, 0);">LẮP ĐẶT CAMERA CHI NHÁNH LẠNG SƠN</span></strong><br />
+Địa chỉ : <span style="color: rgb(255, 215, 0);">Thất Khê, Tràng Định, Lạng Sơn</span><br />
+Điện thoại :&nbsp;<span style="color: rgb(255, 215, 0);">&nbsp; 0949 696 692</span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="color:#FF8C00;">Hiện chúng tôi có các điểm dịch vụ như: </span></p>
+
+<p><a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-khu-cong-nghiep-vsip-bac-ninh"><span style="color:#cccccc;">Lắp đặt camera tại Bắc Ninh</span></a><span style="color:#cccccc;">, </span><a href="http://fptcamera.vn/tin-tuc/lap-camera-truong-tieu-hoc-ngo-sy-lien-bac-giang"><span style="color:#cccccc;">Lắp đặt camera tại Bắc Giang</span></a><span style="color:#cccccc;">, </span><a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-quan-dong-da-ha-noi"><span style="color:#cccccc;">Lắp đặt camera tại Hà Nội</span></a><span style="color:#cccccc;">, lắp đặt camera tại Vĩnh Phúc, </span><a href="http://fptcamera.vn/tin-tuc/lap-camera-giam-sat-tai-hung-yen"><span style="color:#cccccc;">lắp đặt camera tại hưng yên</span></a><span style="color:#cccccc;">, Lắp đặt camera tại Hải Dương, Lắp đặt camera tại Lạng Sơn, Lắp đặt camera tại Thanh Hóa, Lắp đặt camera tại &nbsp;Hải Phòng, Lắp đặt camera tại Đà Nẵng, Lắp đặt camera TP HCM…<br />
+Quý khách cần lắp đặt camera, Internet vui lòng liên hệ để được tư vấn lắp đặt.&nbsp;</span></p>
+
+<p>&nbsp;</p>
+
+<p style="text-align: right;"><img alt="camera fpt đang ký bộ công thương" src="/resources/uploads/images/camera-fpt-thong-bao-bo-cong-thuong.png" /></p>
+			                		</div>
+		                		</div>
+		                				                	</div>
+		                </div>
+	                    <div class="clear"></div>
+	                </div>
+	            </div>
+	            <div class="container">
+	                <div class="row">
+	                	<div class="col-xs-12 col-xs-offset-0 col-md-10 col-md-offset-1">
+	                		<div class="f-copyright">Copyright © 2015. All Rights Reserved by FPT Camera</div>
+		                </div>
+	                    <div class="clear"></div>
+	                </div>
+	            </div>
+				
+				<div style="display: none">
+					<!-- Histats.com  START  (standard)-->
+					<script type="text/javascript">document.write(unescape("%3Cscript src=%27http://s10.histats.com/js15.js%27 type=%27text/javascript%27%3E%3C/script%3E"));</script>
+					<a href="http://www.histats.com" target="_blank" title="" ><script  type="text/javascript" >
+					try {Histats.start(1,3313430,4,438,112,75,"00011111");
+					Histats.track_hits();} catch(err){};
+					</script></a>
+					<noscript><a href="http://www.histats.com" target="_blank"><img  src="http://sstatic1.histats.com/0.gif?3313430&101" alt="" border="0"></a></noscript>
+					<!-- Histats.com  END  -->
+				</div>                <div class="clear"></div>
+            </div>
+            <!-- Bottom end here -->
+
+        </div>
+        		<div class="sticky-container hidden-xs hidden-md">
+			<!-- <ul class="sticky">
+				<li>
+					<a rel="no-follow" target="_blank" href="">
+						<p>Facebook</p>
+						<img src="http://fptcamera.vn/resources/ui_images/client/background/social/fb.jpg" />
+					</a>
+				</li>
+				<li>
+					<a rel="no-follow" target="_blank" href="">
+						<p>Google+</p>
+						<img src="http://fptcamera.vn/resources/ui_images/client/background/social/gplus.jpg" />
+					</a>
+				</li>
+				<li>
+					<a rel="no-follow" target="_blank" href="">
+						<p>Twitter</p>
+						<img src="http://fptcamera.vn/resources/ui_images/client/background/social/tt.jpg" />
+					</a>
+				</li>
+				<li>
+					<a rel="no-follow" target="_blank" href="">
+						<p>Youtube</p>
+						<img src="http://fptcamera.vn/resources/ui_images/client/background/social/yt.jpg" />
+					</a>
+				</li>
+			</ul> -->
+		</div>
+		<div class="sticky-buttons hidden-xs hidden-md">
+			<!-- <a data-toggle="modal" data-target="#supportonlineModal">Hỗ trợ trực tuyến</a> -->
+			<!-- <a data-toggle="modal" data-target="#hotlineModal">HOTLINE</a> -->
+		</div>
+		<!-- <div class="modal fade" id="hotlineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">HOTLINE</h4>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div id="modal_hotline_list">
+																	<div class="col-xs-4">
+										<div class="hotline">
+											<span class="phone">Hotline 1</span>
+											<span class="title">024.6328.2964</span>
+										</div>
+									</div>
+																	<div class="col-xs-4">
+										<div class="hotline">
+											<span class="phone">Hotline 2</span>
+											<span class="title">0984 489 688</span>
+										</div>
+									</div>
+															</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+					</div>
+				</div>
+			</div>
+		</div> -->
+		<div class="modal fade" id="supportonlineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">Hỗ trợ trực tuyến</h4>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div id="modal_hotline_list">
+																	<div class="col-xs-6 col-md-4">
+										<div class="hotline">
+											<p class="title">Mr: Xuân</p>											<p>Tư vấn bán hàng</p>											<p>Tel: 098 448 9688</p>																						
+												<a style="float:left" href="skype:kd_fptcamera?chat" class="icons skype"><i style="font-size:25px;margin-left:10px;" class="fa fa-skype"></i></a>
+																					</div>
+									</div>
+																	<div class="col-xs-6 col-md-4">
+										<div class="hotline">
+											<p class="title">Mr: Thành</p>											<p>Tư vấn bán hàng</p>											<p>Tel: 0971.767.285</p>																						
+												<a style="float:left" href="skype:kd_fptcamera?chat" class="icons skype"><i style="font-size:25px;margin-left:10px;" class="fa fa-skype"></i></a>
+																					</div>
+									</div>
+																	<div class="col-xs-6 col-md-4">
+										<div class="hotline">
+											<p class="title">Mr: Duy</p>											<p>Chi nhánh Sài Gòn</p>											<p>Tel: 0931.588.886</p>																						
+												<a style="float:left" href="skype:kd_fptcamera?chat" class="icons skype"><i style="font-size:25px;margin-left:10px;" class="fa fa-skype"></i></a>
+																					</div>
+									</div>
+															</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="go_top" class="hidden-xs hidden-sm"><i class="fa fa-arrow-circle-up"></i></div>
+		<div id="fixed-bottom" class="hidden-lg hidden-md">
+			<div id="call-xs-sm"><a href="tel:0984 489 688"><i class="fa fa-phone">&nbsp;&nbsp;</i>Gọi 0984 489 688</a></div>
+		</div>
+		        <script type="text/javascript" charset="utf-8">
+            
+                $(window).load(function() {
+                    equalheight('.thumbnail.products');
+                    equalheight('.thumbnail.news');
+                    equalheight('.equalheight1');
+                    equalheight('.equalheightbanner');
+                });
+
+
+                $(window).resize(function(){
+                    equalheight('.thumbnail.products');
+                    equalheight('.thumbnail.news');
+                    equalheight('.equalheight1');
+                    equalheight('.equalheightbanner');
+                });
+
+                $('#menu ul > li').hover(function () {
+                    $(this).children('ul').stop(true, true).delay(200).fadeIn(300);
+                }, function () {
+                    $(this).children('ul').stop(true, true).fadeOut(300);
+                });
+
+                $('#prd-cate-list .sub-page > ul > li').hover(function () {
+                    $(this).children('ul').stop(true, true).delay(200).fadeIn(300);
+                }, function () {
+                    $(this).children('ul').stop(true, true).fadeOut(300);
+                });
+
+                $('#prd-cate-list').hover(function () {
+                    $(this).children('ul.sub-page').stop(true, true).delay(200).slideDown(300);
+                }, function () {
+                    $(this).children('ul.sub-page').stop(true, true).slideUp(300);
+                });
+
+                $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
+					event.preventDefault(); 
+					event.stopPropagation(); 
+					$(this).parent().siblings().removeClass('open');
+					$(this).parent().toggleClass('open');
+				});
+				
+				$('.scrollfix').scrollFix({fixTop:40});
+
+                if ($(window).scrollTop() != "0")
+                    $("#go_top").fadeIn("slow");
+                var scrollDiv = $("#go_top");
+                $(window).scroll(function () {
+                    if ($(window).scrollTop() == "0")
+                        $(scrollDiv).fadeOut("slow")
+                    else
+                        $(scrollDiv).fadeIn("slow")
+                });
+                $("#go_top").click(function () {
+                    $("html, body").animate({
+                        scrollTop: $("#ScrollTo").offset().top
+                    }, "slow")
+                });
+
+                $('.mobileslider').flexslider({
+                    animation: "fade",
+                    animationLoop: true,
+                    directionNav: false,
+                    controlNav: false,
+                });                
+            $('.bannerslider').flexslider({
+                animation: "fade",
+                animationLoop: true,
+                directionNav: false,
+            });
+
+            $('.galleryslider').flexslider({
+                animation: "slide",
+                itemWidth: 122,
+                controlNav: false,
+            });
+
+            $('.newsslider').flexslider({
+                animation: "slide",
+                direction: "vertical",
+                controlNav: false,
+                directionNav: false,
+                slideshowSpeed: 3000,
+            });
+
+            $('#prd-cate-list .main-page > ul > li').hover(function () {
+                $(this).children('ul').stop(true, true).delay(200).fadeIn(500);
+            }, function () {
+                $(this).children('ul').stop(true, true).fadeOut(500);
+            });
+             
+        </script>
+    
+
+<script type='text/javascript'>window._sbzq||function(e){e._sbzq=[];var t=e._sbzq;t.push(["_setAccount",38435]);var n=e.location.protocol=="https:"?"https:":"http:";var r=document.createElement("script");r.type="text/javascript";r.async=true;r.src=n+"//static.subiz.com/public/js/loader.js";var i=document.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)}(window);</script>
+
+
+
+</body>
+</html>
