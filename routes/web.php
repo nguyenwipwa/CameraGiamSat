@@ -11,21 +11,19 @@
 |
  */
 
-Route::group(['prefix'=>'/'], function()
-{
-	Route::get('/','PageController@trangchu' );
+Route::group(['prefix' => '/'], function () {
+	Route::get('/', 'PageController@trangchu');
 
 });
-Route::get('/test','PageController@trangchu1' );
+Route::get('/test', 'PageController@trangchu1');
 
 Route::get('/cart-detail', 'PageController@cartDetail');
 
 Route::get('/news', 'PageController@news');
 
-Route::get('/detail-product', 'PageController@detailProduct');
+Route::get('/detail-product/{id}', 'PageController@detailProduct');
 
 Route::get('/category/{id_category}/{start}', 'PageController@category');
-
 
 Route::get('/abc', function () {
 	return "ngon";
@@ -69,16 +67,15 @@ Route::get('/model/save', function () {
 	echo "Đã Thực hiện save";
 });
 
-Route::get('/model/query', function(){
+Route::get('/model/query', function () {
 	$user = App\User::find(1);
 	echo $user->name;
 });
-Route::get('model/category', function(){
+Route::get('model/category', function () {
 	$category = App\Category::all()->toJson();
 	echo $category;
 });
-Route::get('model/category/ten', function(){
+Route::get('model/category/ten', function () {
 	$category = App\Category::where('id', 10)->get()->toArray();
 	var_dump($category);
 });
-

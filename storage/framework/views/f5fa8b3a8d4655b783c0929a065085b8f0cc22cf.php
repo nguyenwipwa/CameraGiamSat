@@ -14,7 +14,7 @@
     <meta name="geo.placename" content="Hà nội" />
     <meta name="geo.position" content="20.984321;105.818546" />
     <meta name="ICBM" content="20.984321, 105.818546" />
-    @include("../../.link.index")
+    <?php echo $__env->make("../../.link.index", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     <script>
         (function(i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
@@ -53,7 +53,7 @@
 <body lang="vi">
     <div id="wrapper">
         <!-- Top start here -->
-        @include("../../index.topsub")
+        <?php echo $__env->make("../../index.topsub", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <!-- Top end here -->
         <div class="container">
             <div class="row">
@@ -72,20 +72,20 @@
                             <div class="row">
                                 <div class="col-xs-12 col-md-7">
                                     <div class="" style="width:100%;background:#fff;border:1px solid #ccc;padding:10px;">
-                                        <a data-toggle="modal" data-target=".bs-example-modal-lg"> <img style="cursor:pointer;display:block;margin:0 auto;background:#fff;" alt="Lắp đặt camera giá rẻ bộ 1 đến 8 mắt" src="{{asset('public/images/san-pham/'.$product->img)}}"> </a>
+                                        <a data-toggle="modal" data-target=".bs-example-modal-lg"> <img style="cursor:pointer;display:block;margin:0 auto;background:#fff;" alt="Lắp đặt camera giá rẻ bộ 1 đến 8 mắt" src="<?php echo e(asset('public/images/san-pham/'.$product->img)); ?>"> </a>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-md-5">
                                     <div class="prd-desc equalheight1">
-                                        <h1 class="header2">{{$product->name}}</h1>
+                                        <h1 class="header2"><?php echo e($product->name); ?></h1>
                                         <div class="clear"></div>
-                                        <p>Mã sản phẩm: <b>{{$product->id}}</b>
+                                        <p>Mã sản phẩm: <b><?php echo e($product->id); ?></b>
                                         </p>
                                         <p>Thương hiệu: <a href="http://fptcamera.vn/benco-viet-nam">Benco Việt Nam</a>
                                         </p>
                                         <p>Giá thị trường: <span class='detail-oldprice'>2.400.000 đ</span>
                                         </p>
-                                        <p>Giá bán: <span class='detail-price'>{{$product->price}}</span>
+                                        <p>Giá bán: <span class='detail-price'><?php echo e($product->price); ?></span>
                                         </p>
                                         <p>Tình trạng: <span class='detail-stock'>Còn hàng</span>
                                         </p>
@@ -122,49 +122,51 @@
                                     </li>
                                 </ul>
                                 <div class="tab-content">
-                                         {!!html_entity_decode($product->detail_product)!!}
-                                    {!!html_entity_decode($product->digital)!!}
+                                         <?php echo html_entity_decode($product->detail_product); ?>
+
+                                    <?php echo html_entity_decode($product->digital); ?>
+
                                     </div>
                                 </div>
                                 <div id="tags"> <span><i class="fa fa-tags"></i>Xem thêm</span> <a href="http://fptcamera.vn/tag-san-pham/bo-camera-gia-re">bộ camera giá rẻ</a> <a href="http://fptcamera.vn/tag-san-pham/lap-dat-camera-gia-re">lắp đặt camera giá rẻ</a> <a href="http://fptcamera.vn/tag-san-pham/camera-gia-re">camera gia re</a> </div>
                             </div> <span class="header3" style="border-bottom: 0px">Sản phẩm liên quan</span>
-                           @php
+                           <?php
                             $sanpham = DB::select('SELECT product.id, product.name, product.price, product.img from product join category on product.id_category = category.id where category.id = ?',[$product->id]);
                             $random = DB::select('SELECT product.name, product.price, product.id, product.img from product order by rand() limit 3');
                             // var_dump($sanpham);
-                        @endphp
+                        ?>
                             <div class="row">
-                                @foreach ($random as $element)
-                                    {{-- expr --}}
+                                <?php $__currentLoopData = $random; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $element): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    
 
                                 <div class="col-xs-6 col-sm-4">
                                     <div class="thumbnail products">
-                                        <a href="{{url('/detail-product/'.$element->id)}}"><img alt="Đầu ghi hình BENCO 4 kênh BEN-XVR1104C FUll HD" src="{{asset('public/images/san-pham/'.$element->img)}}">
+                                        <a href="<?php echo e(url('/detail-product/'.$element->id)); ?>"><img alt="Đầu ghi hình BENCO 4 kênh BEN-XVR1104C FUll HD" src="<?php echo e(asset('public/images/san-pham/'.$element->img)); ?>">
                                         </a>
-                                        <div class="caption"> <a href="http://fptcamera.vn/dau-ghi-hinh-benco-4-kenh-ben-xvr1104c-full-hd"><h3>{{$element->name}}</h3></a>
+                                        <div class="caption"> <a href="http://fptcamera.vn/dau-ghi-hinh-benco-4-kenh-ben-xvr1104c-full-hd"><h3><?php echo e($element->name); ?></h3></a>
                                             <div class="clear"></div>
                                             <div class="row">
-                                                   <div class="col-xs-12"><span class="new-price">{{$element->price}}</span>
+                                                   <div class="col-xs-12"><span class="new-price"><?php echo e($element->price); ?></span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                 @endforeach
+                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </div>
                         </div>
 
                         <div class="col-xs-12 col-md-3"> <span class="header3">Sản phẩm cùng danh mục</span>
-                           @foreach ($sanpham as $element)
+                           <?php $__currentLoopData = $sanpham; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $element): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="media products">
                                 <div class="media-left">
-                                    <a href="{{url('/detail-product/'.$element->id)}}"> <img class="media-object" alt="Camera Full HD Cho Nhà Biệt Thự Đẹp" src="{{asset('public/images/san-pham/'.$element->img)}}"> </a>
+                                    <a href="<?php echo e(url('/detail-product/'.$element->id)); ?>"> <img class="media-object" alt="Camera Full HD Cho Nhà Biệt Thự Đẹp" src="<?php echo e(asset('public/images/san-pham/'.$element->img)); ?>"> </a>
                                 </div>
                                 <div class="media-body">
-                                    <a href="{{url('/detail-product/'.$element->id)}}">
-                                        <h4 class="media-heading">{{$element->name}}</h4> </a> <span class="media-price">{{$element->price}}</span> </div>
+                                    <a href="<?php echo e(url('/detail-product/'.$element->id)); ?>">
+                                        <h4 class="media-heading"><?php echo e($element->name); ?></h4> </a> <span class="media-price"><?php echo e($element->price); ?></span> </div>
                             </div>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 
                         </div>
@@ -263,7 +265,7 @@
                 </div>
             </div>
         </div>
-       @include('../../index.footer')
+       <?php echo $__env->make('../../index.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <div style="display: none">
             <!-- Histats.com START (standard)-->
             <script type="text/javascript">

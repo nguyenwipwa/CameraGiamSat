@@ -246,9 +246,9 @@
                                         @foreach ($products as $element)
                                         <div class="col-xs-6 col-sm-4 col-lg-3 ">
                                             <div class="thumbnail products">
-                                                <a href="{{url('/detail-product')}}"><img alt="{{$element->name}}" src="{{ asset('public/images/san-pham/'.$element->img) }}"></a>
+                                                <a href="{{url('/detail-product/'.$element->id)}}"><img alt="{{$element->name}}" src="{{ asset('public/images/san-pham/'.$element->img) }}"></a>
                                                 <div class="caption">
-                                                    <a href="{{url('/detail-product')}}"><h3>{!!$element->name!!}</h3></a>
+                                                    <a href="{{url('/detail-product/'.$element->id)}}"><h3>{!!$element->name!!}</h3></a>
                                                     <div class="clear"></div>
                                                     <span class="new-price">{!!number_format($element->price)!!} VNĐ</span>
                                                     {{-- <span class="old-price">2.500.000 đ</span> --}}
