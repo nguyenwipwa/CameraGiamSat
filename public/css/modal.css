@@ -1,0 +1,44 @@
+.stats_totals span {
+    display: inline-block;
+    background: #000000;
+    height: 20px;
+    line-height: 20px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 2px 5px;
+    position: relative;
+    border: 1px solid #494949;
+    border-right: none;
+}
+.box_statistics .s-title {
+    color: #00a2e1;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    margin-bottom: 10px;
+}
+.font_err {
+    color: #FF0000;
+}
+.box_statistics{
+    border: 1px solid #ddd;
+    margin-top: 20%;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 2%;
+}
+#title{
+    color: #FFA500;
+    background: #003333;
+    height:30px;
+
+}
+.modal-header{
+    background: #003333;
+    font-size: 23px;
+    font-weight: bold;
+}
+.error{
+    color: red;
+}

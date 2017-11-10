@@ -298,7 +298,9 @@ h2 .breadcrumb {
 .breadcrumb a:hover{color:#ec252d;text-decoration:underline;}
 
 .header2{margin:5px 0;position:relative;padding-bottom:5px;display:block;font-size:20px;font-weight:bold;float:left;}
-.header3{border-bottom:1px solid #ebebeb;margin:10px 0;position:relative;padding:10px 0;display:block;font-size:16px;font-weight:bold;text-transform:uppercase;}
+.header3{
+	border-bottom:1px solid #ebebeb;
+	margin:10px 0;position:relative;padding:10px 0;display:block;font-size:16px;font-weight:bold;text-transform:uppercase;}
 .description2{font-size:14.5px;color:000;text-align:justify;}
 .text-header{font-size:16px;font-weight:bold;text-transform:uppercase;margin:10px 0;color:#555;}
 

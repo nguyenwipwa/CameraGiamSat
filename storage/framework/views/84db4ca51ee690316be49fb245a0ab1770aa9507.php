@@ -246,9 +246,9 @@
                                         <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $element): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <div class="col-xs-6 col-sm-4 col-lg-3 ">
                                             <div class="thumbnail products">
-                                                <a href="<?php echo e(url('/detail-product')); ?>"><img alt="<?php echo e($element->name); ?>" src="<?php echo e(asset('public/images/san-pham/'.$element->img)); ?>"></a>
+                                                <a href="<?php echo e(url('/detail-product/'.$element->id)); ?>"><img alt="<?php echo e($element->name); ?>" src="<?php echo e(asset('public/images/san-pham/'.$element->img)); ?>"></a>
                                                 <div class="caption">
-                                                    <a href="<?php echo e(url('/detail-product')); ?>"><h3><?php echo $element->name; ?></h3></a>
+                                                    <a href="<?php echo e(url('/detail-product/'.$element->id)); ?>"><h3><?php echo $element->name; ?></h3></a>
                                                     <div class="clear"></div>
                                                     <span class="new-price"><?php echo number_format($element->price); ?> VNĐ</span>
                                                     

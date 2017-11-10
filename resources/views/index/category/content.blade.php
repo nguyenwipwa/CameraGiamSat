@@ -13,8 +13,8 @@
   <meta name="geo.placename" content="Hà nội" />
   <meta name="geo.position" content="20.984321;105.818546" />
   <meta name="ICBM" content="20.984321, 105.818546" />
-  
-  @include("../../.link.index");
+
+  @include("../../.link.index")
 
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -34,7 +34,7 @@
       if(keyword.length == 0) {
         $('#autoSuggestionsList').fadeOut(400);
       } else {
-        $.post("http://fptcamera.vn/ajaxhandle/client_products_ajaxhandler/Ajax_Get_All_Product_Client", 
+        $.post("http://fptcamera.vn/ajaxhandle/client_products_ajaxhandler/Ajax_Get_All_Product_Client",
           {keyword : keyword},
           function(data){
             if(data.length > 14) {
@@ -124,9 +124,9 @@
                                       @foreach ($list_product as $e)
                                       <div class="col-xs-6 col-sm-4 col-lg-3">
                                         <div class="thumbnail products">
-                                          <a href="{{ url('/detail-product') }}"><img alt="may-chieu-sony-VPL-DX-122" src="{{ asset('public/images/san-pham/'.$e->img) }}"></a>
+                                          <a href="{{ url('/detail-product/'.$e->id)}}"><img alt="may-chieu-sony-VPL-DX-122" src="{{ asset('public/images/san-pham/'.$e->img) }}"></a>
                                           <div class="caption">
-                                            <a href="http://fptcamera.vn/may-chieu-sony-vpl-dx122"><h3>{{$e->name}}</h3></a>
+                                            <a href="{{url('/detail-product/'.$e->id)}}"><h3>{{$e->name}}</h3></a>
                                             <div class="clear"></div>
                                             <span class="new-price">{{number_format($e->price)}} VNĐ</span>
                                             {{-- <span class="old-price">11.800.000 đ</span> --}}
@@ -144,7 +144,7 @@
                                         <li class='@php if($page==$i) echo 'active'; @endphp'><a href='{{url('/category/'.$id_category.'/'.$i)}}'>{{$i}}<span class='sr-only'></span></a></li>
                                         @endfor
                                       </li><li><a href="http://fptcamera.vn/thiet-bi-van-phong/?&amp;trang=10">Last &rsaquo;</a></li>
-                                    </ul>                                
+                                    </ul>
                                   </div>
                                   <div class="clear"></div>
                                 </div>
@@ -234,19 +234,19 @@
               <div id="modal_hotline_list">
                 <div class="col-xs-6 col-md-4">
                   <div class="hotline">
-                    <p class="title">Mr: Xuân</p>                     <p>Tư vấn bán hàng</p>                      <p>Tel: 098 448 9688</p>                                            
+                    <p class="title">Mr: Xuân</p>                     <p>Tư vấn bán hàng</p>                      <p>Tel: 098 448 9688</p>
                     <a style="float:left" href="skype:kd_fptcamera?chat" class="icons skype"><i style="font-size:25px;margin-left:10px;" class="fa fa-skype"></i></a>
                   </div>
                 </div>
                 <div class="col-xs-6 col-md-4">
                   <div class="hotline">
-                    <p class="title">Mr: Thành</p>                      <p>Tư vấn bán hàng</p>                      <p>Tel: 0971.767.285</p>                                            
+                    <p class="title">Mr: Thành</p>                      <p>Tư vấn bán hàng</p>                      <p>Tel: 0971.767.285</p>
                     <a style="float:left" href="skype:kd_fptcamera?chat" class="icons skype"><i style="font-size:25px;margin-left:10px;" class="fa fa-skype"></i></a>
                   </div>
                 </div>
                 <div class="col-xs-6 col-md-4">
                   <div class="hotline">
-                    <p class="title">Mr: Duy</p>                      <p>Chi nhánh Sài Gòn</p>                      <p>Tel: 0931.588.886</p>                                            
+                    <p class="title">Mr: Duy</p>                      <p>Chi nhánh Sài Gòn</p>                      <p>Tel: 0931.588.886</p>
                     <a style="float:left" href="skype:kd_fptcamera?chat" class="icons skype"><i style="font-size:25px;margin-left:10px;" class="fa fa-skype"></i></a>
                   </div>
                 </div>
@@ -296,8 +296,8 @@
       });
 
       $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
-        event.preventDefault(); 
-        event.stopPropagation(); 
+        event.preventDefault();
+        event.stopPropagation();
         $(this).parent().siblings().removeClass('open');
         $(this).parent().toggleClass('open');
       });
