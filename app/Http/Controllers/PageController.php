@@ -17,6 +17,15 @@ class PageController extends Controller {
 		//   	var_dump($users);
 		return view('index.carts.cart', ['category' => $category, 'contact' => $contact, 'slides' => $slides]);
 	}
+	///search
+	function searchProduct() {
+		$category = Category::all();
+		$contact = Contact::all();
+		// $product = Category::where('id_category', 10)->get();
+		$slides = DB::select('SELECT category.*, slide.img FROM slide INNER JOIN category ON slide.id_category = category.id');
+		//   	var_dump($users);
+		return view('index.search.search', ['category' => $category, 'contact' => $contact, 'slides' => $slides]);
+	}
 
 	function news() {
 		$category = Category::all();

@@ -15,6 +15,9 @@ Route::group(['prefix' => '/'], function () {
 	Route::get('/', 'PageController@trangchu');
 
 });
+
+Route::get('/search-product', 'PageController@searchProduct');
+
 Route::get('/test', 'PageController@trangchu1');
 
 Route::get('/cart-detail', 'PageController@cartDetail');

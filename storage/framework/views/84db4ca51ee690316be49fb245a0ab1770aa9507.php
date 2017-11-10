@@ -259,7 +259,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-3 hidden-xs hidden-sm hidden-md">
-                                    <a class="b_a2" href="http://fptcamera.vn/camera-khong-day"><img alt="lap-camera-giam-sat-khong-day-wifi" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/<?php echo e($e->img); ?>"></a>
+                                    <a class="b_a2" href="<?php echo e(url('/category/'.$e->id.'/1')); ?>"><img alt="lap-camera-giam-sat-khong-day-wifi" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/<?php echo e($e->img); ?>"></a>
                                 </div>
                             </div>
                         </div>

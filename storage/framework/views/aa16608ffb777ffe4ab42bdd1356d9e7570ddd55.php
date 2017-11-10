@@ -78,9 +78,9 @@
                                                             <div class="col-xs-12 col-md-5">
 
                                                                 <div class="prd-desc equalheight1">
-                                                                    <h1 class="header2"> Lắp đặt camera giá rẻ bộ 1 đến 8 mắt </h1>
+                                                                    <h1 class="header2"> <?php echo e($product->name); ?></h1>
                                                                     <div class="clear"></div>
-                                                                    <p>Mã sản phẩm: <b><?php echo e($product->name); ?></b>
+                                                                    <p>Mã sản phẩm: <b><?php echo e($product->id); ?></b>
                                                                     </p>
                                                                     <p>Thương hiệu: <a href="http://fptcamera.vn/benco-viet-nam"><?php echo e($thuonghieu==null ? 'VANTECH' : $thuonghieu->name); ?></a>
                                                                     </p>
