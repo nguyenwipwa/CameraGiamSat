@@ -4,8 +4,8 @@
  <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="margin-right: 100px"> <span class="sr-only">Logo</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-      <a class="navbar-brand" href="#" style="color: black">Camera P3T</a> </div>
+      <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="margin-right: 100px"> <span class="sr-only">Logo</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> -->
+      <!-- <a class="navbar-brand" href="#" style="color: black">Camera P3T</a> </div> -->
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-left">
           <li class="active"><a href="#home"><span class="glyphicon glyphicon-home"></span></a></li>
@@ -38,7 +38,7 @@
       </ul>
       <form class="navbar-form navbar-right search" style="margin-top: 14px; margin-right:75px">
         <input type="search" style="height: 25px; border: 1px solid #cccccc; font-size: 1em; padding: 3px 3px 3px 3px;" placeholder="Nhập từ cần tìm...">
-        <button type="submit" class="btnSearch" style="width: 33px; height: 33px; position: absolute;">
+        <button type="submit" class="btnSearch" style="width: 33px; height: 33px;" >
           <i class="fa fa-search" aria-hidden="true"> </i>
         </button>
       </form>
