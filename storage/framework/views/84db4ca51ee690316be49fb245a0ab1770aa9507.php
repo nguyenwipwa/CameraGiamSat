@@ -37,7 +37,7 @@
             if (keyword.length == 0) {
                 $('#autoSuggestionsList').fadeOut(400);
             } else {
-                $.post("http://fptcamera.vn/ajaxhandle/client_products_ajaxhandler/Ajax_Get_All_Product_Client", { keyword: keyword },
+                $.get("<?php echo e(url('/search-ajax')); ?>/"+ keyword, null ,
                     function(data) {
                         if (data.length > 14) {
                             $('#autoSuggestionsList').fadeIn(400);
@@ -53,10 +53,10 @@
                                 //alert(obj.message[i].value);
                                 //append
                                 strhtml += '<div class="sgg-row">';
-                                strhtml += '<div class="sgg-image"><img width="50" height="50" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/thumbs/' + obj.message[i].Image + '"/></div>';
+                                strhtml += '<div class="sgg-image"><img width="50" height="50" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/thumbs/' + obj.message[i].img + '"/></div>';
                                 strhtml += '<div class="sgg-right">';
-                                strhtml += '<div class="sgg-title"><a href="http://fptcamera.vn/' + obj.message[i].Slug + '">' + obj.message[i].Title + '</a></div>';
-                                strhtml += '<div class="sgg-sellprice">' + parseFloat(obj.message[i].SellPrice).toFixed().replace(/./g, function(c, i, a) { return i && c !== "." && ((a.length - i) % 3 === 0) ? '.' + c : c; }) + ' đ</div>';
+                                strhtml += '<div class="sgg-title"><a href="<?php echo e(url("/detail-product")); ?>/' + obj.message[i].id + '">' + obj.message[i].name + '</a></div>';
+                                strhtml += '<div class="sgg-sellprice">' + parseFloat(obj.message[i].price).toFixed().replace(/./g, function(c, i, a) { return i && c !== "." && ((a.length - i) % 3 === 0) ? '.' + c : c; }) + ' đ</div>';
                                 strhtml += '</div>';
                                 strhtml += '</div>';
                             }
@@ -134,8 +134,8 @@
                 <div class="row">
                     <div class="col-xs-12 col-lg-8" style="padding:0;">
                         <div id="searchform">
-                            <form action="http://fptcamera.vn/tim-kiem" accept-charset="utf-8" method="get"> <img style="display: none;" class="loader" src="http://fptcamera.vn/resources/ui_images/client/background/loader.gif" />
-                                <input type="text" name="t" value="" id="searchSgg" class="searchfield" onkeyup="lookup()" autocomplete="off" placeholder="Tìm kiếm sản phẩm ..." />
+                            <form action="<?php echo e(route('search')); ?>" accept-charset="utf-8" method="get"> <img style="display: none;" class="loader" src="http://fptcamera.vn/resources/ui_images/client/background/loader.gif" />
+                                <input type="text" name="key" value="" id="searchSgg" class="searchfield" onkeyup="lookup()" autocomplete="off" placeholder="Tìm kiếm sản phẩm ..." />
                                 <input type="submit" name="submit_search" value="Tìm kiếm" id="search_btn" class="searchbutton" />
                                 <div class="clear"></div>
                                 <div class="autoSuggestionsList_l" id="autoSuggestionsList">
