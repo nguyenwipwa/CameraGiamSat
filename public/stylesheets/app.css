@@ -218,9 +218,9 @@ h1 .breadcrumb {
 .header{background:#e1e1e1;margin-top:10px;padding:7px 10px;border-bottom:3px solid #eb1c24;}
 .header span{color:#555;border:none;line-height:12px;border-radius:0;margin-right:0;line-height:16px;cursor:default;font-weight:bold;}
 .body{border:1px solid #e1e1e1;padding:10px;background:#fff;}
-.body a.sort_list{background:url("../../../resources/ui_images/client/background/sl-check.png") no-repeat left -41px;display:block;padding:0 0 0 25px;color:#555;font-size:15px;line-height:25px;}
+.body a.sort_list{background:url("../../public/images/ui_images/sl-check.png") no-repeat left -41px;display:block;padding:0 0 0 25px;color:#555;font-size:15px;line-height:25px;}
 .body a.sort_list:hover,
-.body a.sort_list.active{background:url("../../../resources/ui_images/client/background/sl-check.png") no-repeat left 3px;}
+.body a.sort_list.active{background:url("../../public/images/ui_images/sl-check.png") no-repeat left 3px;}
 
 .media.products{margin-top:10px;}
 .media.products img{border:1px solid #eaeaea;}
