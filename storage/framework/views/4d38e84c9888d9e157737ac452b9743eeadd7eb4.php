@@ -35,7 +35,7 @@
 			if(keyword.length == 0) {
 				$('#autoSuggestionsList').fadeOut(400);
 			} else {
-				$.post("http://fptcamera.vn/ajaxhandle/client_products_ajaxhandler/Ajax_Get_All_Product_Client", 
+				$.post("http://fptcamera.vn/ajaxhandle/client_products_ajaxhandler/Ajax_Get_All_Product_Client",
 					{keyword : keyword},
 					function(data){
 						if(data.length > 14) {
@@ -99,73 +99,31 @@
 								</div>
 								<div class="product_list">
 									<div class="row">
+
+										
+										
+										
+									
+										<?php $__currentLoopData = $product; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $e): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+										
 										<div class="col-xs-6 col-sm-4 col-lg-3">
 											<div class="thumbnail products">
-												<a href="http://fptcamera.vn/may-cham-cong-van-tay-the-ronald-jack-x938-c"><img alt="may-cham-cong-RONALD-JACK-X-938-C" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/may-cham-cong-RONALD-JACK-X-938-C.jpg"></a>
+												<a href="<?php echo e(url('/detail-product/'.$e->id)); ?>"><img alt="may-chieu-sony-VPL-DX-122" src="<?php echo e(asset('public/images/san-pham/'.$e->img)); ?>"></a>
 												<div class="caption">
-													<a href="http://fptcamera.vn/may-cham-cong-van-tay-the-ronald-jack-x938-c"><h3>Máy Chấm Công Vân Tay - Thẻ RONALD JACK X938-C</h3></a>
+													<a href="<?php echo e(url('/detail-product/'.$e->id)); ?>"><h3><?php echo e($e->name); ?></h3></a>
 													<div class="clear"></div>
-													<span class="new-price">3.550.000 đ</span>
-													<span class="old-price">3.890.000 đ</span>
+													<span class="new-price"><?php echo e(number_format($e->price)); ?> đ</span>
+													<span class="old-price"><?php echo e(number_format($e->price*1.1)); ?> đ</span>
 												</div>
 											</div>
 										</div>
-										<div class="col-xs-6 col-sm-4 col-lg-3">
-											<div class="thumbnail products">
-												<a href="http://fptcamera.vn/may-cham-cong-van-tay-the-ronald-jack-x628"><img alt="may-cham-cong-van-tay-RONALD-JACK-X628" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/may-cham-cong-van-tay-RONALD-JACK-X628.jpg"></a>
-												<div class="caption">
-													<a href="http://fptcamera.vn/may-cham-cong-van-tay-the-ronald-jack-x628"><h3>Máy Chấm Công Vân Tay - Thẻ RONALD JACK X628</h3></a>
-													<div class="clear"></div>
-													<span class="new-price">3.400.000 đ</span>
-													<span class="old-price">3.900.000 đ</span>
-												</div>
-											</div>
-										</div>
-										<div class="col-xs-6 col-sm-4 col-lg-3">
-											<div class="thumbnail products">
-												<a href="http://fptcamera.vn/may-cham-cong-van-tay-the-wise-eye-808"><img alt="may-cham-cong-van-tay-WISE-EYE-808" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/may-cham-cong-van-tay-WISE-EYE-808.jpg"></a>
-												<div class="caption">
-													<a href="http://fptcamera.vn/may-cham-cong-van-tay-the-wise-eye-808"><h3>Máy Chấm Công Vân Tay + Thẻ WISE EYE 808</h3></a>
-													<div class="clear"></div>
-													<span class="new-price">3.450.000 đ</span>
-													<span class="old-price">3.900.000 đ</span>
-												</div>
-											</div>
-										</div>
-										<div class="col-xs-6 col-sm-4 col-lg-3">
-											<div class="thumbnail products">
-												<a href="http://fptcamera.vn/may-cham-cong-van-tay-wise-eye-wse-268"><img alt="may-cham-cong-van-tay-WISE-EYE-WSE-268" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/may-cham-cong-van-tay-WISE-EYE-WSE-268.jpg"></a>
-												<div class="caption">
-													<a href="http://fptcamera.vn/may-cham-cong-van-tay-wise-eye-wse-268"><h3>Máy Chấm Công Vân Tay WISE EYE WSE-268</h3></a>
-													<div class="clear"></div>
-													<span class="new-price">2.600.000 đ</span>
-													<span class="old-price">2.900.000 đ</span>
-												</div>
-											</div>
-										</div>
-										<div class="col-xs-6 col-sm-4 col-lg-3">
-											<div class="thumbnail products">
-												<a href="http://fptcamera.vn/may-chieu-sony-vpl-dx-102"><img alt="may-chieu-sony-VPL-DX-102" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/may-chieu-sony-VPL-DX-102.jpg"></a>
-												<div class="caption">
-													<a href="http://fptcamera.vn/may-chieu-sony-vpl-dx-102"><h3>Máy Chiếu SONY VPL-DX 102</h3></a>
-													<div class="clear"></div>
-													<span class="new-price">9.200.000 đ</span>
-													<span class="old-price">9.500.000 đ</span>
-												</div>
-											</div>
-										</div>
-										<div class="col-xs-6 col-sm-4 col-lg-3">
-											<div class="thumbnail products">
-												<a href="http://fptcamera.vn/may-chieu-sony-vpl-dx122"><img alt="may-chieu-sony-VPL-DX-122" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/may-chieu-sony-VPL-DX-122.jpg"></a>
-												<div class="caption">
-													<a href="http://fptcamera.vn/may-chieu-sony-vpl-dx122"><h3>Máy Chiếu SONY VPL-DX122</h3></a>
-													<div class="clear"></div>
-													<span class="new-price">11.400.000 đ</span>
-													<span class="old-price">11.800.000 đ</span>
-												</div>
-											</div>
-										</div>
+										<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 									</div>
+								</div>
+								<div class="clear"></div>
+								<div class="pagination">
+									<?php echo $product->render(); ?>
+
 								</div>
 							</div>
 							<div class="col-md-3 hidden-xs hidden-sm">
@@ -409,19 +367,19 @@
 							<div id="modal_hotline_list">
 								<div class="col-xs-6 col-md-4">
 									<div class="hotline">
-										<p class="title">Mr: Xuân</p>											<p>Tư vấn bán hàng</p>											<p>Tel: 098 448 9688</p>																						
+										<p class="title">Mr: Xuân</p>											<p>Tư vấn bán hàng</p>											<p>Tel: 098 448 9688</p>
 										<a style="float:left" href="skype:kd_fptcamera?chat" class="icons skype"><i style="font-size:25px;margin-left:10px;" class="fa fa-skype"></i></a>
 									</div>
 								</div>
 								<div class="col-xs-6 col-md-4">
 									<div class="hotline">
-										<p class="title">Mr: Thành</p>											<p>Tư vấn bán hàng</p>											<p>Tel: 0971.767.285</p>																						
+										<p class="title">Mr: Thành</p>											<p>Tư vấn bán hàng</p>											<p>Tel: 0971.767.285</p>
 										<a style="float:left" href="skype:kd_fptcamera?chat" class="icons skype"><i style="font-size:25px;margin-left:10px;" class="fa fa-skype"></i></a>
 									</div>
 								</div>
 								<div class="col-xs-6 col-md-4">
 									<div class="hotline">
-										<p class="title">Mr: Duy</p>											<p>Chi nhánh Sài Gòn</p>											<p>Tel: 0931.588.886</p>																						
+										<p class="title">Mr: Duy</p>											<p>Chi nhánh Sài Gòn</p>											<p>Tel: 0931.588.886</p>
 										<a style="float:left" href="skype:kd_fptcamera?chat" class="icons skype"><i style="font-size:25px;margin-left:10px;" class="fa fa-skype"></i></a>
 									</div>
 								</div>
@@ -471,8 +429,8 @@
 			});
 
 			$('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
-				event.preventDefault(); 
-				event.stopPropagation(); 
+				event.preventDefault();
+				event.stopPropagation();
 				$(this).parent().siblings().removeClass('open');
 				$(this).parent().toggleClass('open');
 			});

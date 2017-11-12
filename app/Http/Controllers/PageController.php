@@ -26,7 +26,7 @@ class PageController extends Controller {
 		// $product = Category::where('id_category', 10)->get();
 		// $slides = DB::select('SELECT category.*, slide.img FROM slide INNER JOIN category ON slide.id_category = category.id');
 		//   	var_dump($users);
-		$product = Product::where('name', 'like', '%' . $request->key . '%')->paginate(10);
+		$product = Product::where('name', 'like', '%' . $request->key . '%')->paginate(12);
 		$product->withPath('search-product?key=' . $request->key);
 		return view('index.search.search', ['product' => $product, 'category' => $category, 'contact' => $contact]);
 		// var_dump($product);

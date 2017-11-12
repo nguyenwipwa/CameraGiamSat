@@ -17,7 +17,13 @@ Route::group(['prefix' => '/'], function () {
 });
 
 Route::get('/search-product', ['as' => 'search', 'uses' => 'PageController@searchProduct']);
+
 Route::get('/search-ajax/{key}', ['as' => 'search-ajax', 'uses' => 'PageController@searchAjax']);
+
+Route::group(['prefix' => '/admin'], function () {
+	Route::get('/login', 'AdminController@login');
+
+});
 
 Route::get('/test', 'PageController@trangchu1');
 
