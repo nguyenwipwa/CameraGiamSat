@@ -16,7 +16,8 @@ Route::group(['prefix' => '/'], function () {
 
 });
 
-Route::get('/search-product', 'PageController@searchProduct');
+Route::get('/search-product', ['as' => 'search', 'uses' => 'PageController@searchProduct']);
+Route::get('/search-ajax/{key}', ['as' => 'search-ajax', 'uses' => 'PageController@searchAjax']);
 
 Route::get('/test', 'PageController@trangchu1');
 

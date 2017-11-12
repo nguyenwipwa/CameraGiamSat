@@ -9,8 +9,30 @@
           }(document, 'script', 'facebook-jssdk'));</script>
 
           <div id="top-menu" class="hidden-sm hidden-xs">
-           
-            <?php echo $__env->make("../menuHeader", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            <div class="container">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="row">
+                    <div class="col-xs-7">
+                      <div id="top-hotline">
+                        <div class="name">
+                          <a href="http://fptcamera.vn/camera-giam-sat-tot">Sản phẩm bán chạy</a>|
+                          <a href="http://fptcamera.vn/lap-dat-camera-khuyen-mai">Sản phẩm khuyến mại</a>|
+                          <a href="http://fptcamera.vn/camera-quan-sat-moi">Sản phẩm mới</a><img style="margin:-4px 0 0 2px;" src="http://fptcamera.vn/resources/ui_images/client/background/new.gif">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xs-5">
+                      <div id="top-hotline" style="float:right;">
+                        <div class="name">
+                          <a class="name_cart" href="http://fptcamera.vn/gio-hang">Giỏ hàng (<b>0</b> sản phẩm)</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="container hidden-xs hidden-sm">
             <div class="row top-header" id="ScrollTo">
@@ -120,12 +142,16 @@
                             <div class="row">
                               <div class="col-xs-12 col-lg-8" style="padding:0;">
                                 <div id="searchform">
-                                  <form action="http://fptcamera.vn/tim-kiem" accept-charset="utf-8" method="get">                                                <img style="display: none;" class="loader" src="http://fptcamera.vn/resources/ui_images/client/background/loader.gif"/>
-                                    <input type="text" name="t" value="" id="searchSgg" class="searchfield" onkeyup="lookup()" autocomplete="off" placeholder="Tìm kiếm sản phẩm ..."  />                                                <input type="submit" name="submit_search" value="Tìm kiếm" id="search_btn" class="searchbutton" />                                                <div class="clear"></div>
+                                  <form action="<?php echo e(route('search')); ?>" accept-charset="utf-8" method="get">
+                                    <img style="display: none;" class="loader" src="http://fptcamera.vn/resources/ui_images/client/background/loader.gif"/>
+                                    <input type="text" name="key" value="" id="searchbutton" class="searchfield" onkeyup="lookup()" autocomplete="off" placeholder="Tìm kiếm sản phẩm ..."  />
+                                     <input type="submit" name="submit_search" value="Tìm kiếm" id="search_smt" class="searchbutton" />
+                                     <div class="clear"></div>
                                     <div class="autoSuggestionsList_l" id="autoSuggestionsList">
                                     </div>
-                                  </form>                                        </div>
+                                  </form>
                                 </div>
+                              </div>
                                 <div class="col-lg-4 hidden-xs hidden-sm hidden-md" style="padding-left:0;">
                                   <button type="button" class="btn btn-danger button-support" data-toggle="modal" data-target="#supportonlineModal"><img src="http://fptcamera.vn/resources/ui_images/client/background/yahoo-smile.png">&nbsp;Hỗ trợ trực tuyến</button>
                                 </div>

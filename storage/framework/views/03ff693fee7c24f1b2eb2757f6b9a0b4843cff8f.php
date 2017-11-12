@@ -15,7 +15,7 @@
 	<meta name="geo.position" content="20.984321;105.818546" />
 	<meta name="ICBM" content="20.984321, 105.818546" />
 
-	@include("../../.link.index")
+	<?php echo $__env->make("../../.link.index", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -84,7 +84,7 @@
 	<body lang="vi">
 		<div id="wrapper">
 			<!-- Top start here -->
-			@include("../../index.topsub")
+			<?php echo $__env->make("../../index.topsub", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 			<!-- Top end here -->
 			<div class="container">
 				<div class="row">
@@ -100,70 +100,30 @@
 								<div class="product_list">
 									<div class="row">
 
-										{{--  --}}
-										{{-- <div class="col-xs-6 col-sm-4 col-lg-3">
+										
+										
+										
+									
+										<?php $__currentLoopData = $product; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $e): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+										
+										<div class="col-xs-6 col-sm-4 col-lg-3">
 											<div class="thumbnail products">
-												<a href="http://fptcamera.vn/may-cham-cong-van-tay-the-ronald-jack-x628"><img alt="may-cham-cong-van-tay-RONALD-JACK-X628" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/may-cham-cong-van-tay-RONALD-JACK-X628.jpg"></a>
+												<a href="<?php echo e(url('/detail-product/'.$e->id)); ?>"><img alt="may-chieu-sony-VPL-DX-122" src="<?php echo e(asset('public/images/san-pham/'.$e->img)); ?>"></a>
 												<div class="caption">
-													<a href="http://fptcamera.vn/may-cham-cong-van-tay-the-ronald-jack-x628"><h3>Máy Chấm Công Vân Tay - Thẻ RONALD JACK X628</h3></a>
+													<a href="<?php echo e(url('/detail-product/'.$e->id)); ?>"><h3><?php echo e($e->name); ?></h3></a>
 													<div class="clear"></div>
-													<span class="new-price">3.400.000 đ</span>
-													<span class="old-price">3.900.000 đ</span>
-												</div>
-											</div>
-										</div> --}}
-										{{-- <div class="col-xs-6 col-sm-4 col-lg-3">
-											<div class="thumbnail products">
-												<a href="http://fptcamera.vn/may-cham-cong-van-tay-the-wise-eye-808"><img alt="may-cham-cong-van-tay-WISE-EYE-808" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/may-cham-cong-van-tay-WISE-EYE-808.jpg"></a>
-												<div class="caption">
-													<a href="http://fptcamera.vn/may-cham-cong-van-tay-the-wise-eye-808"><h3>Máy Chấm Công Vân Tay + Thẻ WISE EYE 808</h3></a>
-													<div class="clear"></div>
-													<span class="new-price">3.450.000 đ</span>
-													<span class="old-price">3.900.000 đ</span>
+													<span class="new-price"><?php echo e(number_format($e->price)); ?> đ</span>
+													<span class="old-price"><?php echo e(number_format($e->price*1.1)); ?> đ</span>
 												</div>
 											</div>
 										</div>
-										<div class="col-xs-6 col-sm-4 col-lg-3">
-											<div class="thumbnail products">
-												<a href="http://fptcamera.vn/may-cham-cong-van-tay-wise-eye-wse-268"><img alt="may-cham-cong-van-tay-WISE-EYE-WSE-268" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/may-cham-cong-van-tay-WISE-EYE-WSE-268.jpg"></a>
-												<div class="caption">
-													<a href="http://fptcamera.vn/may-cham-cong-van-tay-wise-eye-wse-268"><h3>Máy Chấm Công Vân Tay WISE EYE WSE-268</h3></a>
-													<div class="clear"></div>
-													<span class="new-price">2.600.000 đ</span>
-													<span class="old-price">2.900.000 đ</span>
-												</div>
-											</div>
-										</div> --}}
-									{{-- 	<div class="col-xs-6 col-sm-4 col-lg-3">
-											<div class="thumbnail products">
-												<a href="http://fptcamera.vn/may-chieu-sony-vpl-dx-102"><img alt="may-chieu-sony-VPL-DX-102" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/may-chieu-sony-VPL-DX-102.jpg"></a>
-												<div class="caption">
-													<a href="http://fptcamera.vn/may-chieu-sony-vpl-dx-102"><h3>Máy Chiếu SONY VPL-DX 102</h3></a>
-													<div class="clear"></div>
-													<span class="new-price">9.200.000 đ</span>
-													<span class="old-price">9.500.000 đ</span>
-												</div>
-											</div>
-										</div> --}}
-										@foreach ($product as $e)
-										{{-- expr --}}
-										<div class="col-xs-6 col-sm-4 col-lg-3">
-											<div class="thumbnail products">
-												<a href="{{url('/detail-product/'.$e->id)}}"><img alt="may-chieu-sony-VPL-DX-122" src="{{asset('public/images/san-pham/'.$e->img)}}"></a>
-												<div class="caption">
-													<a href="{{url('/detail-product/'.$e->id)}}"><h3>{{$e->name}}</h3></a>
-													<div class="clear"></div>
-													<span class="new-price">{{number_format($e->price)}} đ</span>
-													<span class="old-price">{{number_format($e->price*1.1)}} đ</span>
-												</div>
-											</div>
-										</div>
-										@endforeach
+										<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 									</div>
 								</div>
 								<div class="clear"></div>
 								<div class="pagination">
-									{!!$product->render()!!}
+									<?php echo $product->render(); ?>
+
 								</div>
 							</div>
 							<div class="col-md-3 hidden-xs hidden-sm">
@@ -331,8 +291,8 @@
 			</div>
 
 			<!-- Bottom end here -->
-			@include('../../index.bottom')
-			@include('../../index.footer')
+			<?php echo $__env->make('../../index.bottom', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			<?php echo $__env->make('../../index.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 			<!-- <ul class="sticky">
 				<li>
 					<a rel="no-follow" target="_blank" href="">
