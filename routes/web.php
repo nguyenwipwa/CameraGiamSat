@@ -20,6 +20,16 @@ Route::get('/search-product', ['as' => 'search', 'uses' => 'PageController@searc
 
 Route::get('/search-ajax/{key}', ['as' => 'search-ajax', 'uses' => 'PageController@searchAjax']);
 
+Route::group(['prefix' => '/gio-hang'], function () {
+	Route::get('/',['as' => 'cartDetail', 'uses' => 'PageController@cartDetail']);
+	Route::post('/addCart', ['as' => 'addCart', 'uses' => 'PageController@addCart']);
+	Route::get('/deleteCartAll', ['as' => 'deleteCartAll', 'uses' => 'PageController@deleteCartAll']);
+	Route::get('/removeCart/{rowId}', ['as' => 'removeCart', 'uses' => 'PageController@removeCart']);
+	Route::post('/updateCart', ['as' => 'updateCart', 'uses' => 'PageController@updateCart']);
+
+});
+
+
 Route::group(['prefix' => '/admin'], function () {
 	Route::get('/login', 'AdminController@login');
 
@@ -27,7 +37,7 @@ Route::group(['prefix' => '/admin'], function () {
 
 Route::get('/test', 'PageController@trangchu1');
 
-Route::get('/cart-detail', 'PageController@cartDetail');
+// Route::get('/gio-hang', 'PageController@cartDetail');
 
 Route::get('/news', 'PageController@news');
 

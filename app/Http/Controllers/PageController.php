@@ -9,15 +9,53 @@ use App\Provider;
 use App\Repository\ProductRepository;
 use DB;
 use Illuminate\Http\Request;
-
+use Cart;
 class PageController extends Controller {
+
+	function updateCart(Request $request){
+		$list_cart = Cart::content();
+		// echo json_encode($request->all());
+		// echo json_encode($list_cart);
+		foreach ($list_cart as $key) {
+			$rowId = $key->rowId;
+			$list_cart[$rowId]->qty =  $request->$rowId;
+		}
+		return redirect()->route('cartDetail');
+	}
+
+	function removeCart($rowId){
+		Cart::remove($rowId);
+		return redirect()->route('cartDetail');
+		// echo $rowId;
+	}
+	function deleteCartAll(){
+		Cart::destroy();
+		return redirect()->route('cartDetail');
+	}
+
+	function addCart(Request $request){
+		$id = $request->id;
+		$name = $request->name;
+		$qty = $request->qty;
+		$price = $request->price;
+		$img = $request->img;
+		Cart::add($id, $name, $qty, $price, ['img'=> $img]);
+		return redirect()->route('cartDetail');
+	}
+
 	function cartDetail() {
+		
+
 		$category = Category::all();
 		$contact = Contact::all();
 		// $product = Category::where('id_category', 10)->get();
 		$slides = DB::select('SELECT category.*, slide.img FROM slide INNER JOIN category ON slide.id_category = category.id');
 		//   	var_dump($users);
+
+		// Cart::add('293ad', 'Product 1', 1, 9.99, ['img'=> 'ngon']);
+		// $list_cart = Cart::content();
 		return view('index.carts.cart', ['category' => $category, 'contact' => $contact, 'slides' => $slides]);
+		// echo json_encode(Cart::content());
 	}
 	///search
 	function searchProduct(Request $request) {

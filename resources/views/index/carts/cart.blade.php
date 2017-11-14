@@ -24,7 +24,7 @@
                 .push(arguments)
             }, i[r].l = 1 * new Date();
             a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
+            m = s.getElementsByTagName(o)[0];
             a.async = 1;
             a.src = g;
             m.parentNode.insertBefore(a, m)
@@ -38,18 +38,18 @@
     <script type="text/javascript">
         function lookup(keyword) {
             var keyword = document.getElementById("searchSgg")
-                .value;
+            .value;
             if (keyword.length == 0) {
                 $('#autoSuggestionsList')
-                    .fadeOut(400);
+                .fadeOut(400);
             } else {
                 $.post("http://fptcamera.vn/ajaxhandle/client_products_ajaxhandler/Ajax_Get_All_Product_Client", {
-                        keyword: keyword
-                    },
-                    function(data) {
-                        if (data.length > 14) {
-                            $('#autoSuggestionsList')
-                                .fadeIn(400);
+                    keyword: keyword
+                },
+                function(data) {
+                    if (data.length > 14) {
+                        $('#autoSuggestionsList')
+                        .fadeIn(400);
                             // var obj = jQuery.parseJSON(data);
                             var obj = JSON.parse(data);
                             var strhtml = '';
@@ -66,17 +66,17 @@
                                     strhtml += '<div class="sgg-right">';
                                     strhtml += '<div class="sgg-title"><a href="http://fptcamera.vn/' + obj.message[i].Slug + '">' + obj.message[i].Title + '</a></div>';
                                     strhtml += '<div class="sgg-sellprice">' + parseFloat(obj.message[i].SellPrice)
-                                        .toFixed()
-                                        .replace(/./g, function(c, i, a) {
-                                            return i && c !== "." && ((a.length - i) % 3 === 0) ? '.' + c : c;
-                                        }) + ' đ</div>';
+                                    .toFixed()
+                                    .replace(/./g, function(c, i, a) {
+                                        return i && c !== "." && ((a.length - i) % 3 === 0) ? '.' + c : c;
+                                    }) + ' đ</div>';
                                     strhtml += '</div>';
                                     strhtml += '</div>';
                                 }
                             }
                             strhtml += '</div>';
                             $('#autoSuggestionsList')
-                                .html(strhtml);
+                            .html(strhtml);
                         } else {
                             var strhtml = '';
                             strhtml += '<div class="sgg-outer">';
@@ -85,7 +85,7 @@
                             strhtml += '</div>';
                             strhtml += '</div>';
                             $('#autoSuggestionsList')
-                                .html(strhtml);
+                            .html(strhtml);
                         }
                     });
                 // Ajax_Suggestion(keyword);
@@ -110,7 +110,7 @@
                             <div class="header">
                                 <span>Giỏ hàng</span>
                             </div>
-                            <form action="http://fptcamera.vn/update-cart" method="post" accept-charset="utf-8">
+                            <form action="{{ route('updateCart') }}" method="post" accept-charset="utf-8">
                                 <table id="cart">
                                     <tr>
                                         <th></th>
@@ -121,202 +121,125 @@
                                         <th>Thành tiền</th>
                                     </tr>
 
-                                    <input type="hidden" name="cart[e0c641195b27425bb056ac56f8953d24][id]" value="421" />
-
-                                    <input type="hidden" name="cart[e0c641195b27425bb056ac56f8953d24][rowid]" value="e0c641195b27425bb056ac56f8953d24" />
-
-                                    <input type="hidden" name="cart[e0c641195b27425bb056ac56f8953d24][name]" value="L%E1%BA%AFp+2+Camera+HIKVISION" />
-
-                                    <input type="hidden" name="cart[e0c641195b27425bb056ac56f8953d24][price]" value="4299000" />
-
-                                    <input type="hidden" name="cart[e0c641195b27425bb056ac56f8953d24][SKU]" value="HIK-02" />
-
-                                    <input type="hidden" name="cart[e0c641195b27425bb056ac56f8953d24][slug]" value="lap-2-camera-hikvision" />
-
-                                    <input type="hidden" name="cart[e0c641195b27425bb056ac56f8953d24][image]" value="san-pham/lap-2-camera-hikvision.jpg" />
+                                    @foreach(Cart::content() as $row)
                                     <tr>
-                                        <td><a title="Xóa sản phẩm" style="font-size:20px;color:#000;" href="http://fptcamera.vn/removecart/e0c641195b27425bb056ac56f8953d24"><i class="fa fa-trash"></i></a>
+                                        <td><a title="Xóa sản phẩm" style="font-size:20px;color:#000;" href="{{ route('removeCart', ['rowId' => $row->rowId]) }}"><i class="fa fa-trash"></i></a>
                                         </td>
-                                        <td><b>HIK-02 - Lắp 2 Camera HIKVISION</b>
+                                        <td><b>{{ $row->name }}</b>
                                         </td>
-                                        <td><img class="cart_img" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/lap-2-camera-hikvision.jpg">
+                                        <td><img class="cart_img" src="{{ asset('public/images/san-pham/'.$row->options->img) }}">
                                         </td>
-                                        <td>4.299.000 VNĐ</td>
+                                        <td>{{ number_format($row->price)}} VNĐ</td>
                                         <td style="width:92px;">
-                                            <input class="cart_qty" type="text" name="cart[e0c641195b27425bb056ac56f8953d24][qty]" value="3" />
+                                            <input class="cart_qty" type="text" name="{{ $row->rowId }}" value="{{ $row->qty }}" />
                                         </td>
-                                        <td>12.897.000 VNĐ</td>
+                                        <td>{{ number_format($row->subtotal)}} VNĐ</td>
                                     </tr>
+                                    @endforeach
 
-                                    <input type="hidden" name="cart[ddb30680a691d157187ee1cf9e896d03][id]" value="435" />
+                                    {{ csrf_field() }}
+                                    <td colspan="5">Tổng cộng</td>
+                                    <td style="color:#ff0000;font-weight:bold;">{{ Cart::total() }} VNĐ</td>
+                                </tr>
+                                <tr class="no-border">
+                                    <td colspan="6">
+                                        <input class="btn1" type="button" value="Xóa giỏ hàng" onclick="clear_cart()" />
+                                        <input style="margin-left:5px;" class="btn1" type="button" value="Tiếp tục mua hàng" onclick="location.href='{{ url('/') }}'" />
+                                        <input style="float:right;margin-left:5px" class="btn2" type="button" value="Thanh toán" onclick="location.href='http://fptcamera.vn/don-hang'" />
+                                        <input style="float:right;margin:5px" class="btn3" type="submit" value="Cập nhật số lượng" />
 
-                                    <input type="hidden" name="cart[ddb30680a691d157187ee1cf9e896d03][rowid]" value="ddb30680a691d157187ee1cf9e896d03" />
-
-                                    <input type="hidden" name="cart[ddb30680a691d157187ee1cf9e896d03][name]" value="%C4%90%E1%BA%A7u+ghi+8+k%C3%AAnh+HIKVISION+DS-7108HQHI-F1%2FN" />
-
-                                    <input type="hidden" name="cart[ddb30680a691d157187ee1cf9e896d03][price]" value="3600000" />
-
-                                    <input type="hidden" name="cart[ddb30680a691d157187ee1cf9e896d03][SKU]" value="DS-7108HQHI-F1/N" />
-
-                                    <input type="hidden" name="cart[ddb30680a691d157187ee1cf9e896d03][slug]" value="dau-ghi-8-kenh-hikvision-ds-7108hqhi-f1-n" />
-
-                                    <input type="hidden" name="cart[ddb30680a691d157187ee1cf9e896d03][image]" value="san-pham/dau-ghi-hinh--kenh-hikvision-DS-7108HQHI-F1N.jpg" />
-                                    <tr>
-                                        <td><a title="Xóa sản phẩm" style="font-size:20px;color:#000;" href="http://fptcamera.vn/removecart/ddb30680a691d157187ee1cf9e896d03"><i class="fa fa-trash"></i></a>
-                                        </td>
-                                        <td><b>DS-7108HQHI-F1/N - Đầu ghi 8 kênh HIKVISION DS-7108HQHI-F1/N</b>
-                                        </td>
-                                        <td><img class="cart_img" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/dau-ghi-hinh--kenh-hikvision-DS-7108HQHI-F1N.jpg">
-                                        </td>
-                                        <td>3.600.000 VNĐ</td>
-                                        <td style="width:92px;">
-                                            <input class="cart_qty" type="text" name="cart[ddb30680a691d157187ee1cf9e896d03][qty]" value="1" />
-                                        </td>
-                                        <td>3.600.000 VNĐ</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="5">Tổng cộng</td>
-                                        <td style="color:#ff0000;font-weight:bold;">16,497,000 VNĐ</td>
-                                    </tr>
-                                    <tr class="no-border">
-                                        <td colspan="6">
-                                            <input class="btn1" type="button" value="Xóa giỏ hàng" onclick="clear_cart()" />
-                                            <input style="margin-left:5px;" class="btn1" type="button" value="Tiếp tục mua hàng" onclick="location.href='http://fptcamera.vn/'" />
-                                            <input style="float:right;margin-left:5px" class="btn2" type="button" value="Thanh toán" onclick="location.href='http://fptcamera.vn/don-hang'" />
-                                            <input style="float:right;margin:5px" class="btn3" type="submit" value="Cập nhật số lượng" />
-
-                                        </td>
-                                    </tr>
-                                </table>
-                            </form>
-                            <div class="clear"></div>
-                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
                         <div class="clear"></div>
                     </div>
-                    <div class="row hidden-lg hidden-md">
-                        <div class="col-xs-12">
-                            <div class="header">
-                                <span>Giỏ hàng</span>
-                            </div>
-                            <form action="http://fptcamera.vn/update-cart" method="post" accept-charset="utf-8">
-                                <table id="cart">
-
-                                    <input type="hidden" name="cart[e0c641195b27425bb056ac56f8953d24][id]" value="421" />
-
-                                    <input type="hidden" name="cart[e0c641195b27425bb056ac56f8953d24][rowid]" value="e0c641195b27425bb056ac56f8953d24" />
-
-                                    <input type="hidden" name="cart[e0c641195b27425bb056ac56f8953d24][name]" value="L%E1%BA%AFp+2+Camera+HIKVISION" />
-
-                                    <input type="hidden" name="cart[e0c641195b27425bb056ac56f8953d24][price]" value="4299000" />
-
-                                    <input type="hidden" name="cart[e0c641195b27425bb056ac56f8953d24][SKU]" value="HIK-02" />
-
-                                    <input type="hidden" name="cart[e0c641195b27425bb056ac56f8953d24][slug]" value="lap-2-camera-hikvision" />
-
-                                    <input type="hidden" name="cart[e0c641195b27425bb056ac56f8953d24][image]" value="san-pham/lap-2-camera-hikvision.jpg" />
-                                    <tr>
-                                        <td colspan="2"><b>HIK-02 - Lắp 2 Camera HIKVISION</b>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2"><img class="cart_img" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/lap-2-camera-hikvision.jpg">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4.299.000 VNĐ</td>
-                                        <td style="width:92px;">
-                                            <input class="cart_qty" maxlength="3" size="1" name="cart[e0c641195b27425bb056ac56f8953d24][qty]" value="3" />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2" class="text_last" colspan="2">12.897.000 VNĐ</td>
-                                    </tr>
-
-                                    <input type="hidden" name="cart[ddb30680a691d157187ee1cf9e896d03][id]" value="435" />
-
-                                    <input type="hidden" name="cart[ddb30680a691d157187ee1cf9e896d03][rowid]" value="ddb30680a691d157187ee1cf9e896d03" />
-
-                                    <input type="hidden" name="cart[ddb30680a691d157187ee1cf9e896d03][name]" value="%C4%90%E1%BA%A7u+ghi+8+k%C3%AAnh+HIKVISION+DS-7108HQHI-F1%2FN" />
-
-                                    <input type="hidden" name="cart[ddb30680a691d157187ee1cf9e896d03][price]" value="3600000" />
-
-                                    <input type="hidden" name="cart[ddb30680a691d157187ee1cf9e896d03][SKU]" value="DS-7108HQHI-F1/N" />
-
-                                    <input type="hidden" name="cart[ddb30680a691d157187ee1cf9e896d03][slug]" value="dau-ghi-8-kenh-hikvision-ds-7108hqhi-f1-n" />
-
-                                    <input type="hidden" name="cart[ddb30680a691d157187ee1cf9e896d03][image]" value="san-pham/dau-ghi-hinh--kenh-hikvision-DS-7108HQHI-F1N.jpg" />
-                                    <tr>
-                                        <td colspan="2"><b>DS-7108HQHI-F1/N - Đầu ghi 8 kênh HIKVISION DS-7108HQHI-F1/N</b>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2"><img class="cart_img" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/dau-ghi-hinh--kenh-hikvision-DS-7108HQHI-F1N.jpg">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3.600.000 VNĐ</td>
-                                        <td style="width:92px;">
-                                            <input class="cart_qty" maxlength="3" size="1" name="cart[ddb30680a691d157187ee1cf9e896d03][qty]" value="1" />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2" class="text_last" colspan="2">3.600.000 VNĐ</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2">Tổng cộng</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2" style="color:#ff0000;font-weight:bold;">16,497,000 VNĐ</td>
-                                    </tr>
-                                    <tr class="no-border">
-                                        <td colspan="2">
-                                            <input class="btn1" type="button" value="Xóa giỏ hàng" onclick="clear_cart()" />
-                                            <input class="btn1" type="button" value="Tiếp tục mua hàng" onclick="location.href='http://fptcamera.vn/'" />
-                                            <input class="btn3" type="submit" value="Cập nhật số lượng" />
-                                            <input class="btn2" type="button" value="Thanh toán" onclick="location.href='http://fptcamera.vn/don-hang'" />
-                                        </td>
-                                    </tr>
-                                </table>
-                            </form>
-                            <div class="clear"></div>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
+                    <div class="clear"></div>
                 </div>
+                <div class="row hidden-lg hidden-md">
+                    <div class="col-xs-12">
+                        <div class="header">
+                            <span>Giỏ hàng</span>
+                        </div>
+                        <form action="{{ route('updateCart') }}" method="post" accept-charset="utf-8">
+                            <table id="cart">
+                             @foreach(Cart::content() as $row)
+                             <tr>
+                                <td colspan="2"><b>{{ $row->name }}</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><img class="cart_img" src="{{ asset('public/images/san-pham/'.$row->options->img) }}">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>{{ number_format($row->price)}} VNĐ</td>
+                                <td style="width:92px;">
+                                    <input class="cart_qty" maxlength="3" size="1" name="{{ $row->rowId }}" value="{{ $row->qty }}" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="text_last" colspan="2">{{ number_format($row->subtotal)}} VNĐ</td>
+                            </tr>
+                            @endforeach
+
+                            {{ csrf_field() }}
+
+                            <tr>
+                                <td colspan="2">Tổng cộng</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="color:#ff0000;font-weight:bold;">{{ Cart::total() }} VNĐ</td>
+                            </tr>
+                            <tr class="no-border">
+                                <td colspan="2">
+                                    <input class="btn1" type="button" value="Xóa giỏ hàng" onclick="clear_cart()" />
+                                    <input class="btn1" type="button" value="Tiếp tục mua hàng" onclick="location.href='{{ url('/') }}'" />
+                                    <input class="btn3" type="submit" value="Cập nhật số lượng" />
+                                    <input class="btn2" type="button" value="Thanh toán" onclick="location.href='http://fptcamera.vn/don-hang'" />
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
             </div>
-            <div class="clear"></div>
         </div>
-
-        <!-- Bottom end here -->
-       @include('../../index.bottom')
-       @include('../../index.footer')
-
-
-        <div style="display: none">
-            <!-- Histats.com  START  (standard)-->
-            <script type="text/javascript">
-                document.write(unescape("%3Cscript src=%27http://s10.histats.com/js15.js%27 type=%27text/javascript%27%3E%3C/script%3E"));
-            </script>
-            <a href="http://www.histats.com" target="_blank" title="">
-                <script type="text/javascript">
-                    try {
-                        Histats.start(1, 3313430, 4, 438, 112, 75, "00011111");
-                        Histats.track_hits();
-                    } catch (err) {};
-                </script>
-            </a>
-            <noscript>
-                <a href="http://www.histats.com" target="_blank"><img src="http://sstatic1.histats.com/0.gif?3313430&101" alt="" border="0">
-                </a>
-            </noscript>
-            <!-- Histats.com  END  -->
-        </div>
-        <div class="clear"></div>
     </div>
-    <!-- Bottom end here -->
+    <div class="clear"></div>
+</div>
 
-    </div>
-    <div class="sticky-container hidden-xs hidden-md">
+<!-- Bottom end here -->
+@include('../../index.bottom')
+@include('../../index.footer')
+
+
+<div style="display: none">
+    <!-- Histats.com  START  (standard)-->
+    <script type="text/javascript">
+        document.write(unescape("%3Cscript src=%27http://s10.histats.com/js15.js%27 type=%27text/javascript%27%3E%3C/script%3E"));
+    </script>
+    <a href="http://www.histats.com" target="_blank" title="">
+        <script type="text/javascript">
+            try {
+                Histats.start(1, 3313430, 4, 438, 112, 75, "00011111");
+                Histats.track_hits();
+            } catch (err) {};
+        </script>
+    </a>
+    <noscript>
+        <a href="http://www.histats.com" target="_blank"><img src="http://sstatic1.histats.com/0.gif?3313430&101" alt="" border="0">
+        </a>
+    </noscript>
+    <!-- Histats.com  END  -->
+</div>
+<div class="clear"></div>
+</div>
+<!-- Bottom end here -->
+
+</div>
+<div class="sticky-container hidden-xs hidden-md">
         <!-- <ul class="sticky">
 				<li>
 					<a rel="no-follow" target="_blank" href="">
@@ -343,11 +266,11 @@
 					</a>
 				</li>
 			</ul> -->
-    </div>
-    <div class="sticky-buttons hidden-xs hidden-md">
-        <!-- <a data-toggle="modal" data-target="#supportonlineModal">Hỗ trợ trực tuyến</a> -->
-        <!-- <a data-toggle="modal" data-target="#hotlineModal">HOTLINE</a> -->
-    </div>
+        </div>
+        <div class="sticky-buttons hidden-xs hidden-md">
+            <!-- <a data-toggle="modal" data-target="#supportonlineModal">Hỗ trợ trực tuyến</a> -->
+            <!-- <a data-toggle="modal" data-target="#hotlineModal">HOTLINE</a> -->
+        </div>
     <!-- <div class="modal fade" id="hotlineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -379,39 +302,40 @@
 				</div>
 			</div>
 		</div> -->
-    <div class="modal fade" id="supportonlineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title" id="myModalLabel">Hỗ trợ trực tuyến</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div id="modal_hotline_list">
-                            <div class="col-xs-6 col-md-4">
-                                <div class="hotline">
-                                    <p class="title">Mr: Xuân</p>
-                                    <p>Tư vấn bán hàng</p>
-                                    <p>Tel: 098 448 9688</p>
-                                    <a style="float:left" href="skype:kd_fptcamera?chat" class="icons skype"><i style="font-size:25px;margin-left:10px;" class="fa fa-skype"></i></a>
+        <div class="modal fade" id="supportonlineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">Hỗ trợ trực tuyến</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div id="modal_hotline_list">
+                                <div class="col-xs-6 col-md-4">
+                                    <div class="hotline">
+                                        <p class="title">Mr: Xuân</p>
+                                        <p>Tư vấn bán hàng</p>
+                                        <p>Tel: 098 448 9688</p>
+                                        <a style="float:left" href="skype:kd_fptcamera?chat" class="icons skype"><i style="font-size:25px;margin-left:10px;" class="fa fa-skype"></i></a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xs-6 col-md-4">
-                                <div class="hotline">
-                                    <p class="title">Mr: Thành</p>
-                                    <p>Tư vấn bán hàng</p>
-                                    <p>Tel: 0971.767.285</p>
-                                    <a style="float:left" href="skype:kd_fptcamera?chat" class="icons skype"><i style="font-size:25px;margin-left:10px;" class="fa fa-skype"></i></a>
+                                <div class="col-xs-6 col-md-4">
+                                    <div class="hotline">
+                                        <p class="title">Mr: Thành</p>
+                                        <p>Tư vấn bán hàng</p>
+                                        <p>Tel: 0971.767.285</p>
+                                        <a style="float:left" href="skype:kd_fptcamera?chat" class="icons skype"><i style="font-size:25px;margin-left:10px;" class="fa fa-skype"></i></a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xs-6 col-md-4">
-                                <div class="hotline">
-                                    <p class="title">Mr: Duy</p>
-                                    <p>Chi nhánh Sài Gòn</p>
-                                    <p>Tel: 0931.588.886</p>
-                                    <a style="float:left" href="skype:kd_fptcamera?chat" class="icons skype"><i style="font-size:25px;margin-left:10px;" class="fa fa-skype"></i></a>
+                                <div class="col-xs-6 col-md-4">
+                                    <div class="hotline">
+                                        <p class="title">Mr: Duy</p>
+                                        <p>Chi nhánh Sài Gòn</p>
+                                        <p>Tel: 0931.588.886</p>
+                                        <a style="float:left" href="skype:kd_fptcamera?chat" class="icons skype"><i style="font-size:25px;margin-left:10px;" class="fa fa-skype"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -419,15 +343,14 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div id="go_top" class="hidden-xs hidden-sm"><i class="fa fa-arrow-circle-up"></i>
-    </div>
-    <div id="fixed-bottom" class="hidden-lg hidden-md">
-        <div id="call-xs-sm"><a href="tel:0984 489 688"><i class="fa fa-phone">&nbsp;&nbsp;</i>Gọi 0984 489 688</a>
+        <div id="go_top" class="hidden-xs hidden-sm"><i class="fa fa-arrow-circle-up"></i>
         </div>
-    </div>
-    <script type="text/javascript" charset="utf-8">
-        $(window)
+        <div id="fixed-bottom" class="hidden-lg hidden-md">
+            <div id="call-xs-sm"><a href="tel:0984 489 688"><i class="fa fa-phone">&nbsp;&nbsp;</i>Gọi 0984 489 688</a>
+            </div>
+        </div>
+        <script type="text/javascript" charset="utf-8">
+            $(window)
             .load(function() {
                 equalheight('.thumbnail.products');
                 equalheight('.thumbnail.news');
@@ -436,7 +359,7 @@
             });
 
 
-        $(window)
+            $(window)
             .resize(function() {
                 equalheight('.thumbnail.products');
                 equalheight('.thumbnail.news');
@@ -444,110 +367,110 @@
                 equalheight('.equalheightbanner');
             });
 
-        $('#menu ul > li')
+            $('#menu ul > li')
             .hover(function() {
                 $(this)
-                    .children('ul')
-                    .stop(true, true)
-                    .delay(200)
-                    .fadeIn(300);
+                .children('ul')
+                .stop(true, true)
+                .delay(200)
+                .fadeIn(300);
             }, function() {
                 $(this)
-                    .children('ul')
-                    .stop(true, true)
-                    .fadeOut(300);
+                .children('ul')
+                .stop(true, true)
+                .fadeOut(300);
             });
 
-        $('#prd-cate-list .sub-page > ul > li')
+            $('#prd-cate-list .sub-page > ul > li')
             .hover(function() {
                 $(this)
-                    .children('ul')
-                    .stop(true, true)
-                    .delay(200)
-                    .fadeIn(300);
+                .children('ul')
+                .stop(true, true)
+                .delay(200)
+                .fadeIn(300);
             }, function() {
                 $(this)
-                    .children('ul')
-                    .stop(true, true)
-                    .fadeOut(300);
+                .children('ul')
+                .stop(true, true)
+                .fadeOut(300);
             });
 
-        $('#prd-cate-list')
+            $('#prd-cate-list')
             .hover(function() {
                 $(this)
-                    .children('ul.sub-page')
-                    .stop(true, true)
-                    .delay(200)
-                    .slideDown(300);
+                .children('ul.sub-page')
+                .stop(true, true)
+                .delay(200)
+                .slideDown(300);
             }, function() {
                 $(this)
-                    .children('ul.sub-page')
-                    .stop(true, true)
-                    .slideUp(300);
+                .children('ul.sub-page')
+                .stop(true, true)
+                .slideUp(300);
             });
 
-        $('ul.dropdown-menu [data-toggle=dropdown]')
+            $('ul.dropdown-menu [data-toggle=dropdown]')
             .on('click', function(event) {
                 event.preventDefault();
                 event.stopPropagation();
                 $(this)
-                    .parent()
-                    .siblings()
-                    .removeClass('open');
+                .parent()
+                .siblings()
+                .removeClass('open');
                 $(this)
-                    .parent()
-                    .toggleClass('open');
+                .parent()
+                .toggleClass('open');
             });
 
-        $('.scrollfix')
+            $('.scrollfix')
             .scrollFix({
                 fixTop: 40
             });
 
-        if ($(window)
-            .scrollTop() != "0")
-            $("#go_top")
+            if ($(window)
+                .scrollTop() != "0")
+                $("#go_top")
             .fadeIn("slow");
-        var scrollDiv = $("#go_top");
-        $(window)
+            var scrollDiv = $("#go_top");
+            $(window)
             .scroll(function() {
                 if ($(window)
                     .scrollTop() == "0")
                     $(scrollDiv)
-                    .fadeOut("slow")
+                .fadeOut("slow")
                 else
                     $(scrollDiv)
-                    .fadeIn("slow")
+                .fadeIn("slow")
             });
-        $("#go_top")
+            $("#go_top")
             .click(function() {
                 $("html, body")
-                    .animate({
-                        scrollTop: $("#ScrollTo")
-                            .offset()
-                            .top
-                    }, "slow")
+                .animate({
+                    scrollTop: $("#ScrollTo")
+                    .offset()
+                    .top
+                }, "slow")
             });
 
-        $('.mobileslider')
+            $('.mobileslider')
             .flexslider({
                 animation: "fade",
                 animationLoop: true,
                 directionNav: false,
                 controlNav: false,
             });
-        $(".cart_qty")
+            $(".cart_qty")
             .TouchSpin({
                 verticalbuttons: true,
                 verticalupclass: 'glyphicon glyphicon-plus',
                 verticaldownclass: 'glyphicon glyphicon-minus'
             });
 
-        function clear_cart() {
-            var result = confirm('Bạn muốn hủy giỏ hàng ?');
-            if (result) {
-                window.location = "http://fptcamera.vn/removecart/all";
-            } else {
+            function clear_cart() {
+                var result = confirm('Bạn muốn hủy giỏ hàng ?');
+                if (result) {
+                    window.location = "{{route('deleteCartAll')}}";
+                } else {
                 return false; // cancel button
             }
         }

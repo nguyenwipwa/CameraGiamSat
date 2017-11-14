@@ -98,13 +98,12 @@
                                                                         <div class="plusone" title="Share link on Google+">Google+</div>
                                                                     </div>
                                                                     <div class="clear"></div>
-                                                                    <form action="http://fptcamera.vn/addcart" class="addcart" method="post" accept-charset="utf-8">
-                                                                        <input type="hidden" name="id" value="498" />
-                                                                        <input type="hidden" name="name" value="Lắp đặt camera giá rẻ bộ 1 đến 8 mắt" />
-                                                                        <input type="hidden" name="price" value="2199000" />
-                                                                        <input type="hidden" name="SKU" value="KM-BENCO-18" />
-                                                                        <input type="hidden" name="image" value="san-pham/lap-dat-camera-gia-re-benco.jpg" />
-                                                                        <input type="hidden" name="slug" value="lap-dat-camera-gia-re-bo-1-den-8-mat" />
+                                                                    <form action="{{route('addCart')}}" class="addcart" method="post" accept-charset="utf-8">
+                                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                                        <input type="hidden" name="id" value="{{ $product->id }}" />
+                                                                        <input type="hidden" name="name" value="{{ $product->name }}" />
+                                                                        <input type="hidden" name="price" value="{{ $product->price }}" />
+                                                                        <input type="hidden" name="img" value="{{ $product->img }}" />
                                                                         <p>Số lượng: <span class='detail-spinner'> <input type="text" name="qty" value="" class="cart_qty" /> </span>
                                                                         </p>
                                                                         <input type="submit" name="action" value="Mua ngay" class="cart_submit" />
