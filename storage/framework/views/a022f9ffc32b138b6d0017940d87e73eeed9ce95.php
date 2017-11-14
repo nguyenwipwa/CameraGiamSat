@@ -27,7 +27,7 @@
                                 <div class="col-xs-5">
                                     <div id="top-hotline" style="float:right;">
                                         <div class="name">
-                                            <a class="name_cart" href="http://fptcamera.vn/gio-hang">Giỏ hàng (<b>0</b> sản phẩm)</a>
+                                            <a class="name_cart" href="<?php echo e(route('cartDetail')); ?>">Giỏ hàng (<b><?php echo e(Cart::count()); ?></b> sản phẩm)</a>
                                         </div>
                                     </div>
                                 </div>
