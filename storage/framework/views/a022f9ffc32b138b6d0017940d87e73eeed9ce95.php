@@ -126,7 +126,7 @@
                                 <ul class="nav navbar-nav">
                                    <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cate): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                    <?php if($cate->id_root == 0 && $cate->status==1): ?>
-                                   <li><a href="<?php echo e(url('/category/'.$cate->id)); ?>"><img src = "http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//<?php echo $cate->icon; ?>"/>&nbsp;&nbsp;<?php echo $cate->name; ?></a></li>
+                                   <li><a href="<?php echo e(url('/category/'.$cate->id.'/1')); ?>"><img src = "<?php echo e(asset('public/images/danh-muc-san-pham/'.$cate->icon)); ?>"/>&nbsp;&nbsp;<?php echo $cate->name; ?></a></li>
                                    <?php endif; ?>
                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                </ul>

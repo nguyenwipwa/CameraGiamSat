@@ -15,92 +15,32 @@
   <meta name="ICBM" content="20.984321, 105.818546" />
 
   @include("../../.link.index")
-
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-66346872-1', 'auto');
-    ga('send', 'pageview');
-
-  </script>
-
-
-  <script type="text/javascript">
-    function lookup(keyword) {
-      var keyword = document.getElementById("searchSgg").value;
-      if(keyword.length == 0) {
-        $('#autoSuggestionsList').fadeOut(400);
-      } else {
-        $.post("http://fptcamera.vn/ajaxhandle/client_products_ajaxhandler/Ajax_Get_All_Product_Client",
-          {keyword : keyword},
-          function(data){
-            if(data.length > 14) {
-              $('#autoSuggestionsList').fadeIn(400);
-                      // var obj = jQuery.parseJSON(data);
-                      var obj = JSON.parse(data);
-                      var strhtml = '';
-                      //$('#autoSuggestionsList').html(data['message']);
-                      strhtml += '<div class="sgg-outer">';
-                      for(var index in obj) {
-                          //alert(obj.message[1].label);
-                          //alert(obj.length());
-                          for(var i=0;i<obj[index].length;i++) {
-                              //alert(obj.message[i].value);
-                              //append
-                              strhtml += '<div class="sgg-row">';
-                              strhtml += '<div class="sgg-image"><img width="50" height="50" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/thumbs/' + obj.message[i].Image + '"/></div>';
-                              strhtml += '<div class="sgg-right">';
-                              strhtml += '<div class="sgg-title"><a href="http://fptcamera.vn/' + obj.message[i].Slug + '">' + obj.message[i].Title + '</a></div>';
-                              strhtml += '<div class="sgg-sellprice">' + parseFloat(obj.message[i].SellPrice).toFixed().replace(/./g, function(c, i, a) {return i && c !== "." && ((a.length - i) % 3 === 0) ? '.' + c : c;}) + ' đ</div>';
-                              strhtml += '</div>';
-                              strhtml += '</div>';
-                            }
-                          }
-                          strhtml += '</div>';
-                          $('#autoSuggestionsList').html(strhtml);
-                        } else {
-                          var strhtml = '';
-                          strhtml += '<div class="sgg-outer">';
-                          strhtml += '<div class="sgg-row">';
-                          strhtml += '<div class="sgg-title"><a>Không có sản phẩm nào tương ứng</a></div>';
-                          strhtml += '</div>';
-                          strhtml += '</div>';
-                          $('#autoSuggestionsList').html(strhtml);
-                        }
-                      });
-            // Ajax_Suggestion(keyword);
-          }
-        }
-      </script>        <link rel="stylesheet" type="text/css" href="http://fptcamera.vn/resources/stylesheets/client/flexslider.css" />
-      <link rel="stylesheet" type="text/css" href="http://fptcamera.vn/resources/stylesheets/client/social-likes_birman.css" />
-      <script src="http://fptcamera.vn/resources/js/client/jquery.flexslider-min.js"></script>
-      <script src="http://fptcamera.vn/resources/js/client/social-likes.min.js"></script>
-      <!-- CSS and Jquery end here -->
-    </head>
-    <body lang="vi">
-      <div id="wrapper">
-        <!-- Top start here -->
-        @include("index.topsub")
-        <!-- Top end here -->
-        <div class="container">
+  <link rel="stylesheet" type="text/css" href="{{asset('public/stylesheets/social-likes_birman.css')}}" />
+  <script src="{{asset('public/js/social-likes.min.js')}}"></script>
+  
+  <!-- CSS and Jquery end here -->
+</head>
+<body lang="vi">
+  <div id="wrapper">
+    <!-- Top start here -->
+    @include("index.topsub")
+    <!-- Top end here -->
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 pad-btm">
           <div class="row">
-            <div class="col-xs-12 pad-btm">
-              <div class="row">
-                <div class="col-md-3 hidden-xs hidden-sm">
-                  <div class="header">
-                    <span>{{$name_cate}}</span>
-                  </div>
-                  <div class="body">
-                    @foreach ($menu_left as $element)
-                    <a class="sort_list" href="{{url('/category/'.$element->id.'/1')}}">{{$element->name}}</a>
-                    @endforeach
-                  </div>
+            <div class="col-md-3 hidden-xs hidden-sm">
+              <div class="header">
+                <span>{{$name_cate}}</span>
+              </div>
+              <div class="body">
+                @foreach ($menu_left as $element)
+                <a class="sort_list" href="{{url('/category/'.$element->id.'/1')}}">{{$element->name}}</a>
+                @endforeach
+              </div>
 
-                </div>
-                <div class="col-xs-12 col-md-9">
+            </div>
+            <div class="col-xs-12 col-md-9">
                                                             <!-- <div class="article_header my-breadcrumb">
                                     <ol class="breadcrumb"><li><a href="http://fptcamera.vn/">Trang chủ</a></li><li><a href="http://fptcamera.vn/thiet-bi-van-phong">Thiết bị văn phòng</a></li></ol>
                                   </div> -->

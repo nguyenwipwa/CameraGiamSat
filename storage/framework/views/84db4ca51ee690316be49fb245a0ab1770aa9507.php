@@ -15,71 +15,10 @@
     <meta name="geo.position" content="20.984321;105.818546" />
     <meta name="ICBM" content="20.984321, 105.818546" />
     <?php echo $__env->make("link.index", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-    <script>
-        (function(i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function() {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-        ga('create', 'UA-66346872-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-    <script type="text/javascript">
-        function lookup(keyword) {
-            var keyword = document.getElementById("searchSgg").value;
-            if (keyword.length == 0) {
-                $('#autoSuggestionsList').fadeOut(400);
-            } else {
-                $.get("<?php echo e(url('/search-ajax')); ?>/"+ keyword, null ,
-                    function(data) {
-                        if (data.length > 14) {
-                            $('#autoSuggestionsList').fadeIn(400);
-                        // var obj = jQuery.parseJSON(data);
-                        var obj = JSON.parse(data);
-                        var strhtml = '';
-                        //$('#autoSuggestionsList').html(data['message']);
-                        strhtml += '<div class="sgg-outer">';
-                        for (var index in obj) {
-                            //alert(obj.message[1].label);
-                            //alert(obj.length());
-                            for (var i = 0; i < obj[index].length; i++) {
-                                //alert(obj.message[i].value);
-                                //append
-                                strhtml += '<div class="sgg-row">';
-                                strhtml += '<div class="sgg-image"><img width="50" height="50" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/thumbs/' + obj.message[i].img + '"/></div>';
-                                strhtml += '<div class="sgg-right">';
-                                strhtml += '<div class="sgg-title"><a href="<?php echo e(url("/detail-product")); ?>/' + obj.message[i].id + '">' + obj.message[i].name + '</a></div>';
-                                strhtml += '<div class="sgg-sellprice">' + parseFloat(obj.message[i].price).toFixed().replace(/./g, function(c, i, a) { return i && c !== "." && ((a.length - i) % 3 === 0) ? '.' + c : c; }) + ' đ</div>';
-                                strhtml += '</div>';
-                                strhtml += '</div>';
-                            }
-                        }
-                        strhtml += '</div>';
-                        $('#autoSuggestionsList').html(strhtml);
-                    } else {
-                        var strhtml = '';
-                        strhtml += '<div class="sgg-outer">';
-                        strhtml += '<div class="sgg-row">';
-                        strhtml += '<div class="sgg-title"><a>Không có sản phẩm nào tương ứng</a></div>';
-                        strhtml += '</div>';
-                        strhtml += '</div>';
-                        $('#autoSuggestionsList').html(strhtml);
-                    }
-                });
-            // Ajax_Suggestion(keyword);
-        }
-    }
-</script>
-<link rel="stylesheet" type="text/css" href="http://fptcamera.vn/resources/stylesheets/client/social-likes_birman.css" />
-<script src="http://fptcamera.vn/resources/js/client/social-likes.min.js"></script>
-<!-- CSS and Jquery end here -->
+    
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('public/stylesheets/social-likes_birman.css')); ?>" />
+    <script src="<?php echo e(asset('public/js/social-likes.min.js')); ?>"></script>
+    <!-- CSS and Jquery end here -->
 </head>
 
 <body lang="vi">
@@ -87,160 +26,160 @@
         <h1 style="display:none;"><b>Lắp đặt camera quan sát giá rẻ </b>,<b> camera FPT</b></h1>
         <h2 style="display: none;">Tư vấn lắp đặt camera</h2>
         <!-- Top start here -->
-       <?php echo $__env->make("index.top", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-       <!-- Top end here -->
-       <div class="container menu_bg">
-        <div class="row menu_bg">
-            <div class="col-xs-12 col-xs-offset-0 menu_bg">
-                <div class="row">
-                    <div class="col-md-4 col-lg-3 hidden-xs hidden-sm" style="padding-right:0;">
-                        <div id="prd-cate-list">
-                            <div class="prd-cate-header">
-                                <span>Danh mục sản phẩm<i class="fa fa-chevron-circle-down"></i></span>
-                            </div>
-                            <ul class="main-page equalheightbanner">
-                                <ul>
-                                   <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cate): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                   <?php if($cate->id_root == 0 && $cate->status==1): ?>
-                                   <li><a href="<?php echo e(url('/category/'.$cate->id.'/1')); ?>"><img alt = "<?php echo e($cate->name); ?>" src = "http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//<?php echo $cate->icon; ?>" /><span class="mc_title"><?php echo e($cate->name); ?><i class="fa fa-chevron-right hidden-md"></i></span></a>
-                                    <ul>
-                                        <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cate1): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <?php if($cate->id == $cate1->id_root && $cate1->status==1): ?>
-                                        <li><a href="<?php echo e(url('/category/'.$cate1->id.'/1')); ?>"><img alt = "<?php echo e($cate1->name); ?>" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title"><?php echo e($cate1->name); ?><i class="fa fa-chevron-right hidden-md"></i></span></a>
-                                            <ul>
-                                               <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cate2): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                               <?php if($cate1->id == $cate2->id_root && $cate2->status==1): ?>
-                                               <li><a href="<?php echo e(url('/category/'.$cate2->id.'/1')); ?>"><img alt = "<?php echo e($cate2->name); ?>" src = http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham// /><span class="mc_title"><?php echo e($cate2->name); ?><i class="fa fa-chevron-right hidden-md"></i></span></a>
-                                                <div class="clear"></div>
-                                            </li>
-                                            <?php endif; ?>
-                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                        </ul>
-                                        <div class="clear"></div>
-                                    </li>
-                                    <?php endif; ?>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                </ul>
-                                <div class="clear"></div>
-                            </li>
-                            <?php endif; ?>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </ul>
-                        <div class="clear"></div>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-8 col-lg-9">
-                <div class="row">
-                    <div class="col-xs-12 col-lg-8" style="padding:0;">
-                        <div id="searchform">
-                            <form action="<?php echo e(route('search')); ?>" accept-charset="utf-8" method="get"> <img style="display: none;" class="loader" src="http://fptcamera.vn/resources/ui_images/client/background/loader.gif" />
-                                <input type="text" name="key" value="" id="searchSgg" class="searchfield" onkeyup="lookup()" autocomplete="off" placeholder="Tìm kiếm sản phẩm ..." />
-                                <input type="submit" name="submit_search" value="Tìm kiếm" id="search_btn" class="searchbutton" />
-                                <div class="clear"></div>
-                                <div class="autoSuggestionsList_l" id="autoSuggestionsList">
-                                </div>
-                            </form>
-                        </div>
-                        <div id="banner" class="hidden-xs hidden-sm equalheightbanner">
-                            <div class="bannerslider">
-                                <ul class="slides">
-                                    <li>
-                                        <a href="#">
-                                            <img title="công ty lắp đặt camera uy tín" alt="Dịch vụ lắp đặt camera quan sát uy tín giá rẻ tại FPT việt nam đạt chất lượng hàng đầu. Khuyến mãi lắp đặt trọn gói không phát sinh" src="http://fptcamera.vn/resources/uploads/images/automatic/banner/chung-nhan-dai-ly-camera-hikvision.jpg" />
-                                            <div class="clear"></div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a target="_blank" href="http://fptcamera.vn/tin-tuc/lap-dat-mang-fpt-cap-quang-tai-fpt-viet-nam">
-                                            <img title="lắp đặt mạng FPT" alt="lap-dat-mang-fpt" src="http://fptcamera.vn/resources/uploads/images/automatic/banner/lap-dat-mang-fpt.jpg" />
-                                            <div class="clear"></div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a target="_blank" href="http://fptcamera.vn/tron-bo-camera-gia-re">
-                                            <img title="lắp đặt camera trọn bộ gía rẻ" alt="Lắp đặt camera benco trọn bộ dịch vụ của FPT VIỆT NAM quý khách không phải phát sinh bất kỳ chi phí nào. Camera an ninh uy tín" src="http://fptcamera.vn/resources/uploads/images/automatic/banner/camera-benco-gia-re.jpg" />
-                                            <div class="clear"></div>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 hidden-xs hidden-sm hidden-md" style="padding-left:0;">
-                        <button type="button" class="btn btn-danger button-support" data-toggle="modal" data-target="#supportonlineModal"><img src="http://fptcamera.vn/resources/ui_images/client/background/yahoo-smile.png">&nbsp;Hỗ trợ trực tuyến</button>
-                        <a class="b_a" href="http://fptcamera.vn/tin-tuc/lap-dat-mang-fpt-cap-quang-tai-fpt-viet-nam"><img alt="Lắp camera, Internet FPT" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/lap-mang-fpt.jpg"></a>
-                        <a class="b_a" href="http://fptcamera.vn/tin-tuc/chuong-trinh-doi-camera-cu-lay-camera-moi-tai-fpt"><img alt="Lắp đặt camera tặng báo trộm" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/doi_camera_cu_lay_moi.jpg"></a>
-                    </div>
-                </div>
-            </div>
-            <div class="clear"></div>
-            <div class="col-xs-12 hidden-xs hidden-sm">
-                <div id="sub-menu">
+        <?php echo $__env->make("index.top", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <!-- Top end here -->
+        <div class="container menu_bg">
+            <div class="row menu_bg">
+                <div class="col-xs-12 col-xs-offset-0 menu_bg">
                     <div class="row">
-                        <div class="col-xs-12 col-lg-7">
-                            <div class="contain">
-                                <a href='http://fptcamera.vn/tin-tuc/gioi-thieu'>Sơ lược công ty</a>
-                                <a href='http://fptcamera.vn/tin-tuc/chinh-sach'>Chính sách ưu đãi</a>
-                                <a href='http://fptcamera.vn/tin-tuc/tin-camera'>Tin camera</a>
-                                <a href='http://fptcamera.vn/lien-he'>Liên hệ</a>
+                        <div class="col-md-4 col-lg-3 hidden-xs hidden-sm" style="padding-right:0;">
+                            <div id="prd-cate-list">
+                                <div class="prd-cate-header">
+                                    <span>Danh mục sản phẩm<i class="fa fa-chevron-circle-down"></i></span>
+                                </div>
+                                <ul class="main-page equalheightbanner">
+                                    <ul>
+                                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cate): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                     <?php if($cate->id_root == 0 && $cate->status==1): ?>
+                                     <li><a href="<?php echo e(url('/category/'.$cate->id.'/1')); ?>"><img alt = "<?php echo e($cate->name); ?>" src = "<?php echo e(asset('public/images/danh-muc-san-pham/'.$cate->icon)); ?>" /><span class="mc_title"><?php echo e($cate->name); ?><i class="fa fa-chevron-right hidden-md"></i></span></a>
+                                        <ul>
+                                            <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cate1): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <?php if($cate->id == $cate1->id_root && $cate1->status==1): ?>
+                                            <li><a href="<?php echo e(url('/category/'.$cate1->id.'/1')); ?>"><img alt = "<?php echo e($cate1->name); ?>" src = "" /><span class="mc_title"><?php echo e($cate1->name); ?><i class="fa fa-chevron-right hidden-md"></i></span></a>
+                                                <ul>
+                                                 <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cate2): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                 <?php if($cate1->id == $cate2->id_root && $cate2->status==1): ?>
+                                                 <li><a href="<?php echo e(url('/category/'.$cate2->id.'/1')); ?>"><img alt = "<?php echo e($cate2->name); ?>" src = "" /><span class="mc_title"><?php echo e($cate2->name); ?><i class="fa fa-chevron-right hidden-md"></i></span></a>
+                                                    <div class="clear"></div>
+                                                </li>
+                                                <?php endif; ?>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </li>
+                                        <?php endif; ?>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    </ul>
+                                    <div class="clear"></div>
+                                </li>
+                                <?php endif; ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </ul>
+                            <div class="clear"></div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-8 col-lg-9">
+                    <div class="row">
+                        <div class="col-xs-12 col-lg-8" style="padding:0;">
+                            <div id="searchform">
+                                <form action="<?php echo e(route('search')); ?>" accept-charset="utf-8" method="get"> <img style="display: none;" class="loader" src="http://fptcamera.vn/resources/ui_images/client/background/loader.gif" />
+                                    <input type="text" name="key" value="" id="searchbutton" class="searchfield" onkeyup="lookup()" autocomplete="off" placeholder="Tìm kiếm sản phẩm ..." />
+                                    <input type="submit" name="submit_search" value="Tìm kiếm" id="search_btn" class="searchbutton" />
+                                    <div class="clear"></div>
+                                    <div class="autoSuggestionsList_l" id="autoSuggestionsList">
+                                    </div>
+                                </form>
+                            </div>
+                            <div id="banner" class="hidden-xs hidden-sm equalheightbanner">
+                                <div class="bannerslider">
+                                    <ul class="slides">
+                                        <li>
+                                            <a href="#">
+                                                <img title="công ty lắp đặt camera uy tín" alt="Dịch vụ lắp đặt camera quan sát uy tín giá rẻ tại FPT việt nam đạt chất lượng hàng đầu. Khuyến mãi lắp đặt trọn gói không phát sinh" src="http://fptcamera.vn/resources/uploads/images/automatic/banner/chung-nhan-dai-ly-camera-hikvision.jpg" />
+                                                <div class="clear"></div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a target="_blank" href="http://fptcamera.vn/tin-tuc/lap-dat-mang-fpt-cap-quang-tai-fpt-viet-nam">
+                                                <img title="lắp đặt mạng FPT" alt="lap-dat-mang-fpt" src="http://fptcamera.vn/resources/uploads/images/automatic/banner/lap-dat-mang-fpt.jpg" />
+                                                <div class="clear"></div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a target="_blank" href="http://fptcamera.vn/tron-bo-camera-gia-re">
+                                                <img title="lắp đặt camera trọn bộ gía rẻ" alt="Lắp đặt camera benco trọn bộ dịch vụ của FPT VIỆT NAM quý khách không phải phát sinh bất kỳ chi phí nào. Camera an ninh uy tín" src="http://fptcamera.vn/resources/uploads/images/automatic/banner/camera-benco-gia-re.jpg" />
+                                                <div class="clear"></div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="clear"></div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-5 hidden-xs hidden-sm hidden-md">
-                            <div class="newsslider">
-                                <ul class="slides">
-                                    <li>
-                                        <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-giam-sat-khu-cong-nghiep">Lắp đặt camera giám sát khu công nghiệp</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-quan-sat-tai-bac-giang">lắp đặt camera quan sát tại  Bắc Giang</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-gia-dinh-gia-bao-nhieu">lap dat camera gia dinh gia bao nhieu</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-quan-sat-cho-nha-xuong-can-luu-y-gi-">Lắp đặt camera quan sát cho nhà xưởng cần lưu ý gì?</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://fptcamera.vn/tin-tuc/chuong-trinh-doi-camera-cu-lay-camera-moi-tai-fpt">Chương trình đổi camera cũ lấy camera mới tại FPT</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-tai-bac-ninh">Lắp đặt camera tại Bắc Ninh</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://fptcamera.vn/tin-tuc/chi-phi-lap-dat-camera-quan-sat-tron-goi-tai-ha-noi">Chi phí lắp đặt camera quan sát trọn gói tại hà nội</a>
-                                    </li>
-                                    <li>
-                                        <a href="http://fptcamera.vn/tin-tuc/tu-van-lap-dat-camera-quan-sat-an-toan-gia-dinh">Tư vấn lắp đặt camera quan sát an toàn gia đình</a>
-                                    </li>
+                        <div class="col-lg-4 hidden-xs hidden-sm hidden-md" style="padding-left:0;">
+                            <button type="button" class="btn btn-danger button-support" data-toggle="modal" data-target="#supportonlineModal"><img src="http://fptcamera.vn/resources/ui_images/client/background/yahoo-smile.png">&nbsp;Hỗ trợ trực tuyến</button>
+                            <a class="b_a" href="http://fptcamera.vn/tin-tuc/lap-dat-mang-fpt-cap-quang-tai-fpt-viet-nam"><img alt="Lắp camera, Internet FPT" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/lap-mang-fpt.jpg"></a>
+                            <a class="b_a" href="http://fptcamera.vn/tin-tuc/chuong-trinh-doi-camera-cu-lay-camera-moi-tai-fpt"><img alt="Lắp đặt camera tặng báo trộm" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/doi_camera_cu_lay_moi.jpg"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="col-xs-12 hidden-xs hidden-sm">
+                    <div id="sub-menu">
+                        <div class="row">
+                            <div class="col-xs-12 col-lg-7">
+                                <div class="contain">
+                                    <a href='http://fptcamera.vn/tin-tuc/gioi-thieu'>Sơ lược công ty</a>
+                                    <a href='http://fptcamera.vn/tin-tuc/chinh-sach'>Chính sách ưu đãi</a>
+                                    <a href='http://fptcamera.vn/tin-tuc/tin-camera'>Tin camera</a>
+                                    <a href='http://fptcamera.vn/lien-he'>Liên hệ</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 hidden-xs hidden-sm hidden-md">
+                                <div class="newsslider">
+                                    <ul class="slides">
+                                        <li>
+                                            <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-giam-sat-khu-cong-nghiep">Lắp đặt camera giám sát khu công nghiệp</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-quan-sat-tai-bac-giang">lắp đặt camera quan sát tại  Bắc Giang</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-gia-dinh-gia-bao-nhieu">lap dat camera gia dinh gia bao nhieu</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-quan-sat-cho-nha-xuong-can-luu-y-gi-">Lắp đặt camera quan sát cho nhà xưởng cần lưu ý gì?</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://fptcamera.vn/tin-tuc/chuong-trinh-doi-camera-cu-lay-camera-moi-tai-fpt">Chương trình đổi camera cũ lấy camera mới tại FPT</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-tai-bac-ninh">Lắp đặt camera tại Bắc Ninh</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://fptcamera.vn/tin-tuc/chi-phi-lap-dat-camera-quan-sat-tron-goi-tai-ha-noi">Chi phí lắp đặt camera quan sát trọn gói tại hà nội</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://fptcamera.vn/tin-tuc/tu-van-lap-dat-camera-quan-sat-an-toan-gia-dinh">Tư vấn lắp đặt camera quan sát an toàn gia đình</a>
+                                        </li>
+                                        <div class="clear"></div>
+                                    </ul>
                                     <div class="clear"></div>
-                                </ul>
-                                <div class="clear"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="clear"></div>
-            <div class="col-xs-12">
-                <?php $__currentLoopData = $slides; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $e): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <?php if($e->id_root==0 && $e->status==1): ?>
-                <ul class="nav nav-tabs custom-tabs " role="tablist">
-                    <li role="presentation" class="active"><a href="<?php echo e(url('/category/'.$e->id.'/1')); ?>"><?php echo e($e->name); ?></a></li>
-                    <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cate1): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <?php if($e->id == $cate1->id_root && $cate1->status==1): ?>
-                    <li class="hidden-xs hidden-sm" role="presentation"><a href="<?php echo e(url('/category/'.$cate1->id.'/1')); ?>"><?php echo e($cate1->name); ?></a></li>
-                    <?php endif; ?>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                </ul>
-                <div class="tab-content ">
-                    <div role="tabpanel" class="tab-pane active" >
-                        <div class="row">
-                            <div class="col-xs-12 col-lg-9">
-                                <div class="row">
-                                    <?php
-                                    $products = DB::select('SELECT product.* FROM slide INNER JOIN slide_product ON slide_product.id_slide = slide.id INNER JOIN product ON slide_product.id_product = product.id
+                <div class="clear"></div>
+                <div class="col-xs-12">
+                    <?php $__currentLoopData = $slides; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $e): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <?php if($e->id_root==0 && $e->status==1): ?>
+                    <ul class="nav nav-tabs custom-tabs " role="tablist">
+                        <li role="presentation" class="active"><a href="<?php echo e(url('/category/'.$e->id.'/1')); ?>"><?php echo e($e->name); ?></a></li>
+                        <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cate1): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php if($e->id == $cate1->id_root && $cate1->status==1): ?>
+                        <li class="hidden-xs hidden-sm" role="presentation"><a href="<?php echo e(url('/category/'.$cate1->id.'/1')); ?>"><?php echo e($cate1->name); ?></a></li>
+                        <?php endif; ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </ul>
+                    <div class="tab-content ">
+                        <div role="tabpanel" class="tab-pane active" >
+                            <div class="row">
+                                <div class="col-xs-12 col-lg-9">
+                                    <div class="row">
+                                        <?php
+                                        $products = DB::select('SELECT product.* FROM slide INNER JOIN slide_product ON slide_product.id_slide = slide.id INNER JOIN product ON slide_product.id_product = product.id
                                         WHERE slide.id_category = ?', [$e->id]);
                                         ?>
                                         <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $element): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

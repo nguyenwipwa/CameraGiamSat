@@ -12,6 +12,21 @@ use Illuminate\Http\Request;
 use Cart;
 class PageController extends Controller {
 
+	function payment() {
+		
+
+		$category = Category::all();
+		$contact = Contact::all();
+		// $product = Category::where('id_category', 10)->get();
+		$slides = DB::select('SELECT category.*, slide.img FROM slide INNER JOIN category ON slide.id_category = category.id');
+		//   	var_dump($users);
+
+		// Cart::add('293ad', 'Product 1', 1, 9.99, ['img'=> 'ngon']);
+		// $list_cart = Cart::content();
+		return view('index.carts.payment', ['category' => $category, 'contact' => $contact, 'slides' => $slides]);
+		// echo json_encode(Cart::content());
+	}
+
 	function updateCart(Request $request){
 		$list_cart = Cart::content();
 		// echo json_encode($request->all());

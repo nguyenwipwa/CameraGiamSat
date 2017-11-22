@@ -16,82 +16,7 @@
     <meta name="ICBM" content="20.984321, 105.818546" />
     @include('../../link.index')
 
-    <script>
-        (function(i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function() {
-                (i[r].q = i[r].q || [])
-                .push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-        ga('create', 'UA-66346872-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-
-
-    <script type="text/javascript">
-        function lookup(keyword) {
-            var keyword = document.getElementById("searchSgg")
-            .value;
-            if (keyword.length == 0) {
-                $('#autoSuggestionsList')
-                .fadeOut(400);
-            } else {
-                $.post("http://fptcamera.vn/ajaxhandle/client_products_ajaxhandler/Ajax_Get_All_Product_Client", {
-                    keyword: keyword
-                },
-                function(data) {
-                    if (data.length > 14) {
-                        $('#autoSuggestionsList')
-                        .fadeIn(400);
-                            // var obj = jQuery.parseJSON(data);
-                            var obj = JSON.parse(data);
-                            var strhtml = '';
-                            //$('#autoSuggestionsList').html(data['message']);
-                            strhtml += '<div class="sgg-outer">';
-                            for (var index in obj) {
-                                //alert(obj.message[1].label);
-                                //alert(obj.length());
-                                for (var i = 0; i < obj[index].length; i++) {
-                                    //alert(obj.message[i].value);
-                                    //append
-                                    strhtml += '<div class="sgg-row">';
-                                    strhtml += '<div class="sgg-image"><img width="50" height="50" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/thumbs/' + obj.message[i].Image + '"/></div>';
-                                    strhtml += '<div class="sgg-right">';
-                                    strhtml += '<div class="sgg-title"><a href="http://fptcamera.vn/' + obj.message[i].Slug + '">' + obj.message[i].Title + '</a></div>';
-                                    strhtml += '<div class="sgg-sellprice">' + parseFloat(obj.message[i].SellPrice)
-                                    .toFixed()
-                                    .replace(/./g, function(c, i, a) {
-                                        return i && c !== "." && ((a.length - i) % 3 === 0) ? '.' + c : c;
-                                    }) + ' đ</div>';
-                                    strhtml += '</div>';
-                                    strhtml += '</div>';
-                                }
-                            }
-                            strhtml += '</div>';
-                            $('#autoSuggestionsList')
-                            .html(strhtml);
-                        } else {
-                            var strhtml = '';
-                            strhtml += '<div class="sgg-outer">';
-                            strhtml += '<div class="sgg-row">';
-                            strhtml += '<div class="sgg-title"><a>Không có sản phẩm nào tương ứng</a></div>';
-                            strhtml += '</div>';
-                            strhtml += '</div>';
-                            $('#autoSuggestionsList')
-                            .html(strhtml);
-                        }
-                    });
-                // Ajax_Suggestion(keyword);
-            }
-        }
-    </script>
+    
     <link rel="stylesheet" type="text/css" href="http://fptcamera.vn/resources/stylesheets/client/jquery.bootstrap-touchspin.css" />
     <script src="http://fptcamera.vn/resources/js/client/jquery.bootstrap-touchspin.min.js"></script>
     <!-- CSS and Jquery end here -->
@@ -112,6 +37,13 @@
                             </div>
                             <form action="{{ route('updateCart') }}" method="post" accept-charset="utf-8">
                                 <table id="cart">
+                                    @if(Cart::count()==0)
+                                    <tbody>
+                                        <tr>
+                                            <th>Giỏ hàng trống</th>
+                                        </tr>
+                                    </tbody>
+                                    @else
                                     <tr>
                                         <th></th>
                                         <th>Mã - Tên sản phẩm</th>
@@ -150,6 +82,7 @@
 
                                     </td>
                                 </tr>
+                                @endif
                             </table>
                         </form>
                         <div class="clear"></div>

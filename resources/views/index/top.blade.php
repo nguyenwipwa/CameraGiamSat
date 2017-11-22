@@ -126,7 +126,7 @@
                                 <ul class="nav navbar-nav">
                                    @foreach($category as $cate)
                                    @if($cate->id_root == 0 && $cate->status==1)
-                                   <li><a href="{{url('/category/'.$cate->id)}}"><img src = "http://fptcamera.vn/resources/uploads/images/automatic/danh-muc-san-pham//{!!$cate->icon!!}"/>&nbsp;&nbsp;{!!$cate->name!!}</a></li>
+                                   <li><a href="{{url('/category/'.$cate->id.'/1')}}"><img src = "{{ asset('public/images/danh-muc-san-pham/'.$cate->icon) }}"/>&nbsp;&nbsp;{!!$cate->name!!}</a></li>
                                    @endif
                                    @endforeach
                                </ul>
