@@ -30,6 +30,13 @@ Route::group(['prefix' => '/gio-hang'], function () {
 
 
 });
+Route::group(['prefix' => '/user'], function () {
+	Route::post('/add', ['as' => 'addUser', 'uses' => 'UserController@addUser']);
+	Route::post('/modifier', ['as' => 'updateCart', 'uses' => 'PageController@updateCart']);
+	Route::get('/thanh-toan', ['as' => 'payment', 'uses' => 'PageController@payment']);
+
+
+});
 
 
 Route::group(['prefix' => '/admin'], function () {
@@ -101,3 +108,7 @@ Route::get('model/category/ten', function () {
 	$category = App\Category::where('id', 10)->get()->toArray();
 	var_dump($category);
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

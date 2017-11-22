@@ -43,30 +43,31 @@
  						</form>
  					</div>
  					<div id="registration-form" class="tab-pane fade">
- 						<form action="/">
+ 						<form action="{{ route('addUser') }}" method="post" accept-charset="UTF-8">
+ 							{{ csrf_field() }}
  							<div class="form-group">
  								<label for="name">Tên bạn:</label>
  								<input type="text" class="form-control" id="name" placeholder="Enter your name" name="name">
  							</div>
  							<div class="form-group">
  								<label for="newemail">Email:</label>
- 								<input type="email" class="form-control" id="newemail" placeholder="Enter new email" name="newemail">
+ 								<input type="email" class="form-control" id="newemail" placeholder="Enter new email" name="email">
  							</div>
  							<div class="form-group">
  								<label for="newpwd">Mật khẩu:</label>
- 								<input type="password" class="form-control" id="newpwd" placeholder="New password" name="newpwd">
+ 								<input type="password" class="form-control" id="newpwd" placeholder="New password" name="password">
  							</div>
  							<div class="form-group">
  								<label for="newpwd">Số điện thoại:</label>
- 								<input type="text" class="form-control" id="newpwd" placeholder="Số điện thoại" name="newpwd">
+ 								<input type="text" class="form-control" id="newpwd" placeholder="Số điện thoại" name="numberPhone">
  							</div>
  							<div class="form-group">
  								<label for="newpwd">Địa chỉ:</label>
- 								<input type="text" class="form-control" id="newpwd" placeholder="Số điện thoại" name="newpwd">
+ 								<input type="text" class="form-control" id="newpwd" placeholder="Địa chỉ" name="address">
  							</div>
  							<div class="form-group">
  								<label for="newemail">Thành phố:</label>
- 								<select class="form-control" id="sel1">
+ 								<select class="form-control" id="sel1" name="id_tp">
  									@foreach(DB::select('SELECT * from thanhpho') as $key)
  									<option value="{{ $key->id }}">{{ $key->name }}</option>
  									@endforeach
