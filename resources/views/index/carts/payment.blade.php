@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html class="no-js" lang="vi">
+
 <head>
 	<!-- CSS and Jquery start here -->
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -12,13 +13,15 @@
 	<meta name="geo.region" content="VN-HN" />
 	<meta name="geo.placename" content="Hà nội" />
 	<meta name="geo.position" content="20.984321;105.818546" />
-	<meta name="ICBM" content="20.984321, 105.818546" />
-	@include('../../link.index')
+	<meta name="ICBM" content="20.984321, 105.818546" /> @include('../../link.index')
 
 	<link rel="stylesheet" type="text/css" href="http://fptcamera.vn/resources/stylesheets/client/jquery.bootstrap-touchspin.css" />
 	<script src="http://fptcamera.vn/resources/js/client/jquery.bootstrap-touchspin.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="{{asset('public/stylesheets/product.css')}}" />
+	<link rel="stylesheet" type="text/css" href="{{asset('public/stylesheets/shopping.css')}}" />
 	<!-- CSS and Jquery end here -->
 </head>
+
 <body lang="vi">
 	<div id="wrapper">
 		<!-- Top start here -->
@@ -30,11 +33,35 @@
 					<div class="header">
 						<span>Giỏ hàng</span>
 					</div>
-					<table id="cart">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+						<tbody>
+							<tr class="hidden-xs hidden-sm">
+								<td  width="45%" valign="top">
+									@include('../../index.carts.loginForm')
+								</td>
+								<td valign="top" style="padding-left:20px;">
+									@include('../../index.carts.inputForm')
+								</td>
+							</tr>
+							<tr class="hidden-md hidden-lg">
+								<td>
+									@include('../../index.carts.loginForm')
+								</td>
+							</tr>
+							<tr class="hidden-md hidden-lg">
+								<td>
+									@include('../../index.carts.inputForm')
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+
+                    <!-- <table id="cart">
 						<tr>
 							<td style="background:#fff;">
 								<span>Xin vui lòng điền thông tin dưới đây để chúng tôi thực hiện giao hàng tới cho bạn</span>
-								<form action="http://fptcamera.vn/don-hang" method="post" accept-charset="utf-8">                                        <div class="form_label_input">
+								<form action="{{ route('payment') }}" method="post" accept-charset="utf-8">                                        <div class="form_label_input">
 									<label for="fullname">Họ tên<span class="required"> * </span></label>
 									<input type="text" name="fullname" id="fullname" value="" >
 								</div>
@@ -58,20 +85,19 @@
 								<input class="btn2" type="button" value="Trở về giỏ hàng" onclick="location.href='http://fptcamera.vn/gio-hang'" />
 							</td>
 						</tr>
-					</table>
+					</table> -->
 				</div>
 			</div>
 			<div class="clear"></div>
 		</div>
 
 		<!-- Bottom end here -->
-		@include('../../index.bottom')
-		@include('../../index.footer')
+		@include('../../index.bottom') @include('../../index.footer')
 		<!-- Bottom end here -->
 
 	</div>
 	<div class="sticky-container hidden-xs hidden-md">
-			<!-- <ul class="sticky">
+        <!-- <ul class="sticky">
 				<li>
 					<a rel="no-follow" target="_blank" href="">
 						<p>Facebook</p>
@@ -102,7 +128,7 @@
 			<!-- <a data-toggle="modal" data-target="#supportonlineModal">Hỗ trợ trực tuyến</a> -->
 			<!-- <a data-toggle="modal" data-target="#hotlineModal">HOTLINE</a> -->
 		</div>
-		<!-- <div class="modal fade" id="hotlineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="hotlineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -137,7 +163,8 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+						</button>
 						<h4 class="modal-title" id="myModalLabel">Hỗ trợ trực tuyến</h4>
 					</div>
 					<div class="modal-body">
@@ -145,19 +172,25 @@
 							<div id="modal_hotline_list">
 								<div class="col-xs-6 col-md-4">
 									<div class="hotline">
-										<p class="title">Mr: Xuân</p>											<p>Tư vấn bán hàng</p>											<p>Tel: 098 448 9688</p>																						
+										<p class="title">Mr: Xuân</p>
+										<p>Tư vấn bán hàng</p>
+										<p>Tel: 098 448 9688</p>
 										<a style="float:left" href="skype:kd_fptcamera?chat" class="icons skype"><i style="font-size:25px;margin-left:10px;" class="fa fa-skype"></i></a>
 									</div>
 								</div>
 								<div class="col-xs-6 col-md-4">
 									<div class="hotline">
-										<p class="title">Mr: Quang Trung</p>											<p>Tư vấn bán hàng</p>											<p>Tel: 0988 043 400</p>																						
+										<p class="title">Mr: Quang Trung</p>
+										<p>Tư vấn bán hàng</p>
+										<p>Tel: 0988 043 400</p>
 										<a style="float:left" href="skype:kd_fptcamera?chat" class="icons skype"><i style="font-size:25px;margin-left:10px;" class="fa fa-skype"></i></a>
 									</div>
 								</div>
 								<div class="col-xs-6 col-md-4">
 									<div class="hotline">
-										<p class="title">Mr: Trung</p>											<p>Chi nhánh Sài Gòn</p>											<p>Tel: 0907 903 171</p>																						
+										<p class="title">Mr: Trung</p>
+										<p>Chi nhánh Sài Gòn</p>
+										<p>Tel: 0907 903 171</p>
 										<a style="float:left" href="skype:kd_fptcamera?chat" class="icons skype"><i style="font-size:25px;margin-left:10px;" class="fa fa-skype"></i></a>
 									</div>
 								</div>
@@ -167,12 +200,13 @@
 				</div>
 			</div>
 		</div>
-		<div id="go_top" class="hidden-xs hidden-sm"><i class="fa fa-arrow-circle-up"></i></div>
+		<div id="go_top" class="hidden-xs hidden-sm"><i class="fa fa-arrow-circle-up"></i>
+		</div>
 		<div id="fixed-bottom" class="hidden-lg hidden-md">
-			<div id="call-xs-sm"><a href="tel:0984 489 688"><i class="fa fa-phone">&nbsp;&nbsp;</i>Gọi 0984 489 688</a></div>
+			<div id="call-xs-sm"><a href="tel:0984 489 688"><i class="fa fa-phone">&nbsp;&nbsp;</i>Gọi 0984 489 688</a>
+			</div>
 		</div>
 		<script type="text/javascript" charset="utf-8">
-
 			$(window).load(function() {
 				equalheight('.thumbnail.products');
 				equalheight('.thumbnail.news');
@@ -181,50 +215,52 @@
 			});
 
 
-			$(window).resize(function(){
+			$(window).resize(function() {
 				equalheight('.thumbnail.products');
 				equalheight('.thumbnail.news');
 				equalheight('.equalheight1');
 				equalheight('.equalheightbanner');
 			});
 
-			$('#menu ul > li').hover(function () {
+			$('#menu ul > li').hover(function() {
 				$(this).children('ul').stop(true, true).delay(200).fadeIn(300);
-			}, function () {
+			}, function() {
 				$(this).children('ul').stop(true, true).fadeOut(300);
 			});
 
-			$('#prd-cate-list .sub-page > ul > li').hover(function () {
+			$('#prd-cate-list .sub-page > ul > li').hover(function() {
 				$(this).children('ul').stop(true, true).delay(200).fadeIn(300);
-			}, function () {
+			}, function() {
 				$(this).children('ul').stop(true, true).fadeOut(300);
 			});
 
-			$('#prd-cate-list').hover(function () {
+			$('#prd-cate-list').hover(function() {
 				$(this).children('ul.sub-page').stop(true, true).delay(200).slideDown(300);
-			}, function () {
+			}, function() {
 				$(this).children('ul.sub-page').stop(true, true).slideUp(300);
 			});
 
 			$('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
-				event.preventDefault(); 
-				event.stopPropagation(); 
+				event.preventDefault();
+				event.stopPropagation();
 				$(this).parent().siblings().removeClass('open');
 				$(this).parent().toggleClass('open');
 			});
 
-			$('.scrollfix').scrollFix({fixTop:40});
+			$('.scrollfix').scrollFix({
+				fixTop: 40
+			});
 
 			if ($(window).scrollTop() != "0")
 				$("#go_top").fadeIn("slow");
 			var scrollDiv = $("#go_top");
-			$(window).scroll(function () {
+			$(window).scroll(function() {
 				if ($(window).scrollTop() == "0")
 					$(scrollDiv).fadeOut("slow")
 				else
 					$(scrollDiv).fadeIn("slow")
 			});
-			$("#go_top").click(function () {
+			$("#go_top").click(function() {
 				$("html, body").animate({
 					scrollTop: $("#ScrollTo").offset().top
 				}, "slow")
@@ -244,12 +280,13 @@
 
 			function clear_cart() {
 				var result = confirm('Bạn muốn hủy giỏ hàng ?');
-				if(result) {
+				if (result) {
 					window.location = "http://fptcamera.vn/removecart/all";
-				}else{
-                    return false; // cancel button
-                }
+				} else {
+                return false; // cancel button
             }
-        </script>
-    </body>
-    </html>
+        }
+    </script>
+</body>
+
+</html>

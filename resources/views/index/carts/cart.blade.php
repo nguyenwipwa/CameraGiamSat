@@ -16,7 +16,7 @@
     <meta name="ICBM" content="20.984321, 105.818546" />
     @include('../../link.index')
 
-    
+
     <link rel="stylesheet" type="text/css" href="http://fptcamera.vn/resources/stylesheets/client/jquery.bootstrap-touchspin.css" />
     <script src="http://fptcamera.vn/resources/js/client/jquery.bootstrap-touchspin.min.js"></script>
     <!-- CSS and Jquery end here -->
@@ -77,7 +77,7 @@
                                     <td colspan="6">
                                         <input class="btn1" type="button" value="Xóa giỏ hàng" onclick="clear_cart()" />
                                         <input style="margin-left:5px;" class="btn1" type="button" value="Tiếp tục mua hàng" onclick="location.href='{{ url('/') }}'" />
-                                        <input style="float:right;margin-left:5px" class="btn2" type="button" value="Thanh toán" onclick="location.href='http://fptcamera.vn/don-hang'" />
+                                        <input style="float:right;margin-left:5px" class="btn2" type="button" value="Thanh toán" onclick="location.href='{{ route('payment') }}'" />
                                         <input style="float:right;margin:5px" class="btn3" type="submit" value="Cập nhật số lượng" />
 
                                     </td>
@@ -96,8 +96,8 @@
                         </div>
                         <form action="{{ route('updateCart') }}" method="post" accept-charset="utf-8">
                             <table id="cart">
-                             @foreach(Cart::content() as $row)
-                             <tr>
+                               @foreach(Cart::content() as $row)
+                               <tr>
                                 <td colspan="2"><b>{{ $row->name }}</b>
                                 </td>
                             </tr>
@@ -129,7 +129,7 @@
                                     <input class="btn1" type="button" value="Xóa giỏ hàng" onclick="clear_cart()" />
                                     <input class="btn1" type="button" value="Tiếp tục mua hàng" onclick="location.href='{{ url('/') }}'" />
                                     <input class="btn3" type="submit" value="Cập nhật số lượng" />
-                                    <input class="btn2" type="button" value="Thanh toán" onclick="location.href='http://fptcamera.vn/don-hang'" />
+                                    <input class="btn2" type="button" value="Thanh toán" onclick="location.href='{{ route('payment') }}'" />
                                 </td>
                             </tr>
                         </table>

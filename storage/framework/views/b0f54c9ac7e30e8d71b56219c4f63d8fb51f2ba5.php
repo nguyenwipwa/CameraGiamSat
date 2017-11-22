@@ -16,7 +16,7 @@
     <meta name="ICBM" content="20.984321, 105.818546" />
     <?php echo $__env->make('../../link.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-    
+
     <link rel="stylesheet" type="text/css" href="http://fptcamera.vn/resources/stylesheets/client/jquery.bootstrap-touchspin.css" />
     <script src="http://fptcamera.vn/resources/js/client/jquery.bootstrap-touchspin.min.js"></script>
     <!-- CSS and Jquery end here -->
@@ -78,7 +78,7 @@
                                     <td colspan="6">
                                         <input class="btn1" type="button" value="Xóa giỏ hàng" onclick="clear_cart()" />
                                         <input style="margin-left:5px;" class="btn1" type="button" value="Tiếp tục mua hàng" onclick="location.href='<?php echo e(url('/')); ?>'" />
-                                        <input style="float:right;margin-left:5px" class="btn2" type="button" value="Thanh toán" onclick="location.href='http://fptcamera.vn/don-hang'" />
+                                        <input style="float:right;margin-left:5px" class="btn2" type="button" value="Thanh toán" onclick="location.href='<?php echo e(route('payment')); ?>'" />
                                         <input style="float:right;margin:5px" class="btn3" type="submit" value="Cập nhật số lượng" />
 
                                     </td>
@@ -97,8 +97,8 @@
                         </div>
                         <form action="<?php echo e(route('updateCart')); ?>" method="post" accept-charset="utf-8">
                             <table id="cart">
-                             <?php $__currentLoopData = Cart::content(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                             <tr>
+                               <?php $__currentLoopData = Cart::content(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                               <tr>
                                 <td colspan="2"><b><?php echo e($row->name); ?></b>
                                 </td>
                             </tr>
@@ -131,7 +131,7 @@
                                     <input class="btn1" type="button" value="Xóa giỏ hàng" onclick="clear_cart()" />
                                     <input class="btn1" type="button" value="Tiếp tục mua hàng" onclick="location.href='<?php echo e(url('/')); ?>'" />
                                     <input class="btn3" type="submit" value="Cập nhật số lượng" />
-                                    <input class="btn2" type="button" value="Thanh toán" onclick="location.href='http://fptcamera.vn/don-hang'" />
+                                    <input class="btn2" type="button" value="Thanh toán" onclick="location.href='<?php echo e(route('payment')); ?>'" />
                                 </td>
                             </tr>
                         </table>

@@ -57,7 +57,7 @@
                                             <td style="vertical-align: middle;">
                                                 <p><span style="color:#333333;"><span style="font-size:14px;">Tư vấn bán hàng</span></span>
                                                 </p>
-                                                <p><span style="color:#ba0000;"><span style="font-size:20px;"><strong>0984 489 688</strong></span></span>
+                                                <p><span style="color:#ba0000;"><span style="font-size:20px;"><strong>0163 263 5825</strong></span></span>
                                                 </p>
                                             </td>
                                         </tr>

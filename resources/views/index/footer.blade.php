@@ -24,7 +24,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-xs-offset-0 col-md-10 col-md-offset-1">
-				<div class="f-copyright">Copyright © 2015. All Rights Reserved by FPT Camera</div>
+				<div class="f-copyright">Copyright © 2015. All Rights Reserved by Nguyen Van Trong</div>
 			</div>
 			<div class="clear"></div>
 		</div>

@@ -26,7 +26,7 @@ Route::group(['prefix' => '/gio-hang'], function () {
 	Route::get('/deleteCartAll', ['as' => 'deleteCartAll', 'uses' => 'PageController@deleteCartAll']);
 	Route::get('/removeCart/{rowId}', ['as' => 'removeCart', 'uses' => 'PageController@removeCart']);
 	Route::post('/updateCart', ['as' => 'updateCart', 'uses' => 'PageController@updateCart']);
-	Route::get('/payment', ['as' => 'payment', 'uses' => 'PageController@payment']);
+	Route::get('/thanh-toan', ['as' => 'payment', 'uses' => 'PageController@payment']);
 
 
 });
