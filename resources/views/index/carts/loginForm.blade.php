@@ -33,7 +33,7 @@
 		</tr>
 		<tr>
 			<td></td>
-			<td><button id="btnLogin" name="btnLogin" type="submit" class="btn" value="Đăng nhập"><span>Đăng nhập</span></button> <input type="hidden" name="do_login" value="1"> &nbsp; </td>
+			<td><button id="btnLogin" class="btn btn-warning btnSubmit" name="btnLogin" type="submit" class="btn" value="Đăng nhập"><span>Đăng nhập</span></button> <input type="hidden" name="do_login" value="1"> &nbsp; </td>
 		</tr>
 	</tbody></table>
 </form>

@@ -1,3 +1,6 @@
+.font_err {
+    color: #FF0000;
+}
 .textfiled {
 	border:1px solid #cccccc;
 	background:#fff;
@@ -39,14 +42,14 @@ button.btn_2 {
 	font-size:17px;
 }
 
-button.btn { 
-	padding:2px 10px;
-	height:40px;
+.btnSubmit { 
+	
+	
 	border:none;
-	background:#f58634;
+	
 	-moz-border-radius:0px;
 	-webkit-border-radius:0px;
-	border-radius:0px;
+	border-radius:5px;
 	white-space:nowrap;
 	vertical-align:middle;
 	cursor:pointer;
@@ -55,8 +58,6 @@ button.btn {
 }
 
 button.btn span {
-	background:url(../images/icon_btn.png) right no-repeat;
-	padding-right:15px;
 	display:inline-block;
 	vertical-align:middle;
 	color:#fff;

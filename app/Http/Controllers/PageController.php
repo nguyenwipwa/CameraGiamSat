@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Category;
 use App\Contact;
+use App\ThanhPho;
 use App\Http\Controllers\Controller;
 use App\Product;
 use App\Provider;
@@ -17,13 +18,14 @@ class PageController extends Controller {
 
 		$category = Category::all();
 		$contact = Contact::all();
+		$thanhPho = ThanhPho::all();
 		// $product = Category::where('id_category', 10)->get();
 		$slides = DB::select('SELECT category.*, slide.img FROM slide INNER JOIN category ON slide.id_category = category.id');
 		//   	var_dump($users);
 
 		// Cart::add('293ad', 'Product 1', 1, 9.99, ['img'=> 'ngon']);
 		// $list_cart = Cart::content();
-		return view('index.carts.payment', ['category' => $category, 'contact' => $contact, 'slides' => $slides]);
+		return view('index.carts.payment', ['category' => $category, 'contact' => $contact, 'slides' => $slides, 'thanhPho'=> $thanhPho]);
 		// echo json_encode(Cart::content());
 	}
 
