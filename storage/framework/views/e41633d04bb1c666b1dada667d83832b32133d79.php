@@ -1,5 +1,6 @@
     <link rel="shortcut icon" href="http://fptcamera.vn/resources/uploads/images/automatic/favicon/camera-giam-sat-fpt.png" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('public/stylesheets/bootstrap.css')); ?>" />
+    <!-- <link rel="stylesheet" type="text/css" href="<?php echo e(asset('public/stylesheets/bootstrap.css')); ?>" /> -->
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('public/stylesheets/bootstrap.min.css')); ?>" />
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('public/stylesheets/bootstrap-theme.css')); ?>" />
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('public/stylesheets/normalize.css')); ?>" />
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('public/stylesheets/app.css')); ?>" />

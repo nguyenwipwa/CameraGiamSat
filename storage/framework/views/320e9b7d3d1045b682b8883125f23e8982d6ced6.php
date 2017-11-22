@@ -23,6 +23,11 @@
                       </div>
                     </div>
                     <div class="col-xs-5">
+                       <div id="top-hotline" style="float:right;">
+                            <div class="name">
+                                <a class="fa fa-user" href="#" data-toggle="modal" data-target=".login-register-form"> Đăng nhập</a>
+                            </div>
+                        </div>
                       <div id="top-hotline" style="float:right;">
                         <div class="name">
                           <a class="name_cart" href="<?php echo e(route('cartDetail')); ?>">Giỏ hàng (<b><?php echo e(Cart::count()); ?></b> sản phẩm)</a>
@@ -86,6 +91,11 @@
                               <a class="navbar-brand" href="http://fptcamera.vn/">
                                 <img alt="Camera FPT Việt Nam tự hào Nhà cung cấp thiết bị camera giám sát giá rẻ uy tín trên toàn quốc" src="http://fptcamera.vn/resources/ui_images/client/background/logo_mobile.png">
                               </a>
+                              <div class="navbar-brand" id="top-hotline" style="float:right;">
+                                <div class="name">
+                                  <a class="fa fa-user" href="#" data-toggle="modal" data-target=".login-register-form"> Đăng nhập</a>
+                                </div>
+                              </div>
                             </div>
 
                             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -95,10 +105,10 @@
                               </button>
                               <ul class="nav navbar-nav">
                                 <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cate): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                   <?php if($cate->id_root == 0 && $cate->status==1): ?>
-                                   <li><a href="<?php echo e(url('/category/'.$cate->id.'/1')); ?>"><img src = "<?php echo e(asset('public/images/danh-muc-san-pham/'.$cate->icon)); ?>"/>&nbsp;&nbsp;<?php echo $cate->name; ?></a></li>
-                                   <?php endif; ?>
-                                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <?php if($cate->id_root == 0 && $cate->status==1): ?>
+                                <li><a href="<?php echo e(url('/category/'.$cate->id.'/1')); ?>"><img src = "<?php echo e(asset('public/images/danh-muc-san-pham/'.$cate->icon)); ?>"/>&nbsp;&nbsp;<?php echo $cate->name; ?></a></li>
+                                <?php endif; ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                               </ul>                                
                             </div><!-- /.navbar-collapse -->
                           </div><!-- /.container-fluid -->
@@ -170,3 +180,4 @@
                   </div>
                 </div>                <div class="clear"></div>
               </div>
+              <?php echo $__env->make("../index.user.user", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -120,12 +120,13 @@ class PageController extends Controller {
 
 	//
 	function trangchu(ProductRepository $product_cate) {
+		$thanhPho = ThanhPho::all();
 		$category = Category::all();
 		$contact = Contact::all();
 		// $product = Category::where('id_category', 10)->get();
 		$slides = DB::select('SELECT category.*, slide.img FROM slide INNER JOIN category ON slide.id_category = category.id');
 		//   	var_dump($users);
-		return view('index', ['category' => $category, 'contact' => $contact, 'slides' => $slides]);
+		return view('index', ['category' => $category, 'contact' => $contact, 'slides' => $slides, 'thanhPho'=> $thanhPho]);
 	}
 	function category($id_category, $start) {
 
