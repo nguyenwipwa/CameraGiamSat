@@ -7,30 +7,33 @@
  					<span class="fa fa-remove"></span>
  				</button>
  				<ul class="nav nav-tabs ">
- 					<li class="active"><a data-toggle="tab" href="#login-form"> Đăng nhập <span class="fa fa-user"></span></a></li>
- 					<li><a data-toggle="tab" href="#registration-form"> Đăng kí <span class="fa fa-pencil"></span></a></li>
+ 					<li class="active"><a id="tabLogin" data-toggle="tab" href="#login-form"> Đăng nhập <span class="fa fa-user"></span></a></li>
+ 					<li><a id="tabRegister" data-toggle="tab" href="#registration-form"> Đăng kí <span class="fa fa-pencil"></span></a></li>
  				</ul>
  			</div>
  			<div class="modal-body">
  				<div class="tab-content">
  					<div id="login-form" class="tab-pane fade in active">
- 						<form action="/">
+ 						<div class="alert alert-danger print-error-msg-login" style="display:none">
+ 							<ul></ul>
+ 						</div>
+ 						<form action="{{ route('loginUser') }}" id="myFormLogin" method="POST" accept-charset="UTF-8">
+ 							{{ csrf_field() }}
  							<div class="form-group">
  								<label for="email">Email:</label>
  								<input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
  							</div>
  							<div class="form-group">
  								<label for="pwd">Mật khẩu:</label>
- 								<input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+ 								<input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
  							</div>
  							<div class="form-group">
  								<div class="checkbox">
  									<label><input type="checkbox" name="remember"> Ghi nhớ</label>
  									<a data-toggle="tab" href="#forgot-form" for="pwd">Quên mật khẩu</a>
  								</div>
- 								
  							</div>
- 							<button type="submit" class="btn btn-default">Đăng nhập</button>
+ 							<button type="button" id="btnLogin" class="btn btn-default">Đăng nhập</button>
  						</form>
  					</div>
  					<div id="forgot-form" class="tab-pane fade in fade">
@@ -43,7 +46,21 @@
  						</form>
  					</div>
  					<div id="registration-form" class="tab-pane fade">
- 						<form action="{{ route('addUser') }}" method="post" accept-charset="UTF-8">
+ 						<div class="alert alert-danger print-error-msg" style="display:none">
+ 							<ul></ul>
+ 						</div>
+ 						<!-- @if(count($errors)>0)
+ 						<script type="text/javascript">
+ 							$('.aDangNhap').click();
+ 							$('#tabRegister').click();
+ 						</script>
+ 						<div class="alert alert-danger">
+ 							@foreach($errors->all() as $er)
+ 							{{ $er }} <br/>
+ 							@endforeach
+ 						</div>
+ 						@endif -->
+ 						<form id="myForm" action="{{ route('addUser') }}" method="post" accept-charset="UTF-8">
  							{{ csrf_field() }}
  							<div class="form-group">
  								<label for="name">Tên bạn:</label>
@@ -56,6 +73,10 @@
  							<div class="form-group">
  								<label for="newpwd">Mật khẩu:</label>
  								<input type="password" class="form-control" id="newpwd" placeholder="New password" name="password">
+ 							</div>
+ 							<div class="form-group">
+ 								<label for="newpwd">Nhập lại Mật khẩu:</label>
+ 								<input type="password" class="form-control" id="newpwd" placeholder="New password" name="passwordAgain">
  							</div>
  							<div class="form-group">
  								<label for="newpwd">Số điện thoại:</label>
@@ -73,7 +94,7 @@
  									@endforeach
  								</select>
  							</div>
- 							<button type="submit" class="btn btn-default">Đăng kí</button>
+ 							<button type="button"  id="btnReg" class="btn btn-default">Đăng kí</button>
  						</form>
  					</div>
 
@@ -116,3 +137,61 @@
  	}
 
  </style>
+
+ <script>
+     // wait for the DOM to be loaded
+     $(document).ready(function() {
+     	$("#btnReg").click(function(e){
+     		e.preventDefault();
+     		$.ajax({
+     			url: "{{ route('addUser') }}",
+     			type:'POST',
+     			data: $('#myForm').serialize(),
+     			success: function(data) {
+     				if($.isEmptyObject(data.error)){
+     					alert(data.success);
+     					location.reload();
+     				}else{
+     					alert("Có gì đó sai sai, xin thử lại!");
+     					printErrorMsg(data.error);
+     				}
+     			}
+     		});
+
+     	}); 
+
+     	$("#btnLogin").click(function(e){
+     		e.preventDefault();
+     		$.ajax({
+     			url: "{{ route('loginUser') }}",
+     			type:'POST',
+     			data: $('#myFormLogin').serialize(),
+     			success: function(data) {
+     				if($.isEmptyObject(data.error)){
+     					alert(data.success);
+     					location.reload();
+     				}else{
+     					alert("Có gì đó sai sai, xin thử lại!");
+     					printErrorMsgLogin(data.error);
+     				}
+     			}
+     		});
+
+     	}); 
+     	function printErrorMsgLogin (msg) {
+     		$(".print-error-msg-login").find("ul").html('');
+     		$(".print-error-msg-login").css('display','block');
+     		$.each( msg, function( key, value ) {
+     			$(".print-error-msg-login").find("ul").append('<li>'+value+'</li>');
+     		});
+     	}
+
+     	function printErrorMsg (msg) {
+     		$(".print-error-msg").find("ul").html('');
+     		$(".print-error-msg").css('display','block');
+     		$.each( msg, function( key, value ) {
+     			$(".print-error-msg").find("ul").append('<li>'+value+'</li>');
+     		});
+     	}
+     });
+ </script>

@@ -11,10 +11,7 @@
 |
  */
 
-Route::group(['prefix' => '/'], function () {
-	Route::get('/', 'PageController@trangchu');
-
-});
+Route::get('/', ['as' => '/', 'uses' => 'PageController@trangchu']);
 
 Route::get('/search-product', ['as' => 'search', 'uses' => 'PageController@searchProduct']);
 
@@ -31,9 +28,20 @@ Route::group(['prefix' => '/gio-hang'], function () {
 
 });
 Route::group(['prefix' => '/user'], function () {
+	Route::get('/logout', ['as' => 'logoutUser', 'uses' => 'UserController@logout']);
+	Route::post('/login', ['as' => 'loginUser', 'uses' => 'UserController@login']);
 	Route::post('/add', ['as' => 'addUser', 'uses' => 'UserController@addUser']);
-	Route::post('/modifier', ['as' => 'updateCart', 'uses' => 'PageController@updateCart']);
-	Route::get('/thanh-toan', ['as' => 'payment', 'uses' => 'PageController@payment']);
+	Route::post('/modifier', ['as' => 'updateCart', 'uses' => 'UserController@updateCart']);
+	Route::get('/a', ['as' => 'a', 'uses' => function(){
+		return view('auth.register');
+	}
+]);
+
+
+});
+
+Route::group(['prefix' => '/error'], function () {
+	Route::get('/500', function(){ return view('error.500');});
 
 
 });
