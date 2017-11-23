@@ -147,6 +147,6 @@
                       </div>
                     </div>
                   </div>
-                </div>                <div class="clear"></div>
+                </div>                
+                <div class="clear"></div>
               </div>
-              <?php echo $__env->make("../index.user.user", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
