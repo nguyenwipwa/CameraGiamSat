@@ -34,7 +34,6 @@ Route::group(['prefix' => '/user'], function () {
 	Route::get('/logout', ['as' => 'logoutUser', 'uses' => 'UserController@logout']);
 	Route::post('/login', ['as' => 'loginUser', 'uses' => 'UserController@login']);
 	Route::post('/add', ['as' => 'addUser', 'uses' => 'UserController@addUser']);
-	Route::post('/modifier', ['as' => 'updateCart', 'uses' => 'UserController@updateCart']);
 	Route::get('/a', ['as' => 'a', 'uses' => function(){
 		return view('auth.register');
 	}

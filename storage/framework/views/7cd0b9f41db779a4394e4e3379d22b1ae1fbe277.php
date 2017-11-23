@@ -31,8 +31,9 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="header">
-						<span>Giỏ hàng</span>
+						<span>Kiểm tra thông tin nhận hàng</span>
 					</div>
+					<?php if(!Auth::check()): ?>
 					<table width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tbody>
 							<tr class="hidden-xs hidden-sm">
@@ -55,7 +56,7 @@
 							</tr>
 						</tbody>
 					</table>
-
+					<?php endif; ?>
 
                     <!-- <table id="cart">
 						<tr>
