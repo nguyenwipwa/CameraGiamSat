@@ -1,0 +1,466 @@
+/********************* CSS for member ****************************/
+#mod_member h2.title {
+	font-weight:bold;
+	font-size:14px;
+	color:#F00;
+}
+.tblMember {}
+.tblMember .row_title {
+	background:url(../images/mid-title-bg.gif) right no-repeat;	 
+	
+}
+.tblMember .row_title h2 {
+	background:url(../images/icon_mtitle.gif) left no-repeat;
+	display:block;
+	color:#3F3F3F; 
+	font-size:14px;
+	line-height:27px; 
+	padding-left:37px;
+}
+.tblMember th, .tblMember td {height:30px;padding:3px 8px; vertical-align:top; }
+.tblMember th { font-weight:bold;border-bottom:1px #dfdfdf dotted; text-align:right; }
+.tblMember td { border-bottom:1px #dfdfdf dotted; text-align:left; }
+.tblMember .last {border-right:none}
+
+.tblMember th { } 
+.tblMember td.note {width:35%}
+
+.tblMember .textfiled {
+	border:1px solid #bad6df;
+	color:#000000;
+	height:20px;
+	font-size:12px; 
+	line-height:20px;	
+	width:100%
+}
+.tblMember .text_min {
+	border:1px solid #bad6df;
+	color:#000000;
+	height:20px;
+	font-size:12px; 
+	line-height:20px;
+	width:195px;
+}
+.tblMember .select {
+	border:1px solid #bad6df; 
+	font-size:13px;
+	font-family:Tahoma;
+	color: #656565;
+	height:24px;
+	padding:2px 0px;
+	line-height:20px;
+	width:100%;	
+}
+.tblMember .textarea {
+	border:1px solid #bad6df;
+	line-height:20px;
+	color: #656565;	 
+	overflow:auto;
+	width:100%;
+}
+
+.reg_button	{text-align:center; padding:5px;}
+
+span.required {font-weight:normal; color:#FF0000}
+.tblMember input.error {
+	border:1px dotted #ff0000;
+} 
+ 
+.tblMember label.error { margin-left: 5px; padding: 5px; background: #B70002; color: #FFF; -moz-border-radius: 4px; -webkit-border-radius: 4px; }
+
+
+
+.hr_title {
+	background: url(../images/hr_title.gif) repeat-x center;
+	padding: 0px;
+	margin: 0px;
+	overflow: hidden;
+	height: 10px;
+	line-height: 10px;
+}
+
+.wellcome {
+	text-align: center
+}
+
+.fUsername {
+	color: #FF0000;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.fMgroup {
+	color: #FF6A06;
+}
+
+#Member {
+	padding:0px;
+	line-height: 18px;
+	
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#232323;
+	font-weight:normal;
+}
+#Member td{
+	padding-bottom:5px;
+}
+#Member td.last{
+	padding-top:5px;
+}
+
+#Member p {
+	padding: 5px 0px;
+}
+
+#Member ul {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+
+#Member li {
+	padding: 2px;
+	display: block;
+}
+
+#Member .description {
+	padding: 5px;
+}
+
+#Member .form {
+	padding-top: 10px;
+}
+
+#Member #ERROR {
+	text-align: center;
+}
+
+#Member .col1 {
+	float: left;
+	padding-right: 5px;
+	padding-top: 5px;
+	text-align: left;
+	width: 35%;
+	font-weight: bold;
+}
+
+#Member .col2 {
+	float: left;
+	padding-right: 5px;
+	padding-top: 5px;
+	width: 60%;
+}
+
+#frmMember select {
+	width: 302px;
+}
+
+#frmMember input[type="text"] {
+	width: 300px;
+}
+
+#frmMember input.textfiled {
+	width: 300px;
+}
+
+.table_bg {
+	background-color: #989a9c;
+}
+
+table.table_bg td {
+	padding: 2px;
+}
+
+.row_title {
+	background: #e6e7e9;
+	color: #000;
+	font-weight: bold;
+	height: 20px;
+}
+
+.row1 {
+	background: #FFFFFF;
+}
+
+.row2 {
+	background: #FAFAFA;
+}
+
+.row_extra {
+	background: #FAFAFA;
+}
+
+.row_select {
+	background: #F4EAD2;
+}
+
+.fUsername {
+	font-weight: bold;
+	color: #FF0000;
+	font-size: 14px;
+}
+
+/***************** REGISTER ****************************/
+.account_form {
+	background: url(../images/personal.gif) left no-repeat;
+	font-weight: bold;
+	text-transform: uppercase;
+	line-height: 25px;
+	padding-left: 30px;
+	color: #2b2b6b;
+	border-bottom: 1px solid #cccccc;
+	padding-bottom: 5px;
+}
+
+.info_form {
+	background: url(../images/contact.gif) left no-repeat;
+	font-weight: bold;
+	text-transform: uppercase;
+	line-height: 25px;
+	padding-left: 30px;
+	color: #2b2b6b;
+	border-bottom: 1px solid #cccccc;
+	padding-bottom: 5px;
+}
+
+#ARGEE {
+	float: left;
+	width: 100%;
+	padding: 2px;
+	text-align: center;
+}
+
+.input-warn {
+	border: 1px solid #FF0000;
+}
+
+.input-ok {
+	border: 1px solid #009900;
+}
+
+#main_register p {
+	padding: 5px 0px;
+}
+
+.font_help {
+	cursor: help;
+}
+
+.term {
+	border: 1px solid #ccc;
+	height: 250px;
+	overflow: auto;
+	padding: 10px;
+}
+
+.term p {
+	padding-bottom: 10px;
+	text-align: justify;
+}
+
+.messagebox {
+	position: absolute;
+	width: 150px;
+	margin-left: 10px;
+	border: 1px solid #c93;
+	background: #ffc;
+	padding: 1px 5px;
+}
+
+.messageboxok {
+	position: absolute;
+	background: url(../images/icon_ok.gif) #C9FFCA left no-repeat;
+	width: 250px;
+	margin-left: 10px;
+	border: 1px solid #349534;
+	padding: 1px 5px;
+	padding-left: 25px;
+	color: #008000;
+}
+
+.messageboxerror {
+	position: absolute;
+	background: url(../images/icon_error.gif) #F7CBCA left no-repeat;
+	width: 250px;
+	margin-left: 10px;
+	border: 1px solid #CC0000;
+	padding: 1px 5px;
+	padding-left: 25px;
+	color: #CC0000;
+}
+
+#main_register select {
+	width: 250px;
+}
+
+#main_register input[type="text"] {
+	width: 250px;
+}
+
+#main_register input.textfiled {
+	width: 250px;
+}
+ 
+ 
+.mess_join {padding:10px 0px;}
+.mess_join ul  {
+	list-style:none;	
+}
+.mess_join ul li {padding:2px; background:url(../images/icon_li.gif) 0px 9px no-repeat ; padding-left:10px; }
+
+/*===================================CSS NEW CHO PHAN DANG NHAP VA DANG KY===============================*/
+#wrap_member{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+
+/*--------PHAN MESSJION------*/
+.boxm_messjoin{
+	font-family:Arial, Helvetica, sans-serif;
+	float:right;
+	width:290px;
+}
+.boxm_messjoin h2{
+	font-size:16px;
+	color:#f58634;
+	text-transform:uppercase;
+	
+	padding-bottom:8px;
+	margin-bottom:10px;
+	border-bottom:2px solid #bdbdbd;
+}
+.boxm_messjoin .boxmessjoin_content{
+	color:#232323;
+}
+/*--------PHAN DANG KY------*/
+.boxm_register{
+	font-family:Arial, Helvetica, sans-serif;
+	float:left;
+	width:440px;
+}
+.boxm_register h2{
+	font-size:16px;
+	color:#f58634;
+	text-transform:uppercase;
+	
+	padding-bottom:8px;
+	margin-bottom:10px;
+	border-bottom:2px solid #bdbdbd;
+}
+.boxm_register .boxmregister_content{
+	width:436px;
+	color:#232323;
+}
+.boxm_register .boxmregister_content td{
+	padding-bottom:5px;
+}
+.boxm_register .boxmregister_content a{
+	color:#1264aa;
+}
+
+/*--------PHAN DANG NHAP------*/
+.boxm_login{
+	font-family:Arial, Helvetica, sans-serif;
+	width:220px;
+	float:left;
+	margin-right:25px;
+}
+.boxm_login h2{
+	font-size:16px;
+	color:#f58634;
+	text-transform:uppercase;
+	
+	padding-bottom:8px;
+	margin-bottom:10px;
+	border-bottom:2px solid #bdbdbd;
+}
+.boxm_login .boxlogin_content{
+	width:216px;
+}
+.boxm_login .boxlogin_content td{
+	padding-bottom:10px;
+}
+
+/*--------PHAN DINH DANG CHUNG------*/
+#wrap_member label{
+	font-size:12px;
+	color:#232323;
+	font-weight:normal;
+}
+.textfiled{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#232323;
+	font-weight:normal;
+	
+	width:100%;
+	padding:2px 0px;
+	border:1px solid #d7d7d7;
+	background:none;
+}
+.select{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#232323;
+	font-weight:normal;
+	
+	padding:2px 0px;
+	border:1px solid #d7d7d7;
+	background:none;
+}
+.btn_member{
+	width:120px;
+	line-height:33px;
+	background:#ff6600;
+	border:none;
+	cursor:pointer;
+	
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#fff;
+	font-weight:bold;
+	text-transform:uppercase;
+}
+.forget_pass{
+	padding-top:5px;
+}
+.forget_pass a{
+	color:#333333;
+	font-weight:bold;
+}
+.forget_pass a:hover{
+	color:#e65e31;
+	text-decoration:none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,7 +22,7 @@
  						<?php else: ?>
  						<div id="top-hotline" style="float:right;">
  							<div class="name">
- 								<a class="fa fa-user aDangNhap" href="#" > <?php echo e($user->name); ?></a>
+ 								<a class="fa fa-user aDangNhap" href="<?php echo e(route('profile')); ?>" > <?php echo e($user->name); ?></a>
  							</div>
  							<div class="name">
  								<a class="fa fa-key" href="<?php echo e(route('logoutUser')); ?>" > Đăng xuất</a>

@@ -12,7 +12,11 @@ use Auth;
 use Validator;
 use Mail;
 use DB;
+use App\Category;
+use App\Product;
 use App\UserTemp;
+use App\Contact;
+
 class UserController extends Controller
 {
 	public function logout(){
@@ -127,6 +131,14 @@ class UserController extends Controller
 			$message->subject('Subject');
 
 		});
+	}
+	public function profileUser(){
+		$category = Category::all();
+		$contact = Contact::all();
+		// $product = Category::where('id_category', 10)->get();
+		// $slides = DB::select('SELECT category.*, slide.img FROM slide INNER JOIN category ON slide.id_category = category.id');
+		//   	var_dump($users);
+		return view('index.user.profile', [ 'category' => $category, 'contact' => $contact]);
 	}
     //
 }

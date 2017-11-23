@@ -34,6 +34,7 @@ Route::group(['prefix' => '/gio-hang'], function () {
 
 });
 Route::group(['prefix' => '/user'], function () {
+	Route::get('/profile', ['as' => 'profile', 'uses' => 'UserController@profileUser']);
 	Route::get('/active/{email}/{token}', ['as' => 'activeUser', 'uses' => 'UserController@activeUser']);
 	Route::get('/logout', ['as' => 'logoutUser', 'uses' => 'UserController@logout']);
 	Route::post('/login', ['as' => 'loginUser', 'uses' => 'UserController@login']);

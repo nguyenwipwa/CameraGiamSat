@@ -22,7 +22,7 @@
  						@else
  						<div id="top-hotline" style="float:right;">
  							<div class="name">
- 								<a class="fa fa-user aDangNhap" href="#" > {{ $user->name }}</a>
+ 								<a class="fa fa-user aDangNhap" href="{{ route('profile') }}" > {{ $user->name }}</a>
  							</div>
  							<div class="name">
  								<a class="fa fa-key" href="{{ route('logoutUser') }}" > Đăng xuất</a>

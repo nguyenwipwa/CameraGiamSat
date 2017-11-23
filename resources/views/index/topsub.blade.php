@@ -15,7 +15,7 @@
                   <div class="col-xs-12 col-md-3">
                     <div id="logo">
                       <a href="{{url('/')}}">
-                        <img title="LẮP ĐẶT CAMERA QUAN SÁT GIÁ RẺ" alt="Camera FPT Việt Nam tự hào Nhà cung cấp thiết bị camera giám sát giá rẻ uy tín trên toàn quốc" src="http://fptcamera.vn/resources/uploads/images/automatic/logo/logo-fpt-camera-giam-sat.png">
+                        <img title="LẮP ĐẶT CAMERA QUAN SÁT GIÁ RẺ" alt="Camera FPT Việt Nam tự hào Nhà cung cấp thiết bị camera giám sát giá rẻ uy tín trên toàn quốc" src="{{ asset('public/images/ui_images/logo.jpg') }}">
                       </a>
                     </div>
                   </div>

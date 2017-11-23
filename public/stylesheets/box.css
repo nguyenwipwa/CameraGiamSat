@@ -1,0 +1,370 @@
+ /* classic popup */
+.classic-popup{background: rgba(255,255,255, 0.24);border-radius: 5px;-moz-border-radius: 5px;padding:5px}
+.classic-popup-title{width:100%; background:#096DB5; height:41px; text-align:center;}
+.classic-popup-title,.classic-popup-title .fl,a.classic-popup-close{height:40px;line-height:40px;font-weight:bold;color:#fff}
+.classic-popup-title .fl{padding-left:20px;font-size:16px;text-transform:uppercase;text-shadow:0 1px 0 #666666}
+a.classic-popup-close{float:right;font-size:13px;line-height: 30px;padding:0 10px}
+a.classic-popup-close:hover{text-decoration:none;color:#4f2d00}
+.classic-popup-content{width:100%;background:#fff; }
+#bannerPopup { position:relative;}
+.close-popup { text-align:right; margin-bottom:5px;}
+.close-popup a { display:inline-block; background:url(../images/close-popup.gif) no-repeat; color:#FFF; font-size:12px; text-decoration:none; padding-left:20px;}
+.bannerPopupContent { background:#fff;}
+/* fix for bold in FF4 win 64bit */
+b{font-weight:bold}
+.classic-popup .error { border:1px solid red;}
+ 
+ 
+/*==============================CSS CHO PHAN BOX=============================*/  
+.box {
+	margin-bottom:20px;
+}
+.box-title{
+	border:1px solid #dadada;
+	padding:1px;
+} 
+.box-title h2{
+	font-family:altergothic;
+	font-size:20px;
+	color:#f58a3a;
+	line-height:20px;
+	font-weight:normal;
+	text-transform:uppercase;
+	
+	padding:7px 14px 3px 14px;
+	border-bottom:4px solid #f58a3a;
+} 
+.box-content {
+	border:1px solid #dadada;
+	border-top:none;
+}
+.box-content .sidebar-news ul li{
+	padding:5px 10px;
+	border-bottom:1px dotted #d9d9d9;
+}
+.box-content .sidebar-news ul li.last{
+	border-bottom:none;
+}
+.box-content .sidebar-news ul li a{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#333333;
+	font-weight:normal;
+	
+	display:block;
+	padding-left:15px;
+	background:url(../images/bg_box_li_a.png) 0 6px no-repeat;
+}
+.box-content .sidebar-news ul li a:hover{
+	text-decoration:none;
+	color:#f58a3a;
+}
+
+/*=======================CSS CHO PHAN BOX MIDDLE=============================*/
+.box_mid {}
+.box_mid.add_detail{
+	padding:15px;
+	border:1px solid #cfcfcf;
+	margin-bottom:20px;
+	background:#fff;
+}
+.mid-title {
+	padding-bottom:10px;
+	margin-bottom:20px;
+	border-bottom:1px solid #dadada;
+}
+.mid-title.last{
+	margin-bottom:9px;
+}
+.mid-title.product{
+	margin-bottom:0px;
+}
+.mid-title .titleL {
+	float:left;
+	
+	font-family:altergothic;
+	font-size:22px;
+	line-height:22px;
+	color:#00a3de;
+	font-weight:normal;
+	text-transform:uppercase;
+}
+.mid-title .titleL h1,
+.mid-title .titleL h2{
+	font-weight:normal;
+}
+.mid-title .titleL a {color:#00a3de;}
+.mid-title .titleR {
+	float:right;	
+}
+.mid-content {
+	overflow:hidden;
+	
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#333333;
+}
+
+/*==============================CATEGORY=============================*/
+.box_cat{
+	margin-bottom:20px;
+}
+.box_cat .bc_title{
+	border:1px solid #dadada;
+	padding:1px;
+}
+.box_cat .bc_title h2{
+	font-family:altergothic;
+	font-size:20px;
+	line-height:20px;
+	color:#f58a3a;
+	font-weight:normal;
+	text-transform:uppercase;
+	
+	background:url(../images/bg_bctitle_h2.gif) left no-repeat;
+	padding:11px 0px 7px 13px;
+}
+.box_cat .bc_title h2 a{
+	color:#f58a3a;
+}
+.box_cat .bc_content{
+	
+}
+.box_category {padding:0px;}
+.box_category  ul {list-style:none;}
+
+/*------MENU CAP I------*/
+.box_category > ul > li{ 
+	border:1px solid #dadada;
+	border-style:none solid solid solid;
+	
+	position:relative;
+}
+.box_category > ul > li > p{ 
+	 padding: 0px;
+	 margin: 0px;
+}
+.box_category > ul > li > p > a {
+	display:block;  
+	padding:8px 8px 8px 8px;		
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#333333;
+	font-weight:bold;
+	
+}
+.box_category > ul > li:hover > p > a,
+.box_category > ul > li > p > a:hover,
+.box_category > ul > li > p > a.current {
+	text-decoration:none;
+	background:#ca0009;
+	/*background:#00b7f1;*/
+	color:#ffffff; 
+	
+} 
+
+/*------MENU CAP II------*/
+.box_category > ul > li:hover ul.show_left{
+	opacity: 1; 
+	visibility: visible;
+}
+.box_category > ul ul.show_left {
+	position:absolute;
+	top:0px;
+	left:210px;
+	width:225px;
+	z-index:200;
+	background:#474747;
+	border-top:1px solid #b8b8b8;
+	border-right:1px solid #b8b8b8;
+
+	-webkit-box-shadow: 1px 1px 2px 0px rgba(50, 50, 50, 0.65);
+-moz-box-shadow:    1px 1px 2px 0px rgba(50, 50, 50, 0.65);
+box-shadow:         1px 1px 2px 0px rgba(50, 50, 50, 0.65);
+	
+	transition: all .5s ease-in-out;
+	visibility: hidden;
+	opacity: 0;
+}
+.box_category > ul ul.show_left li{
+	border:none;
+	border-bottom:1px solid #b8b8b8;	
+	padding-left:0px;
+}
+.box_category > ul ul.show_left li:last-child {
+	border-bottom: none;
+}
+.box_category > ul ul {
+	list-style:none; 
+	background: #474747
+}
+.box_category > ul ul > li {
+	background:none; 
+	padding-left:0px;
+}
+.box_category > ul ul > li.last {
+}
+.box_category > ul ul > li > a {
+	padding-left:15px;
+	display:block; 
+	color: #ffffff;
+}
+.box_category > ul ul > li > a:hover,
+.box_category > ul ul > li > a.current {
+	font-weight: bold;
+	text-decoration:none;
+}
+.box_category > ul ul > li > a span{
+	display:block;   	
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px; 
+	padding:8px 0px;
+	
+}
+.box_category > ul ul > li > a:hover ,
+.box_category > ul ul > li > a.current {
+	background: #ca0009;
+	color:#ffffff;
+	text-decoration:none; 
+}
+
+/*==============================BOX BANNER=============================*/
+.box_banner{
+	
+}
+.box_banner .item_banner{
+	
+}
+.box_banner .item_banner .img_advertise_cha{
+	width:200px;
+	height:130px;
+	padding:4px;
+	border:1px solid #e0e0e0;
+	margin-bottom:10px;
+}
+.box_banner .item_banner .img_advertise_con{
+	width:200px;
+	height:130px;
+	overflow:hidden;
+}
+.box_banner .item_banner h3{
+	
+}
+.box_banner .item_banner h3 a{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#333333;
+}
+.box_banner .item_banner h3 a:hover{
+	
+}
+
+/*==============================CSS CHO PHAN BOX OTHER=============================*/  
+.box_other {
+	
+}
+.box_other .bo_title{
+	margin-bottom:10px;
+} 
+.box_other .bo_title h2{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	color:#666666;
+	text-transform:uppercase;
+}
+.box_other .bo_content {
+	
+}
+.box_other .bo_content ul li{
+	padding-left:13px;
+	background:url(../images/bg_boxother_li.png) 0 6px no-repeat;
+}
+.box_other .bo_content ul li a {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#008dd2;
+	font-weight:normal;
+}
+.box_other .bo_content ul li a:hover , .box_other .bo_content ul li a:active ,  .box_other .bo_content ul li a:visited{
+	color:#333333;
+}
+
+.box_other .bo_content ul li .date_news {
+	margin-left: 5px;
+	color:#8b8b8b;
+}
+.box_other .bo_content ul li .date_news span { 
+	color:#8b8b8b;
+}
+
+
+
+
+
+
+
+
+.box_statistics {
+	padding: 10px  15px;
+}
+.box_statistics .s-title {
+	color: #00a2e1;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 20px;
+	margin-bottom: 10px;
+}
+.box_statistics td {
+	padding: 2px 0px;
+	font-size: 13px;
+}
+
+.banner_chungnhan { 
+	height: 90px;
+	overflow: hidden;
+}
+
+.banner_chungnhan ul {list-style: none;}
+.banner_chungnhan li {
+	float: left;
+	width: 193px;
+	background: url("../images/banner_chungnhan_shadow.gif") bottom right no-repeat;
+	padding-bottom: 10px;
+	margin-right: 8px;
+}
+.banner_chungnhan li a {display: block; height: 80px;}
+.banner_chungnhan li:last-child {
+	margin-right: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

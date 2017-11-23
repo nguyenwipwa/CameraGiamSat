@@ -17,282 +17,216 @@
 
 	<?php echo $__env->make("../../.link.index", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-		ga('create', 'UA-66346872-1', 'auto');
-		ga('send', 'pageview');
-
-	</script>
-
-
-	<script type="text/javascript">
-		function lookup(keyword) {
-			var keyword = document.getElementById("searchSgg").value;
-			if(keyword.length == 0) {
-				$('#autoSuggestionsList').fadeOut(400);
-			} else {
-				$.post("http://fptcamera.vn/ajaxhandle/client_products_ajaxhandler/Ajax_Get_All_Product_Client",
-					{keyword : keyword},
-					function(data){
-						if(data.length > 14) {
-							$('#autoSuggestionsList').fadeIn(400);
-	               			// var obj = jQuery.parseJSON(data);
-	               			var obj = JSON.parse(data);
-	               			var strhtml = '';
-			                //$('#autoSuggestionsList').html(data['message']);
-			                strhtml += '<div class="sgg-outer">';
-			                for(var index in obj) {
-			                    //alert(obj.message[1].label);
-			                    //alert(obj.length());
-			                    for(var i=0;i<obj[index].length;i++) {
-			                        //alert(obj.message[i].value);
-			                        //append
-			                        strhtml += '<div class="sgg-row">';
-			                        strhtml += '<div class="sgg-image"><img width="50" height="50" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/thumbs/' + obj.message[i].Image + '"/></div>';
-			                        strhtml += '<div class="sgg-right">';
-			                        strhtml += '<div class="sgg-title"><a href="http://fptcamera.vn/' + obj.message[i].Slug + '">' + obj.message[i].Title + '</a></div>';
-			                        strhtml += '<div class="sgg-sellprice">' + parseFloat(obj.message[i].SellPrice).toFixed().replace(/./g, function(c, i, a) {return i && c !== "." && ((a.length - i) % 3 === 0) ? '.' + c : c;}) + ' đ</div>';
-			                        strhtml += '</div>';
-			                        strhtml += '</div>';
-			                    }
-			                }
-			                strhtml += '</div>';
-			                $('#autoSuggestionsList').html(strhtml);
-			            } else {
-			            	var strhtml = '';
-			            	strhtml += '<div class="sgg-outer">';
-			            	strhtml += '<div class="sgg-row">';
-			            	strhtml += '<div class="sgg-title"><a>Không có sản phẩm nào tương ứng</a></div>';
-			            	strhtml += '</div>';
-			            	strhtml += '</div>';
-			            	$('#autoSuggestionsList').html(strhtml);
-			            }
-			        });
-	       		// Ajax_Suggestion(keyword);
-	       	}
-	       }
-	   </script>        <link rel="stylesheet" type="text/css" href="http://fptcamera.vn/resources/stylesheets/client/flexslider.css" />
-	   <link rel="stylesheet" type="text/css" href="http://fptcamera.vn/resources/stylesheets/client/social-likes_birman.css" />
-	   <script src="http://fptcamera.vn/resources/js/client/jquery.flexslider-min.js"></script>
-	   <script src="http://fptcamera.vn/resources/js/client/social-likes.min.js"></script>
-	   <!-- CSS and Jquery end here -->
-	</head>
-	<body lang="vi">
-		<div id="wrapper">
-			<!-- Top start here -->
-			<?php echo $__env->make("../../index.topsub", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-			<!-- Top end here -->
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-12 pad-btm">
-						<div class="row">
-							<div class="col-xs-12 col-md-9">
-								<div class="article_header my-breadcrumb">
-									<ol class="breadcrumb"><li><a href="http://fptcamera.vn/">Trang chủ</a></li><li><a href="http://fptcamera.vn/tim-kiem?t=m%C3%A1y&submit_search=T%C3%ACm+ki%E1%BA%BFm">Tìm kiếm sản phẩm</a></li></ol>
-								</div>
-								<div class="clear"></div>
-								<div class="description2">
-								</div>
-								<div class="product_list">
-									<div class="row">
-
-										
-										
-										
+	
+	<!-- CSS and Jquery end here -->
+</head>
+<body lang="vi">
+	<div id="wrapper">
+		<!-- Top start here -->
+		<?php echo $__env->make("../../index.topsub", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<!-- Top end here -->
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 pad-btm">
+					<div class="row">
+						<div class="col-xs-12 col-md-9">
+							<div class="article_header my-breadcrumb">
+								<ol class="breadcrumb"><li><a href="http://fptcamera.vn/">Trang chủ</a></li><li><a href="http://fptcamera.vn/tim-kiem?t=m%C3%A1y&submit_search=T%C3%ACm+ki%E1%BA%BFm">Tìm kiếm sản phẩm</a></li></ol>
+							</div>
+							<div class="clear"></div>
+							<div class="description2">
+							</div>
+							<div class="product_list">
+								<div class="row">
+									<?php $__currentLoopData = $product; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $e): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 									
-										<?php $__currentLoopData = $product; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $e): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-										
-										<div class="col-xs-6 col-sm-4 col-lg-3">
-											<div class="thumbnail products">
-												<a href="<?php echo e(url('/detail-product/'.$e->id)); ?>"><img alt="may-chieu-sony-VPL-DX-122" src="<?php echo e(asset('public/images/san-pham/'.$e->img)); ?>"></a>
-												<div class="caption">
-													<a href="<?php echo e(url('/detail-product/'.$e->id)); ?>"><h3><?php echo e($e->name); ?></h3></a>
-													<div class="clear"></div>
-													<span class="new-price"><?php echo e(number_format($e->price)); ?> đ</span>
-													<span class="old-price"><?php echo e(number_format($e->price*1.1)); ?> đ</span>
-												</div>
+									<div class="col-xs-6 col-sm-4 col-lg-3">
+										<div class="thumbnail products">
+											<a href="<?php echo e(url('/detail-product/'.$e->id)); ?>"><img alt="may-chieu-sony-VPL-DX-122" src="<?php echo e(asset('public/images/san-pham/'.$e->img)); ?>"></a>
+											<div class="caption">
+												<a href="<?php echo e(url('/detail-product/'.$e->id)); ?>"><h3><?php echo e($e->name); ?></h3></a>
+												<div class="clear"></div>
+												<span class="new-price"><?php echo e(number_format($e->price)); ?> đ</span>
+												<span class="old-price"><?php echo e(number_format($e->price*1.1)); ?> đ</span>
 											</div>
 										</div>
-										<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 									</div>
-								</div>
-								<div class="clear"></div>
-								<div class="pagination">
-									<?php echo $product->render(); ?>
-
+									<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 								</div>
 							</div>
-							<div class="col-md-3 hidden-xs hidden-sm">
-								<div class="header" style="margin-top:0;">
-									<span>Sản phẩm bán chạy</span>
+							<div class="clear"></div>
+							<div class="pagination">
+								<?php echo $product->render(); ?>
+
+							</div>
+						</div>
+						<div class="col-md-3 hidden-xs hidden-sm">
+							<div class="header" style="margin-top:0;">
+								<span>Sản phẩm bán chạy</span>
+							</div>
+							<div class="media products">
+								<div class="media-left">
+									<a href="http://fptcamera.vn/camera-ip-wifi-khong-day-vantech-vt-6300a">
+										<img class="media-object" alt="Camera IP Wifi Không Dây VANTECH VT-6300A" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/camera-ip-wifi-khong-day-vantech-vt-6300A.jpg">
+									</a>
 								</div>
-								<div class="media products">
-									<div class="media-left">
-										<a href="http://fptcamera.vn/camera-ip-wifi-khong-day-vantech-vt-6300a">
-											<img class="media-object" alt="Camera IP Wifi Không Dây VANTECH VT-6300A" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/camera-ip-wifi-khong-day-vantech-vt-6300A.jpg">
-										</a>
-									</div>
-									<div class="media-body">
-										<a href="http://fptcamera.vn/camera-ip-wifi-khong-day-vantech-vt-6300a">
-											<h4 class="media-heading">Camera IP Wifi Không Dây VANTECH VT-6300A</h4>
-										</a>
-										<span class="media-price">1.250.000 đ</span>
-									</div>
+								<div class="media-body">
+									<a href="http://fptcamera.vn/camera-ip-wifi-khong-day-vantech-vt-6300a">
+										<h4 class="media-heading">Camera IP Wifi Không Dây VANTECH VT-6300A</h4>
+									</a>
+									<span class="media-price">1.250.000 đ</span>
 								</div>
-								<div class="media products">
-									<div class="media-left">
-										<a href="http://fptcamera.vn/lap-dat-camera-gia-re-bo-1-den-8-mat">
-											<img class="media-object" alt="Lắp đặt camera giá rẻ bộ 1 đến 8 mắt" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/lap-dat-camera-gia-re-benco.jpg">
-										</a>
-									</div>
-									<div class="media-body">
-										<a href="http://fptcamera.vn/lap-dat-camera-gia-re-bo-1-den-8-mat">
-											<h4 class="media-heading">Lắp đặt camera giá rẻ bộ 1 đến 8 mắt</h4>
-										</a>
-										<span class="media-price">2.199.000 đ</span>
-									</div>
+							</div>
+							<div class="media products">
+								<div class="media-left">
+									<a href="http://fptcamera.vn/lap-dat-camera-gia-re-bo-1-den-8-mat">
+										<img class="media-object" alt="Lắp đặt camera giá rẻ bộ 1 đến 8 mắt" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/lap-dat-camera-gia-re-benco.jpg">
+									</a>
 								</div>
-								<div class="media products">
-									<div class="media-left">
-										<a href="http://fptcamera.vn/lap-2-camera-hikvision">
-											<img class="media-object" alt="lap-2-camera-hikvision" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/lap-2-camera-hikvision.jpg">
-										</a>
-									</div>
-									<div class="media-body">
-										<a href="http://fptcamera.vn/lap-2-camera-hikvision">
-											<h4 class="media-heading">Lắp 2 Camera HIKVISION</h4>
-										</a>
-										<span class="media-price">4.299.000 đ</span>
-									</div>
+								<div class="media-body">
+									<a href="http://fptcamera.vn/lap-dat-camera-gia-re-bo-1-den-8-mat">
+										<h4 class="media-heading">Lắp đặt camera giá rẻ bộ 1 đến 8 mắt</h4>
+									</a>
+									<span class="media-price">2.199.000 đ</span>
 								</div>
-								<div class="media products">
-									<div class="media-left">
-										<a href="http://fptcamera.vn/lap-dat-camera-gia-re">
-											<img class="media-object" alt="lap-dat-camera-gia-re-ha-noi" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/lap-dat-camera-gia-re-ha-noi.jpg">
-										</a>
-									</div>
-									<div class="media-body">
-										<a href="http://fptcamera.vn/lap-dat-camera-gia-re">
-											<h4 class="media-heading">Lắp đặt camera giá rẻ</h4>
-										</a>
-										<span class="media-price">2.199.000 đ</span>
-									</div>
+							</div>
+							<div class="media products">
+								<div class="media-left">
+									<a href="http://fptcamera.vn/lap-2-camera-hikvision">
+										<img class="media-object" alt="lap-2-camera-hikvision" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/lap-2-camera-hikvision.jpg">
+									</a>
 								</div>
-								<div class="media products">
-									<div class="media-left">
-										<a href="http://fptcamera.vn/lap-dat-tron-bo-4-camera-gia-re">
-											<img class="media-object" alt="Lắp Đặt Trọn Bộ 4 Camera Giá Rẻ" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/lap-dat-tron-bo-4-camera-gia-re.jpg">
-										</a>
-									</div>
-									<div class="media-body">
-										<a href="http://fptcamera.vn/lap-dat-tron-bo-4-camera-gia-re">
-											<h4 class="media-heading">Lắp Đặt Trọn Bộ 4 Camera Giá Rẻ</h4>
-										</a>
-										<span class="media-price">4.899.000 đ</span>
-									</div>
+								<div class="media-body">
+									<a href="http://fptcamera.vn/lap-2-camera-hikvision">
+										<h4 class="media-heading">Lắp 2 Camera HIKVISION</h4>
+									</a>
+									<span class="media-price">4.299.000 đ</span>
 								</div>
-								<div class="media products">
-									<div class="media-left">
-										<a href="http://fptcamera.vn/lap-dat-tron-bo-2-camera-hd">
-											<img class="media-object" alt="Lắp đặt trọn bộ 2 camera HD" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/lap-dat-tron-bo-2-camera-AHD.jpg">
-										</a>
-									</div>
-									<div class="media-body">
-										<a href="http://fptcamera.vn/lap-dat-tron-bo-2-camera-hd">
-											<h4 class="media-heading">Lắp đặt Trọn Bộ 2 Camera HD</h4>
-										</a>
-										<span class="media-price">4.299.000 đ</span>
-									</div>
+							</div>
+							<div class="media products">
+								<div class="media-left">
+									<a href="http://fptcamera.vn/lap-dat-camera-gia-re">
+										<img class="media-object" alt="lap-dat-camera-gia-re-ha-noi" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/lap-dat-camera-gia-re-ha-noi.jpg">
+									</a>
 								</div>
-								<div class="clear"></div>
-								<div class="header">
-									<span>Tin tức mới</span>
+								<div class="media-body">
+									<a href="http://fptcamera.vn/lap-dat-camera-gia-re">
+										<h4 class="media-heading">Lắp đặt camera giá rẻ</h4>
+									</a>
+									<span class="media-price">2.199.000 đ</span>
 								</div>
-								<div class="media news longer">
-									<div class="media-left">
-										<a href="http://fptcamera.vn/tin-tuc/lap-dat-camera">
-											<img class="media-object" alt="Lắp đặt camera" src="http://fptcamera.vn/resources/uploads/images/automatic/tin-tuc/lap-dat-camera.jpg">
-										</a>
-									</div>
-									<div class="media-body">
-										<a href="http://fptcamera.vn/tin-tuc/lap-dat-camera">
-											<h4 class="media-heading longer"><i class="fa fa-angle-right hidden-lg hidden-md">&nbsp;</i>Lắp đặt camera</h4>
-										</a>
-									</div>
+							</div>
+							<div class="media products">
+								<div class="media-left">
+									<a href="http://fptcamera.vn/lap-dat-tron-bo-4-camera-gia-re">
+										<img class="media-object" alt="Lắp Đặt Trọn Bộ 4 Camera Giá Rẻ" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/lap-dat-tron-bo-4-camera-gia-re.jpg">
+									</a>
 								</div>
-								<div class="media news longer">
-									<div class="media-left">
-										<a href="http://fptcamera.vn/tin-tuc/cach-tat-camera">
-											<img class="media-object" alt="Cách tắt camera trong nhà và phòng chống" src="http://fptcamera.vn/resources/uploads/images/automatic/tin-tuc/trom-tat-camera-giam-sat.jpg">
-										</a>
-									</div>
-									<div class="media-body">
-										<a href="http://fptcamera.vn/tin-tuc/cach-tat-camera">
-											<h4 class="media-heading longer"><i class="fa fa-angle-right hidden-lg hidden-md">&nbsp;</i>cách tắt camera</h4>
-										</a>
-									</div>
+								<div class="media-body">
+									<a href="http://fptcamera.vn/lap-dat-tron-bo-4-camera-gia-re">
+										<h4 class="media-heading">Lắp Đặt Trọn Bộ 4 Camera Giá Rẻ</h4>
+									</a>
+									<span class="media-price">4.899.000 đ</span>
 								</div>
-								<div class="media news longer">
-									<div class="media-left">
-										<a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-giam-sat-tai-soc-son">
-											<img class="media-object" alt="Lắp đặt camera giám sát tại Sóc Sơn" src="http://fptcamera.vn/resources/uploads/images/automatic/tin-tuc/lap-dat-camera-truong-hoc-mai-dinh-soc-son.jpg">
-										</a>
-									</div>
-									<div class="media-body">
-										<a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-giam-sat-tai-soc-son">
-											<h4 class="media-heading longer"><i class="fa fa-angle-right hidden-lg hidden-md">&nbsp;</i>Lắp đặt camera giám sát tại Sóc Sơn</h4>
-										</a>
-									</div>
+							</div>
+							<div class="media products">
+								<div class="media-left">
+									<a href="http://fptcamera.vn/lap-dat-tron-bo-2-camera-hd">
+										<img class="media-object" alt="Lắp đặt trọn bộ 2 camera HD" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/lap-dat-tron-bo-2-camera-AHD.jpg">
+									</a>
 								</div>
-								<div class="media news longer">
-									<div class="media-left">
-										<a href="http://fptcamera.vn/tin-tuc/camera-quan-sat-khi-mat-dien">
-											<img class="media-object" alt="camera quan sat khi mat dien" src="http://fptcamera.vn/resources/uploads/images/automatic/tin-tuc/camera-bi-tat-dien.jpg">
-										</a>
-									</div>
-									<div class="media-body">
-										<a href="http://fptcamera.vn/tin-tuc/camera-quan-sat-khi-mat-dien">
-											<h4 class="media-heading longer"><i class="fa fa-angle-right hidden-lg hidden-md">&nbsp;</i>camera quan sat khi mat dien</h4>
-										</a>
-									</div>
+								<div class="media-body">
+									<a href="http://fptcamera.vn/lap-dat-tron-bo-2-camera-hd">
+										<h4 class="media-heading">Lắp đặt Trọn Bộ 2 Camera HD</h4>
+									</a>
+									<span class="media-price">4.299.000 đ</span>
 								</div>
-								<div class="media news longer">
-									<div class="media-left">
-										<a href="http://fptcamera.vn/tin-tuc/lay-du-lieu-tu-o-cung-camera">
-											<img class="media-object" alt="lấy dữ liệu từ ổ cứng camera" src="http://fptcamera.vn/resources/uploads/images/automatic/tin-tuc/lam-sao-de-lay-du-lieu-tu-o-ung-camera.jpg">
-										</a>
-									</div>
-									<div class="media-body">
-										<a href="http://fptcamera.vn/tin-tuc/lay-du-lieu-tu-o-cung-camera">
-											<h4 class="media-heading longer"><i class="fa fa-angle-right hidden-lg hidden-md">&nbsp;</i>lấy dữ liệu từ ổ cứng camera</h4>
-										</a>
-									</div>
+							</div>
+							<div class="clear"></div>
+							<div class="header">
+								<span>Tin tức mới</span>
+							</div>
+							<div class="media news longer">
+								<div class="media-left">
+									<a href="http://fptcamera.vn/tin-tuc/lap-dat-camera">
+										<img class="media-object" alt="Lắp đặt camera" src="http://fptcamera.vn/resources/uploads/images/automatic/tin-tuc/lap-dat-camera.jpg">
+									</a>
 								</div>
-								<div class="media news longer">
-									<div class="media-left">
-										<a href="http://fptcamera.vn/tin-tuc/-lam-sao-de-biet-camera-dang-hoat-dong">
-											<img class="media-object" alt="​lam sao de biet camera dang hoat dong" src="http://fptcamera.vn/resources/uploads/images/automatic/tin-tuc/cach-nhan-biet-camera-co-hoat-dong-khong.jpg">
-										</a>
-									</div>
-									<div class="media-body">
-										<a href="http://fptcamera.vn/tin-tuc/-lam-sao-de-biet-camera-dang-hoat-dong">
-											<h4 class="media-heading longer"><i class="fa fa-angle-right hidden-lg hidden-md">&nbsp;</i>​lam sao de biet camera dang hoat dong</h4>
-										</a>
-									</div>
+								<div class="media-body">
+									<a href="http://fptcamera.vn/tin-tuc/lap-dat-camera">
+										<h4 class="media-heading longer"><i class="fa fa-angle-right hidden-lg hidden-md">&nbsp;</i>Lắp đặt camera</h4>
+									</a>
+								</div>
+							</div>
+							<div class="media news longer">
+								<div class="media-left">
+									<a href="http://fptcamera.vn/tin-tuc/cach-tat-camera">
+										<img class="media-object" alt="Cách tắt camera trong nhà và phòng chống" src="http://fptcamera.vn/resources/uploads/images/automatic/tin-tuc/trom-tat-camera-giam-sat.jpg">
+									</a>
+								</div>
+								<div class="media-body">
+									<a href="http://fptcamera.vn/tin-tuc/cach-tat-camera">
+										<h4 class="media-heading longer"><i class="fa fa-angle-right hidden-lg hidden-md">&nbsp;</i>cách tắt camera</h4>
+									</a>
+								</div>
+							</div>
+							<div class="media news longer">
+								<div class="media-left">
+									<a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-giam-sat-tai-soc-son">
+										<img class="media-object" alt="Lắp đặt camera giám sát tại Sóc Sơn" src="http://fptcamera.vn/resources/uploads/images/automatic/tin-tuc/lap-dat-camera-truong-hoc-mai-dinh-soc-son.jpg">
+									</a>
+								</div>
+								<div class="media-body">
+									<a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-giam-sat-tai-soc-son">
+										<h4 class="media-heading longer"><i class="fa fa-angle-right hidden-lg hidden-md">&nbsp;</i>Lắp đặt camera giám sát tại Sóc Sơn</h4>
+									</a>
+								</div>
+							</div>
+							<div class="media news longer">
+								<div class="media-left">
+									<a href="http://fptcamera.vn/tin-tuc/camera-quan-sat-khi-mat-dien">
+										<img class="media-object" alt="camera quan sat khi mat dien" src="http://fptcamera.vn/resources/uploads/images/automatic/tin-tuc/camera-bi-tat-dien.jpg">
+									</a>
+								</div>
+								<div class="media-body">
+									<a href="http://fptcamera.vn/tin-tuc/camera-quan-sat-khi-mat-dien">
+										<h4 class="media-heading longer"><i class="fa fa-angle-right hidden-lg hidden-md">&nbsp;</i>camera quan sat khi mat dien</h4>
+									</a>
+								</div>
+							</div>
+							<div class="media news longer">
+								<div class="media-left">
+									<a href="http://fptcamera.vn/tin-tuc/lay-du-lieu-tu-o-cung-camera">
+										<img class="media-object" alt="lấy dữ liệu từ ổ cứng camera" src="http://fptcamera.vn/resources/uploads/images/automatic/tin-tuc/lam-sao-de-lay-du-lieu-tu-o-ung-camera.jpg">
+									</a>
+								</div>
+								<div class="media-body">
+									<a href="http://fptcamera.vn/tin-tuc/lay-du-lieu-tu-o-cung-camera">
+										<h4 class="media-heading longer"><i class="fa fa-angle-right hidden-lg hidden-md">&nbsp;</i>lấy dữ liệu từ ổ cứng camera</h4>
+									</a>
+								</div>
+							</div>
+							<div class="media news longer">
+								<div class="media-left">
+									<a href="http://fptcamera.vn/tin-tuc/-lam-sao-de-biet-camera-dang-hoat-dong">
+										<img class="media-object" alt="​lam sao de biet camera dang hoat dong" src="http://fptcamera.vn/resources/uploads/images/automatic/tin-tuc/cach-nhan-biet-camera-co-hoat-dong-khong.jpg">
+									</a>
+								</div>
+								<div class="media-body">
+									<a href="http://fptcamera.vn/tin-tuc/-lam-sao-de-biet-camera-dang-hoat-dong">
+										<h4 class="media-heading longer"><i class="fa fa-angle-right hidden-lg hidden-md">&nbsp;</i>​lam sao de biet camera dang hoat dong</h4>
+									</a>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 
-			<!-- Bottom end here -->
-			<?php echo $__env->make('../../index.bottom', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-			<?php echo $__env->make('../../index.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<!-- Bottom end here -->
+		<?php echo $__env->make('../../index.bottom', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<?php echo $__env->make('../../index.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 			<!-- <ul class="sticky">
 				<li>
 					<a rel="no-follow" target="_blank" href="">
