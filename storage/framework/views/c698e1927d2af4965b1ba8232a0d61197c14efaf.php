@@ -34,7 +34,7 @@
  									<a data-toggle="tab" href="#forgot-form" for="pwd">Quên mật khẩu</a>
  								</div>
  							</div>
- 							<button type="button" id="btnLogin" class="btn btn-default">Đăng nhập</button>
+ 							<button type="submit" id="btnLogin" class="btn btn-default">Đăng nhập</button>
  						</form>
  					</div>
  					<div id="forgot-form" class="tab-pane fade in fade">
@@ -96,7 +96,7 @@
  									<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
  								</select>
  							</div>
- 							<button type="button"  id="btnReg" class="btn btn-default">Đăng kí</button>
+ 							<button type="submit"  id="btnReg" class="btn btn-default">Đăng kí</button>
  						</form>
  					</div>
 
@@ -143,7 +143,7 @@
  <script>
      // wait for the DOM to be loaded
      $(document).ready(function() {
-     	$("#btnReg").click(function(e){
+     	$("#myForm").submit(function(e){
      		e.preventDefault();
      		$.ajax({
      			url: "<?php echo e(route('addUser')); ?>",
@@ -162,7 +162,7 @@
 
      	}); 
 
-     	$("#btnLogin").click(function(e){
+     	$("#myFormLogin").submit(function(e){
      		e.preventDefault();
      		$.ajax({
      			url: "<?php echo e(route('loginUser')); ?>",
