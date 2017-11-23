@@ -10,6 +10,9 @@ use App\Address;
 use App\Services\PayUService\Exception;
 use Auth;
 use Validator;
+use Mail;
+use DB;
+use App\UserTemp;
 class UserController extends Controller
 {
 	public function logout(){
@@ -29,7 +32,7 @@ class UserController extends Controller
 			]
 		);
 		if ($validator->passes()) {
-			if (Auth::attempt(['email' => $req->email, 'password' => $req->password])) {
+			if (Auth::attempt(['email' => $req->email, 'password' => $req->password, 'active' => 1])) {
             // Authentication passed...
 				return response()->json(['success'=>'Đăng nhập thành công']);
 			}else{
@@ -77,6 +80,15 @@ class UserController extends Controller
 				$address->address = $req->address;
 				$address->id_thanhpho = $req->id_tp;
 				$address->save();
+
+				DB::table('user_temp')->where('email', $email)->delete();
+				// $res=UserTemp::find($email)->delete();
+				$userTemp = new UserTemp();
+				$userTemp->email = $email;
+				$userTemp->token =$req->_token;
+				$userTemp->save();
+
+				$this->sendRegister($req);
 				return response()->json(['success'=>'Đăng ký thành công.']);
 			} catch (\Illuminate\Database\QueryException $e) {
 				return redirect('/error/500');
@@ -93,6 +105,28 @@ class UserController extends Controller
 		 // $decrypted = decrypt($password);
     // $id = Company::create($input)->id;
 
+	}
+	public function activeUser($email, $token){
+		$user_temp = UserTemp::where('email', $email)->where('token', $token)->first();
+		if($user_temp!=null){
+			$user = User::where('email', $email)
+			->update(['active' => 1]);
+			DB::table('user_temp')->where('email', $email)->delete();
+			echo "Kích hoạt thành công!";
+		}else{
+			echo "Phiên đã hết hạn";
+		}
+
+	}
+
+	public function sendRegister(Request $req){
+		$data = ['name' => $req->name, 'content'=>'Ngon chom', 'email'=> $req->email, 'token'=>$req->_token];
+		Mail::send('mail.mailRegister', $data, function ($message) use ($req) {
+			$message->from('nguyenwipwa@gmail.com', 'Camera giám sát');
+			$message->to($req->email, $req->name);
+			$message->subject('Subject');
+
+		});
 	}
     //
 }

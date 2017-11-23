@@ -113,39 +113,42 @@
  			</div>
  		</div>
  	</div>
- 	<style type="text/css">
- 	.modal-header {
- 		padding: 0;
- 	}
- 	.modal-header .close {
- 		padding: 10px 15px;
- 	}
- 	.modal-header ul {
- 		border: none;
- 	}
- 	.modal-header ul li {
- 		margin: 0;
- 	}
- 	.modal-header ul li a {
- 		border: none;
- 		border-radius: 0;
- 	}
- 	.modal-header ul li.active a {
- 		color: #e12f27;
- 	}
- 	.modal-header ul li a:hover {
- 		border: none;
- 	}
- 	.modal-header ul li a span {
- 		margin-left: 10px;
- 	}
- 	.modal-body .form-group {
- 		margin-bottom: 10px;
- 	}
+     <div id="wait" style="display:none;width:69px;height:89px;position:absolute;top:20%;left:50%;padding:2px; z-index: 99999">
+          <img src='<?php echo e(asset("public/images/ui_images/ajax-loading.gif")); ?>' width="64" height="64" />
+     </div>
+     <style type="text/css">
+     .modal-header {
+        padding: 0;
+   }
+   .modal-header .close {
+        padding: 10px 15px;
+   }
+   .modal-header ul {
+        border: none;
+   }
+   .modal-header ul li {
+        margin: 0;
+   }
+   .modal-header ul li a {
+        border: none;
+        border-radius: 0;
+   }
+   .modal-header ul li.active a {
+        color: #e12f27;
+   }
+   .modal-header ul li a:hover {
+        border: none;
+   }
+   .modal-header ul li a span {
+        margin-left: 10px;
+   }
+   .modal-body .form-group {
+        margin-bottom: 10px;
+   }
 
- </style>
+</style>
 
- <script>
+<script>
 
      // wait for the DOM to be loaded
      $(document).ready(function() {
@@ -194,7 +197,7 @@
              data: $('#myFormLogin').serialize(),
              success: function(data) {
               if($.isEmptyObject(data.error)){
-               alert(data.success);
+               // alert(data.success);
                location.reload();
           }else{
                printErrorMsg(data.error,$(".print-error-msg-login"));
@@ -228,7 +231,7 @@
     });
 </script>
 
-<div id="wait" style="display:none;width:69px;height:89px;position:absolute;top:20%;left:50%;padding:2px; z-index: 99999"><img src='<?php echo e(asset("public/images/ui_images/ajax-loading.gif")); ?>' width="64" height="64" /><br>Loading..</div>
+
 
 <style type="text/css">
 #wait.fixed {
