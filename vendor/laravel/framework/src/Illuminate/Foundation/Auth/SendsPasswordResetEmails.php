@@ -35,8 +35,8 @@ trait SendsPasswordResetEmails
         );
 
         return $response == Password::RESET_LINK_SENT
-                    ? $this->sendResetLinkResponse($response)
-                    : $this->sendResetLinkFailedResponse($request, $response);
+        ? $this->sendResetLinkResponse($response)
+        : $this->sendResetLinkFailedResponse($request, $response);
     }
 
     /**
@@ -47,7 +47,11 @@ trait SendsPasswordResetEmails
      */
     protected function validateEmail(Request $request)
     {
-        $this->validate($request, ['email' => 'required|email']);
+        $this->validate($request, ['email' => 'required|email'],
+            [
+                'email.required' => 'Bạn chưa nhập email',
+                'email.email' => 'Email không đúng định dạng'
+            ]);
     }
 
     /**
@@ -58,7 +62,8 @@ trait SendsPasswordResetEmails
      */
     protected function sendResetLinkResponse($response)
     {
-        return back()->with('status', trans($response));
+        // return back()->with('status', trans($response));
+        return response()->json(['success' => 'Đã gửi mail thành công, kiểm tra hộp thư.']);
     }
 
     /**
@@ -70,9 +75,7 @@ trait SendsPasswordResetEmails
      */
     protected function sendResetLinkFailedResponse(Request $request, $response)
     {
-        return back()->withErrors(
-            ['email' => trans($response)]
-        );
+        return response()->json(['error' => ['Địa chỉ email không đúng hoặc không tồn tại.']]);
     }
 
     /**

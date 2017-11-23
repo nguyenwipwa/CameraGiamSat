@@ -17,6 +17,9 @@ Route::get('/search-product', ['as' => 'search', 'uses' => 'PageController@searc
 
 Route::get('/search-ajax/{key}', ['as' => 'search-ajax', 'uses' => 'PageController@searchAjax']);
 
+
+$this->post('password/reset', 'Auth\ResetPasswordController@reset');
+
 Route::group(['prefix' => '/gio-hang'], function () {
 	Route::get('/',['as' => 'cartDetail', 'uses' => 'PageController@cartDetail']);
 	Route::post('/addCart', ['as' => 'addCart', 'uses' => 'PageController@addCart']);
@@ -35,8 +38,14 @@ Route::group(['prefix' => '/user'], function () {
 	Route::get('/a', ['as' => 'a', 'uses' => function(){
 		return view('auth.register');
 	}
-]);
 
+	
+	// Route::get('/password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
+]);
+	// Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('request');
+	Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.sendMail');
+	Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('reset');
+	Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 });
 

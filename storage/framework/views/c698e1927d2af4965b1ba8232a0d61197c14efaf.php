@@ -38,18 +38,23 @@
  						</form>
  					</div>
  					<div id="forgot-form" class="tab-pane fade in fade">
- 						<form action="/">
- 							<div class="form-group">
- 								<label for="email">Email:</label>
- 								<input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
- 							</div>
- 							<button type="submit" class="btn btn-default">Xác nhận</button>
- 						</form>
- 					</div>
- 					<div id="registration-form" class="tab-pane fade">
- 						<div class="alert alert-danger print-error-msg" style="display:none">
- 							<ul></ul>
- 						</div>
+                              <div class="alert alert-danger print-error-msg-forgot" style="display:none">
+                                   <ul></ul>
+                              </div>
+                              <form action="<?php echo e(route('password.email')); ?>" id="forgot-form1" method="POST" accept-charset="UTF-8">
+                                  <?php echo e(csrf_field()); ?>
+
+                                  <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                               </div>
+                               <button type="submit" class="btn btn-default">Xác nhận</button>
+                          </form>
+                     </div>
+                     <div id="registration-form" class="tab-pane fade">
+                       <div class="alert alert-danger print-error-msg" style="display:none">
+                           <ul></ul>
+                      </div>
  						<!-- <?php if(count($errors)>0): ?>
  						<script type="text/javascript">
  							$('.aDangNhap').click();
@@ -141,59 +146,99 @@
  </style>
 
  <script>
+
      // wait for the DOM to be loaded
      $(document).ready(function() {
-     	$("#myForm").submit(function(e){
-     		e.preventDefault();
-     		$.ajax({
-     			url: "<?php echo e(route('addUser')); ?>",
-     			type:'POST',
-     			data: $('#myForm').serialize(),
-     			success: function(data) {
-     				if($.isEmptyObject(data.error)){
-     					alert(data.success);
-     					location.reload();
-     				}else{
-     					alert("Có gì đó sai sai, xin thử lại!");
-     					printErrorMsg(data.error);
-     				}
-     			}
-     		});
 
-     	}); 
+       $("#forgot-form1").submit(function(e){
+          e.preventDefault();
+          $.ajax({
+               url: "<?php echo e(route('password.email')); ?>",
+               type:'POST',
+               data: $('#forgot-form1').serialize(),
+               success: function(data) {
+                    if($.isEmptyObject(data.error)){
+                         alert(data.success);
+                         location.reload();
+                    }else{
+                         printErrorMsg(data.error, $(".print-error-msg-forgot"));
+                    }
+               }
+          });
 
-     	$("#myFormLogin").submit(function(e){
-     		e.preventDefault();
-     		$.ajax({
-     			url: "<?php echo e(route('loginUser')); ?>",
-     			type:'POST',
-     			data: $('#myFormLogin').serialize(),
-     			success: function(data) {
-     				if($.isEmptyObject(data.error)){
-     					alert(data.success);
-     					location.reload();
-     				}else{
-     					alert("Có gì đó sai sai, xin thử lại!");
-     					printErrorMsgLogin(data.error);
-     				}
-     			}
-     		});
+     }); 
 
-     	}); 
-     	function printErrorMsgLogin (msg) {
-     		$(".print-error-msg-login").find("ul").html('');
-     		$(".print-error-msg-login").css('display','block');
-     		$.each( msg, function( key, value ) {
-     			$(".print-error-msg-login").find("ul").append('<li>'+value+'</li>');
-     		});
-     	}
+       $("#myForm").submit(function(e){
+            e.preventDefault();
+            $.ajax({
+             url: "<?php echo e(route('addUser')); ?>",
+             type:'POST',
+             data: $('#myForm').serialize(),
+             success: function(data) {
+              if($.isEmptyObject(data.error)){
+               alert(data.success);
+               location.reload();
+          }else{
+               printErrorMsg(data.error, $(".print-error-msg"));
+          }
+     }
+});
 
-     	function printErrorMsg (msg) {
-     		$(".print-error-msg").find("ul").html('');
-     		$(".print-error-msg").css('display','block');
-     		$.each( msg, function( key, value ) {
-     			$(".print-error-msg").find("ul").append('<li>'+value+'</li>');
-     		});
-     	}
+       }); 
+
+       $("#myFormLogin").submit(function(e){
+            e.preventDefault();
+            $.ajax({
+             url: "<?php echo e(route('loginUser')); ?>",
+             type:'POST',
+             data: $('#myFormLogin').serialize(),
+             success: function(data) {
+              if($.isEmptyObject(data.error)){
+               alert(data.success);
+               location.reload();
+          }else{
+               printErrorMsg(data.error,$(".print-error-msg-login"));
+          }
+     }
+});
+
+       }); 
+       function printErrorMsg(msg, object) {
+          alert("Có gì đó sai sai, xin thử lại!");
+          object.find("ul").html('');
+          object.css('display','block');
+          $.each( msg, function( key, value ) {
+            object.find("ul").append('<li>'+value+'</li>');
+       });
+     }
+});
+</script>
+
+<script>
+     $(document).ready(function(){
+         $(document).ajaxStart(function(){
+             $("#wait").css("display", "block");
+        });
+         $(document).ajaxComplete(function(){
+             $("#wait").css("display", "none");
+        });
+         $("#forgot-form1").submit(function(){
+          $("#wait").css("display", "block");
      });
- </script>
+    });
+</script>
+
+<div id="wait" style="display:none;width:69px;height:89px;position:absolute;top:20%;left:50%;padding:2px; z-index: 99999"><img src='<?php echo e(asset("public/images/ui_images/ajax-loading.gif")); ?>' width="64" height="64" /><br>Loading..</div>
+
+<style type="text/css">
+#wait.fixed {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 9%;
+    background-color: pink;
+    text-align: center
+
+}
+
+</style>

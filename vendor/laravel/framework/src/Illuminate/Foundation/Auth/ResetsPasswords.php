@@ -52,8 +52,8 @@ trait ResetsPasswords
         // the application's home authenticated view. If there is an error we can
         // redirect them back to where they came from with their error message.
         return $response == Password::PASSWORD_RESET
-                    ? $this->sendResetResponse($response)
-                    : $this->sendResetFailedResponse($request, $response);
+        ? $this->sendResetResponse($response)
+        : $this->sendResetFailedResponse($request, $response);
     }
 
     /**
@@ -77,7 +77,14 @@ trait ResetsPasswords
      */
     protected function validationErrorMessages()
     {
-        return [];
+        return [
+            'token.required' => 'Token không đúng.',
+            'email.required' => 'Chưa nhập email.',
+            'email.email' => 'Sai định dạng email.',
+            'password.required' => 'Chưa nhập mật khẩu',
+            'password.confirmed' => 'Mật khẩu không đúng',
+            'password.min' => 'Mật khẩu ít nhất 6 ký tự'
+        ];
     }
 
     /**
@@ -122,7 +129,7 @@ trait ResetsPasswords
     protected function sendResetResponse($response)
     {
         return redirect($this->redirectPath())
-                            ->with('status', trans($response));
+        ->with('status', trans($response));
     }
 
     /**
@@ -135,8 +142,8 @@ trait ResetsPasswords
     protected function sendResetFailedResponse(Request $request, $response)
     {
         return redirect()->back()
-                    ->withInput($request->only('email'))
-                    ->withErrors(['email' => trans($response)]);
+        ->withInput($request->only('email'))
+        ->withErrors(['email' => trans($response)]);
     }
 
     /**
