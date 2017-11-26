@@ -21,7 +21,10 @@ Route::group(['prefix' => '/send'], function () {
 	Route::post('/register', ['as' => 'send.register', 'uses' => 'SendMailController@sendRegister']);
 });
 
-
+Route::group(['prefix' => '/tin-tuc'], function () {
+	Route::get('/', ['as' => 'news', 'uses' => 'PageController@pageNews']);
+	Route::get('/chi-tiet/{id}', ['as' => 'news.detail', 'uses' => 'PageController@pageNewsDetail']);
+});
 
 Route::group(['prefix' => '/gio-hang'], function () {
 	Route::get('/',['as' => 'cartDetail', 'uses' => 'PageController@cartDetail']);

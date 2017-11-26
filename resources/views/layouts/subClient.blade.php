@@ -16,8 +16,7 @@
 	<meta name="ICBM" content="20.984321, 105.818546" /> @include("../../.link.index")
 	<link rel="stylesheet" type="text/css" href="{{asset('public/stylesheets/social-likes_birman.css')}}" />
 	<script src="{{asset('public/js/social-likes.min.js')}}"></script>
-
-	<!-- CSS and Jquery end here -->
+  <!-- CSS and Jquery end here -->
 </head>
 
 <body lang="vi">

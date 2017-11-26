@@ -11,11 +11,24 @@ use App\Repository\ProductRepository;
 use DB;
 use Illuminate\Http\Request;
 use Cart;
+use App\Model\News;
+use App\Model\NewsDetail;
 class PageController extends Controller {
 
+	function pageNews(Request $request){
+		$news = new News();
+		$category = Category::all();
+		$contact = Contact::all();
+		$paginate = $news->getNewsAll();
+		return view('index.news.news', ['category' => $category, 'contact' => $contact, 'listNews' => $paginate]);
+	}
+	function pageNewsDetail($id){
+		$news = new NewsDetail();
+		$category = Category::all();
+		$contact = Contact::all();
+		return view('index.news.newDetail', ['category' => $category, 'contact' => $contact, 'newsDetail' => $news->getNewDetail($id)]);
+	}
 	function payment() {
-		
-
 		$category = Category::all();
 		$contact = Contact::all();
 		$thanhPho = ThanhPho::all();
@@ -97,7 +110,7 @@ class PageController extends Controller {
 		// $product = Category::where('id_category', 10)->get();
 		$slides = DB::select('SELECT category.*, slide.img FROM slide INNER JOIN category ON slide.id_category = category.id');
 		//   	var_dump($users);
-		return view('index.news.news', ['category' => $category, 'contact' => $contact, 'slides' => $slides]);
+		return view('index.news.news', ['category' => $category, 'contact' => $contact]);
 	}
 
 //chitietsanpham
