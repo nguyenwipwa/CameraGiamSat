@@ -56,7 +56,7 @@
                                 //alert(obj.message[i].value);
                                 //append
                                 strhtml += '<div class="sgg-row">';
-                                strhtml += '<div class="sgg-image"><img width="50" height="50" src="http://fptcamera.vn/resources/uploads/images/automatic/san-pham/thumbs/' + obj.message[i].img + '"/></div>';
+                                strhtml += '<div class="sgg-image"><img width="50" height="50" src="{{ asset("public/images/san-pham") }}/' + obj.message[i].img + '"/></div>';
                                 strhtml += '<div class="sgg-right">';
                                 strhtml += '<div class="sgg-title"><a href="{{url("/detail-product")}}/' + obj.message[i].id + '">' + obj.message[i].name + '</a></div>';
                                 strhtml += '<div class="sgg-sellprice">' + parseFloat(obj.message[i].price).toFixed().replace(/./g, function(c, i, a) { return i && c !== "." && ((a.length - i) % 3 === 0) ? '.' + c : c; }) + ' đ</div>';

@@ -34,13 +34,13 @@
                                 <div class="social_us_header">Kết nối với chúng tôi</div>
                                 <div id="f_social">
                                     <a target="_blank" rel="nofollow" href="https://www.facebook.com/FptCamera.vn">
-                                        <img src="http://fptcamera.vn/resources/ui_images/client/background/social/f_fb.png">
+                                        <img src="{{ asset('public/images/ui_images/f_fb.png') }}">
                                     </a>
                                     <a target="_blank" rel="nofollow" href="https://plus.google.com//+FptCamera">
-                                        <img src="http://fptcamera.vn/resources/ui_images/client/background/social/f_gplus.png">
+                                        <img src="{{ asset('public/images/ui_images/f_gplus.png') }}">
                                     </a>
                                     <a target="_blank" rel="nofollow" href="https://www.youtube.com/c/FptCamera">
-                                        <img src="http://fptcamera.vn/resources/ui_images/client/background/social/f_yt.png">
+                                        <img src="{{ asset('public/images/ui_images/f_yt.png') }}">
                                     </a>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@
                                 <table border="0" cellpadding="1" cellspacing="1" style="width: 100%;">
                                     <tbody>
                                         <tr>
-                                            <td><img alt="" src="/resources/uploads/images/anhtintuc/tro-giup.png" style="width: 68px; height: 81px;" /></td>
+                                            <td><img alt="" src="{{ asset('public/images/ui_images/tro-giup.png') }}" style="width: 68px; height: 81px;" /></td>
                                             <td style="vertical-align: middle;">
                                                 <p><span style="color:#333333;"><span style="font-size:14px;">Tư vấn bán hàng</span></span>
                                                 </p>
@@ -63,7 +63,7 @@
                                         </tr>
                                         <tr>
                                             <td colspan="2">
-                                                <hr /><span style="color:#555555;"><span style="font-size:13px;"><img alt="" src="/resources/uploads/images/anhtintuc/life_saver.png" />&nbsp; Chăm sóc và hỗ trợ sau bán hàng</span></span>
+                                                <hr /><span style="color:#555555;"><span style="font-size:13px;"><img alt="" src="{{ asset('public/images/ui_images/life_saver.png') }}life_saver.png" />&nbsp; Chăm sóc và hỗ trợ sau bán hàng</span></span>
                                             </td>
                                         </tr>
                                         <tr>
@@ -72,7 +72,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2"><span style="font-size:13px;"><span style="color:#555555;"><img alt="" src="/resources/uploads/images/anhtintuc/mailer.png" />&nbsp; fptcamera.vn@gmail.com</span></span>
+                                        <td colspan="2"><span style="font-size:13px;"><span style="color:#555555;"><img alt="" src="{{ asset('public/images/ui_images/mailer.png') }}" />&nbsp; fptcamera.vn@gmail.com</span></span>
                                         </td>
                                     </tr>
                                 </tbody>
