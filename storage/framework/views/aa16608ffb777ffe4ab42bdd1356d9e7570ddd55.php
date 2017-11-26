@@ -49,69 +49,78 @@
                                     <input type="hidden" name="name" value="<?php echo e($product->name); ?>" />
                                     <input type="hidden" name="price" value="<?php echo e($product->price); ?>" />
                                     <input type="hidden" name="img" value="<?php echo e($product->img); ?>" />
-                                    <p>Số lượng: <span class='detail-spinner'> <input type="text" name="qty" value="" class="cart_qty" /> </span>
-                                    </p>
-                                    <input type="submit" name="action" value="Mua ngay" class="cart_submit" />
-                                </form>
-                            </div>
+                                    <p>Số lượng: <span class='detail-spinner'> 
+                                        <div class="input-group bootstrap-touchspin">
+                                            <span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span>
+                                            <input type="number" name="qty" value="1" class="cart_qty form-control" style="display: block;">
+                                            <span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span>
+                                        </div>                                            
+                                    </span>
+                                </p>
+                                <input type="submit" name="action" value="Mua ngay" class="cart_submit" />
+                            </form>
                         </div>
-                        <div class="clear"></div>
                     </div>
+                    <div class="clear"></div>
                 </div>
-                <div class="col-xs-12 col-md-9">
-                    <div class="hidden-xs">
-                        <ul class="nav nav-tabs custom-tabs2" role="tablist">
-                            <li role="presentation" class="active"><a href="#chitiet" aria-controls="chitiet" role="tab" data-toggle="tab">Chi tiết sản phẩm</a>
-                            </li>
-                            <li role="presentation"><a href="#thongso" aria-controls="thongso" role="tab" data-toggle="tab">Thông số kỹ thuật</a>
-                            </li>
-                        </ul>
-                        <div class="tab-content">
-                            <?php echo html_entity_decode($product->detail_product); ?>
+            </div>
+            <div class="col-xs-12 col-md-9">
+                <div class="hidden-xs">
+                    <ul class="nav nav-tabs custom-tabs2" role="tablist">
+                        <li role="presentation" class="active"><a href="#chitiet" aria-controls="chitiet" role="tab" data-toggle="tab">Chi tiết sản phẩm</a>
+                        </li>
+                        <li role="presentation"><a href="#thongso" aria-controls="thongso" role="tab" data-toggle="tab">Thông số kỹ thuật</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <?php echo html_entity_decode($product->detail_product); ?>
 
-                            <?php echo html_entity_decode($product->digital); ?>
+                        <?php echo html_entity_decode($product->digital); ?>
 
-                        </div>
-                        <div id="tags"> <span><i class="fa fa-tags"></i>Xem thêm</span> <a href="http://fptcamera.vn/tag-san-pham/bo-camera-gia-re">bộ camera giá rẻ</a> <a href="http://fptcamera.vn/tag-san-pham/lap-dat-camera-gia-re">lắp đặt camera giá rẻ</a> <a href="http://fptcamera.vn/tag-san-pham/camera-gia-re">camera gia re</a> </div>
-                    </div> <span class="header3">Sản phẩm liên quan</span>
-                    <div class="row">
-                        <?php $__currentLoopData = $random; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $e): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <div class="col-xs-6 col-sm-4">
-                            <div class="thumbnail products">
-                                <a href="<?php echo e(url('/detail-product/'.$e->id)); ?>"><img alt="<?php echo e($e->name); ?>" src="<?php echo e(asset('public/images/san-pham/'.$e->img)); ?>">
-                                </a>
-                                <div class="caption"> <a href="<?php echo e(url('/detail-product/'.$e->id)); ?>"><h3><?php echo e($e->name); ?></h3></a>
-                                    <div class="clear"></div>
-                                    <div class="row">
-                                        <div class="col-xs-12"><span class="new-price"><?php echo number_format($e->price); ?> đ</span>
-                                        </div>
+                    </div>
+                    <div id="tags"> <span><i class="fa fa-tags"></i>Xem thêm</span> <a href="http://fptcamera.vn/tag-san-pham/bo-camera-gia-re">bộ camera giá rẻ</a> <a href="http://fptcamera.vn/tag-san-pham/lap-dat-camera-gia-re">lắp đặt camera giá rẻ</a> <a href="http://fptcamera.vn/tag-san-pham/camera-gia-re">camera gia re</a> </div>
+                </div> <span class="header3">Sản phẩm liên quan</span>
+                <div class="row">
+                    <?php $__currentLoopData = $random; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $e): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div class="col-xs-6 col-sm-4">
+                        <div class="thumbnail products">
+                            <a href="<?php echo e(url('/detail-product/'.$e->id)); ?>"><img alt="<?php echo e($e->name); ?>" src="<?php echo e(asset('public/images/san-pham/'.$e->img)); ?>">
+                            </a>
+                            <div class="caption"> <a href="<?php echo e(url('/detail-product/'.$e->id)); ?>"><h3><?php echo e($e->name); ?></h3></a>
+                                <div class="clear"></div>
+                                <div class="row">
+                                    <div class="col-xs-12"><span class="new-price"><?php echo number_format($e->price); ?> đ</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
-                <div class="col-xs-12 col-md-3"> <span class="header3">Sản phẩm cùng danh mục</span>
-                    <?php $__currentLoopData = $sanpham; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $e): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div class="media products">
-                        <div class="media-left">
-                            <a href="<?php echo e(url('/detail-product/'.$e->id)); ?>"> <img class="media-object" alt="<?php echo e($e->name); ?>" src="<?php echo e(asset('public/images/san-pham/'.$e->img)); ?>"> </a>
+            </div>
+            <div class="col-xs-12 col-md-3"> <span class="header3">Sản phẩm cùng danh mục</span>
+                <?php $__currentLoopData = $sanpham; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $e): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <div class="media products">
+                    <div class="media-left">
+                        <a href="<?php echo e(url('/detail-product/'.$e->id)); ?>"> <img class="media-object" alt="<?php echo e($e->name); ?>" src="<?php echo e(asset('public/images/san-pham/'.$e->img)); ?>"> </a>
+                    </div>
+                    <div class="media-body">
+                        <a href="<?php echo e(url('/detail-product/'.$e->id)); ?>">
+                            <h4 class="media-heading"><?php echo e($e->name); ?></h4> </a> <span class="media-price"><?php echo e(number_format($e->price)); ?> đ</span> </div>
                         </div>
-                        <div class="media-body">
-                            <a href="<?php echo e(url('/detail-product/'.$e->id)); ?>">
-                                <h4 class="media-heading"><?php echo e($e->name); ?></h4> </a> <span class="media-price"><?php echo e(number_format($e->price)); ?> đ</span> </div>
-                            </div>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
-                        </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
                     </div>
                 </div>
             </div>
         </div>
-        <style type="text/css">
-        .media-body {
-            width: auto;
-        }
-    </style>
-    <?php $__env->stopSection(); ?>
+    </div>
+    <style type="text/css">
+    .media-body {
+        width: auto;
+    }
+    .prd-desc .cart_qty {
+        width: 100px;
+    }
+</style>
+<?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.subClient', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

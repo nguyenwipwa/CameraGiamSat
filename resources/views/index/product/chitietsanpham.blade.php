@@ -51,66 +51,75 @@
                                     <input type="hidden" name="name" value="{{ $product->name }}" />
                                     <input type="hidden" name="price" value="{{ $product->price }}" />
                                     <input type="hidden" name="img" value="{{ $product->img }}" />
-                                    <p>Số lượng: <span class='detail-spinner'> <input type="text" name="qty" value="" class="cart_qty" /> </span>
-                                    </p>
-                                    <input type="submit" name="action" value="Mua ngay" class="cart_submit" />
-                                </form>
-                            </div>
+                                    <p>Số lượng: <span class='detail-spinner'> 
+                                        <div class="input-group bootstrap-touchspin">
+                                            <span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span>
+                                            <input type="number" name="qty" value="1" class="cart_qty form-control" style="display: block;">
+                                            <span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span>
+                                        </div>                                            
+                                    </span>
+                                </p>
+                                <input type="submit" name="action" value="Mua ngay" class="cart_submit" />
+                            </form>
                         </div>
-                        <div class="clear"></div>
                     </div>
+                    <div class="clear"></div>
                 </div>
-                <div class="col-xs-12 col-md-9">
-                    <div class="hidden-xs">
-                        <ul class="nav nav-tabs custom-tabs2" role="tablist">
-                            <li role="presentation" class="active"><a href="#chitiet" aria-controls="chitiet" role="tab" data-toggle="tab">Chi tiết sản phẩm</a>
-                            </li>
-                            <li role="presentation"><a href="#thongso" aria-controls="thongso" role="tab" data-toggle="tab">Thông số kỹ thuật</a>
-                            </li>
-                        </ul>
-                        <div class="tab-content">
-                            {!! html_entity_decode($product->detail_product) !!}
-                            {!! html_entity_decode($product->digital) !!}
-                        </div>
-                        <div id="tags"> <span><i class="fa fa-tags"></i>Xem thêm</span> <a href="http://fptcamera.vn/tag-san-pham/bo-camera-gia-re">bộ camera giá rẻ</a> <a href="http://fptcamera.vn/tag-san-pham/lap-dat-camera-gia-re">lắp đặt camera giá rẻ</a> <a href="http://fptcamera.vn/tag-san-pham/camera-gia-re">camera gia re</a> </div>
-                    </div> <span class="header3">Sản phẩm liên quan</span>
-                    <div class="row">
-                        @foreach($random as $e)
-                        <div class="col-xs-6 col-sm-4">
-                            <div class="thumbnail products">
-                                <a href="{{ url('/detail-product/'.$e->id) }}"><img alt="{{ $e->name }}" src="{{ asset('public/images/san-pham/'.$e->img) }}">
-                                </a>
-                                <div class="caption"> <a href="{{ url('/detail-product/'.$e->id) }}"><h3>{{ $e->name }}</h3></a>
-                                    <div class="clear"></div>
-                                    <div class="row">
-                                        <div class="col-xs-12"><span class="new-price">{!!number_format($e->price) !!} đ</span>
-                                        </div>
+            </div>
+            <div class="col-xs-12 col-md-9">
+                <div class="hidden-xs">
+                    <ul class="nav nav-tabs custom-tabs2" role="tablist">
+                        <li role="presentation" class="active"><a href="#chitiet" aria-controls="chitiet" role="tab" data-toggle="tab">Chi tiết sản phẩm</a>
+                        </li>
+                        <li role="presentation"><a href="#thongso" aria-controls="thongso" role="tab" data-toggle="tab">Thông số kỹ thuật</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        {!! html_entity_decode($product->detail_product) !!}
+                        {!! html_entity_decode($product->digital) !!}
+                    </div>
+                    <div id="tags"> <span><i class="fa fa-tags"></i>Xem thêm</span> <a href="http://fptcamera.vn/tag-san-pham/bo-camera-gia-re">bộ camera giá rẻ</a> <a href="http://fptcamera.vn/tag-san-pham/lap-dat-camera-gia-re">lắp đặt camera giá rẻ</a> <a href="http://fptcamera.vn/tag-san-pham/camera-gia-re">camera gia re</a> </div>
+                </div> <span class="header3">Sản phẩm liên quan</span>
+                <div class="row">
+                    @foreach($random as $e)
+                    <div class="col-xs-6 col-sm-4">
+                        <div class="thumbnail products">
+                            <a href="{{ url('/detail-product/'.$e->id) }}"><img alt="{{ $e->name }}" src="{{ asset('public/images/san-pham/'.$e->img) }}">
+                            </a>
+                            <div class="caption"> <a href="{{ url('/detail-product/'.$e->id) }}"><h3>{{ $e->name }}</h3></a>
+                                <div class="clear"></div>
+                                <div class="row">
+                                    <div class="col-xs-12"><span class="new-price">{!!number_format($e->price) !!} đ</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        @endforeach
                     </div>
+                    @endforeach
                 </div>
-                <div class="col-xs-12 col-md-3"> <span class="header3">Sản phẩm cùng danh mục</span>
-                    @foreach($sanpham as $e)
-                    <div class="media products">
-                        <div class="media-left">
-                            <a href="{{ url('/detail-product/'.$e->id) }}"> <img class="media-object" alt="{{ $e->name }}" src="{{ asset('public/images/san-pham/'.$e->img) }}"> </a>
+            </div>
+            <div class="col-xs-12 col-md-3"> <span class="header3">Sản phẩm cùng danh mục</span>
+                @foreach($sanpham as $e)
+                <div class="media products">
+                    <div class="media-left">
+                        <a href="{{ url('/detail-product/'.$e->id) }}"> <img class="media-object" alt="{{ $e->name }}" src="{{ asset('public/images/san-pham/'.$e->img) }}"> </a>
+                    </div>
+                    <div class="media-body">
+                        <a href="{{ url('/detail-product/'.$e->id) }}">
+                            <h4 class="media-heading">{{ $e->name }}</h4> </a> <span class="media-price">{{number_format($e->price)}} đ</span> </div>
                         </div>
-                        <div class="media-body">
-                            <a href="{{ url('/detail-product/'.$e->id) }}">
-                                <h4 class="media-heading">{{ $e->name }}</h4> </a> <span class="media-price">{{number_format($e->price)}} đ</span> </div>
-                            </div>
-                            @endforeach 
-                        </div>
+                        @endforeach 
                     </div>
                 </div>
             </div>
         </div>
-        <style type="text/css">
-        .media-body {
-            width: auto;
-        }
-    </style>
-    @endsection
+    </div>
+    <style type="text/css">
+    .media-body {
+        width: auto;
+    }
+    .prd-desc .cart_qty {
+        width: 100px;
+    }
+</style>
+@endsection
