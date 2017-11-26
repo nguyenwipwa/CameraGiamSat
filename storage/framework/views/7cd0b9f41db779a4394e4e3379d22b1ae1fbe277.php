@@ -58,6 +58,84 @@
 					</table>
 					<?php endif; ?>
 
+					<?php if(($user = Auth::user())!=null): ?>
+					<table id="cart" class="hidden-xs hidden-sm">
+						<tbody>
+							<tr>
+								<td colspan="2">
+									<span class="cart_3_header">Hoàn tất đơn hàng</span>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:40%;">
+									<form action="http://fptcamera.vn/thanh-toan" method="post" accept-charset="utf-8">
+										<span class="circle">1</span>
+										<span style="font-weight:bold;color:#555;">Thông tin thanh toán</span>
+										<div class="form_label_input">
+											<label style="font-weight:bold" for="fullname">Khách hàng</label>
+											<span><?php echo e($user->name); ?></span>
+										</div>
+										<div class="form_label_input">
+											<label style="font-weight:bold" for="phone">Số điện thoại</label>
+											<span><?php echo e($user->phone_number); ?></span>
+										</div>
+										<div class="form_label_input">
+											<label style="font-weight:bold" for="email">Email</label>
+											<span><?php echo e($user->email); ?></span>
+										</div>
+										<div class="form_label_input"><label style="font-weight:bold" for="address">Địa chỉ</label><span><?php echo e($user->address->address); ?></span></div>
+										<div class="form_label_input"><label style="font-weight:bold" for="address">Thành phố</label><span><?php echo e($user->address->thanhpho->name); ?></span></div>
+										<span class="circle">2</span>
+										<span style="font-weight:bold;color:#555;">Địa chỉ giao hàng</span>
+										<div class="form_label_input">
+											<label style="font-weight:bold;vertical-align:top;" for="ship_address">Địa chỉ</label>
+											<span style="display:inline-block;"><?php echo e($user->address->address); ?>, <?php echo e($user->address->thanhpho->name); ?></span>
+										</div>
+										
+									</form>
+								</td>
+								<td style="vertical-align:top">
+									<span class="circle">4</span>
+									<span style="font-weight:bold;color:#555;">Xác nhận đơn hàng</span>
+									<table id="cart" class="inside">
+										<tbody>
+											<tr>
+												<td colspan="2" class="text_center">Sản phẩm</td>
+												<td class="text_right">Giá</td>
+											</tr>
+											<?php $__currentLoopData = Cart::content(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+											<tr>
+												<td class="text_center">
+													<img class="cart_img" src="<?php echo e(asset('public/images/san-pham/'.$row->options->img)); ?>">
+												</td>
+												<td><?php echo e($row->name); ?></td>
+												<td class="text_right">
+													<span style="display:block;color:red;font-weight:bold;margin: 0 0 5px 0;"><?php echo e(number_format($row->price)); ?> VNĐ</span>
+													<span>Số lượng: <?php echo e($row->qty); ?></span>
+												</td>
+											</tr>
+											<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+											<td class="text_right" colspan="2">
+												<strong>Tổng cộng:</strong>
+											</td>
+											<td class="text_right" colspan="2">
+												<span style="display:block;color:red;font-weight:bold;"><?php echo e(Cart::total()); ?> VNĐ</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<input type="submit" name="submit_cart" value="Mua hàng" class="btn3" style="float:right">
+							</td>
+						</tr>
+						<tr class="no-border">
+							<td colspan="7">
+								<input class="float_left btn2" type="button" value="Trở về giỏ hàng" onclick="location.href='<?php echo e(route('cartDetail')); ?>'">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<?php endif; ?>
+
                     <!-- <table id="cart">
 						<tr>
 							<td style="background:#fff;">

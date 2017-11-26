@@ -7,6 +7,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+
+    public function address()
+    {
+        return $this->hasOne('App\Address', 'id_user');
+    }
+
     use Notifiable;
 
     /**
@@ -15,7 +21,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'id_role', 'phone_number'
+        'name', 'email', 'password', 'id_role', 'phone_number', 'active'
     ];
 
     /**

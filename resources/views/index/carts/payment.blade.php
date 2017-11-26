@@ -58,6 +58,84 @@
 					</table>
 					@endif
 
+					@if(($user = Auth::user())!=null)
+					<table id="cart" class="hidden-xs hidden-sm">
+						<tbody>
+							<tr>
+								<td colspan="2">
+									<span class="cart_3_header">Hoàn tất đơn hàng</span>
+								</td>
+							</tr>
+							<tr>
+								<td style="width:40%;">
+									<form action="http://fptcamera.vn/thanh-toan" method="post" accept-charset="utf-8">
+										<span class="circle">1</span>
+										<span style="font-weight:bold;color:#555;">Thông tin thanh toán</span>
+										<div class="form_label_input">
+											<label style="font-weight:bold" for="fullname">Khách hàng</label>
+											<span>{{ $user->name }}</span>
+										</div>
+										<div class="form_label_input">
+											<label style="font-weight:bold" for="phone">Số điện thoại</label>
+											<span>{{ $user->phone_number }}</span>
+										</div>
+										<div class="form_label_input">
+											<label style="font-weight:bold" for="email">Email</label>
+											<span>{{ $user->email }}</span>
+										</div>
+										<div class="form_label_input"><label style="font-weight:bold" for="address">Địa chỉ</label><span>{{ $user->address->address }}</span></div>
+										<div class="form_label_input"><label style="font-weight:bold" for="address">Thành phố</label><span>{{ $user->address->thanhpho->name }}</span></div>
+										<span class="circle">2</span>
+										<span style="font-weight:bold;color:#555;">Địa chỉ giao hàng</span>
+										<div class="form_label_input">
+											<label style="font-weight:bold;vertical-align:top;" for="ship_address">Địa chỉ</label>
+											<span style="display:inline-block;">{{ $user->address->address }}, {{ $user->address->thanhpho->name }}</span>
+										</div>
+										
+									</form>
+								</td>
+								<td style="vertical-align:top">
+									<span class="circle">4</span>
+									<span style="font-weight:bold;color:#555;">Xác nhận đơn hàng</span>
+									<table id="cart" class="inside">
+										<tbody>
+											<tr>
+												<td colspan="2" class="text_center">Sản phẩm</td>
+												<td class="text_right">Giá</td>
+											</tr>
+											@foreach(Cart::content() as $row)
+											<tr>
+												<td class="text_center">
+													<img class="cart_img" src="{{ asset('public/images/san-pham/'.$row->options->img) }}">
+												</td>
+												<td>{{ $row->name }}</td>
+												<td class="text_right">
+													<span style="display:block;color:red;font-weight:bold;margin: 0 0 5px 0;">{{ number_format($row->price)}} VNĐ</span>
+													<span>Số lượng: {{ $row->qty }}</span>
+												</td>
+											</tr>
+											@endforeach
+											<td class="text_right" colspan="2">
+												<strong>Tổng cộng:</strong>
+											</td>
+											<td class="text_right" colspan="2">
+												<span style="display:block;color:red;font-weight:bold;">{{ Cart::total() }} VNĐ</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<input type="submit" name="submit_cart" value="Mua hàng" class="btn3" style="float:right">
+							</td>
+						</tr>
+						<tr class="no-border">
+							<td colspan="7">
+								<input class="float_left btn2" type="button" value="Trở về giỏ hàng" onclick="location.href='{{ route('cartDetail') }}'">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				@endif
+
                     <!-- <table id="cart">
 						<tr>
 							<td style="background:#fff;">

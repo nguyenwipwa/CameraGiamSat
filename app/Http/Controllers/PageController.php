@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Cart;
 use App\Model\News;
 use App\Model\NewsDetail;
+use App\User;
 class PageController extends Controller {
 
 	function pageNews(Request $request){
@@ -39,6 +40,8 @@ class PageController extends Controller {
 		// Cart::add('293ad', 'Product 1', 1, 9.99, ['img'=> 'ngon']);
 		// $list_cart = Cart::content();
 		return view('index.carts.payment', ['category' => $category, 'contact' => $contact, 'slides' => $slides, 'thanhPho'=> $thanhPho]);
+		// return json_encode(User::all()[0]->address->thanhPho);
+		// var_dump(User::all());
 		// echo json_encode(Cart::content());
 	}
 
