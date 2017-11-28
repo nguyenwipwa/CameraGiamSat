@@ -22,4 +22,9 @@ class News extends Model
 	{
 		return $this->hasOne('App\Model\NewsDetail');
 	}
+
+	public function getNewsAdminAll(){
+		$paginate = $this::paginate(16);
+		return $paginate;
+	}
 }

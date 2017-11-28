@@ -15,7 +15,7 @@ class Category extends Model
 		return $this->hasMany('App\Product','id_category', 'id');
 	}
 	public function getCategoryAdmin(){
-		$listCate = $this::paginate(10);;
+		$listCate = $this::paginate(10);
 		$listCate1 = $this::all();
 		foreach ($listCate as $key => $value) {
 			$value->name = $this->deQuy($value->id_root, $listCate1, $value->name);
