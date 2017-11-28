@@ -33,6 +33,7 @@ Route::group(['prefix' => '/gio-hang'], function () {
 	Route::get('/removeCart/{rowId}', ['as' => 'removeCart', 'uses' => 'PageController@removeCart']);
 	Route::post('/updateCart', ['as' => 'updateCart', 'uses' => 'PageController@updateCart']);
 	Route::get('/thanh-toan', ['as' => 'payment', 'uses' => 'PageController@payment']);
+	Route::post('/thanh-toan', ['as' => 'payment1', 'uses' => 'OrderController@addOrder']);
 
 
 });
@@ -78,18 +79,23 @@ Route::get('/detail-product/{id}', 'PageController@detailProduct');
 
 Route::get('/category/{id_category}/{start}', 'PageController@category');
 
+
+
 Route::get('/abc', function () {
 	return "ngon";
 });
-Route::get('/admin', function () {
-	return view('admin.indexadmin');
+
+
+Route::group(['prefix' => '/admin'], function () {
+	Route::get('/', ['as' => 'admin', 'uses' => 'AdminController@pageAdmin']);
+	Route::get('/danhsachmenu.html', ['as' => 'danhsachmenu', 'uses' => 'AdminController@pageMenu']);
+	Route::get('/index.html', ['as' => 'admin', 'uses' => 'AdminController@pageAdmin']);
 });
+
 Route::get('/index.html', function () {
 	return view('admin.indexadmin');
 });
-Route::get('/danhsachmenu.html', function () {
-	return view('admin.danhsachmenu');
-});
+
 Route::get('/danhsachsanpham.html', function () {
 	return view('admin.danhsachsanpham');
 });
