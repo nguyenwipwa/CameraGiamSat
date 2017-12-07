@@ -36,7 +36,7 @@
                                 </td>
                                 <td><?php echo e(number_format($row->price)); ?> VNĐ</td>
                                 <td style="width:92px;">
-                                    <input class="cart_qty form-control" type="number" name="<?php echo e($row->rowId); ?>" value="<?php echo e($row->qty); ?>" />
+                                    <input class="cart_qty form-control" min="1" type="number" name="<?php echo e($row->rowId); ?>" value="<?php echo e($row->qty); ?>" />
                                 </td>
                                 <td><?php echo e(number_format($row->subtotal)); ?> VNĐ</td>
                             </tr>

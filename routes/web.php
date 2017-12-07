@@ -34,6 +34,7 @@ Route::group(['prefix' => '/gio-hang'], function () {
 	Route::post('/updateCart', ['as' => 'updateCart', 'uses' => 'PageController@updateCart']);
 	Route::get('/thanh-toan', ['as' => 'payment', 'uses' => 'PageController@payment']);
 	Route::post('/thanh-toan', ['as' => 'payment1', 'uses' => 'OrderController@addOrder']);
+	Route::post('/get-sale-off', ['as' => 'get.sale.off', 'uses' => 'OrderController@getSaleOff']);
 
 
 });

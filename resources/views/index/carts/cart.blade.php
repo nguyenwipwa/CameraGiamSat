@@ -37,7 +37,7 @@
                                 </td>
                                 <td>{{ number_format($row->price)}} VNĐ</td>
                                 <td style="width:92px;">
-                                    <input class="cart_qty form-control" type="number" name="{{ $row->rowId }}" value="{{ $row->qty }}" />
+                                    <input class="cart_qty form-control" min="1" type="number" name="{{ $row->rowId }}" value="{{ $row->qty }}" />
                                 </td>
                                 <td>{{ number_format($row->subtotal)}} VNĐ</td>
                             </tr>

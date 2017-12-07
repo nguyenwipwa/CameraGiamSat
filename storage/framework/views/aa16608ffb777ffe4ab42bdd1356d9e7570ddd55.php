@@ -7,9 +7,9 @@
                 <div class="col-xs-12">
                     <div id="ScrollTo2" class="article_header my-breadcrumb">
                         <ol class="breadcrumb">
-                            <li><a href="http://fptcamera.vn/">Trang chủ</a>
+                            <li><a href="{'/'}">Trang chủ</a>
                             </li>
-                            <li><a href="http://fptcamera.vn/camera-tron-bo">Camera trọn bộ</a>
+                            <li><a href="#">Camera trọn bộ</a>
                             </li>
                         </ol>
                     </div>
@@ -52,7 +52,7 @@
                                     <p>Số lượng: <span class='detail-spinner'> 
                                         <div class="input-group bootstrap-touchspin">
                                             <span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span>
-                                            <input type="number" name="qty" value="1" class="cart_qty form-control" style="display: block;">
+                                            <input type="number" name="qty" value="1" min="1" class="cart_qty form-control" style="display: block;">
                                             <span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span>
                                         </div>                                            
                                     </span>

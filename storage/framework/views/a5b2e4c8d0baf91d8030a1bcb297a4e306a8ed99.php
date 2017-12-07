@@ -16,6 +16,8 @@
 	<meta name="ICBM" content="20.984321, 105.818546" /> <?php echo $__env->make("../../.link.index", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('public/stylesheets/social-likes_birman.css')); ?>" />
 	<script src="<?php echo e(asset('public/js/social-likes.min.js')); ?>"></script>
+  <?php echo $__env->yieldContent('script'); ?>
+
   <!-- CSS and Jquery end here -->
 </head>
 
