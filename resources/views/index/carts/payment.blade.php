@@ -37,114 +37,8 @@
 			@endif
 
 			@if(($user = Auth::user())!=null)
-			<table id="cart" class="hidden-xs hidden-sm">
-				<form action="{{ route('payment1') }}" method="post" accept-charset="utf-8">
-					<tbody>
-						<input type="hidden" name="id_user" value="{{ $user->id }}">
-						<tr>
-							<td colspan="2">
-								<span class="cart_3_header">Hoàn tất đơn hàng</span>
-							</td>
-						</tr>
-						<tr>
-							<td style="width:40%;">
-								{{ csrf_field() }}
-								<span class="circle">1</span>
-								<span style="font-weight:bold;color:#555;">Thông tin thanh toán</span>
-								<div class="form_label_input">
-									<label style="font-weight:bold" for="fullname">Khách hàng</label>
-									<span><input class="form-control" type="text" name="fullname" value="{{ $user->name }}" /></span>
-								</div>
-								<div class="form_label_input">
-									<label style="font-weight:bold" for="phone">Số điện thoại</label>
-									<span><input class="form-control" type="text" name="phone" value="{{ $user->phone_number }}"  /></span>
-								</div>
-								<div class="form_label_input">
-									<label style="font-weight:bold" for="email">Email</label>
-									<span><input class="form-control" type="text" name="email" value="{{ $user->email }}"  /></span>
-								</div>
-								<div class="form_label_input"><label style="font-weight:bold" for="address">Địa chỉ</label>
-									<span>
-										<input class="form-control" type="text" name="address" value="{{ $user->address->address }}"  /></span>
-									</div>
-									<div class="form_label_input"><label style="font-weight:bold" for="address">Thành phố</label>
-										<span>
-											<input class="form-control" type="text" name="thanhpho" value="{{ $user->address->thanhpho->name }}"  /></span>
-										</div>
-										<span class="circle">2</span>
-										<span style="font-weight:bold;color:#555;">Địa chỉ giao hàng</span>
-										<div class="form_label_input">
-											<label style="font-weight:bold;vertical-align:top;" for="ship_address">Địa chỉ</label>
-											<span>
-												<input class="form-control" type="text" name="ship_address" value="{{ $user->address->address }}, {{ $user->address->thanhpho->name }}"  /></span>
-											</div>
-										</td>
-										<td style="vertical-align:top">
-											<span class="circle">4</span>
-											<span style="font-weight:bold;color:#555;">Xác nhận đơn hàng</span>
-											<table id="cart" class="inside">
-												<tbody>
-													<tr>
-														<td colspan="2" class="text_center">Sản phẩm</td>
-														<td class="text_right">Giá</td>
-													</tr>
-													@foreach(Cart::content() as $row)
-													<tr>
-														<td class="text_center">
-															<img class="cart_img" src="{{ asset('public/images/san-pham/'.$row->options->img) }}">
-														</td>
-														<td>{{ $row->name }}</td>
-														<td class="text_right">
-															<span style="display:block;color:red;font-weight:bold;margin: 0 0 5px 0;">{{ number_format($row->price)}} VNĐ</span>
-															<span>Số lượng: {{ $row->qty }}</span>
-														</td>
-													</tr>
-													@endforeach
-													<tr>
-														<td class="text_right" colspan="1">
-															<strong>Mã giảm giá:</strong>
-														</td>
-														<td class="text_right" colspan="1">
-															<a href="javascript::00" onclick="$('.input_keyoff').css('display', 'block'); $(this).hide()"> Áp mã giảm giá </a>
-															<input id="key_sales_off" class="input_keyoff form-control" style="display: none;"  name="key_off" placeholder="Nhập mã giảm giá">
-														</td>
-														<td class="text_right" colspan="1">
-															<input onclick="ocChoLang()" id="btnApdung" class="input_keyoff" style="display: none;" type="button" name="" value="Áp dụng">
-														</td>
-													</tr>
-													<tr id="giamgia" style="display: none;">
-														<td class="text_right" colspan="1">
-															<strong>Tiền được giảm:</strong>
-														</td>
-														<td class="text_right" colspan="1">
-															<span id="phamTramGiam" style="display:block;color:green;font-weight:bold;"></span>
-														</td>
-														<td class="text_right" colspan="1">
-															<span id="tiengiam" style="display:block;color:blue;font-weight:bold;">{{ Cart::total() }} VNĐ</span>
-														</td>
-													</tr>
-													<tr>
-														<td class="text_right" colspan="2">
-															<strong>Tổng cộng:</strong>
-														</td>
-														<td class="text_right" colspan="2">
-															<span id="tongtien" style="display:block;color:red;font-weight:bold;">{{ Cart::total() }} VNĐ</span>
-														</td>
-													</tr>
-												</tbody>
-											</table>
-											<input type="submit" name="submit_cart" value="Mua hàng" class="btn3" style="float:right">
-										</td>
-									</tr>
-									<tr class="no-border">
-										<td colspan="7">
-											<input class="float_left btn2" type="button" value="Trở về giỏ hàng" onclick="location.href='{{ route('cartDetail') }}'">
-										</td>
-									</tr>
-								</tbody>
-							</form>
-						</table>
-						@endif
+			@include('../../index.carts.tableCart')
+			@endif
 
                     <!-- <table id="cart">
 						<tr>
@@ -179,30 +73,5 @@
 			</div>
 			<div class="clear"></div>
 		</div>
-		<script type="text/javascript">
-			function ocChoLang(){
-				// alert($('meta[name="csrf-token"]').attr('content'));
-				$.ajax({
-					url: "{{route('get.sale.off')}}",
-					type:'POST',
-					data: {
-						'key': $('#key_sales_off').val(),
-						'_token': $('meta[name="csrf-token"]').attr('content'),
-					},
-					success: function(data) {
-						if(data.status=="error"){
-							alert(data.message);
-							// location.reload();
-						}else{
-							// alert(data.status);
-							$('#giamgia').css('display', 'table-row');
-							var tien = (data.message.percent*0.01) * {{ Cart::total1() }};
-							$('#phamTramGiam').html("-"+data.message.percent + "%");
-							$('#tiengiam').html("-" + tien.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + " VNĐ");
-							$('#tongtien').html(({{ Cart::total1() }} - tien).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + " VNĐ");
-						}
-					}
-				});
-			}
-		</script>
+		
 		@endsection

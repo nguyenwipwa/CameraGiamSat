@@ -29,6 +29,18 @@ class PageController extends Controller {
 		$contact = Contact::all();
 		return view('index.news.newDetail', ['category' => $category, 'contact' => $contact, 'newsDetail' => $news->getNewDetail($id)]);
 	}
+	function paymentCustomer(Request $req) {
+		$user = (object) ["id"=>null,"name"=>$req->name, "email"=>$req->email,"phone_number"=>$req->phone, "address"=>(object)["address"=>$req->address, "thanhpho" =>(object)["name"=>$req->city]]];
+		$category = Category::all();
+		$contact = Contact::all();
+		$thanhPho = ThanhPho::all();
+		$slides = DB::select('SELECT category.*, slide.img FROM slide INNER JOIN category ON slide.id_category = category.id');
+		
+		return view('index.carts.thanhtoan', ['category' => $category, 'contact' => $contact, 'slides' => $slides, 'thanhPho'=> $thanhPho, 'user'=>$user]);
+		// return json_encode(["user"=>$user]);
+		
+	}
+
 	function payment() {
 		$category = Category::all();
 		$contact = Contact::all();

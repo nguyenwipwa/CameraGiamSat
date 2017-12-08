@@ -85,7 +85,7 @@ class UserController extends Controller
 				$address->id_thanhpho = $req->id_tp;
 				$address->save();
 
-				DB::table('user_temp')->where('email', $email)->delete();
+				// DB::table('user_temp')->where('email', $email)->delete();
 				// $res=UserTemp::find($email)->delete();
 				$userTemp = new UserTemp();
 				$userTemp->email = $email;

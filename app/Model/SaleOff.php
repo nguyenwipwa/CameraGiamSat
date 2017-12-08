@@ -18,6 +18,15 @@ class SaleOff extends Model
 			return response()->json(["status"=>"success","message"=>$sale_off]);
 		}
 	}
+	function getSaleOffAdmin($key){
+		$sale_off = $this::where('key', $key)->first();
+		
+		if(count($sale_off)==0){
+			return null;
+		}else{
+			return $sale_off;
+		}
+	}
 	public function listOrder() {
 		return $this->hasMany('App\Model\Order','id_sales_off', 'id');
 	}
