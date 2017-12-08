@@ -36,6 +36,7 @@ Route::group(['prefix' => '/gio-hang'], function () {
 	Route::post('/thanh-toan-khach-hang', ['as' => 'payment.customer', 'uses' => 'PageController@paymentCustomer']);
 	Route::post('/thanh-toan', ['as' => 'payment1', 'uses' => 'OrderController@addOrder']);
 	Route::post('/get-sale-off', ['as' => 'get.sale.off', 'uses' => 'OrderController@getSaleOff']);
+	Route::get('/auth-order/{id_order}/{code_orer}/{token}', ['as' => 'auth.order', 'uses' => 'OrderController@auth_order']);
 
 
 });

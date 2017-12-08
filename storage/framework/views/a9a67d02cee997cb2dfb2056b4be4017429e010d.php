@@ -287,7 +287,7 @@
 					}
 				});
 								}
-								$("#formThanhToan1").submit(function(e){
+								$("#formThanhToan").submit(function(e){
 									e.preventDefault();
 									$.ajax({
 										url: "<?php echo e(route('payment1')); ?>",
@@ -296,7 +296,7 @@
 										success: function(data) {
 											if($.isEmptyObject(data.error)){
 												alert(data.message);
-												location.reload();
+												location.href='<?php echo e(url('/')); ?>';
 											}else{
 												alert(data.message);
 											}
@@ -312,7 +312,7 @@
 										success: function(data) {
 											if($.isEmptyObject(data.error)){
 												alert(data.message);
-												location.reload();
+												location.href='<?php echo e(url('/')); ?>';
 											}else{
 												alert(data.message);
 											}

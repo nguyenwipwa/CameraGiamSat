@@ -45,7 +45,7 @@
 <div class="shopping_title"><span>Khách hàng mới</span>
 </div>
 <!-- onsubmit="return checkform(this)" -->
-<form method="post" action="<?php echo e(route('payment.customer')); ?>" name="f_shopping" >
+<form method="post" action="<?php echo e(route('payment.customer')); ?>" name="f_shopping" onsubmit="return checkform(this)" >
 	<?php echo e(csrf_field()); ?>
 
 	<div style="padding-bottom:8px;">Hãy nhập thông tin của bạn cho việc xác nhận hóa đơn và giao hàng</div>

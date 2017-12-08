@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Order;
 use Cart;
 use Mail;
+use App\Model\AuthOrder;
 use App\Model\SaleOff;
 use App\Model\OrderDetail;
 class OrderController extends Controller
@@ -33,7 +34,9 @@ class OrderController extends Controller
 			$order->save();
 			$id_order = $order->id;
 			$this->addOrderDetail($list_cart, $id_order);
-			$this->sendOrder($req);
+			$auth_order = $this->add_auth_order($order);
+			$this->sendOrder($req, $auth_order);
+			Cart::destroy();
 			return response()->json(['status'=>'success', 'message'=>'Giỏ hàng của bạn đã được gửi đi, kiểm tra email để biết trạng thái giỏ hàng']);
 		} catch (Exception $e) {
 			return response()->json(['error'=>'error', 'message'=>'Có lỗi xảy ra!']);
@@ -59,13 +62,26 @@ class OrderController extends Controller
 			return false;
 		}
 	}
-	public function sendOrder(Request $req){
-		$data = ['name' => $req->fullname, 'content'=>'Ngon chom', 'email'=> $req->email, 'token'=>$req->_token, 'listCart'=>Cart::content()];
+	public function sendOrder(Request $req, $auth_order){
+		$data = ['name' => $req->fullname, 'content'=>'Ngon chom', 'email'=> $req->email, 'listCart'=>Cart::content(), 'auth_order'=> $auth_order];
 		Mail::send('mail.mailOrder', $data, function ($message) use ($req) {
 			$message->from('nguyenwipwa@gmail.com', 'Camera giám sát');
 			$message->to($req->email, $req->fullname);
 			$message->subject('Subject');
 
 		});
+	}
+	public function add_auth_order($order){
+		$auth_order = new AuthOrder();
+		$auth_order->id_order = $order->id;
+		$auth_order->code_order = $order->code_order;
+		$auth_order->key = csrf_token();
+		$auth_order->date_order = $order->created_at;
+		$auth_order->save();
+		return $auth_order;
+	}
+	function auth_order($id_order, $code_order, $token){
+		$auth_order = new AuthOrder();
+		return $auth_order->auth_order($id_order, $code_order, $token);
 	}
 }
