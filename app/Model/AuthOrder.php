@@ -15,7 +15,7 @@ class AuthOrder extends Model
 		try {
 			$auth = $this::where('code_order', $code_order)->where('id_order', $id_order)->where('key', $token)->first();
 			if($auth!=null){
-				$order = Order::where('code_order')->update(['active' => 1]);
+				$order = Order::where('code_order',$code_order)->update(['active' => 1]);
 				DB::table('auth_order')->where('code_order', $code_order)->delete();
 				return "<h1>Xác thực hóa đơn thành công!</h1> <h3> <a href=".url('/')."> Trang chủ </a> </h3>";
 			}else{
