@@ -37,7 +37,10 @@ Route::group(['prefix' => '/gio-hang'], function () {
 	Route::post('/thanh-toan', ['as' => 'payment1', 'uses' => 'OrderController@addOrder']);
 	Route::post('/get-sale-off', ['as' => 'get.sale.off', 'uses' => 'OrderController@getSaleOff']);
 	Route::get('/auth-order/{id_order}/{code_orer}/{token}', ['as' => 'auth.order', 'uses' => 'OrderController@auth_order']);
-
+	Route::get('/paypal/{hd}/{total}', ['as' => 'paypal', 'uses'=>'OrderController@paypal']);
+	Route::get('/paypal-success', ['as'=>'paypal.success', function(){
+			return view('index.carts.paypal-success');
+		}]);
 
 });
 Route::group(['prefix' => '/user'], function () {

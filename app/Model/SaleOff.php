@@ -10,16 +10,16 @@ class SaleOff extends Model
 	public $timestamps = false;
     //
 	function getSaleOff($key){
-		$sale_off = $this::where('key', $key)->first();
+		$sale_off = $this::where('key', $key)->where('status', 1)->first();
 		
 		if(count($sale_off)==0){
-			return response()->json(["status"=>'error', "message"=>"Mã sai hoặc không tồn tại!"]);
+			return response()->json(["status"=>'error', "message"=>"Mã sai hoặc đã hết hạn!"]);
 		}else{
 			return response()->json(["status"=>"success","message"=>$sale_off]);
 		}
 	}
 	function getSaleOffAdmin($key){
-		$sale_off = $this::where('key', $key)->first();
+		$sale_off = $this::where('key', $key)->where('status', 1)->first();
 		
 		if(count($sale_off)==0){
 			return null;

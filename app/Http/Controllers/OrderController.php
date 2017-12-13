@@ -27,6 +27,11 @@ class OrderController extends Controller
 		$order->id_user = $req->id_user;
 		try {
 			$sale = $sale_off->getSaleOffAdmin($req->key_sales_off);
+			if($sale!=null){
+				$sale->status = 0;
+				$sale_off = $sale;
+				$sale_off->save();
+			}
 			$order->key_sales_off =$sale==null ? null : $req->key_sales_off;
 			$sale_off = $sale==null ? 0 : $sale->percent;
 			$order->total = Cart::total1()*(1-$sale_off*0.01);
@@ -83,5 +88,8 @@ class OrderController extends Controller
 	function auth_order($id_order, $code_order, $token){
 		$auth_order = new AuthOrder();
 		return $auth_order->auth_order($id_order, $code_order, $token);
+	}
+	function paypal($hd,$total){
+		return view('index.carts.paypal', ['total'=>$total, 'hd'=> $hd]);
 	}
 }
