@@ -68,7 +68,9 @@ Route::group(['prefix' => '/admin'], function () {
 	Route::get('/login', 'AdminController@login');
 
 });
-
+Route::get('/themtintuc.html', function() {
+	return view('admin.themtintuc');
+});
 Route::get('/test', 'PageController@trangchu1');
 
 // Route::get('/gio-hang', 'PageController@cartDetail');
@@ -92,19 +94,24 @@ Route::group(['prefix' => '/admin'], function () {
 	Route::get('/index.html', ['as' => 'admin', 'uses' => 'AdminController@pageAdmin']);
 	Route::get('/danhsachsanpham.html', ['as' => 'danhsachsanpham', 'uses' => 'AdminController@pageSanPham']);
 	Route::get('/quanlytintuc.html', ['as' => 'quanlytintuc', 'uses' => 'AdminController@pageTinTuc']);
+	Route::post('/themtintuc.html', ['as' => 'themtintuc', 'uses' => 'AdminController@addTinTuc']);
+	Route::get('/themtintuc.html', ['as' => 'themtintuc', 'uses' => 'AdminController@viewThemTinTuc']);
+	Route::get('/viewsuatintuc.html/{id}', ['as' => 'suatintuc1', 'uses' => 'AdminController@viewSuaTinTuc']);
+	Route::post('/suatintuc.html/{id}', ['as' => 'suatintuc', 'uses' => 'AdminController@suaTinTuc']);
 
 });
+Route::get('/themsanpham.html', function() {
+    return view('admin.themsanpham');
+});
 
+// Route::get('/suatintuc.html', function(){
+// 	return view('admin.suatintuc');
+// });
 Route::get('/index.html', function () {
 	return view('admin.indexadmin');
 });
 
-Route::get('/danhsachsanpham.html', function () {
-	return view('admin.danhsachsanpham');
-});
-Route::get('/hoadon.html', function () {
-	return view('admin.hoadon');
-});
+
 Route::get('/quanlythanhvien.html', function () {
 	return view('admin.quanlythanhvien');
 });
@@ -141,6 +148,8 @@ Route::get('model/category/ten', function () {
 	$category = App\Category::where('id', 10)->get()->toArray();
 	var_dump($category);
 });
+
+
 
 Auth::routes();
 
