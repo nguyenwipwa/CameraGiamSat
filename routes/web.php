@@ -20,6 +20,7 @@ Route::get('/search-ajax/{key}', ['as' => 'search-ajax', 'uses' => 'PageControll
 Route::group(['prefix' => '/send'], function () {
 	Route::post('/register', ['as' => 'send.register', 'uses' => 'SendMailController@sendRegister']);
 });
+Route::get('/kiem-tra-don-hang/{code_order}', ['as' => 'check.order', 'uses' => 'PageController@check_order']);
 
 Route::group(['prefix' => '/tin-tuc'], function () {
 	Route::get('/', ['as' => 'news', 'uses' => 'PageController@pageNews']);
@@ -39,8 +40,8 @@ Route::group(['prefix' => '/gio-hang'], function () {
 	Route::get('/auth-order/{id_order}/{code_orer}/{token}', ['as' => 'auth.order', 'uses' => 'OrderController@auth_order']);
 	Route::get('/paypal/{hd}/{total}', ['as' => 'paypal', 'uses'=>'OrderController@paypal']);
 	Route::get('/paypal-success', ['as'=>'paypal.success', function(){
-			return view('index.carts.paypal-success');
-		}]);
+		return view('index.carts.paypal-success');
+	}]);
 
 });
 Route::group(['prefix' => '/user'], function () {

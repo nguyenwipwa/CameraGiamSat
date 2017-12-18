@@ -17,7 +17,13 @@ use App\Model\NewsDetail;
 use App\User;
 use Auth;
 class PageController extends Controller {
-
+	
+	function check_order(OrderRepository $orderRepository, $id_code){
+		$category = Category::all();
+		$contact = Contact::all();
+		$listOrder = $orderRepository->checkOrderByCodeOrder($id_code);
+		return view('index.user.orderhistory', ['category' => $category, 'contact' => $contact, 'listOrder'=> $listOrder]);
+	}
 	function order_history(OrderRepository $orderRepository){
 		$category = Category::all();
 		$contact = Contact::all();
