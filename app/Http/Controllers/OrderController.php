@@ -92,4 +92,7 @@ class OrderController extends Controller
 	function paypal($hd,$total){
 		return view('index.carts.paypal', ['total'=>$total, 'hd'=> $hd]);
 	}
+	function order_history(){
+		return view('index.user.orderhistory');
+	}
 }

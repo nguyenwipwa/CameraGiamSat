@@ -8,14 +8,24 @@ use App\Http\Controllers\Controller;
 use App\Product;
 use App\Provider;
 use App\Repository\ProductRepository;
+use App\Repository\OrderRepository;
 use DB;
 use Illuminate\Http\Request;
 use Cart;
 use App\Model\News;
 use App\Model\NewsDetail;
 use App\User;
+use Auth;
 class PageController extends Controller {
 
+	function order_history(OrderRepository $orderRepository){
+		$category = Category::all();
+		$contact = Contact::all();
+		$id_user = Auth::user() ? Auth::user()->id : 0;
+		$listOrder = $orderRepository->getListOrderByIdUser($id_user);
+		// return json_encode($listOrder[0]->getSalesOff());
+		return view('index.user.orderhistory', ['category' => $category, 'contact' => $contact, 'listOrder'=> $listOrder]);
+	}
 	function pageNews(Request $request){
 		$news = new News();
 		$category = Category::all();

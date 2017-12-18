@@ -15,4 +15,5 @@ class Product extends Model {
 	public function getProductAll(){
 		return $this::paginate(12);
 	}
+	
 }
