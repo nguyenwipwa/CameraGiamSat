@@ -32,16 +32,24 @@
  						<i class="fa fa-times-circle" style="font-size: 25px;"></i>
  					</button>
  					<ul class="nav navbar-nav">
- 						<?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cate): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
- 						<?php if($cate->id_root == 0 && $cate->status==1): ?>
- 						<li><a href="<?php echo e(url('/category/'.$cate->id.'/1')); ?>"><img src = "<?php echo e(asset('public/images/danh-muc-san-pham/'.$cate->icon)); ?>"/>&nbsp;&nbsp;<?php echo $cate->name; ?></a></li>
- 						<?php endif; ?>
- 						<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
- 					</ul>
+ 						<div class="name">
+ 							<a class="dropdown-toggle" href="JavaScript::void(0)" id="menu1" type="button" data-toggle="dropdown">Kiểm tra đơn hàng
+ 								<span class="caret"></span></a>
+ 								<div class="dropdown-menu" role="menu" aria-labelledby="menu1" style="padding: 5px">
+ 									<input id="code_order" class="form-control" placeholder="Nhập mã đơn hàng" type="text" name="code_order" style="color: red">
+ 									<button type="button" class="form-control btn btn-danger" id="btnKiemTraDonHang"> Kiểm tra </button>
+ 								</div>
+ 							</div>
+ 							<?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cate): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+ 							<?php if($cate->id_root == 0 && $cate->status==1): ?>
+ 							<li><a href="<?php echo e(url('/category/'.$cate->id.'/1')); ?>"><img src = "<?php echo e(asset('public/images/danh-muc-san-pham/'.$cate->icon)); ?>"/>&nbsp;&nbsp;<?php echo $cate->name; ?></a></li>
+ 							<?php endif; ?>
+ 							<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+ 						</ul>
+ 					</div>
+ 					<!-- /.navbar-collapse -->
  				</div>
- 				<!-- /.navbar-collapse -->
- 			</div>
- 			<!-- /.container-fluid -->
- 		</nav>
+ 				<!-- /.container-fluid -->
+ 			</nav>
+ 		</div>
  	</div>
- </div>
