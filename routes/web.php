@@ -21,6 +21,7 @@ Route::group(['prefix' => '/send'], function () {
 	Route::post('/register', ['as' => 'send.register', 'uses' => 'SendMailController@sendRegister']);
 });
 Route::get('/kiem-tra-don-hang/{code_order}', ['as' => 'check.order', 'uses' => 'PageController@check_order']);
+Route::get('/huy-don-hang/{code_order}', ['as' => 'huy.order', 'uses' => 'OrderController@huyDonHang']);
 
 Route::group(['prefix' => '/tin-tuc'], function () {
 	Route::get('/', ['as' => 'news', 'uses' => 'PageController@pageNews']);

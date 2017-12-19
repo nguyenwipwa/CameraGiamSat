@@ -11,10 +11,10 @@
  									<div class="name">
  										<a class="dropdown-toggle" href="JavaScript::void(0)" id="menu1" type="button" data-toggle="dropdown">Kiểm tra đơn hàng
  											<span class="caret"></span></a>
- 											<form method="get" action="" class="dropdown-menu" role="menu" aria-labelledby="menu1" style="padding: 5px">
- 												<input id="code_order" class="form-control" type="text" name="code_order" style="color: red">
+ 											<div class="dropdown-menu" role="menu" aria-labelledby="menu1" style="padding: 5px">
+ 												<input id="code_order" class="form-control" placeholder="Nhập mã đơn hàng" type="text" name="code_order" style="color: red">
  												<button type="button" class="form-control btn btn-danger" id="btnKiemTraDonHang"> Kiểm tra </button>
- 											</form>
+ 											</div>
  										</div>
  									</div>
  								</div>

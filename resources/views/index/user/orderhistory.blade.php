@@ -26,60 +26,67 @@
 								</div>
 								<div class="mid-content">
 									<div id="Member">
-										@foreach($listOrder as $key => $e)
+										@forelse($listOrder as $key => $e)
 										<div>
 											<a type="button" href="javascript::void(0)" class="lead" data-toggle="collapse" data-target="#{{ $e->code_order }}">{{ $key+1 }}. {{ $e->code_order }} ({{ $e->created_at }})</a>
 										</div>
 										<div class="clear"></div>
 										<div id="{{ $e->code_order }}" class="collapse">
-											<div><p class=""><strong >Trạng thái:</strong> <span class="label label-{{ $e->getProcess()->id==1 ? 'info' : 'success' }}">{{ $e->getProcess()->process }}</span></p></div>
-											<table id="cart" class="inside">
-												<tbody>
-													<tr>
-														<td colspan="2" class="text_center">Sản phẩm</td>
-														<td class="text_right">Giá</td>
-													</tr>
-													@foreach($e->getListOrderDetail() as $orderDetail)
-													@php
-													$product = $orderDetail->getProduct();
-													@endphp
-													<tr>
-														<td class="text_center">
-															<img class="cart_img" src="{{ asset('public/images/san-pham/'.$product->img) }}">
-														</td>
-														<td>{{ $product->name }}</td>
-														<td class="text_right">
-															<span style="display:block;color:red;font-weight:bold;margin: 0 0 5px 0;">{{ number_format($orderDetail->unit_price) }} VNĐ</span>
-															<span>Số lượng: {{ $orderDetail->quatity }}</span>
-														</td>
-													</tr>
-													@endforeach
-													<tr>
-														<td class="text_right" colspan="1">
-															<strong>Mã giảm giá:</strong>
-														</td>
-														<td class="text_right" colspan="1">
-															{{ $e->key_sales_off }} {{ $e->getSalesOff()==null ? '' : '(-'.$e->getSalesOff()->percent.'%)' }}
-														</td>
-													</tr>
-													<tr>
-														<td class="text_right" colspan="2">
-															<strong>Tổng cộng:</strong>
-														</td>
-														<td class="text_right" colspan="2">
-															<span id="tongtien" class="tongtien" style="display:block;color:red;font-weight:bold;">{{ number_format($e->total) }} VNĐ</span>
-														</td>
-													</tr>
-												</tbody>
-											</table>
+											<div><p class=""><strong >Trạng thái:</strong> <span class="label label-{{ $e->getProcess()->info }}">{{ $e->getProcess()->process }}</span>
+												@if($e->getProcess()->id == 1)
+												<a class="btn btn-danger" onclick="showDialog('{{ $e->code_order }}')" > Hủy đơn hàng </a>
+												@endif
+											</p>
 										</div>
-										@endforeach
+										<table id="cart" class="inside">
+											<tbody>
+												<tr>
+													<td colspan="2" class="text_center">Sản phẩm</td>
+													<td class="text_right">Giá</td>
+												</tr>
+												@foreach($e->getListOrderDetail() as $orderDetail)
+												@php
+												$product = $orderDetail->getProduct();
+												@endphp
+												<tr>
+													<td class="text_center">
+														<img class="cart_img" src="{{ asset('public/images/san-pham/'.$product->img) }}">
+													</td>
+													<td>{{ $product->name }}</td>
+													<td class="text_right">
+														<span style="display:block;color:red;font-weight:bold;margin: 0 0 5px 0;">{{ number_format($orderDetail->unit_price) }} VNĐ</span>
+														<span>Số lượng: {{ $orderDetail->quatity }}</span>
+													</td>
+												</tr>
+												@endforeach
+												<tr>
+													<td class="text_right" colspan="1">
+														<strong>Mã giảm giá:</strong>
+													</td>
+													<td class="text_right" colspan="2">
+														{{ $e->key_sales_off }} {{ $e->getSalesOff()==null ? '' : '(-'.$e->getSalesOff()->percent.'%)' }}
+													</td>
+												</tr>
+												<tr>
+													<td class="text_right" colspan="2">
+														<strong>Tổng cộng:</strong>
+													</td>
+													<td class="text_right" colspan="2">
+														<span id="tongtien" class="tongtien" style="display:block;color:red;font-weight:bold;">{{ number_format($e->total) }} VNĐ</span>
+													</td>
+												</tr>
+											</tbody>
+										</table>
 									</div>
-								</div>          
-							</div>
+									@empty
+									<p class="lead">Không có đơn hàng</p>
+									@endforelse
+								</div>
+							</div>          
 						</div>
 					</div>
-					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
 							<!-- <div class="pagination">
 							</div> -->
 						</div>
@@ -116,4 +123,39 @@
 				</div>
 			</div>
 		</div>
+		<script type="text/javascript">
+			function showDialog(code_order){
+				bootbox.confirm({
+					size: "small",
+					message: "Bạn muốn hủy bỏ đơn hàng này?",
+					buttons: {
+						confirm: {
+							label: 'Đồng ý',
+							className: 'btn-success'
+						},
+						cancel: {
+							label: 'Quay lại',
+							className: 'btn-danger'
+						}
+					},
+					callback: function (result) {
+						if(result){
+							$.ajax({
+								url: '{{ url('huy-don-hang') }}/'+ code_order,
+								type:'GET',
+								success: function(data) {
+									if(data.status=='success'){
+										alert(data.message);
+										location.reload();
+									}else{
+										printErrorMsg(data.error, $(".print-error-msg-forgot"));
+									}
+								}
+							});
+							// location.href = '{{ url('huy-don-hang') }}/'+ code_order;
+						}
+					}
+				});
+			}
+		</script>
 		@endsection
