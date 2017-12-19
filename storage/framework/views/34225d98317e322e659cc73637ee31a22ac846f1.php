@@ -89,35 +89,8 @@
 							<!-- <div class="pagination">
 							</div> -->
 						</div>
-						<div class="col-md-3 hidden-xs hidden-sm">
-							<div class="header">
-								<span>Danh mục tùy chọn</span>
-							</div>
-							<div class="media news longer">
-								<div class="media-left">
-									<a href="http://fptcamera.vn/tin-tuc/lap-dat-camera">
-										<img class="media-object" alt="Lắp đặt camera" src="http://fptcamera.vn/resources/uploads/images/automatic/tin-tuc/lap-dat-camera.jpg">
-									</a>
-								</div>
-								<div class="media-body">
-									<a href="http://fptcamera.vn/tin-tuc/lap-dat-camera">
-										<h4 class="media-heading longer"><i class="fa fa-angle-right hidden-lg hidden-md">&nbsp;</i>Thông tin cá nhân</h4>
-									</a>
-								</div>
-							</div>
-							<div class="media news longer">
-								<div class="media-left">
-									<a href="http://fptcamera.vn/tin-tuc/-lam-sao-de-biet-camera-dang-hoat-dong">
-										<img class="media-object" alt="​lam sao de biet camera dang hoat dong" src="http://fptcamera.vn/resources/uploads/images/automatic/tin-tuc/cach-nhan-biet-camera-co-hoat-dong-khong.jpg">
-									</a>
-								</div>
-								<div class="media-body">
-									<a href="http://fptcamera.vn/tin-tuc/-lam-sao-de-biet-camera-dang-hoat-dong">
-										<h4 class="media-heading longer"><i class="fa fa-angle-right hidden-lg hidden-md">&nbsp;</i>​Quản lý đơn hàng</h4>
-									</a>
-								</div>
-							</div>
-						</div>
+						<!-- Layout right -->
+						<?php echo $__env->make('../../index.user.layoutRight', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 					</div>
 				</div>
 			</div>
