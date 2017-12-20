@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Repository\CategoryRepositoryImp;
+
 use App\Model\Category;
 use App\Model\Product;
 use App\Model\News;
@@ -28,7 +30,7 @@ class AdminController extends Controller
 		$cate = new Category();
 		$listCate = $cate->getCategoryAdmin();
 		// return json_encode($listCate);
-		return view("admin.danhsachmenu", ['listCate'=>$listCate]);
+		return view('admin.danhsachmenu', ['listCate'=>$listCate]);
 	}
 
 	function pageSanPham()
@@ -36,6 +38,12 @@ class AdminController extends Controller
 		$product = new Product();
 		$listProduct = $product->getProductAll();
 		return view('admin.danhsachsanpham', ['listProduct'=>$listProduct]);
+	}
+	function viewThemSanPham(CategoryRepositoryImp $categoryRepositoryImp){
+		$id_cate = 3;
+		$listCate = $categoryRepositoryImp->getCategoryByIdToot(0); //Thằng này dùng query map thì nó ra Collection lên mạng search Collection laravel là biết. Có đủ hàm chứ k phải mảng như hầu a nói.vkl. K phải mảng nhé...quất thử coi ra cái gì. Chừng mà có search thì search Collection là ok. chứ mảng là phải xài như $listcate["id_root"] đúng k? Nó giống mảng thâu, nhưng nó là Collection. ừa a chưa nghiên cứu, để mai. h quất cmnd
+		// return json_encode($listCate);
+		return view('admin.themsanpham', ['listCate' => $listCate, 'selected'=> $id_cate]);
 	}
 	function pageTinTuc(){
 		$news = new News();

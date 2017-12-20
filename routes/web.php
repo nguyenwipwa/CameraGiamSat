@@ -20,6 +20,8 @@ Route::get('/search-ajax/{key}', ['as' => 'search-ajax', 'uses' => 'PageControll
 Route::group(['prefix' => '/send'], function () {
 	Route::post('/register', ['as' => 'send.register', 'uses' => 'SendMailController@sendRegister']);
 });
+Route::get('/kiem-tra-don-hang/{code_order}', ['as' => 'check.order', 'uses' => 'PageController@check_order']);
+Route::get('/huy-don-hang/{code_order}', ['as' => 'huy.order', 'uses' => 'OrderController@huyDonHang']);
 
 Route::group(['prefix' => '/tin-tuc'], function () {
 	Route::get('/', ['as' => 'news', 'uses' => 'PageController@pageNews']);
@@ -33,11 +35,18 @@ Route::group(['prefix' => '/gio-hang'], function () {
 	Route::get('/removeCart/{rowId}', ['as' => 'removeCart', 'uses' => 'PageController@removeCart']);
 	Route::post('/updateCart', ['as' => 'updateCart', 'uses' => 'PageController@updateCart']);
 	Route::get('/thanh-toan', ['as' => 'payment', 'uses' => 'PageController@payment']);
+	Route::post('/thanh-toan-khach-hang', ['as' => 'payment.customer', 'uses' => 'PageController@paymentCustomer']);
 	Route::post('/thanh-toan', ['as' => 'payment1', 'uses' => 'OrderController@addOrder']);
-
+	Route::post('/get-sale-off', ['as' => 'get.sale.off', 'uses' => 'OrderController@getSaleOff']);
+	Route::get('/auth-order/{id_order}/{code_orer}/{token}', ['as' => 'auth.order', 'uses' => 'OrderController@auth_order']);
+	Route::get('/paypal/{hd}/{total}', ['as' => 'paypal', 'uses'=>'OrderController@paypal']);
+	Route::get('/paypal-success', ['as'=>'paypal.success', function(){
+		return view('index.carts.paypal-success');
+	}]);
 
 });
 Route::group(['prefix' => '/user'], function () {
+	Route::get('/danh-sach-don-hang', ['as' => 'list.order', 'uses' => 'PageController@order_history']);
 	Route::get('/profile', ['as' => 'profile', 'uses' => 'UserController@profileUser']);
 	Route::get('/active/{email}/{token}', ['as' => 'activeUser', 'uses' => 'UserController@activeUser']);
 	Route::get('/logout', ['as' => 'logoutUser', 'uses' => 'UserController@logout']);
@@ -93,6 +102,7 @@ Route::group(['prefix' => '/admin'], function () {
 	Route::get('/danhsachmenu.html', ['as' => 'danhsachmenu', 'uses' => 'AdminController@pageMenu']);
 	Route::get('/index.html', ['as' => 'admin', 'uses' => 'AdminController@pageAdmin']);
 	Route::get('/danhsachsanpham.html', ['as' => 'danhsachsanpham', 'uses' => 'AdminController@pageSanPham']);
+	Route::get('/themsanpham.html', ['as' => 'themsanpham', 'uses' => 'AdminController@viewThemSanPham']);
 	Route::get('/quanlytintuc.html', ['as' => 'quanlytintuc', 'uses' => 'AdminController@pageTinTuc']);
 	Route::post('/themtintuc.html', ['as' => 'themtintuc', 'uses' => 'AdminController@addTinTuc']);
 	Route::get('/themtintuc.html', ['as' => 'themtintuc', 'uses' => 'AdminController@viewThemTinTuc']);

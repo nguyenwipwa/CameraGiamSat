@@ -44,8 +44,10 @@
 <br>
 <div class="shopping_title"><span>Khách hàng mới</span>
 </div>
+<!-- onsubmit="return checkform(this)" -->
+<form method="post" action="<?php echo e(route('payment.customer')); ?>" name="f_shopping" onsubmit="return checkform(this)" >
+	<?php echo e(csrf_field()); ?>
 
-<form method="post" action="/san-pham/checkout_address.html" name="f_shopping" onsubmit="return checkform(this)">
 	<div style="padding-bottom:8px;">Hãy nhập thông tin của bạn cho việc xác nhận hóa đơn và giao hàng</div>
 	<table width="100%" cellspacing="0" cellpadding="2" border="0" class="tbl_from">
 
@@ -53,7 +55,7 @@
 			<tr>
 				<td width="150" class="td1">Họ tên (<span class="font_err">*</span>)</td>
 				<td>
-					<input type="text" style="width:98%;" id="d_name" class="textfiled" name="d_name" value="">
+					<input type="text" style="width:98%;" id="d_name" class="textfiled" name="name" value="">
 				</td>
 			</tr>
 
@@ -61,7 +63,7 @@
 			<tr>
 				<td class="td1">Địa chỉ (Số nhà, đường) (<span class="font_err">*</span>)</td>
 				<td class="td2">
-					<input type="text" style="width:98%;" class="textfiled" name="d_address" value="">
+					<input type="text" style="width:98%;" class="textfiled" name="address" value="">
 				</td>
 			</tr>
 
@@ -75,7 +77,7 @@
     		<select name="city" id="city" class="select" style="width: style=&quot;width:99%;&quot; px;" d_city="">
     			<option value="" selected="">Chọn --</option>
     			<?php $__currentLoopData = $thanhPho; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    			<option value="<?php echo e($key->id); ?>"><?php echo e($key->name); ?></option>
+    			<option value="<?php echo e($key->name); ?>"><?php echo e($key->name); ?></option>
     			<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     		</select>
     	</td>
@@ -83,13 +85,13 @@
     <tr>
     	<td class="td1">E-mail (<span class="font_err">*</span>)</td>
     	<td class="td2">
-    		<input type="text" style="width:98%;" class="textfiled" name="d_email" value="">
+    		<input type="text" style="width:98%;" class="textfiled" name="email" value="">
     	</td>
     </tr>
     <tr>
     	<td class="td1">Điện thoại (<span class="font_err">*</span>)</td>
     	<td class="td2">
-    		<input type="text" style="width:98%;" class="textfiled" name="d_phone" value=""> </td>
+    		<input type="text" style="width:98%;" class="textfiled" name="phone" value=""> </td>
     	</tr>
 
     </tbody>

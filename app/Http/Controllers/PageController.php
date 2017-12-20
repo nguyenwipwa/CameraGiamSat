@@ -8,14 +8,30 @@ use App\Http\Controllers\Controller;
 use App\Product;
 use App\Provider;
 use App\Repository\ProductRepository;
+use App\Repository\OrderRepository;
 use DB;
 use Illuminate\Http\Request;
 use Cart;
 use App\Model\News;
 use App\Model\NewsDetail;
 use App\User;
+use Auth;
 class PageController extends Controller {
-
+	
+	function check_order(OrderRepository $orderRepository, $id_code){
+		$category = Category::all();
+		$contact = Contact::all();
+		$listOrder = $orderRepository->checkOrderByCodeOrder($id_code);
+		return view('index.user.orderhistory', ['category' => $category, 'contact' => $contact, 'listOrder'=> $listOrder]);
+	}
+	function order_history(OrderRepository $orderRepository){
+		$category = Category::all();
+		$contact = Contact::all();
+		$id_user = Auth::user() ? Auth::user()->id : 0;
+		$listOrder = $orderRepository->getListOrderByIdUser($id_user);
+		// return json_encode($listOrder[0]->getSalesOff());
+		return view('index.user.orderhistory', ['category' => $category, 'contact' => $contact, 'listOrder'=> $listOrder]);
+	}
 	function pageNews(Request $request){
 		$news = new News();
 		$category = Category::all();
@@ -29,6 +45,18 @@ class PageController extends Controller {
 		$contact = Contact::all();
 		return view('index.news.newDetail', ['category' => $category, 'contact' => $contact, 'newsDetail' => $news->getNewDetail($id)]);
 	}
+	function paymentCustomer(Request $req) {
+		$user = (object) ["id"=>null,"name"=>$req->name, "email"=>$req->email,"phone_number"=>$req->phone, "address"=>(object)["address"=>$req->address, "thanhpho" =>(object)["name"=>$req->city]]];
+		$category = Category::all();
+		$contact = Contact::all();
+		$thanhPho = ThanhPho::all();
+		$slides = DB::select('SELECT category.*, slide.img FROM slide INNER JOIN category ON slide.id_category = category.id');
+		
+		return view('index.carts.thanhtoan', ['category' => $category, 'contact' => $contact, 'slides' => $slides, 'thanhPho'=> $thanhPho, 'user'=>$user]);
+		// return json_encode(["user"=>$user]);
+		
+	}
+
 	function payment() {
 		$category = Category::all();
 		$contact = Contact::all();

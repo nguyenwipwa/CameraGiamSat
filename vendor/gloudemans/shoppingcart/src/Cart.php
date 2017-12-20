@@ -246,6 +246,18 @@ class Cart
         return $this->numberFormat($total, $decimals, $decimalPoint, $thousandSeperator);
     }
 
+     public function total1($decimals = null, $decimalPoint = null, $thousandSeperator = null)
+    {
+        $content = $this->getContent();
+
+        $total = $content->reduce(function ($total, CartItem $cartItem) {
+            return $total + ($cartItem->qty * $cartItem->price);
+            // return $total + ($cartItem->qty * $cartItem->priceTax);
+        }, 0);
+
+        return $total;
+    }
+
     /**
      * Get the total tax of the items in the cart.
      *

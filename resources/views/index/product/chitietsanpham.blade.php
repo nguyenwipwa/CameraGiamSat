@@ -9,9 +9,9 @@
                 <div class="col-xs-12">
                     <div id="ScrollTo2" class="article_header my-breadcrumb">
                         <ol class="breadcrumb">
-                            <li><a href="http://fptcamera.vn/">Trang chủ</a>
+                            <li><a href="{'/'}">Trang chủ</a>
                             </li>
-                            <li><a href="http://fptcamera.vn/camera-tron-bo">Camera trọn bộ</a>
+                            <li><a href="#">Camera trọn bộ</a>
                             </li>
                         </ol>
                     </div>
@@ -40,46 +40,48 @@
                                 <p>Bảo hành: <span class='detail-stock'>24 Tháng</span>
                                 </p>
                                 <div class="clear"></div>
-                                <div style="float:left;" class="social-likes" data-url="http://fptcamera.vn/lap-dat-camera-gia-re-bo-1-den-8-mat">
-                                    <div class="facebook" title="Share link on Facebook">Facebook</div>
-                                    <div class="plusone" title="Share link on Google+">Google+</div>
-                                </div>
-                                <div class="clear"></div>
-                                <form action="{{route('addCart')}}" class="addcart" method="post" accept-charset="utf-8">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                    <input type="hidden" name="id" value="{{ $product->id }}" />
-                                    <input type="hidden" name="name" value="{{ $product->name }}" />
-                                    <input type="hidden" name="price" value="{{ $product->price }}" />
-                                    <input type="hidden" name="img" value="{{ $product->img }}" />
-                                    <p>Số lượng: <span class='detail-spinner'> 
-                                        <div class="input-group bootstrap-touchspin">
-                                            <span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span>
-                                            <input type="number" name="qty" value="1" class="cart_qty form-control" style="display: block;">
-                                            <span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span>
-                                        </div>                                            
-                                    </span>
-                                </p>
-                                <input type="submit" name="action" value="Mua ngay" class="cart_submit" />
-                            </form>
-                        </div>
+                                <div style="float:left;" class="social-likes" data-url="#/lap-dat-camera-gia-re-bo-1-den-8-mat">
+                                   <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FNongLamUniversity%2F&width=450&layout=standard&action=like&size=small&show_faces=true&share=true&height=80&appId=1859647834306977" width="450" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+                               </div>
+                               <div class="clear"></div>
+                               <form action="{{route('addCart')}}" class="addcart" method="post" accept-charset="utf-8">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <input type="hidden" name="id" value="{{ $product->id }}" />
+                                <input type="hidden" name="name" value="{{ $product->name }}" />
+                                <input type="hidden" name="price" value="{{ $product->price }}" />
+                                <input type="hidden" name="img" value="{{ $product->img }}" />
+                                <p>Số lượng: <span class='detail-spinner'> 
+                                    <div class="input-group bootstrap-touchspin">
+                                        <span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span>
+                                        <input type="number" name="qty" value="1" min="1" class="cart_qty form-control" style="display: block;">
+                                        <span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span>
+                                    </div>                                            
+                                </span>
+                            </p>
+                            <input type="submit" name="action" value="Mua ngay" class="cart_submit" />
+                        </form>
                     </div>
-                    <div class="clear"></div>
                 </div>
+                <div class="clear"></div>
             </div>
-            <div class="col-xs-12 col-md-9">
-                <div class="hidden-xs">
-                    <ul class="nav nav-tabs custom-tabs2" role="tablist">
-                        <li role="presentation" class="active"><a href="#chitiet" aria-controls="chitiet" role="tab" data-toggle="tab">Chi tiết sản phẩm</a>
-                        </li>
-                        <li role="presentation"><a href="#thongso" aria-controls="thongso" role="tab" data-toggle="tab">Thông số kỹ thuật</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        {!! html_entity_decode($product->detail_product) !!}
-                        {!! html_entity_decode($product->digital) !!}
-                    </div>
-                    <div id="tags"> <span><i class="fa fa-tags"></i>Xem thêm</span> <a href="http://fptcamera.vn/tag-san-pham/bo-camera-gia-re">bộ camera giá rẻ</a> <a href="http://fptcamera.vn/tag-san-pham/lap-dat-camera-gia-re">lắp đặt camera giá rẻ</a> <a href="http://fptcamera.vn/tag-san-pham/camera-gia-re">camera gia re</a> </div>
-                </div> <span class="header3">Sản phẩm liên quan</span>
+        </div>
+        <div class="col-xs-12 col-md-9">
+            <div class="hidden-xs">
+                <ul class="nav nav-tabs custom-tabs2" role="tablist">
+                    <li role="presentation" class="active"><a href="#chitiet" aria-controls="chitiet" role="tab" data-toggle="tab">Chi tiết sản phẩm</a>
+                    </li>
+                    <li role="presentation"><a href="#thongso" aria-controls="thongso" role="tab" data-toggle="tab">Thông số kỹ thuật</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    {!! html_entity_decode($product->detail_product) !!}
+                    {!! html_entity_decode($product->digital) !!}
+                </div>
+
+            </div> 
+            <div class="fb-comments" data-href="{{ url()->current() }}" 
+                data-width="auto" data-numposts="5"></div>
+                <span class="header3">Sản phẩm liên quan</span>
                 <div class="row">
                     @foreach($random as $e)
                     <div class="col-xs-6 col-sm-4">

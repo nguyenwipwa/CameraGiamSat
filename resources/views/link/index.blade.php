@@ -11,6 +11,8 @@
     <script src="{{asset('public/js/jquery-2.1.3.min.js')}}"></script>
     <script src="{{asset('public/js/jquery-ui-1.9.2.custom.min.js')}}"></script>
     <script src="{{asset('public/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('public/js/bootbox.min.js')}}"></script>
+    
     <!-- <script src="{{asset('public/js/bootstrap.js')}}"></script> -->
     <script src="{{asset('public/js/scrollfix.js')}}"></script>
     <script src="{{asset('public/js/equalheight.js')}}"></script>

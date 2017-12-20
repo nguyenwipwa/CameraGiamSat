@@ -34,4 +34,8 @@ class Category extends Model
 			}
 		}
 	}
+	public  function getCategoryByIdToot($id_root){
+		$listCate = $this::where('id_root', $id_root)->get(); // cái này ra mảng à? Collectiđd n. Ừ Collection có hàm đó.ok
+		return $listCate;
+	}
 }
