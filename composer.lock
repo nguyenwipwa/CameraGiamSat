@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4b1c4b1ad0503e355b262e389f2fe09b",
+    "content-hash": "2e12a2073628b49b6a3bfe192b10f058",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2533,6 +2533,48 @@
                 "object graph"
             ],
             "time": "2017-10-19T19:58:43+00:00"
+        },
+        {
+            "name": "ozankurt/repoist",
+            "version": "2.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/OzanKurt/Repoist.git",
+                "reference": "42728455555ef49730be34c23aa2ab8e89f5e6e2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/OzanKurt/Repoist/zipball/42728455555ef49730be34c23aa2ab8e89f5e6e2",
+                "reference": "42728455555ef49730be34c23aa2ab8e89f5e6e2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Kurt\\Repoist\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ozan Kurt",
+                    "email": "hello@ozankurt.com"
+                }
+            ],
+            "description": "Laravel 5.5 repository generator.",
+            "keywords": [
+                "database",
+                "laravel",
+                "repoist",
+                "repository"
+            ],
+            "time": "2017-11-25T01:39:56+00:00"
         },
         {
             "name": "phar-io/manifest",

@@ -27,5 +27,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('App\Repository\ProductRepository','App\Repository\ProductRepositoryImp');
         $this->app->bind('App\Repository\OrderRepository','App\Repository\OrderRepositoryImp');
         $this->app->bind('App\Repository\CategoryRepository','App\Repository\CategoryRepositoryImp');
+        if ($this->app->environment() == 'local') {
+            $this->app->register('Kurt\Repoist\RepoistServiceProvider');
+        }
     }
 }

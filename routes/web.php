@@ -103,6 +103,7 @@ Route::group(['prefix' => '/admin'], function () {
 	Route::get('/index.html', ['as' => 'admin', 'uses' => 'AdminController@pageAdmin']);
 	Route::get('/danhsachsanpham.html', ['as' => 'danhsachsanpham', 'uses' => 'AdminController@pageSanPham']);
 	Route::get('/themsanpham.html', ['as' => 'themsanpham', 'uses' => 'AdminController@viewThemSanPham']);
+	Route::post('/themsanpham.html', ['as' => 'themsanpham', 'uses' => 'AdminController@addSanPham']);
 	Route::get('/quanlytintuc.html', ['as' => 'quanlytintuc', 'uses' => 'AdminController@pageTinTuc']);
 	Route::post('/themtintuc.html', ['as' => 'themtintuc', 'uses' => 'AdminController@addTinTuc']);
 	Route::get('/themtintuc.html', ['as' => 'themtintuc', 'uses' => 'AdminController@viewThemTinTuc']);

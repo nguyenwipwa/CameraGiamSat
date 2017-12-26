@@ -45,6 +45,27 @@ class AdminController extends Controller
 		// return json_encode($listCate);
 		return view('admin.themsanpham', ['listCate' => $listCate, 'selected'=> $id_cate]);
 	}
+	function addSanPham(Request $request){
+		$product = new Product();
+		$product->name = $request->name;
+		$product->digital = $request->digital;
+		$product->id_provider = $request->provider;
+		$product->id_category = $request->cate;
+		$product->detail_product = $request->detail_product;
+		$product->quatity = $request->quatity;
+		$product->status = (int)$request->status;
+		$product->name = $request->name;
+		$status = $request->cate;
+
+		$file_name = $request->file('fImage')->getClientOriginalName();
+		$product->img = $file_name;
+		$request->file('fImage')->move('public/images/san-pham/', $file_name);
+		$product->save();
+		echo "Thành công";
+		// var_dump( $ngon);
+		// json_encode($ngon);
+
+	}
 	function pageTinTuc(){
 		$news = new News();
 		$listNews = $news->getNewsAdminAll();
@@ -91,11 +112,11 @@ class AdminController extends Controller
 		// 	$request->file('fImage')->move('public/images/tin-tuc/', $file_name);
 	// }
 		// $news->img = $file_name;
-	$news->decription = $request->description;
-	$news->save();
-	$ngon = NewsDetail::where('id_news', $id)
-	->update(['content' => $request->content]);
+		$news->decription = $request->description;
+		$news->save();
+		$ngon = NewsDetail::where('id_news', $id)
+		->update(['content' => $request->content]);
 		// echo json_encode($user);
-	return $this->pageTinTuc();
-}
+		return $this->pageTinTuc();
+	}
 }
