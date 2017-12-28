@@ -19,7 +19,7 @@
         <div class="container-fluid">
           <div class="pull-right">
             <button type="button" data-toggle="tooltip" title="" onclick="$('#filter-product').toggleClass('hidden-sm hidden-xs');" class="btn btn-default hidden-md hidden-lg" data-original-title="Lọc"><i class="fa fa-filter"></i></button>
-            <a href="http://localhost/opencart/admin/index.php?route=catalog/product/add&amp;user_token=R94rZ1nsVBrQ2iH5qTwXVAs0dr0LuFak" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Thêm"><i class="fa fa-plus"></i></a>
+            <a href="{{ url('/admin/themsanpham.html') }}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Thêm"><i class="fa fa-plus"></i></a>
             <button type="submit" form="form-product" formaction="http://localhost/opencart/admin/index.php?route=catalog/product/copy&amp;user_token=R94rZ1nsVBrQ2iH5qTwXVAs0dr0LuFak" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Sao chép"><i class="fa fa-copy"></i></button>
             <button type="button" form="form-product" formaction="http://localhost/opencart/admin/index.php?route=catalog/product/delete&amp;user_token=R94rZ1nsVBrQ2iH5qTwXVAs0dr0LuFak" data-toggle="tooltip" title="" class="btn btn-danger" onclick="confirm('Xóa/gỡ cài đặt không thể hoàn tác! Bạn có chắc bạn muốn làm điều này?') ? $('#form-product').submit() : false;" data-original-title="Xoá"><i class="fa fa-trash-o"></i></button>
           </div>
@@ -100,7 +100,7 @@
                         </td>
                         <td class="text-right"> <span class="label label-success">{{ $row->quatity }}</span> </td>
                         <td class="text-left">{{ $row->status==1 ? 'Kích hoạt' : 'Chưa kích hoạt' }}</td>
-                        <td class="text-right"><a href="http://localhost/opencart/admin/index.php?route=catalog/product/edit&amp;user_token=R94rZ1nsVBrQ2iH5qTwXVAs0dr0LuFak&amp;product_id=46" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Sửa"><i class="fa fa-pencil"></i></a></td>
+                        <td class="text-right"><a href="{{ url('/admin/suasanpham.html/'.$row->id) }}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Sửa"><i class="fa fa-pencil"></i></a></td>
                       </tr>
                       @endforeach
                     </tbody>
@@ -109,8 +109,9 @@
                 </div>
               </form>
               <div class="row">
-                <div class="col-sm-6 text-left"></div>
-                <div class="col-sm-6 text-right">Hiển thị từ 1 đến 19 của 19 (1 trang)</div>
+
+                <div class="col-sm-6 text-left">Hiển thị từ {{ $listProduct->currentPage() }} đến   {{ $listProduct->lastPage() }} trang </div>
+                <div class="col-sm-6 text-right">{{ $listProduct->render() }}</div>
               </div>
             </div>
           </div>
