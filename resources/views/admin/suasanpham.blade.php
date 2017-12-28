@@ -116,16 +116,16 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-sm-2 control-label" for="input-tax-class">Danh mục</label>
+                  <label class="col-sm-2 control-label" for="input-tax-class">Danh mục </label>
                   <div class="col-sm-10">
                     <select name="cate" id="input-tax-class" class="form-control">
 
                       @foreach ($listCate as $e)
-                      <option value="{{$e->id}}" {{$product->id_cate==$e->id ? 'selected="selected"' : ''}}> {{$e->name}} </option>
+                      <option value="{{$e->id}}" {{$product->id_category==$e->id ? 'selected="selected"' : ''}}> {{$e->name}} </option>
                       @foreach ($e->getCategoryByIdToot($e->id) as $element)
-                      <option {{$product->id_cate==$element->id ? 'selected="selected"' : ''}} value="{{$element->id}}">---{{$element->name}}</option>
+                      <option {{$product->id_category==$element->id ? 'selected="selected"' : ''}} value="{{$element->id}}">---{{$element->name}}</option>
                       @foreach ($element->getCategoryByIdToot($element->id)  as $element2)
-                      <option {{$product->id_cate==$element2->id ? 'selected="selected"' : ''}} value="{{$element2->id}}"> --------{{$element2->name}} </option>
+                      <option {{$product->id_category==$element2->id ? 'selected="selected"' : ''}} value="{{$element2->id}}"> --------{{$element2->name}} </option>
                       @endforeach
                       @endforeach
                       @endforeach
