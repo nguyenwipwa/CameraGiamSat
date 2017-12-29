@@ -29,7 +29,7 @@ class UserController extends Controller
 		$city = $req->city;
 
 		$user = Auth::user();
-		$address = Auth::user()->address();
+		$address = Auth::user()->address;
 
 		$user->name = $name;
 		$user->phone_number = $phone;
