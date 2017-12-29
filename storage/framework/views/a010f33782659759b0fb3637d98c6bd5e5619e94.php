@@ -12,7 +12,7 @@
  										<a class="dropdown-toggle" href="JavaScript::void(0)" id="menu1" type="button" data-toggle="dropdown">Kiểm tra đơn hàng
  											<span class="caret"></span></a>
  											<div class="dropdown-menu" role="menu" aria-labelledby="menu1" style="padding: 5px">
- 												<input id="code_order" class="form-control" placeholder="Nhập mã đơn hàng" type="text" name="code_order" style="color: red">
+ 												<input id="code_order_search" class="form-control" placeholder="Nhập mã đơn hàng" type="text" name="code_order" style="color: red">
  												<button type="button" class="form-control btn btn-danger" id="btnKiemTraDonHang"> Kiểm tra </button>
  											</div>
  										</div>
@@ -51,7 +51,7 @@
  	</div>
  	<script type="text/javascript">
  		$('#btnKiemTraDonHang').click(function(){
- 			location.href = '<?php echo e(url('kiem-tra-don-hang')); ?>/'+$('#code_order').val(); 		
+ 			location.href = '<?php echo e(url('kiem-tra-don-hang')); ?>/'+$('#code_order_search').val(); 		
  		})
  	</script>
  	<?php echo $__env->make('index.user.user', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
