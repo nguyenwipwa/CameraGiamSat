@@ -17,8 +17,8 @@ class Address extends Model
 	}
 	public function thanhPho()
 	{
-		// return $this->belongsTo('App\Model\ThanhPho', 'id_thanhpho', 'id');
-		return ThanhPho::where('id', $this->id_thanhpho)->first();
+		return $this->belongsTo('App\Model\ThanhPho', 'id_thanhpho', 'id');
+		// return ThanhPho::where('id', $this->id_thanhpho)->first();
 	}
 
 }

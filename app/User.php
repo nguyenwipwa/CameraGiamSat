@@ -11,8 +11,8 @@ class User extends Authenticatable
 
     public function address()
     {
-        // return $this->hasOne('App\Model\Address', 'id_user', 'id');
-        return Address::where('id_user', $this->id)->first();
+        return $this->hasOne('App\Model\Address', 'id_user', 'id');
+        // return Address::where('id_user', $this->id)->first();
     }
 
     use Notifiable;

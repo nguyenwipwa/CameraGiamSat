@@ -83,13 +83,13 @@
 													</tr>
 													<tr>      
 														<td>Địa chỉ </td>
-														<td><input class="form-control" type="text" value="<?php echo e(Auth::user()->address()->address); ?>" class="textfiled" name="address" id="address" style="width:300px;"></td>
+														<td><input class="form-control" type="text" value="<?php echo e(Auth::user()->address->address); ?>" class="textfiled" name="address" id="address" style="width:300px;"></td>
 													</tr>
 													<tr>      
 														<td>Thành phố </td>
 														<td><select class="form-control" name="city" id="city" class="select" style="width:302px;" onchange="CityChange(this.value);">
 															<?php $__currentLoopData = DB::select('SELECT * from thanhpho'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-															<option <?php echo e($key->id==Auth::user()->address()->thanhPho()->id ? 'selected' : ''); ?> value="<?php echo e($key->id); ?>"><?php echo e($key->name); ?></option>
+															<option <?php echo e($key->id==Auth::user()->address->thanhPho->id ? 'selected' : ''); ?> value="<?php echo e($key->id); ?>"><?php echo e($key->name); ?></option>
 															<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 														</select></td> 
 													</tr>     

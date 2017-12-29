@@ -83,13 +83,13 @@
 													</tr>
 													<tr>      
 														<td>Địa chỉ </td>
-														<td><input class="form-control" type="text" value="{{ Auth::user()->address()->address }}" class="textfiled" name="address" id="address" style="width:300px;"></td>
+														<td><input class="form-control" type="text" value="{{ Auth::user()->address->address }}" class="textfiled" name="address" id="address" style="width:300px;"></td>
 													</tr>
 													<tr>      
 														<td>Thành phố </td>
 														<td><select class="form-control" name="city" id="city" class="select" style="width:302px;" onchange="CityChange(this.value);">
 															@foreach(DB::select('SELECT * from thanhpho') as $key)
-															<option {{ $key->id==Auth::user()->address()->thanhPho()->id ? 'selected' : '' }} value="{{ $key->id }}">{{ $key->name }}</option>
+															<option {{ $key->id==Auth::user()->address->thanhPho->id ? 'selected' : '' }} value="{{ $key->id }}">{{ $key->name }}</option>
 															@endforeach
 														</select></td> 
 													</tr>     
