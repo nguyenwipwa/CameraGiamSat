@@ -11,7 +11,7 @@
  						<span class="icon-bar"></span>
  					</button>
  					<?php if(($user = Auth::user())==null): ?>
- 					<a class="navbar-brand" href="http://fptcamera.vn/">
+ 					<a class="navbar-brand" href="<?php echo e(url('/')); ?>">
  						<img alt="Camera FPT Việt Nam tự hào Nhà cung cấp thiết bị camera giám sát giá rẻ uy tín trên toàn quốc" src="http://fptcamera.vn/resources/ui_images/client/background/logo_mobile.png">
  					</a>
  					<?php endif; ?>
@@ -36,8 +36,8 @@
  							<a class="dropdown-toggle" href="JavaScript::void(0)" id="menu1" type="button" data-toggle="dropdown">Kiểm tra đơn hàng
  								<span class="caret"></span></a>
  								<div class="dropdown-menu" role="menu" aria-labelledby="menu1" style="padding: 5px">
- 									<input id="code_order" class="form-control" placeholder="Nhập mã đơn hàng" type="text" name="code_order" style="color: red">
- 									<button type="button" class="form-control btn btn-danger" id="btnKiemTraDonHang"> Kiểm tra </button>
+ 									<input id="code_order_search_coll" class="form-control" placeholder="Nhập mã đơn hàng" type="text" name="code_order" style="color: red">
+ 									<button type="button" class="form-control btn btn-danger" id="btnKiemTraDonHang_coll"> Kiểm tra </button>
  								</div>
  							</div>
  							<?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cate): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -53,3 +53,8 @@
  			</nav>
  		</div>
  	</div>
+ 	<script type="text/javascript">
+ 		$('#btnKiemTraDonHang_coll').click(function(){
+ 			location.href = '<?php echo e(url('kiem-tra-don-hang')); ?>/'+$('#code_order_search_coll').val(); 		
+ 		})
+ 	</script>

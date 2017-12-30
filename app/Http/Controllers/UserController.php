@@ -19,6 +19,33 @@ use App\Contact;
 
 class UserController extends Controller
 {
+
+	public function updateUser(Request $req){
+		// $email = $req->email;
+		$password = $req->password;
+		$name = $req->name;
+		$phone = $req->phone;
+		$address_user = $req->address;
+		$city = $req->city;
+
+		$user = Auth::user();
+		$address = Auth::user()->address;
+
+		$user->name = $name;
+		$user->phone_number = $phone;
+		if($password!=null) $user->password = bcrypt($password);
+
+		$address->address = $address_user;
+		$address->id_thanhpho = $city;
+
+		$user->save();
+		$address->save();
+		// $req->session()->flash('status', 'Tạo bài viết thành công!');
+		return redirect('user/profile')->with('status', 'Cập nhật thành công!');
+	}
+	public function test(){
+		return response()->json(Auth::user()->address()->thanhpho());
+	}
 	public function logout(){
 		Auth::logout();
 		return redirect()->route('/');

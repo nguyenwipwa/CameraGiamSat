@@ -16,23 +16,23 @@
 					<span style="font-weight:bold;color:#555;">Thông tin thanh toán</span>
 					<div class="form_label_input">
 						<label style="font-weight:bold" for="fullname">Khách hàng <span class="required"> * </span></label>
-						<span><input class="form-control" type="text" name="fullname" value="{{ $user->name }}" /></span>
+						<span><input class="form-control" type="text" readonly="readonly" name="fullname" value="{{ $user->name }}" /></span>
 					</div>
 					<div class="form_label_input">
 						<label style="font-weight:bold" for="phone">Điện thoại  <span class="required"> * </span></label>
-						<span><input class="form-control" type="text" name="phone" value="{{ $user->phone_number }}"  /></span>
+						<span><input readonly="readonly" class="form-control" type="text" name="phone" value="{{ $user->phone_number }}"  /></span>
 					</div>
 					<div class="form_label_input">
 						<label style="font-weight:bold" for="email">Email <span class="required"> * </span></label>
-						<span><input class="form-control" type="text" name="email" value="{{ $user->email }}"  /></span>
+						<span><input readonly="readonly" class="form-control" type="text" name="email" value="{{ $user->email }}"  /></span>
 					</div>
 					<div class="form_label_input"><label style="font-weight:bold" for="address">Địa chỉ <span class="required"> * </span></label>
 						<span>
-							<input class="form-control" type="text" name="address" value="{{ $user->address->address }}"  /></span>
+							<input readonly="readonly" class="form-control" type="text" name="address" value="{{ $user->address->address }}"  /></span>
 						</div>
 						<div class="form_label_input"><label style="font-weight:bold" for="address">Thành phố <span class="required"> * </span></label>
 							<span>
-								<input class="form-control" type="text" name="thanhpho" value="{{ $user->address->thanhpho->name }}"  /></span>
+								<input readonly="readonly" class="form-control" type="text" name="thanhpho" value="{{ $user->address->thanhpho->name }}"  /></span>
 							</div>
 							<span class="circle">2</span>
 							<span style="font-weight:bold;color:#555;">Địa chỉ giao hàng </span>

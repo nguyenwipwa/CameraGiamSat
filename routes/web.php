@@ -46,12 +46,14 @@ Route::group(['prefix' => '/gio-hang'], function () {
 
 });
 Route::group(['prefix' => '/user'], function () {
+	Route::get('/test', ['as' => 'test', 'uses' => 'UserController@test']);
 	Route::get('/danh-sach-don-hang', ['as' => 'list.order', 'uses' => 'PageController@order_history']);
 	Route::get('/profile', ['as' => 'profile', 'uses' => 'UserController@profileUser']);
 	Route::get('/active/{email}/{token}', ['as' => 'activeUser', 'uses' => 'UserController@activeUser']);
 	Route::get('/logout', ['as' => 'logoutUser', 'uses' => 'UserController@logout']);
 	Route::post('/login', ['as' => 'loginUser', 'uses' => 'UserController@login']);
 	Route::post('/add', ['as' => 'addUser', 'uses' => 'UserController@addUser']);
+	Route::post('/update-user', ['as' => 'update.user', 'uses' => 'UserController@updateUser']);
 	Route::get('/a', ['as' => 'a', 'uses' => function(){
 		return view('auth.register');
 	}

@@ -11,17 +11,17 @@
                         </div>
                         <ul class="main-page equalheightbanner">
                             <ul>
-                               @foreach($category as $cate)
-                               @if($cate->id_root == 0 && $cate->status==1)
-                               <li><a href="{{url('/category/'.$cate->id.'/1')}}"><img alt = "{{$cate->name}}" src = "{{ asset('public/images/danh-muc-san-pham/'.$cate->icon) }}" /><span class="mc_title">{{$cate->name}}<i class="fa fa-chevron-right hidden-md"></i></span></a>
+                             @foreach($category as $cate)
+                             @if($cate->id_root == 0 && $cate->status==1)
+                             <li><a href="{{url('/category/'.$cate->id.'/1')}}"><img alt = "{{$cate->name}}" src = "{{ asset('public/images/danh-muc-san-pham/'.$cate->icon) }}" /><span class="mc_title">{{$cate->name}}<i class="fa fa-chevron-right hidden-md"></i></span></a>
                                 <ul>
                                     @foreach($category as $cate1)
                                     @if($cate->id == $cate1->id_root && $cate1->status==1)
                                     <li><a href="{{url('/category/'.$cate1->id.'/1')}}"><img alt = "{{$cate1->name}}" src = "" /><span class="mc_title">{{$cate1->name}}<i class="fa fa-chevron-right hidden-md"></i></span></a>
                                         <ul>
-                                           @foreach($category as $cate2)
-                                           @if($cate1->id == $cate2->id_root && $cate2->status==1)
-                                           <li><a href="{{url('/category/'.$cate2->id.'/1')}}"><img alt = "{{$cate2->name}}" src = "" /><span class="mc_title">{{$cate2->name}}<i class="fa fa-chevron-right hidden-md"></i></span></a>
+                                         @foreach($category as $cate2)
+                                         @if($cate1->id == $cate2->id_root && $cate2->status==1)
+                                         <li><a href="{{url('/category/'.$cate2->id.'/1')}}"><img alt = "{{$cate2->name}}" src = "" /><span class="mc_title">{{$cate2->name}}<i class="fa fa-chevron-right hidden-md"></i></span></a>
                                             <div class="clear"></div>
                                         </li>
                                         @endif
@@ -56,24 +56,14 @@
                     <div id="banner" class="hidden-xs hidden-sm equalheightbanner">
                         <div class="bannerslider">
                             <ul class="slides">
+                                @foreach($slider->where('layout', 'center')->all() as $e)
                                 <li>
-                                    <a href="#">
-                                        <img title="công ty lắp đặt camera uy tín" alt="Dịch vụ lắp đặt camera quan sát uy tín giá rẻ tại FPT việt nam đạt chất lượng hàng đầu. Khuyến mãi lắp đặt trọn gói không phát sinh" src="http://fptcamera.vn/resources/uploads/images/automatic/banner/chung-nhan-dai-ly-camera-hikvision.jpg" />
+                                    <a href="{{ $e->href }}">
+                                        <img title="{{ $e->title }}" src="{{ asset('public/images/slider/'.$e->img) }}" />
                                         <div class="clear"></div>
                                     </a>
                                 </li>
-                                <li>
-                                    <a target="_blank" href="http://fptcamera.vn/tin-tuc/lap-dat-mang-fpt-cap-quang-tai-fpt-viet-nam">
-                                        <img title="lắp đặt mạng FPT" alt="lap-dat-mang-fpt" src="http://fptcamera.vn/resources/uploads/images/automatic/banner/lap-dat-mang-fpt.jpg" />
-                                        <div class="clear"></div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a target="_blank" href="http://fptcamera.vn/tron-bo-camera-gia-re">
-                                        <img title="lắp đặt camera trọn bộ gía rẻ" alt="Lắp đặt camera benco trọn bộ dịch vụ của FPT VIỆT NAM quý khách không phải phát sinh bất kỳ chi phí nào. Camera an ninh uy tín" src="http://fptcamera.vn/resources/uploads/images/automatic/banner/camera-benco-gia-re.jpg" />
-                                        <div class="clear"></div>
-                                    </a>
-                                </li>
+                                @endforeach
                             </ul>
                             <div class="clear"></div>
                         </div>
@@ -81,8 +71,9 @@
                 </div>
                 <div class="col-lg-4 hidden-xs hidden-sm hidden-md" style="padding-left:0;">
                     <button type="button" class="btn btn-danger button-support" data-toggle="modal" data-target="#supportonlineModal"><img src="http://fptcamera.vn/resources/ui_images/client/background/yahoo-smile.png">&nbsp;Hỗ trợ trực tuyến</button>
-                    <a class="b_a" href="http://fptcamera.vn/tin-tuc/lap-dat-mang-fpt-cap-quang-tai-fpt-viet-nam"><img alt="Lắp camera, Internet FPT" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/lap-mang-fpt.jpg"></a>
-                    <a class="b_a" href="http://fptcamera.vn/tin-tuc/chuong-trinh-doi-camera-cu-lay-camera-moi-tai-fpt"><img alt="Lắp đặt camera tặng báo trộm" src="http://fptcamera.vn/resources/uploads/images/automatic/quang-cao/doi_camera_cu_lay_moi.jpg"></a>
+                    @foreach($slider->where('layout', 'right')->all() as $e)
+                    <a class="b_a" href="{{ $e->href }}"><img title="{{ $e->title }}" src="{{ asset('public/images/slider/'.$e->img) }}"></a>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -92,38 +83,20 @@
                 <div class="row">
                     <div class="col-xs-12 col-lg-7">
                         <div class="contain">
-                            <a href='http://fptcamera.vn/tin-tuc/gioi-thieu'>Sơ lược công ty</a>
-                            <a href='http://fptcamera.vn/tin-tuc/chinh-sach'>Chính sách ưu đãi</a>
-                            <a href='http://fptcamera.vn/tin-tuc/tin-camera'>Tin camera</a>
-                            <a href='http://fptcamera.vn/lien-he'>Liên hệ</a>
+                            <a href='#'>Sơ lược công ty</a>
+                            <a href='#'>Chính sách ưu đãi</a>
+                            <a href='#'>Tin camera</a>
+                            <a href='#'>Liên hệ</a>
                         </div>
                     </div>
                     <div class="col-lg-5 hidden-xs hidden-sm hidden-md">
                         <div class="newsslider">
                             <ul class="slides">
                                 <li>
-                                    <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-giam-sat-khu-cong-nghiep">Lắp đặt camera giám sát khu công nghiệp</a>
+                                    <a href="#">Lắp đặt camera giám sát khu công nghiệp</a>
                                 </li>
                                 <li>
-                                    <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-quan-sat-tai-bac-giang">lắp đặt camera quan sát tại  Bắc Giang</a>
-                                </li>
-                                <li>
-                                    <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-gia-dinh-gia-bao-nhieu">lap dat camera gia dinh gia bao nhieu</a>
-                                </li>
-                                <li>
-                                    <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-quan-sat-cho-nha-xuong-can-luu-y-gi-">Lắp đặt camera quan sát cho nhà xưởng cần lưu ý gì?</a>
-                                </li>
-                                <li>
-                                    <a href="http://fptcamera.vn/tin-tuc/chuong-trinh-doi-camera-cu-lay-camera-moi-tai-fpt">Chương trình đổi camera cũ lấy camera mới tại FPT</a>
-                                </li>
-                                <li>
-                                    <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-tai-bac-ninh">Lắp đặt camera tại Bắc Ninh</a>
-                                </li>
-                                <li>
-                                    <a href="http://fptcamera.vn/tin-tuc/chi-phi-lap-dat-camera-quan-sat-tron-goi-tai-ha-noi">Chi phí lắp đặt camera quan sát trọn gói tại hà nội</a>
-                                </li>
-                                <li>
-                                    <a href="http://fptcamera.vn/tin-tuc/tu-van-lap-dat-camera-quan-sat-an-toan-gia-dinh">Tư vấn lắp đặt camera quan sát an toàn gia đình</a>
+                                    <a href="#">lắp đặt camera quan sát tại  Bắc Giang</a>
                                 </li>
                                 <div class="clear"></div>
                             </ul>

@@ -9,7 +9,7 @@
 			<div class="row">
 				<div class="col-xs-12 col-md-9">
 					<div class="article_header my-breadcrumb">
-						<ol class="breadcrumb"><li><a href="http://fptcamera.vn/">Thông tin cá nhân</a></li><li><a href="http://fptcamera.vn/tim-kiem?t=m%C3%A1y&submit_search=T%C3%ACm+ki%E1%BA%BFm">Tìm kiếm sản phẩm</a></li></ol>
+						<ol class="breadcrumb"><li><a href="">Lịch sử đơn hàng</a></li></ol>
 					</div>
 					<div class="clear"></div>
 					<div class="description2">
