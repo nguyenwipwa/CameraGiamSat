@@ -11,7 +11,7 @@
  						<span class="icon-bar"></span>
  					</button>
  					<?php if(($user = Auth::user())==null): ?>
- 					<a class="navbar-brand" href="http://fptcamera.vn/">
+ 					<a class="navbar-brand" href="<?php echo e(url('/')); ?>">
  						<img alt="Camera FPT Việt Nam tự hào Nhà cung cấp thiết bị camera giám sát giá rẻ uy tín trên toàn quốc" src="http://fptcamera.vn/resources/ui_images/client/background/logo_mobile.png">
  					</a>
  					<?php endif; ?>
