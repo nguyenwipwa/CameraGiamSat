@@ -10,7 +10,12 @@ use App\Model\News;
 class AdminController extends Controller
 {
     //
-
+	function pageBanner(){
+		return view('admin.banner.banner');
+	}
+	function pageAddBanner(){
+		return view('admin.banner.form-banner');
+	}
 	function login(Request $req)
 	{
 		return view('admin.login');

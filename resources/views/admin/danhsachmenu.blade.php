@@ -91,6 +91,6 @@
       </div>
 
     </section><!-- /.content -->
-
-  </div><!-- /.content-wrapper -->
-  @endsection
+  </div>
+</div><!-- /.content-wrapper -->
+@endsection

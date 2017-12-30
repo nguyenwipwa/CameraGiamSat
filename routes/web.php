@@ -99,6 +99,8 @@ Route::get('/abc', function () {
 
 Route::group(['prefix' => '/admin'], function () {
 	Route::get('/', ['as' => 'admin', 'uses' => 'AdminController@pageAdmin']);
+	Route::get('/banner.html', ['as' => 'quanlybanner', 'uses' => 'AdminController@pageBanner']);
+	Route::get('/banner-add.html', ['as' => 'add.banner', 'uses' => 'AdminController@pageAddBanner']);
 	Route::get('/danhsachmenu.html', ['as' => 'danhsachmenu', 'uses' => 'AdminController@pageMenu']);
 	Route::get('/index.html', ['as' => 'admin', 'uses' => 'AdminController@pageAdmin']);
 	Route::get('/danhsachsanpham.html', ['as' => 'danhsachsanpham', 'uses' => 'AdminController@pageSanPham']);

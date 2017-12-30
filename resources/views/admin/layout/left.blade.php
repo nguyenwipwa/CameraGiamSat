@@ -36,7 +36,7 @@
           <i class="fa fa-building"></i> <span>Quản lí Menu</span> <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu collapse" id="m2">
-          <li><a href="danhsachmenu.html"><i class="fa fa-circle-o"></i> Danh sách menu</a></li>
+          <li><a href="{{ route('danhsachmenu') }}"><i class="fa fa-circle-o"></i> Danh sách menu</a></li>
 
         </ul>
       </li>
@@ -46,8 +46,18 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="danhsachsanpham.html"><i class="fa fa-circle-o"></i> Tất cả sản phẩm</a></li>
+          <li><a href="danhsachsanpham-khuyenmai.html"><i class="fa fa-circle-o"></i> Chương trình giảm giá</a></li>
           <li><a href="danhsachsanpham-khuyenmai.html"><i class="fa fa-circle-o"></i> Sản phẩm khuyến mãi</a></li>
-
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-puzzle-piece fw"></i>
+          <span>Phần mở rộng</span>
+          <span class="fa fa-angle-left pull-right"></span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="{{ route('quanlybanner') }}"><i class="fa fa-circle-o"></i> Banner</a></li>
         </ul>
       </li>
       <li class="treeview">
@@ -177,6 +187,7 @@
             <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
             <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
           </ul>-->
-        </section>
-        <!-- /.sidebar -->
-      </aside>
+        </ul>
+      </section>
+      <!-- /.sidebar -->
+    </aside>
