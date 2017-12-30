@@ -22,4 +22,8 @@ class Order extends Model
 		return OrderDetail::where('id_order', $this->id)->get();
 		// return $this->hasMany('App\Model\OrderDetail', 'id', 'id_order');
 	}
+	public function getListOrderDetailMapping() {
+		// return OrderDetail::where('id_order', $this->id)->get();
+		return $this->hasMany('App\Model\OrderDetail', 'id_order', 'id');
+	}
 }

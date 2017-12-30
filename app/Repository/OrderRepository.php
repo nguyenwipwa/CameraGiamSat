@@ -6,6 +6,7 @@ interface OrderRepository{
 	public function checkOrderByCodeOrder($id_code);
 	public function addOrder($req);
 	public function huyDonHang($code_order);
+	public function getPriceByOrderID($id);
 }
 
 ?>

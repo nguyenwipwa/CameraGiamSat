@@ -107,6 +107,7 @@
                     <input type="hidden" name="manufacturer_id" value="0">
                   </div>
                 </div>
+             
                 <div class="form-group">
                   <label class="col-sm-2 control-label" for="input-tax-class">Danh mục</label>
                   <div class="col-sm-10">

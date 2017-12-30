@@ -104,11 +104,14 @@ Route::group(['prefix' => '/admin'], function () {
 	Route::get('/danhsachsanpham.html', ['as' => 'danhsachsanpham', 'uses' => 'AdminController@pageSanPham']);
 	Route::get('/themsanpham.html', ['as' => 'themsanpham', 'uses' => 'AdminController@viewThemSanPham']);
 	Route::post('/themsanpham.html', ['as' => 'themsanpham', 'uses' => 'AdminController@addSanPham']);
+	Route::get('/suasanpham.html/{id}', ['as' => 'suasanpham', 'uses' => 'AdminController@viewSuaSanPham']);
 	Route::get('/quanlytintuc.html', ['as' => 'quanlytintuc', 'uses' => 'AdminController@pageTinTuc']);
 	Route::post('/themtintuc.html', ['as' => 'themtintuc', 'uses' => 'AdminController@addTinTuc']);
 	Route::get('/themtintuc.html', ['as' => 'themtintuc', 'uses' => 'AdminController@viewThemTinTuc']);
 	Route::get('/viewsuatintuc.html/{id}', ['as' => 'suatintuc1', 'uses' => 'AdminController@viewSuaTinTuc']);
 	Route::post('/suatintuc.html/{id}', ['as' => 'suatintuc', 'uses' => 'AdminController@suaTinTuc']);
+	Route::get('/danhsachdonhang.html', ['as' => 'danhsachdonhang', 'uses' => 'AdminController@pageDonHang']);
+
 
 });
 Route::get('/themsanpham.html', function() {

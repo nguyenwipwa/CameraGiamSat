@@ -100,6 +100,10 @@ class OrderRepositoryImp implements OrderRepository
 		}
 
 	}
+	public function getPriceByOrderID($id){
+		$price = DB::table('order_detail')->select('price')->where('id_order', $id)->get();
+		return $price;
+	}
 }
 
 ?>
