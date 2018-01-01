@@ -7,14 +7,17 @@ use App\Http\Controllers\Controller;
 use App\Model\Category;
 use App\Model\Product;
 use App\Model\News;
+use App\Repository\AdminRepository;
 class AdminController extends Controller
 {
     //
-	function pageBanner(){
-		return view('admin.banner.banner');
+	function pageBanner(AdminRepository $rep){
+		$listSlider = $rep->getListSlider();
+		return view('admin.banner.banner', ['listSlider'=> $listSlider]);
 	}
-	function pageAddBanner(){
-		return view('admin.banner.form-banner');
+	function pageAddBanner($value, AdminRepository $rep){
+		$listSlider = $rep->getListSlider()->where('layout', $value);
+		return view('admin.banner.form-banner',  ['listSlider'=> $listSlider]);
 	}
 	function login(Request $req)
 	{
