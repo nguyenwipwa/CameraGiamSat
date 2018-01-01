@@ -86,6 +86,16 @@
                  <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>-->
                </ul>
              </li>
+             <li class="treeview">
+              <a href="#">
+                <i class="fa fa-shopping-cart fw"></i>
+                <span>Bán hàng</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="<?php echo e(route('phieugiamgia')); ?>"><i class="fa fa-circle-o"></i> Phiếu giảm giá </a></li>
+               </ul>
+             </li>
              <li class="treeview" >
               <a href="#m2">
                 <i class="fa fa-pie-chart"></i> <span>Thông kê</span> <i class="fa fa-angle-left pull-right"></i>

@@ -105,6 +105,11 @@ Route::group(['prefix' => '/admin'], function () {
 	Route::get('/index.html', ['as' => 'admin', 'uses' => 'AdminController@pageAdmin']);
 	Route::get('/danhsachsanpham.html', ['as' => 'danhsachsanpham', 'uses' => 'AdminController@pageSanPham']);
 	Route::get('/quanlytintuc.html', ['as' => 'quanlytintuc', 'uses' => 'AdminController@pageTinTuc']);
+	Route::get('/phieugiamgia.html', ['as' => 'phieugiamgia', 'uses' => 'AdminController@pageGiamGia']);
+	Route::get('/phieugiamgia-form.html/{id}', ['as' => 'phieugiamgia.form', 'uses' => 'AdminController@pageFormGiamGia']);
+	Route::post('/phieugiamgia-form.html', ['as' => 'phieugiamgia.add', 'uses' => 'AdminController@saveSalesOff']);
+
+
 
 });
 

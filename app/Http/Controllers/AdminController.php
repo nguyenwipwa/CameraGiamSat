@@ -11,6 +11,20 @@ use App\Repository\AdminRepository;
 class AdminController extends Controller
 {
     //
+    function saveSalesOff(AdminRepository $rep,Request $req){
+    	$saleOff = $rep->saveSalesOff($req);
+    	return redirect(route('phieugiamgia'))->with('status', 'Thao tác thành công!');
+    	// return json_encode();
+    }
+	function pageFormGiamGia(AdminRepository $rep, $id){
+		$saleOff = $rep->getSalesOffByID($id);
+		return view('admin.giamgia.form-giamgia', ['saleOff'=>$saleOff]);
+	}
+	function pageGiamGia(AdminRepository $rep){
+		$listSalesOff = $rep->getListSalesOff();
+		return view('admin.giamgia.giamgia',['listSalesOff'=>$listSalesOff]);
+
+	}
 	function pageBanner(AdminRepository $rep){
 		$listSlider = $rep->getListSlider();
 		return view('admin.banner.banner', ['listSlider'=> $listSlider]);
