@@ -101,15 +101,17 @@
                        <td class="text-right">{{$element->total}}</td>
                        <td class="text-left">29/12/2017</td>
                        <td class="text-left">29/12/2017</td>
-                       <td class="text-right"><div style="min-width: 120px;">
-                        <div class="btn-group"> <a href="" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Xem"><i class="fa fa-eye"></i></a>
-                          <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><span class="caret"></span></button>
-                          <ul class="dropdown-menu dropdown-menu-right">
-                            <li><a href=""><i class="fa fa-pencil"></i> Sửa</a></li>
-                            <li><a href="1"><i class="fa fa-trash-o"></i> Xoá</a></li>
-                          </ul>
+                       <td class="text-right">
+                        <div style="min-width: 120px;">
+                          <div class="btn-group"> <a href="" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Xem"><i class="fa fa-eye"></i></a>
+                            <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><span class="caret"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                              <li><a href=""><i class="fa fa-pencil"></i> Sửa</a></li>
+                              <li><a href="1"><i class="fa fa-trash-o"></i> Xoá</a></li>
+                            </ul>
+                          </div>
                         </div>
-                      </div></td>
+                      </td>
                     </tr>
                   </tbody>
                   @endforeach

@@ -139,4 +139,10 @@ class AdminController extends Controller
 		// json_encode($name);
 		return view('admin.danhsachdonhang', ['listOrders'=>$listOrders]);
 	}
+	function pageChiTietDonHang(){
+		return view('admin.chitietdonhang');
+	}
+	function pageSuaDonHang(){
+		return view('admin.suadonhang');
+	}
 }
