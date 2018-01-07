@@ -111,7 +111,7 @@ Route::group(['prefix' => '/admin'], function () {
 	Route::get('/viewsuatintuc.html/{id}', ['as' => 'suatintuc1', 'uses' => 'AdminController@viewSuaTinTuc']);
 	Route::post('/suatintuc.html/{id}', ['as' => 'suatintuc', 'uses' => 'AdminController@suaTinTuc']);
 	Route::get('/danhsachdonhang.html', ['as' => 'danhsachdonhang', 'uses' => 'AdminController@pageDonHang']);
-	Route::get('/chitietdonhang.html', ['as' => 'chitietdonhang', 'uses' => 'AdminController@pageChiTietDonHang']);
+	Route::get('/chitietdonhang.html/{id}', ['as' => 'chitietdonhang', 'uses' => 'AdminController@pageChiTietDonHang']);
 	Route::get('/suadonhang.html', ['as' => 'suadonhang', 'uses' => 'AdminController@pageSuaDonHang']);
 
 

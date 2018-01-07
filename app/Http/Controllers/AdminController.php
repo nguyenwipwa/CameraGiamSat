@@ -137,10 +137,16 @@ class AdminController extends Controller
 		// return json_encode($listOrders[0]->getListOrderDetailMapping[0]->unit_price);
 		// echo $ngon;
 		// json_encode($name);
+
 		return view('admin.danhsachdonhang', ['listOrders'=>$listOrders]);
 	}
-	function pageChiTietDonHang(){
-		return view('admin.chitietdonhang');
+	function pageChiTietDonHang($id){
+		$order = Order::find($id);
+
+		$order_detail = (object)OrderDetail::where('id_order',$order->id)->get()->toArray()[0];
+		$product = (object)DB::select('SELECT * FROM product where id = ?',[$order_detail->id_product])[0];
+		
+		return view('admin.chitietdonhang',['order'=>$order, 'order_detail'=>$order_detail,'product'=>$product]);
 	}
 	function pageSuaDonHang(){
 		return view('admin.suadonhang');

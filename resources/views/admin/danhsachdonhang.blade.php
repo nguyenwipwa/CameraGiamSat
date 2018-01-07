@@ -99,11 +99,11 @@
                        <td class="text-left">{{$element->name_customer}}</td>
                        <td class="text-left">{{$element->active == 1 ? "Kích hoạt" :  "Không kích hoạt"}}</td>
                        <td class="text-right">{{$element->total}}</td>
-                       <td class="text-left">29/12/2017</td>
-                       <td class="text-left">29/12/2017</td>
+                       <td class="text-left">{{$element->created_at}}</td>
+                       <td class="text-left">{{$element->updated_at}}</td>
                        <td class="text-right">
                         <div style="min-width: 120px;">
-                          <div class="btn-group"> <a href="" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Xem"><i class="fa fa-eye"></i></a>
+                          <div class="btn-group"> <a href="{{route('chitietdonhang',[$element->id])}}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Xem"><i class="fa fa-eye"></i></a>
                             <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><span class="caret"></span></button>
                             <ul class="dropdown-menu dropdown-menu-right">
                               <li><a href=""><i class="fa fa-pencil"></i> Sửa</a></li>
