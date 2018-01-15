@@ -1,4 +1,3 @@
-;
 <?php $__env->startSection('script'); ?>
 <script src="<?php echo e(asset('resources/views/admin/ckeditor/ckeditor.js')); ?>"></script>
 <link href="<?php echo e(asset('resources/views/admin/css/stylesheet.css')); ?>" rel="stylesheet" type="text/css" />
@@ -21,12 +20,15 @@
             </ul>
           </div>
         </div>
-        <div class="container-fluid">     <div class="panel panel-default">
+        <div class="container-fluid">  
+         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title"><i class="fa fa-pencil"></i> Thêm sản phẩm</h3>
           </div>
           <div class="panel-body">
-            <form action="http://localhost:81/opencart/admin/index.php?route=catalog/product/add&amp;user_token=woJZfB09PyGgGMMohXrVpLzzLUiA9QQd" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
+            <form action="<?php echo e(route('themsanpham')); ?>" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
+              <?php echo e(csrf_field()); ?>
+
               <ul class="nav nav-tabs">
                 <li class="active"><a href="#tab-general" data-toggle="tab">Tổng quan</a></li>
                 <li><a href="#tab-data" data-toggle="tab">Dữ liệu</a></li>
@@ -48,91 +50,32 @@
                     <div class="form-group required">
                       <label class="col-sm-2 control-label" for="input-name2">Tên sản phẩm</label>
                       <div class="col-sm-10">
-                        <input type="text" name="product_description[2][name]" value="" placeholder="Tên sản phẩm" id="input-name2" class="form-control">
+                        <input type="text" name="name" value="" placeholder="Tên sản phẩm" id="input-name2" class="form-control">
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-2 control-label" for="input-description2">Mô tả</label>
+                      <label class="col-sm-2 control-label" for="input-description2">Chi tiết sản phẩm</label>
                       <div class="col-sm-10">
-                        <textarea name="product_description[2][description]" placeholder="Mô tả" id="input-description2" data-toggle="summernote" data-lang="" class="form-control" style="display: none;"></textarea>
-                      </div>
-                    </div>
-                    <div class="form-group required">
-                      <label class="col-sm-2 control-label" for="input-meta-title2">Thẻ meta Tiêu đề</label>
-                      <div class="col-sm-10">
-                        <input type="text" name="product_description[2][meta_title]" value="" placeholder="Thẻ meta Tiêu đề" id="input-meta-title2" class="form-control">
+                        <textarea name="detail_product" placeholder="Mô tả" id="input-description2" data-toggle="summernote" data-lang="" class="form-control" style="display: none;"></textarea>
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-2 control-label" for="input-meta-description2">Thẻ meta Mô tả</label>
+                      <label class="col-sm-2 control-label" for="input-description2">Thông số kỹ thuật</label>
                       <div class="col-sm-10">
-                        <textarea name="product_description[2][meta_description]" rows="5" placeholder="Thẻ meta Mô tả" id="input-meta-description2" class="form-control"></textarea>
+                        <textarea name="digital" placeholder="Mô tả" id="input-description2" data-toggle="summernote" data-lang="" class="form-control" style="display: none;"></textarea>
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-2 control-label" for="input-meta-keyword2">Thẻ meta Từ khóa </label>
+                      <label class="col-sm-2 control-label" for="input-name2">Hình ảnh</label>
                       <div class="col-sm-10">
-                        <textarea name="product_description[2][meta_keyword]" rows="5" placeholder="Thẻ meta Từ khóa " id="input-meta-keyword2" class="form-control"></textarea>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="col-sm-2 control-label" for="input-tag2"><span data-toggle="tooltip" title="" data-original-title="ngăn cách bằng dấu phẩy">Sản phẩm Tags</span></label>
-                      <div class="col-sm-10">
-                        <input type="text" name="product_description[2][tag]" value="" placeholder="Sản phẩm Tags" id="input-tag2" class="form-control">
+                        <input type="file" name="fImage" value="" id="input-name2" class="form-control">
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="tab-pane" id="tab-data">
-                <div class="form-group required">
-                  <label class="col-sm-2 control-label" for="input-model">Mã sản phẩm</label>
-                  <div class="col-sm-10">
-                    <input type="text" name="model" value="" placeholder="Mã sản phẩm" id="input-model" class="form-control">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 control-label" for="input-sku"><span data-toggle="tooltip" title="" data-original-title="Giữ đơn vị trong kho">SKU</span></label>
-                  <div class="col-sm-10">
-                    <input type="text" name="sku" value="" placeholder="SKU" id="input-sku" class="form-control">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 control-label" for="input-upc"><span data-toggle="tooltip" title="" data-original-title="Mã sản phẩm chung">UPC</span></label>
-                  <div class="col-sm-10">
-                    <input type="text" name="upc" value="" placeholder="UPC" id="input-upc" class="form-control">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 control-label" for="input-ean"><span data-toggle="tooltip" title="" data-original-title="Số điều khoản Châu Âu">EAN</span></label>
-                  <div class="col-sm-10">
-                    <input type="text" name="ean" value="" placeholder="EAN" id="input-ean" class="form-control">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 control-label" for="input-jan"><span data-toggle="tooltip" title="" data-original-title="Số điều khoản Nhật Bản">JAN</span></label>
-                  <div class="col-sm-10">
-                    <input type="text" name="jan" value="" placeholder="JAN" id="input-jan" class="form-control">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 control-label" for="input-isbn"><span data-toggle="tooltip" title="" data-original-title="International Standard Book Number">ISBN</span></label>
-                  <div class="col-sm-10">
-                    <input type="text" name="isbn" value="" placeholder="ISBN" id="input-isbn" class="form-control">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 control-label" for="input-mpn"><span data-toggle="tooltip" title="" data-original-title="Manufacturer Part Number">MPN</span></label>
-                  <div class="col-sm-10">
-                    <input type="text" name="mpn" value="" placeholder="MPN" id="input-mpn" class="form-control">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 control-label" for="input-location">Địa điểm</label>
-                  <div class="col-sm-10">
-                    <input type="text" name="location" value="" placeholder="Địa điểm" id="input-location" class="form-control">
-                  </div>
-                </div>
+
                 <div class="form-group">
                   <label class="col-sm-2 control-label" for="input-price">Giá</label>
                   <div class="col-sm-10">
@@ -140,265 +83,45 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-sm-2 control-label" for="input-tax-class">Loại thuế</label>
-                  <div class="col-sm-10">
-                    <select name="tax_class_id" id="input-tax-class" class="form-control">
-                      <option value="0"> ---Không--- </option>
-
-
-
-
-                      <option value="9">Taxable Goods</option>
-
-
-
-
-                      <option value="10">Downloadable Products</option>
-
-
-
-
-                    </select>
-                  </div>
-                </div>
-                <div class="form-group">
                   <label class="col-sm-2 control-label" for="input-quantity">Số lượng</label>
                   <div class="col-sm-10">
-                    <input type="text" name="quantity" value="1" placeholder="Số lượng" id="input-quantity" class="form-control">
+                    <input type="text" name="quatity" value="1" placeholder="Số lượng" id="input-quantity" class="form-control">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-sm-2 control-label" for="input-minimum"><span data-toggle="tooltip" title="" data-original-title="Yêu cầu số lượng đặt hàng tối thiểu">Số lượng tối thiểu</span></label>
+                  <label class="col-sm-2 control-label" for="input-status">Trạng thái</label>
                   <div class="col-sm-10">
-                    <input type="text" name="minimum" value="1" placeholder="Số lượng tối thiểu" id="input-minimum" class="form-control">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 control-label" for="input-subtract">Trừ trong kho</label>
-                  <div class="col-sm-10">
-                    <select name="subtract" id="input-subtract" class="form-control">
-
-
-
-
-                      <option value="1" selected="selected">Có</option>
-                      <option value="0">Không</option>
-
-
-
-
+                    <select name="status" id="input-status" class="form-control">
+                      <option value="1" selected="selected">Kích hoạt</option>
+                      <option value="0">Vô hiệu hóa</option>
                     </select>
                   </div>
                 </div>
+
+              </div>
+              <div class="tab-pane" id="tab-links">
                 <div class="form-group">
-                  <label class="col-sm-2 control-label" for="input-stock-status"><span data-toggle="tooltip" title="" data-original-title="Trạng thái hiển thị khi một sản phẩm hết hàng trong kho">Trạng thái hết hàng</span></label>
+                  <label class="col-sm-2 control-label" for="input-manufacturer"><span data-toggle="tooltip" title="" data-original-title="(Tự động hoàn thành)">Nhà sản xuất</span></label>
                   <div class="col-sm-10">
-                    <select name="stock_status_id" id="input-stock-status" class="form-control">
-
-
-
-
-                      <option value="6">2-3 Days</option>
-
-
-
-
-                      <option value="7">In Stock</option>
-
-
-
-
-                      <option value="5">Out Of Stock</option>
-
-
-
-
-                      <option value="8">Pre-Order</option>
-
-
-
-
+                    <input type="text" name="provider" value="" placeholder="Nhà sản xuất" id="input-manufacturer" class="form-control" autocomplete="off"><ul class="dropdown-menu"></ul>
+                    <input type="hidden" name="manufacturer_id" value="0">
+                  </div>
+                </div>
+             
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="input-tax-class">Danh mục</label>
+                  <div class="col-sm-10">
+                    <select name="cate" id="input-tax-class" class="form-control">
+                      <?php $__currentLoopData = $listCate; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $e): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                      <option value="<?php echo e($e->id); ?>" <?php echo e($selected==$e->id ? 'selected="selected"' : ''); ?>> <?php echo e($e->name); ?> </option>
+                      <?php $__currentLoopData = $e->getCategoryByIdToot($e->id); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $element): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                      <option <?php echo e($selected==$element->id ? 'selected="selected"' : ''); ?> value="<?php echo e($element->id); ?>">---<?php echo e($element->name); ?></option>
+                      <?php $__currentLoopData = $element->getCategoryByIdToot($element->id); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $element2): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                      <option <?php echo e($selected==$element2->id ? 'selected="selected"' : ''); ?> value="<?php echo e($element2->id); ?>"> --------<?php echo e($element2->name); ?> </option>
+                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Yêu cầu giao hàng</label>
-                  <div class="col-sm-10">
-                    <label class="radio-inline">                     <input type="radio" name="shipping" value="1" checked="checked">
-                      Có
-                    </label>
-                    <label class="radio-inline">                     <input type="radio" name="shipping" value="0">
-                      Không
-                    </label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 control-label" for="input-date-available">Ngày có sẵn</label>
-                  <div class="col-sm-3">
-                    <div class="input-group date">
-                      <input type="text" name="date_available" value="2017-12-11" placeholder="Ngày có sẵn" data-date-format="YYYY-MM-DD" id="input-date-available" class="form-control">
-                      <span class="input-group-btn">
-                        <button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button>
-                      </span></div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-length">Kích thước (Dài x Rộng x Cao)</label>
-                    <div class="col-sm-10">
-                      <div class="row">
-                        <div class="col-sm-4">
-                          <input type="text" name="length" value="" placeholder="Chiều dài" id="input-length" class="form-control">
-                        </div>
-                        <div class="col-sm-4">
-                          <input type="text" name="width" value="" placeholder="Chiều rộng" id="input-width" class="form-control">
-                        </div>
-                        <div class="col-sm-4">
-                          <input type="text" name="height" value="" placeholder="Chiều cao" id="input-height" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-length-class">Đơn vị Chiều dài</label>
-                    <div class="col-sm-10">
-                      <select name="length_class_id" id="input-length-class" class="form-control">
-
-
-
-
-                        <option value="1" selected="selected">Centimeter</option>
-
-
-
-
-                        <option value="2">Millimeter</option>
-
-
-
-
-                        <option value="3">Inch</option>
-
-
-
-
-                      </select>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-weight">Trọng lượng</label>
-                    <div class="col-sm-10">
-                      <input type="text" name="weight" value="" placeholder="Trọng lượng" id="input-weight" class="form-control">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-weight-class">Đơn vị trọng lượng</label>
-                    <div class="col-sm-10">
-                      <select name="weight_class_id" id="input-weight-class" class="form-control">
-
-
-
-
-                        <option value="1" selected="selected">Kilogram</option>
-
-
-
-
-                        <option value="2">Gram</option>
-
-
-
-
-                        <option value="5">Pound </option>
-
-
-
-
-                        <option value="6">Ounce</option>
-
-
-
-
-                      </select>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-status">Trạng thái</label>
-                    <div class="col-sm-10">
-                      <select name="status" id="input-status" class="form-control">
-
-
-
-
-                        <option value="1" selected="selected">Kích hoạt</option>
-                        <option value="0">Vô hiệu hóa</option>
-
-
-
-
-                      </select>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-sort-order">Thứ tự</label>
-                    <div class="col-sm-10">
-                      <input type="text" name="sort_order" value="1" placeholder="Thứ tự" id="input-sort-order" class="form-control">
-                    </div>
-                  </div>
-                </div>
-                <div class="tab-pane" id="tab-links">
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-manufacturer"><span data-toggle="tooltip" title="" data-original-title="(Tự động hoàn thành)">Nhà sản xuất</span></label>
-                    <div class="col-sm-10">
-                      <input type="text" name="manufacturer" value="" placeholder="Nhà sản xuất" id="input-manufacturer" class="form-control" autocomplete="off"><ul class="dropdown-menu"></ul>
-                      <input type="hidden" name="manufacturer_id" value="0">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-tax-class">Danh mục</label>
-                    <div class="col-sm-10">
-                      <select name="tax_class_id" id="input-tax-class" class="form-control">
-                        <?php $__currentLoopData = $listCate; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $e): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <option value="<?php echo e($e->id); ?>" <?php echo e($selected==$e->id ? 'selected="selected"' : ''); ?>> <?php echo e($e->name); ?> </option>
-                        <?php $__currentLoopData = $e->getCategoryByIdToot($e->id); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $element): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <option <?php echo e($selected==$element->id ? 'selected="selected"' : ''); ?> value="<?php echo e($element->id); ?>"> ---<?php echo e($element->name); ?> </option>
-                        <?php $__currentLoopData = $element->getCategoryByIdToot($element->id); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $element2): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <option <?php echo e($selected==$element2->id ? 'selected="selected"' : ''); ?> value="<?php echo e($element2->id); ?>"> --------<?php echo e($element2->name); ?> </option>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-filter"><span data-toggle="tooltip" title="" data-original-title="(Tự động hoàn toàn)">Bộ lọc</span></label>
-                    <div class="col-sm-10">
-                      <input type="text" name="filter" value="" placeholder="Bộ lọc" id="input-filter" class="form-control" autocomplete="off"><ul class="dropdown-menu"></ul>
-                      <div id="product-filter" class="well well-sm" style="height: 150px; overflow: auto;"> </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label">Cửa hàng</label>
-                    <div class="col-sm-10">
-                      <div class="well well-sm" style="height: 150px; overflow: auto;">                     <div class="checkbox">
-                        <label>                         <input type="checkbox" name="product_store[]" value="0" checked="checked">
-                          Mặc định
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 control-label" for="input-download"><span data-toggle="tooltip" title="" data-original-title="(Tự động hoàn toàn)">Tải xuống</span></label>
-                  <div class="col-sm-10">
-                    <input type="text" name="download" value="" placeholder="Tải xuống" id="input-download" class="form-control" autocomplete="off"><ul class="dropdown-menu"></ul>
-                    <div id="product-download" class="well well-sm" style="height: 150px; overflow: auto;"> </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-2 control-label" for="input-related"><span data-toggle="tooltip" title="" data-original-title="(Tự động hoàn toàn)">Sản phẩm liên quan</span></label>
-                  <div class="col-sm-10">
-                    <input type="text" name="related" value="" placeholder="Sản phẩm liên quan" id="input-related" class="form-control" autocomplete="off"><ul class="dropdown-menu"></ul>
-                    <div id="product-related" class="well well-sm" style="height: 150px; overflow: auto;"> </div>
                   </div>
                 </div>
               </div>

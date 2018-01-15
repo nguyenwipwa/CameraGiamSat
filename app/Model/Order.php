@@ -9,7 +9,7 @@ use App\Model\SaleOff;
 class Order extends Model
 {
 	protected $table = "order";
-    //
+	public $timestamps = true;
 	public function getSalesOff() {
 		// return $this->hasOne('App\Model\SaleOff', 'key_sales_off', 'key');
 		return SaleOff::where('key', $this->key_sales_off)->first();
@@ -21,5 +21,13 @@ class Order extends Model
 	public function getListOrderDetail() {
 		return OrderDetail::where('id_order', $this->id)->get();
 		// return $this->hasMany('App\Model\OrderDetail', 'id', 'id_order');
+	}
+	public function getListOrderDetailMapping() {
+		// return OrderDetail::where('id_order', $this->id)->get();
+		return $this->hasMany('App\Model\OrderDetail', 'id_order', 'id');
+	}
+	public function getCreated_timestampAttribute()
+	{
+		return $this->created_at->timestamp();
 	}
 }

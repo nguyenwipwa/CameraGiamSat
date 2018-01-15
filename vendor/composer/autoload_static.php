@@ -73,6 +73,10 @@ class ComposerStaticInit1ebb0ef476e7d25d11cf1cdf11556fea
             'League\\Flysystem\\' => 17,
             'Laravel\\Tinker\\' => 15,
         ),
+        'K' => 
+        array (
+            'Kurt\\Repoist\\' => 13,
+        ),
         'I' => 
         array (
             'Illuminate\\' => 11,
@@ -219,6 +223,10 @@ class ComposerStaticInit1ebb0ef476e7d25d11cf1cdf11556fea
         array (
             0 => __DIR__ . '/..' . '/laravel/tinker/src',
         ),
+        'Kurt\\Repoist\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ozankurt/repoist/src',
+        ),
         'Illuminate\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
@@ -309,6 +317,7 @@ class ComposerStaticInit1ebb0ef476e7d25d11cf1cdf11556fea
     );
 
     public static $classMap = array (
+        'App\\Address' => __DIR__ . '/../..' . '/app/Address.php',
         'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Contact' => __DIR__ . '/../..' . '/app/Contact.php',
@@ -319,13 +328,28 @@ class ComposerStaticInit1ebb0ef476e7d25d11cf1cdf11556fea
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\OrderController' => __DIR__ . '/../..' . '/app/Http/Controllers/OrderController.php',
         'App\\Http\\Controllers\\PageController' => __DIR__ . '/../..' . '/app/Http/Controllers/PageController.php',
+        'App\\Http\\Controllers\\SendMailController' => __DIR__ . '/../..' . '/app/Http/Controllers/SendMailController.php',
+        'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Mail\\SendMail' => __DIR__ . '/../..' . '/app/Mail/SendMail.php',
+        'App\\Model\\AuthOrder' => __DIR__ . '/../..' . '/app/Model/AuthOrder.php',
+        'App\\Model\\Category' => __DIR__ . '/../..' . '/app/Model/Category.php',
+        'App\\Model\\News' => __DIR__ . '/../..' . '/app/Model/News.php',
+        'App\\Model\\NewsDetail' => __DIR__ . '/../..' . '/app/Model/NewsDetail.php',
+        'App\\Model\\Order' => __DIR__ . '/../..' . '/app/Model/Order.php',
+        'App\\Model\\OrderDetail' => __DIR__ . '/../..' . '/app/Model/OrderDetail.php',
+        'App\\Model\\Process' => __DIR__ . '/../..' . '/app/Model/Process.php',
+        'App\\Model\\Product' => __DIR__ . '/../..' . '/app/Model/Product.php',
+        'App\\Model\\SaleOff' => __DIR__ . '/../..' . '/app/Model/SaleOff.php',
+        'App\\Notifications\\NotifyResetPassword' => __DIR__ . '/../..' . '/app/Notifications/NotifyResetPassword.php',
         'App\\Product' => __DIR__ . '/../..' . '/app/Product.php',
         'App\\Provider' => __DIR__ . '/../..' . '/app/Provider.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -333,9 +357,15 @@ class ComposerStaticInit1ebb0ef476e7d25d11cf1cdf11556fea
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Repository\\CategoryRepository' => __DIR__ . '/../..' . '/app/Repository/CategoryRepository.php',
+        'App\\Repository\\CategoryRepositoryImp' => __DIR__ . '/../..' . '/app/Repository/CategoryRepositoryImp.php',
+        'App\\Repository\\OrderRepository' => __DIR__ . '/../..' . '/app/Repository/OrderRepository.php',
+        'App\\Repository\\OrderRepositoryImp' => __DIR__ . '/../..' . '/app/Repository/OrderRepositoryImp.php',
         'App\\Repository\\ProductRepository' => __DIR__ . '/../..' . '/app/Repository/ProductRepository.php',
         'App\\Repository\\ProductRepositoryImp' => __DIR__ . '/../..' . '/app/Repository/ProductRepositoryImp.php',
+        'App\\ThanhPho' => __DIR__ . '/../..' . '/app/ThanhPho.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'App\\UserTemp' => __DIR__ . '/../..' . '/app/UserTemp.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
@@ -1735,6 +1765,17 @@ class ComposerStaticInit1ebb0ef476e7d25d11cf1cdf11556fea
         'JakubOnderka\\PhpConsoleColor\\ConsoleColor' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/JakubOnderka/PhpConsoleColor/ConsoleColor.php',
         'JakubOnderka\\PhpConsoleColor\\InvalidStyleException' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/JakubOnderka/PhpConsoleColor/InvalidStyleException.php',
         'JakubOnderka\\PhpConsoleHighlighter\\Highlighter' => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src/JakubOnderka/PhpConsoleHighlighter/Highlighter.php',
+        'Kurt\\Repoist\\Commands\\MakeCriterionCommand' => __DIR__ . '/..' . '/ozankurt/repoist/src/Commands/MakeCriterionCommand.php',
+        'Kurt\\Repoist\\Commands\\MakeRepositoryCommand' => __DIR__ . '/..' . '/ozankurt/repoist/src/Commands/MakeRepositoryCommand.php',
+        'Kurt\\Repoist\\Commands\\RepoistCommand' => __DIR__ . '/..' . '/ozankurt/repoist/src/Commands/RepoistCommand.php',
+        'Kurt\\Repoist\\Exceptions\\NoEntityDefined' => __DIR__ . '/..' . '/ozankurt/repoist/src/Exceptions/NoEntityDefined.php',
+        'Kurt\\Repoist\\RepoistServiceProvider' => __DIR__ . '/..' . '/ozankurt/repoist/src/RepoistServiceProvider.php',
+        'Kurt\\Repoist\\Repositories\\Contracts\\RepositoryInterface' => __DIR__ . '/..' . '/ozankurt/repoist/src/Repositories/Contracts/RepositoryInterface.php',
+        'Kurt\\Repoist\\Repositories\\Criteria\\CriteriaInterface' => __DIR__ . '/..' . '/ozankurt/repoist/src/Repositories/Criteria/CriteriaInterface.php',
+        'Kurt\\Repoist\\Repositories\\Criteria\\CriterionInterface' => __DIR__ . '/..' . '/ozankurt/repoist/src/Repositories/Criteria/CriterionInterface.php',
+        'Kurt\\Repoist\\Repositories\\Eloquent\\AbstractRepository' => __DIR__ . '/..' . '/ozankurt/repoist/src/Repositories/Eloquent/AbstractRepository.php',
+        'Kurt\\Repoist\\Repositories\\Eloquent\\Criteria\\ByUser' => __DIR__ . '/..' . '/ozankurt/repoist/src/Repositories/Eloquent/Criteria/ByUser.php',
+        'Kurt\\Repoist\\Repositories\\Eloquent\\Criteria\\EagerLoad' => __DIR__ . '/..' . '/ozankurt/repoist/src/Repositories/Eloquent/Criteria/EagerLoad.php',
         'Laravel\\Tinker\\ClassAliasAutoloader' => __DIR__ . '/..' . '/laravel/tinker/src/ClassAliasAutoloader.php',
         'Laravel\\Tinker\\Console\\TinkerCommand' => __DIR__ . '/..' . '/laravel/tinker/src/Console/TinkerCommand.php',
         'Laravel\\Tinker\\TinkerCaster' => __DIR__ . '/..' . '/laravel/tinker/src/TinkerCaster.php',
