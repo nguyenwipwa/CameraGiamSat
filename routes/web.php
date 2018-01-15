@@ -101,6 +101,8 @@ Route::get('/abc', function () {
 
 Route::group(['prefix' => '/admin'], function () {
 	Route::get('/', ['as' => 'admin', 'uses' => 'AdminController@pageAdmin']);
+	Route::get('/banner.html', ['as' => 'quanlybanner', 'uses' => 'AdminController@pageBanner']);
+	Route::get('/banner-form.html/{value}', ['as' => 'add.banner', 'uses' => 'AdminController@pageAddBanner']);
 	Route::get('/danhsachmenu.html', ['as' => 'danhsachmenu', 'uses' => 'AdminController@pageMenu']);
 	Route::get('/index.html', ['as' => 'admin', 'uses' => 'AdminController@pageAdmin']);
 	Route::get('/danhsachsanpham.html', ['as' => 'danhsachsanpham', 'uses' => 'AdminController@pageSanPham']);
@@ -110,6 +112,10 @@ Route::group(['prefix' => '/admin'], function () {
 	Route::get('/themtintuc.html', ['as' => 'themtintuc', 'uses' => 'AdminController@viewThemTinTuc']);
 	Route::get('/viewsuatintuc.html/{id}', ['as' => 'suatintuc1', 'uses' => 'AdminController@viewSuaTinTuc']);
 	Route::post('/suatintuc.html/{id}', ['as' => 'suatintuc', 'uses' => 'AdminController@suaTinTuc']);
+	Route::get('/phieugiamgia.html', ['as' => 'phieugiamgia', 'uses' => 'AdminController@pageGiamGia']);
+	Route::get('/phieugiamgia-form.html/{id}', ['as' => 'phieugiamgia.form', 'uses' => 'AdminController@pageFormGiamGia']);
+	Route::post('/phieugiamgia-form.html', ['as' => 'phieugiamgia.add', 'uses' => 'AdminController@saveSalesOff']);
+
 
 });
 Route::get('/themsanpham.html', function() {

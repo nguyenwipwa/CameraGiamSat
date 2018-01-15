@@ -9,6 +9,13 @@ class SaleOff extends Model
 	protected $table = "sales_off";
 	public $timestamps = false;
     //
+
+	public static function getSalesOffByID($id){
+		return SaleOff::where('id', $id)->first();
+	}
+	public static function getListSalesOff(){
+		return SaleOff::paginate(12);
+	}
 	function getSaleOff($key){
 		$sale_off = $this::where('key', $key)->where('status', 1)->first();
 		

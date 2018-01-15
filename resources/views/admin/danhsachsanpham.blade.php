@@ -14,7 +14,7 @@
     <!-- Content Header (Page header) -->
 
     <!-- Main content -->
-    <div id="content">
+    <section class="content-header">
       <div class="page-header">
         <div class="container-fluid">
           <div class="pull-right">
@@ -30,6 +30,7 @@
           </ul>
         </div>
       </div>
+    </section>
       <div class="container-fluid">        <div class="row">
         <div id="filter-product" class="col-md-3 col-md-push-9 col-sm-12 hidden-sm hidden-xs">
           <div class="panel panel-default">
@@ -202,6 +203,4 @@ $('input[name=\'filter_model\']').autocomplete({
 //--></script></div>
 
 </div><!-- /.content-wrapper -->
-
-</div>
 @endsection
