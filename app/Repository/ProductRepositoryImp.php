@@ -4,6 +4,7 @@
 namespace App\Repository;
 use App\Repository\ProductRepository;
 use App\Category;
+use App\Model\Product;
 
 class ProductRepositoryImp implements ProductRepository
 {
@@ -16,6 +17,7 @@ class ProductRepositoryImp implements ProductRepository
 	{
 		return Category::all();
 	}
+
 }
 
 

@@ -45,7 +45,7 @@
           <i class="fa fa-table nav_icon"></i> <span>Quản lí sản phẩm</span> <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          <li><a href="danhsachsanpham.html"><i class="fa fa-circle-o"></i> Tất cả sản phẩm</a></li>
+          <li><a href="{{ route('danhsachsanpham') }}"><i class="fa fa-circle-o"></i> Tất cả sản phẩm</a></li>
           <li><a href="danhsachsanpham-khuyenmai.html"><i class="fa fa-circle-o"></i> Chương trình giảm giá</a></li>
           <li><a href="danhsachsanpham-khuyenmai.html"><i class="fa fa-circle-o"></i> Sản phẩm khuyến mãi</a></li>
         </ul>
@@ -67,7 +67,7 @@
           <span class="fa fa-angle-left pull-right"></span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="hoadon.html"><i class="fa fa-circle-o"></i> Quản lí hóa đơn</a></li>
+          <li><a href="{{ route('danhsachdonhang') }}"><i class="fa fa-circle-o"></i> Quản lí hóa đơn</a></li>
                 <!--<li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
                 <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
                 <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>-->
