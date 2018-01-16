@@ -82,38 +82,20 @@
                 <div class="row">
                     <div class="col-xs-12 col-lg-7">
                         <div class="contain">
-                            <a href='http://fptcamera.vn/tin-tuc/gioi-thieu'>Sơ lược công ty</a>
-                            <a href='http://fptcamera.vn/tin-tuc/chinh-sach'>Chính sách ưu đãi</a>
-                            <a href='http://fptcamera.vn/tin-tuc/tin-camera'>Tin camera</a>
-                            <a href='http://fptcamera.vn/lien-he'>Liên hệ</a>
+                            <a href='#'>Sơ lược công ty</a>
+                            <a href='#'>Chính sách ưu đãi</a>
+                            <a href='#'>Tin camera</a>
+                            <a href='#'>Liên hệ</a>
                         </div>
                     </div>
                     <div class="col-lg-5 hidden-xs hidden-sm hidden-md">
                         <div class="newsslider">
                             <ul class="slides">
                                 <li>
-                                    <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-giam-sat-khu-cong-nghiep">Lắp đặt camera giám sát khu công nghiệp</a>
+                                    <a href="#">Lắp đặt camera giám sát khu công nghiệp</a>
                                 </li>
                                 <li>
-                                    <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-quan-sat-tai-bac-giang">lắp đặt camera quan sát tại  Bắc Giang</a>
-                                </li>
-                                <li>
-                                    <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-gia-dinh-gia-bao-nhieu">lap dat camera gia dinh gia bao nhieu</a>
-                                </li>
-                                <li>
-                                    <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-quan-sat-cho-nha-xuong-can-luu-y-gi-">Lắp đặt camera quan sát cho nhà xưởng cần lưu ý gì?</a>
-                                </li>
-                                <li>
-                                    <a href="http://fptcamera.vn/tin-tuc/chuong-trinh-doi-camera-cu-lay-camera-moi-tai-fpt">Chương trình đổi camera cũ lấy camera mới tại FPT</a>
-                                </li>
-                                <li>
-                                    <a href="http://fptcamera.vn/tin-tuc/lap-dat-camera-tai-bac-ninh">Lắp đặt camera tại Bắc Ninh</a>
-                                </li>
-                                <li>
-                                    <a href="http://fptcamera.vn/tin-tuc/chi-phi-lap-dat-camera-quan-sat-tron-goi-tai-ha-noi">Chi phí lắp đặt camera quan sát trọn gói tại hà nội</a>
-                                </li>
-                                <li>
-                                    <a href="http://fptcamera.vn/tin-tuc/tu-van-lap-dat-camera-quan-sat-an-toan-gia-dinh">Tư vấn lắp đặt camera quan sát an toàn gia đình</a>
+                                    <a href="#">lắp đặt camera quan sát tại  Bắc Giang</a>
                                 </li>
                                 <div class="clear"></div>
                             </ul>

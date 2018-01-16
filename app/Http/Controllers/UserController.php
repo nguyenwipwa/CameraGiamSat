@@ -19,7 +19,67 @@ use App\Contact;
 
 class UserController extends Controller
 {
+	public function getDanhSach(){
+		$user = User::all();
+		// return view('admin.quanlythanhvien.htmml',['user'=>$user]);
+		// var_dump($userz
+		return view('admin.danhsachUser',['user'=>$user]);
+	}
 
+	public function getThem(){
+		return view('admin.danhsachUser');
+	}
+	public function postThem(Request $request){
+		$this->validate($request,[
+			'name' => ' required|min:3',
+			'email' => 'required|email|unique:users,email',
+			'password' => 'required|min:3|max:32',
+			'password2'=> 'required|same:password',
+			'phone_number'=> 'required|min:10|max:11'
+
+		],[
+			'name.required'=> 'Bạn chưa nhập tên người dùng',
+			'name.min' => 'Tên người dùng phải ít nhất có 3 ký tự',
+			'email.required' => 'Bạn chưa nhập Email',
+			'email.email' => 'Không đúng định dạng Email',
+			'email.unique'=> 'Email đã tồn tại',
+			'password.required' => 'Bạn chưa nhập mật khẩu',
+			'password.min' => 'Mật khẩu có ít nhất 3 ký tự',
+			'password.max' => 'Mật khẩu tối đa 32 ký tự',
+			'password2.required'=>'Bạn chưa nhập mật khẩu',
+			'password2.same' =>'Mật khẩu không khớp',
+			'phone_number.required' => 'Bạn chưa nhập số điện thoại',
+			'phone_number.min' => 'Số điện thoại có ít nhất 10 số',
+			'phone_number.max' => 'Số điện thoại tối đa 11 số',
+		]);
+
+		$user = new User;
+		$user->name = $request->name;
+		$user->email = $request->email;
+		$user->password = bcrypt($request->password);
+		$user->password = $request->name;
+		$user->phone_number = $request->phone_number;
+		$user->save();
+		// echo "ok";
+		return redirect('admin/danhsachUser')->with('thongbao','Thêm thành công');
+	}
+	public function getSua($id){
+		//$user = User::where('id',$id)->first();
+		$user = User::find($id);
+		
+		// $user->getId($user);
+		echo $id;
+
+		// //$user->delete();	
+		// // var_dump($user2);
+		//return view('admin.danhsachUser',['user1a'=>$user]);
+	}
+	public function postSua(Request $request, $id){
+		$user = User::find($id);
+		$user->active = (int)$request->active;
+		$user->save();
+		return redirect('admin/danhsachUser')->with('thongbao','Thêm thành công');
+	}
 	public function updateUser(Request $req){
 		// $email = $req->email;
 		$password = $req->password;
@@ -167,5 +227,6 @@ class UserController extends Controller
 		//   	var_dump($users);
 		return view('index.user.profile', [ 'category' => $category, 'contact' => $contact]);
 	}
-    //
+    
+
 }
