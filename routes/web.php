@@ -120,7 +120,8 @@ Route::group(['prefix' => '/admin'], function () {
 	Route::get('/danhsachdonhang.html', ['as' => 'danhsachdonhang', 'uses' => 'AdminController@pageDonHang']);
 	Route::get('/chitietdonhang.html/{id}', ['as' => 'chitietdonhang', 'uses' => 'AdminController@pageChiTietDonHang']);
 	Route::get('/suadonhang.html', ['as' => 'suadonhang', 'uses' => 'AdminController@pageSuaDonHang']);
-
+	Route::get('/form-danh-muc.html/{id}', ['as' => 'edit.category', 'uses' => 'AdminController@pageFormCategory']);
+	Route::post('/addCategory', ['as' => 'add.category', 'uses' => 'AdminController@postAddCategory']);
 
 });
 Route::get('/themsanpham.html', function() {

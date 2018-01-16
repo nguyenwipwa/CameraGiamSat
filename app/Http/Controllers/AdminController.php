@@ -17,12 +17,22 @@ use DB;
 use App\Repository\AdminRepository;
 class AdminController extends Controller
 {
+	function postAddCategory(Request $req, AdminRepository $rep){
+		if($rep->addCategory($req))
+			return redirect(route('danhsachmenu'))->with('status', 'Thao tác thành công!');
+		else
+			return redirect(route('danhsachmenu'))->with('status', 'Không thêm được!');;
+	}
+	function pageFormCategory($id, AdminRepository $rep){
+		return $rep->viewCategory($id);
+
+	}
     //
-    function saveSalesOff(AdminRepository $rep,Request $req){
-    	$saleOff = $rep->saveSalesOff($req);
-    	return redirect(route('phieugiamgia'))->with('status', 'Thao tác thành công!');
+	function saveSalesOff(AdminRepository $rep,Request $req){
+		$saleOff = $rep->saveSalesOff($req);
+		return redirect(route('phieugiamgia'))->with('status', 'Thao tác thành công!');
     	// return json_encode();
-    }
+	}
 	function pageFormGiamGia(AdminRepository $rep, $id){
 		$saleOff = $rep->getSalesOffByID($id);
 		return view('admin.giamgia.form-giamgia', ['saleOff'=>$saleOff]);
