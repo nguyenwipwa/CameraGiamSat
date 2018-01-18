@@ -71,7 +71,7 @@
 
                         </li>
                         <li>
-                            <a href="http://fptcamera.vn/thiet-bi-van-phong/?&amp;trang=10">Last &rsaquo;</a>
+                            <a href="#">Last &rsaquo;</a>
                         </li>
                     </ul>
                 </div>

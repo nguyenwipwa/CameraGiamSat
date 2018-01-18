@@ -125,7 +125,7 @@
                             <div class="row">
                                 @php
                                 $products = DB::select('SELECT product.* FROM slide INNER JOIN slide_product ON slide_product.id_slide = slide.id INNER JOIN product ON slide_product.id_product = product.id
-                                WHERE slide.id_category = ?', [$e->id]);
+                                WHERE slide.id_category = ? and product.status=?', [$e->id, 1]);
                                 @endphp
                                 @foreach ($products as $element)
                                 <div class="col-xs-6 col-sm-4 col-lg-3 ">

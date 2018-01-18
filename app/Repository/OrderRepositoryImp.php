@@ -8,6 +8,7 @@ use App\Model\SaleOff;
 use App\Model\OrderDetail;
 use App\Model\AuthOrder;
 use App\Mail\SendMail;
+use App\Model\Product;
 use Cart;
 use Mail;
 
@@ -67,12 +68,18 @@ class OrderRepositoryImp implements OrderRepository
 				$order_detail->id_product = $value->id;
 				$order_detail->quatity = $value->qty;
 				$order_detail->unit_price = $value->price;
+				$this->setQtyProduct($value->id, $value->qty);
 				$order_detail->save();
 			}
 			return true;
 		} catch (Exception $e) {
 			return false;
 		}
+	}
+	function setQtyProduct($id_product, $qty){
+		$product = Product::where('id', $id_product)->first();
+		$product->quatity = $product->quatity - $qty;
+		$product->save();
 	}
 	public function sendOrder($req, $auth_order){
 		$data = ['name' => $req->fullname, 'content'=>'Ngon chom', 'email'=> $req->email, 'listCart'=>Cart::content(), 'auth_order'=> $auth_order];

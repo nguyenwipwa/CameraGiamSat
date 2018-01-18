@@ -180,7 +180,7 @@ class PageController extends Controller {
 		$contact = Contact::all();
 		$name_cate = DB::select('SELECT * FROM category WHERE id = ?', [$id_category])[0]->name;
 		$menu_left = DB::select('SELECT * FROM category WHERE id_root = ?', [$id_category]);
-		$list_product = DB::select('SELECT * FROM product WHERE id_category = ? OR id_category IN (SELECT id FROM category WHERE id_root IN (SELECT id FROM category WHERE id = ? OR id_root IN (SELECT id FROM category WHERE id = ? ))) LIMIT ?,12', [$id_category, $id_category, $id_category, ($start - 1) * 12]);
+		$list_product = DB::select('SELECT * FROM product WHERE status=1 and (id_category = ? OR id_category IN (SELECT id FROM category WHERE id_root IN (SELECT id FROM category WHERE id = ? OR id_root IN (SELECT id FROM category WHERE id = ? )))) LIMIT ?,12', [$id_category, $id_category, $id_category, ($start - 1) * 12]);
 		$maxLength = DB::select('SELECT Count(*) as max FROM product WHERE id_category = ? OR id_category IN (SELECT id FROM category WHERE id_root IN (SELECT id FROM category WHERE id = ? OR id_root IN (SELECT id FROM category WHERE id = ? )))', [$id_category, $id_category, $id_category]);
 		$page_number = $maxLength % 12 != 0 ? $maxLength % 12 + 1 : $maxLength % 12;
 		return view('index.category.content', ['category' => $category, 'contact' => $contact, 'menu_left' => $menu_left, 'name_cate' => $name_cate, 'list_product' => $list_product, 'page_number' => $page_number, 'page' => $start, 'id_category' => $id_category]);
