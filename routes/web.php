@@ -120,6 +120,11 @@ Route::group(['prefix' => '/admin', 'middleware' => 'admin'], function () {
 	Route::get('/form-danh-muc.html/{id}', ['as' => 'edit.category', 'uses' => 'AdminController@pageFormCategory']);
 	Route::post('/addCategory', ['as' => 'add.category', 'uses' => 'AdminController@postAddCategory']);
 	Route::get('/logout', ['as' => 'logout.admin', 'uses' => 'AdminController@logoutAdmin']);
+	Route::get('/donhangspam.html', ['as' => 'donhangspam', 'uses' => 'AdminController@viewDonHangSpam']);
+	Route::get('/xoadonhangspam.html/{id}', ['as' => 'xoadonhangspam', 'uses' => 'AdminController@xoaDonHangSpam']);
+	Route::post('/xoaAll.html', ['as' => 'xoaall', 'uses' => 'AdminController@xoaAll']);
+
+
 
 });
 Route::get('/themsanpham.html', function() {
