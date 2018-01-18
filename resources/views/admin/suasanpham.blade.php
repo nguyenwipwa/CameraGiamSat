@@ -13,11 +13,11 @@
         <div class="container-fluid">
           <div class="pull-right">
             <button type="submit" form="form-product" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Lưu"><i class="fa fa-save"></i></button>
-            <a href="http://localhost:81/opencart/admin/index.php?route=catalog/product&amp;user_token=woJZfB09PyGgGMMohXrVpLzzLUiA9QQd" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Trở về"><i class="fa fa-reply"></i></a></div>
+            <a href="{{ route('danhsachsanpham') }}" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Trở về"><i class="fa fa-reply"></i></a></div>
             <h1>Quản lý sản phẩm</h1>
             <ul class="breadcrumb">
-              <li><a href="http://localhost:81/opencart/admin/index.php?route=common/dashboard&amp;user_token=woJZfB09PyGgGMMohXrVpLzzLUiA9QQd">Trang chủ</a></li>
-              <li><a href="http://localhost:81/opencart/admin/index.php?route=catalog/product&amp;user_token=woJZfB09PyGgGMMohXrVpLzzLUiA9QQd">Quản lý sản phẩm</a></li>
+              <li><a href="{{ route('admin') }}">Trang chủ</a></li>
+              <li><a href="{{ route('danhsachsanpham') }}">Quản lý sản phẩm</a></li>
             </ul>
           </div>
         </div>
@@ -35,7 +35,7 @@
                 <li><a href="#tab-links" data-toggle="tab">Liên kết</a></li>
                 {{-- <li><a href="#tab-attribute" data-toggle="tab">Thuộc tính</a></li> --}}
                 {{-- <li><a href="#tab-option" data-toggle="tab">Tuỳ chọn</a></li> --}}
-               {{--  <li><a href="#tab-recurring" data-toggle="tab">Trả hàng</a></li>
+                {{--  <li><a href="#tab-recurring" data-toggle="tab">Trả hàng</a></li>
                 <li><a href="#tab-discount" data-toggle="tab">Giảm giá</a></li>
                 <li><a href="#tab-special" data-toggle="tab">Khuyến mãi</a></li>
                 <li><a href="#tab-image" data-toggle="tab">Hình ảnh</a></li>
@@ -44,7 +44,7 @@
                 <li><a href="#tab-design" data-toggle="tab"></a></li>
               </ul>
               {{-- expr --}}
-
+              <input type="hidden" name="id" value="{{ $product->id }}">
               <div class="tab-content">
                 <div class="tab-pane active" id="tab-general">
 
@@ -71,7 +71,8 @@
                     <div class="form-group">
                       <label class="col-sm-2 control-label" for="input-name2">Hình ảnh</label>
                       <div class="col-sm-10">
-                        <input type="file" name="fImage" value="" id="input-name2" class="form-control">
+                        <input style="cursor: pointer;" value="{{ $product->img }}" class="form-control" readonly="readonly" name="icon" id="img" onclick="$('#file').click()">
+                        <input accept="image/*" class="hidden" type="file" id="file" name="fImage" value="" onchange="$('#img').val($(this).val())">
                       </div>
                     </div>
                   </div>
@@ -308,135 +309,135 @@
                     </table>
                   </div>
                 </div>
-{{-- <div class="tab-pane" id="tab-seo">
-  <div class="alert alert-info"><i class="fa fa-info-circle"></i> Không sử dụng khoảng trắng, thay vào đó hãy sử dụng dấu - và đảm bảo từ khóa là duy nhất.</div>            
-  <div class="table-responsive">
-    <table class="table table-bordered table-hover">
-      <thead>
-        <tr>
-          <td class="text-left">Cửa hàng</td>
-          <td class="text-left">Từ khóa để SEO</td>
-      </tr>
-  </thead>
-  <tbody>
-    <tr>
-        <td class="text-left">Mặc định</td>
-        <td class="text-left">                      <div class="input-group"><span class="input-group-addon"><img src="language/vi-vn/vi-vn.png" title="Việt Nam"></span>
-            <input type="text" name="product_seo_url[0][2]" value="" placeholder="Từ khóa để SEO" class="form-control">
+                {{-- <div class="tab-pane" id="tab-seo">
+                  <div class="alert alert-info"><i class="fa fa-info-circle"></i> Không sử dụng khoảng trắng, thay vào đó hãy sử dụng dấu - và đảm bảo từ khóa là duy nhất.</div>            
+                  <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                      <thead>
+                        <tr>
+                          <td class="text-left">Cửa hàng</td>
+                          <td class="text-left">Từ khóa để SEO</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="text-left">Mặc định</td>
+                          <td class="text-left">                      <div class="input-group"><span class="input-group-addon"><img src="language/vi-vn/vi-vn.png" title="Việt Nam"></span>
+                            <input type="text" name="product_seo_url[0][2]" value="" placeholder="Từ khóa để SEO" class="form-control">
+                          </div>
+
+                        </td>
+                      </tr>
+                    </tbody>
+
+                  </table>
+                </div>
+              </div> --}}
+              <div class="tab-pane" id="tab-design">
+                <div class="table-responsive">
+                  <table class="table table-bordered table-hover">
+                    <thead>
+                      <tr>
+                        <td class="text-left">Cửa hàng</td>
+                        <td class="text-left">Ghi đè Layout</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-left">Mặc định</td>
+                        <td class="text-left"><select name="product_layout[0]" class="form-control">
+                          <option value=""></option>
+
+
+
+
+                          <option value="10">Affiliate</option>
+
+
+
+
+                          <option value="2">Chi tiết sản phẩm</option>
+
+
+
+
+                          <option value="15">Chi tiết tin tức</option>
+
+
+
+
+                          <option value="3">Danh mục sản phẩm</option>
+
+
+
+
+                          <option value="14">Danh mục tin tức</option>
+
+
+
+
+                          <option value="5">Hãng sản xuất</option>
+
+
+
+
+                          <option value="8">Liên hệ</option>
+
+
+
+
+                          <option value="4">Mặc định</option>
+
+
+
+
+                          <option value="9">Sitemap</option>
+
+
+
+
+                          <option value="12">So sánh sản phẩm</option>
+
+
+
+
+                          <option value="6">Tài khoản</option>
+
+
+
+
+                          <option value="7">Thanh toán</option>
+
+
+
+
+                          <option value="13">Tìm kiếm sản phẩm</option>
+
+
+
+
+                          <option value="1">Trang chủ</option>
+
+
+
+
+                          <option value="11">Trang thông tin</option>
+
+
+
+
+                        </select></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
-
-    </td>
-</tr>
-</tbody>
-
-</table>
-</div>
-</div> --}}
-<div class="tab-pane" id="tab-design">
-  <div class="table-responsive">
-    <table class="table table-bordered table-hover">
-      <thead>
-        <tr>
-          <td class="text-left">Cửa hàng</td>
-          <td class="text-left">Ghi đè Layout</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="text-left">Mặc định</td>
-          <td class="text-left"><select name="product_layout[0]" class="form-control">
-            <option value=""></option>
-
-
-
-
-            <option value="10">Affiliate</option>
-
-
-
-
-            <option value="2">Chi tiết sản phẩm</option>
-
-
-
-
-            <option value="15">Chi tiết tin tức</option>
-
-
-
-
-            <option value="3">Danh mục sản phẩm</option>
-
-
-
-
-            <option value="14">Danh mục tin tức</option>
-
-
-
-
-            <option value="5">Hãng sản xuất</option>
-
-
-
-
-            <option value="8">Liên hệ</option>
-
-
-
-
-            <option value="4">Mặc định</option>
-
-
-
-
-            <option value="9">Sitemap</option>
-
-
-
-
-            <option value="12">So sánh sản phẩm</option>
-
-
-
-
-            <option value="6">Tài khoản</option>
-
-
-
-
-            <option value="7">Thanh toán</option>
-
-
-
-
-            <option value="13">Tìm kiếm sản phẩm</option>
-
-
-
-
-            <option value="1">Trang chủ</option>
-
-
-
-
-            <option value="11">Trang thông tin</option>
-
-
-
-
-          </select></td>
-        </tr>
-      </tbody>
-    </table>
+      </div>
+    </div>
   </div>
-</div>
-</div>
-</form>
-</div>
-</div>
-</div>
-</div>
 
 </div>
 </div>

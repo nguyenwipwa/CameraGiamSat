@@ -15,7 +15,7 @@
       <div class="page-header">
         <div class="container-fluid">
           <div class="pull-right"><a href="{{ route('phieugiamgia.form',[0]) }}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Thêm"><i class="fa fa-plus"></i></a>
-            <button type="button" data-toggle="tooltip" title="" class="btn btn-danger" onclick="confirm('Xóa/gỡ cài đặt không thể hoàn tác! Bạn có chắc bạn muốn làm điều này?') ? $('#form-banner').submit() : false;" data-original-title="Xoá"><i class="fa fa-trash-o"></i></button>
+            <button type="button" data-toggle="tooltip" title="" class="btn btn-danger" onclick="confirm('Xóa/gỡ cài đặt không thể hoàn tác! Bạn có chắc bạn muốn làm điều này?') ? $('#form-coupon').submit() : false;" data-original-title="Xoá"><i class="fa fa-trash-o"></i></button>
           </div>
           <h1>Phiếu giảm giá</h1>
           <ul class="breadcrumb">
@@ -30,13 +30,19 @@
       <div class="alert alert-success">
         {{ session('status') }}
       </div>
+       @endif
+      @if (session('error'))
+      <div class="alert alert-danger">
+        {{ session('error') }}
+      </div>
       @endif
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title"><i class="fa fa-list"></i> Danh sách phiếu giảm giá</h3>
         </div>
         <div class="panel-body">
-          <form action="http://localhost/opencart/admin/index.php?route=marketing/coupon/delete&amp;user_token=H7TBoaOlLtSfbCTAEdPVnKuC7kmEgjKK" method="post" enctype="multipart/form-data" id="form-coupon">
+          <form action="{{ route('xoa.giamgia') }}" method="post" enctype="multipart/form-data" id="form-coupon">
+            {{ csrf_field() }}
             <div class="table-responsive">
               <table class="table table-bordered table-hover">
                 <thead>
@@ -56,7 +62,8 @@
                 <tbody>
                   @foreach($listSalesOff as $key => $value)
                   <tr>
-                    <td class="text-center">                    <input type="checkbox" name="selected[]" value="{{ $value->id }}">
+                    <td class="text-center">                    
+                      <input type="checkbox" name="selected[]" value="{{ $value->id }}">
                     </td>
                     <td class="text-left">{{ $value->title }}</td>
                     <td class="text-left">{{ $value->key }}</td>

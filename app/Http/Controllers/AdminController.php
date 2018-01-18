@@ -21,6 +21,16 @@ use App\Repository\AdminRepository;
 use Auth;
 class AdminController extends Controller
 {
+	function deleteGiamGia(Request $req){
+		$arr = $req->selected;
+		$key = DB::table('sales_off')->whereIn('id', $arr);
+		try {
+			$key->delete();
+			return redirect(route('phieugiamgia'))->with('status', 'Xóa thành công');
+		} catch (\Illuminate\Database\QueryException $e) {
+			return redirect(route('phieugiamgia'))->with('error', 'Xóa thất bại');
+		}
+	}
 	function logoutAdmin(){
 		Auth::logout();
 		return redirect(route('loginAdmin'));
@@ -89,7 +99,10 @@ class AdminController extends Controller
 	}
 
 	function addSanPham(Request $request){
-		$product = new Product();
+		if($request->id==0)
+			$product = new Product();
+		else
+			$product = Product::where('id', $request->id)->first();
 		$product->name = $request->name;
 		$product->digital = $request->digital;
 		$product->id_provider = $request->provider;
@@ -100,13 +113,15 @@ class AdminController extends Controller
 		$product->name = $request->name;
 		$status = $request->cate;
 
-		$file_name = $request->file('fImage')->getClientOriginalName();
+		if($request->file('fImage')!=null)
+		{
+			$file_name = $request->file('fImage')->getClientOriginalName();
+			$request->file('fImage')->move('public/images/san-pham/', $file_name);
+		}
+		else
+			$file_name = $product->img;
 		$product->img = $file_name;
-		$request->file('fImage')->move('public/images/san-pham/', $file_name);
 		$product->save();
-		// echo "Thành công";
-		// var_dump( $ngon);
-		// json_encode($ngon);
 		return redirect()->route('danhsachsanpham');
 
 	}

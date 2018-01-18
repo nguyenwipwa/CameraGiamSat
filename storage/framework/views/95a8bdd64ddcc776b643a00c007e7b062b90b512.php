@@ -14,7 +14,7 @@
       <div class="page-header">
         <div class="container-fluid">
           <div class="pull-right"><a href="<?php echo e(route('phieugiamgia.form',[0])); ?>" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Thêm"><i class="fa fa-plus"></i></a>
-            <button type="button" data-toggle="tooltip" title="" class="btn btn-danger" onclick="confirm('Xóa/gỡ cài đặt không thể hoàn tác! Bạn có chắc bạn muốn làm điều này?') ? $('#form-banner').submit() : false;" data-original-title="Xoá"><i class="fa fa-trash-o"></i></button>
+            <button type="button" data-toggle="tooltip" title="" class="btn btn-danger" onclick="confirm('Xóa/gỡ cài đặt không thể hoàn tác! Bạn có chắc bạn muốn làm điều này?') ? $('#form-coupon').submit() : false;" data-original-title="Xoá"><i class="fa fa-trash-o"></i></button>
           </div>
           <h1>Phiếu giảm giá</h1>
           <ul class="breadcrumb">
@@ -30,13 +30,21 @@
         <?php echo e(session('status')); ?>
 
       </div>
+       <?php endif; ?>
+      <?php if(session('error')): ?>
+      <div class="alert alert-danger">
+        <?php echo e(session('error')); ?>
+
+      </div>
       <?php endif; ?>
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title"><i class="fa fa-list"></i> Danh sách phiếu giảm giá</h3>
         </div>
         <div class="panel-body">
-          <form action="http://localhost/opencart/admin/index.php?route=marketing/coupon/delete&amp;user_token=H7TBoaOlLtSfbCTAEdPVnKuC7kmEgjKK" method="post" enctype="multipart/form-data" id="form-coupon">
+          <form action="<?php echo e(route('xoa.giamgia')); ?>" method="post" enctype="multipart/form-data" id="form-coupon">
+            <?php echo e(csrf_field()); ?>
+
             <div class="table-responsive">
               <table class="table table-bordered table-hover">
                 <thead>
@@ -56,7 +64,8 @@
                 <tbody>
                   <?php $__currentLoopData = $listSalesOff; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                   <tr>
-                    <td class="text-center">                    <input type="checkbox" name="selected[]" value="<?php echo e($value->id); ?>">
+                    <td class="text-center">                    
+                      <input type="checkbox" name="selected[]" value="<?php echo e($value->id); ?>">
                     </td>
                     <td class="text-left"><?php echo e($value->title); ?></td>
                     <td class="text-left"><?php echo e($value->key); ?></td>
