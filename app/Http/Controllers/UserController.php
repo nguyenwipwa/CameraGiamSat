@@ -20,12 +20,53 @@ use App\Contact;
 class UserController extends Controller
 {
 	public function getDanhSach(){
-		$user = User::all();
-		// return view('admin.quanlythanhvien.htmml',['user'=>$user]);
-		// var_dump($userz
+	//	$user = User::all();
+		$user = User::paginate(5);
 		return view('admin.danhsachUser',['user'=>$user]);
 	}
+	public function getTimkiem(Request $request){
+		
+		$tukhoa = $request->tukhoa;
+		
+		$usertk = User::all();	
+		if($tukhoa == null ){
+		$this->validate($request,[
+			'tukhoa' => ' required|in:foo',
+		
+		],[
+			
+			'tukhoa.required'=>'Cần nhập thông tin tìm kiếm'
+			
+		]
+	);
 
+		}
+
+		
+		else{
+		$usertk = User::where('name','like',"%$tukhoa%")
+		->orwhere('phone_number','like',"%$tukhoa%")
+		->orwhere('id','like',"%$tukhoa%")
+		->orwhere('email','like',"%$tukhoa%")
+		->orwhere('active','like',"%$tukhoa%")
+		->get();
+		return view('admin.timkiemUser',['usertk'=>$usertk,'tukhoa'=>$tukhoa])->with('thongbao1');
+			}
+	
+		if($tukhoa != $usertk ){
+			$this->validate($request,[
+			'tukhoa' => ' required|in:foo',
+		
+		],[
+			
+			'tukhoa.required'=>'Không có kq'
+			
+		]
+		);
+
+		}
+	}
+	
 	public function getThem(){
 		return view('admin.danhsachUser');
 	}
@@ -59,6 +100,7 @@ class UserController extends Controller
 		$user->password = bcrypt($request->password);
 		$user->password = $request->name;
 		$user->phone_number = $request->phone_number;
+		$user->active = (int)$request->active1;
 		$user->save();
 		// echo "ok";
 		return redirect('admin/danhsachUser')->with('thongbao','Thêm thành công');
@@ -70,9 +112,9 @@ class UserController extends Controller
 		// $user->getId($user);
 		echo $id;
 
-		// //$user->delete();	
+		//$user->delete();	
 		// // var_dump($user2);
-		//return view('admin.danhsachUser',['user1a'=>$user]);
+		return view('admin.danhsachUser',['user'=>$user]);
 	}
 	public function postSua(Request $request, $id){
 		$user = User::find($id);
@@ -80,6 +122,10 @@ class UserController extends Controller
 		$user->save();
 		return redirect('admin/danhsachUser')->with('thongbao','Thêm thành công');
 	}
+	// public function phanTrang(){
+	// 	$tin = User::paginate(5);
+	// 	return view('danhsachUser','tin'=>$tin);
+	// }
 	public function updateUser(Request $req){
 		// $email = $req->email;
 		$password = $req->password;
@@ -227,6 +273,6 @@ class UserController extends Controller
 		//   	var_dump($users);
 		return view('index.user.profile', [ 'category' => $category, 'contact' => $contact]);
 	}
-    
+
 
 }

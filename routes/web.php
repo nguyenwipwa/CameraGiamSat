@@ -116,9 +116,11 @@ Route::group(['prefix' => '/admin'], function () {
 
 	Route::get('/danhsachUser/{id}', ['as' => 'suaUser', 'uses' => 'UserController@getSua']);
 	Route::post('/danhsachUser/{id}', ['as' => 'suaUser1', 'uses' => 'UserController@postSua']);
+	Route::get('/timkiemUser', ['as' => 'timkiem', 'uses' => 'UserController@getTimkiem']);
+	//Route::post('/timkiemUser', ['as' => 'timkiem', 'uses' => 'UserController@getTimkiem']);
 });
-	Route::get('/themsanpham.html', function() {
-    return view('admin.themsanpham');
+Route::get('/themsanpham.html', function() {
+	return view('admin.themsanpham');
 });
 
 
