@@ -78,6 +78,11 @@ class AdminController extends Controller
 		return view('admin.indexadmin');
 	}
 
+	function pageThanhVien(){
+		$user = new User();
+		$listUser = $user->getUserAll();
+		return view('admin.quanlythanhvien',['listUser'=>$listUser]);
+	}
 	function pageMenu(){
 		$cate = new Category();
 		$listCate = $cate->getCategoryAdmin();

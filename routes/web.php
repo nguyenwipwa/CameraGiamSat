@@ -100,6 +100,7 @@ Route::group(['prefix' => '/admin', 'middleware' => 'admin'], function () {
 	Route::get('/banner.html', ['as' => 'quanlybanner', 'uses' => 'AdminController@pageBanner']);
 	Route::get('/banner-form.html/{value}', ['as' => 'add.banner', 'uses' => 'AdminController@pageAddBanner']);
 	Route::get('/danhsachmenu.html', ['as' => 'danhsachmenu', 'uses' => 'AdminController@pageMenu']);
+	Route::get('/index.html', ['as' => 'admin', 'uses' => 'AdminController@pageAdmin']);
 	Route::get('/danhsachsanpham.html', ['as' => 'danhsachsanpham', 'uses' => 'AdminController@pageSanPham']);
 	Route::get('/themsanpham.html', ['as' => 'themsanpham', 'uses' => 'AdminController@viewThemSanPham']);
 	Route::post('/themsanpham.html', ['as' => 'themsanpham', 'uses' => 'AdminController@addSanPham']);
@@ -121,23 +122,33 @@ Route::group(['prefix' => '/admin', 'middleware' => 'admin'], function () {
 	Route::post('/addCategory', ['as' => 'add.category', 'uses' => 'AdminController@postAddCategory']);
 	Route::get('/logout', ['as' => 'logout.admin', 'uses' => 'AdminController@logoutAdmin']);
 	Route::post('/xoaphieugiamgia', ['as' => 'xoa.giamgia', 'uses' => 'AdminController@deleteGiamGia']);
+	Route::get('danhsachUser',['as'=>'danhsachUser','uses'=> 'UserController@getDanhSach']);
+	Route::post('/danhsachUser', ['as' => 'themUser1', 'uses' => 'UserController@postThem']);
 
+	Route::get('/danhsachUser/{id}', ['as' => 'suaUser', 'uses' => 'UserController@getSua']);
+	Route::post('/danhsachUser/{id}', ['as' => 'suaUser1', 'uses' => 'UserController@postSua']);
+	Route::get('/timkiemUser', ['as' => 'timkiem', 'uses' => 'UserController@getTimkiem']);
+	//Route::post('/timkiemUser', ['as' => 'timkiem', 'uses' => 'UserController@getTimkiem']);
 });
 Route::get('/themsanpham.html', function() {
 	return view('admin.themsanpham');
 });
 
-// Route::get('/suatintuc.html', function(){
-// 	return view('admin.suatintuc');
+
+// Route::group(['prefix' => 'admin'], function () {
+		// Route::get('danhsachUser',['as'=>'danhsachUser','use'=> 'UserController@getDanhSach']);//danh sach
+	 // Route::get('/danhsachUser', ['as' => 'themUser', 'uses' => 'UserController@getThem']);
+	 // Route::post('/danhsachUser', ['as' => 'themUser1', 'uses' => 'UserController@postThem']);
+
 // });
+
 Route::get('/index.html', function () {
 	return view('admin.indexadmin');
 });
 
 
-Route::get('/quanlythanhvien.html', function () {
-	return view('admin.quanlythanhvien');
-});
+
+
 Route::get('/tkdoanhthu.html', function () {
 	return view('admin.tkdoanhthu');
 });

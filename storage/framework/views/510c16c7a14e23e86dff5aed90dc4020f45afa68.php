@@ -45,9 +45,9 @@
             </div><!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="info-box">
-               <a href="quanlythanhvien.html">  <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span></a>
+               <a href="danhsachUser.html">  <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span></a>
                 <div class="info-box-content">
-                  <a href="quanlythanhvien.html"><h3>Thanh Viên</h3></a>
+                  <a href="danhsachUser.html"><h3>Thành Viên</h3></a>
 
                 </div><!-- /.info-box-content -->
               </div><!-- /.info-box -->

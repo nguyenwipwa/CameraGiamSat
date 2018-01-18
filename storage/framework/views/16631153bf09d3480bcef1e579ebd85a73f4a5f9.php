@@ -80,7 +80,7 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="quanlythanhvien.html"><i class="fa fa-circle-o"></i> Thành viên</a></li>
+                <li><a href="<?php echo e(route('danhsachUser')); ?>"><i class="fa fa-circle-o"></i> Thành viên</a></li>
                 <!-- <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Quản trị viên</a></li>-->
                <!-- <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
                  <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>-->
