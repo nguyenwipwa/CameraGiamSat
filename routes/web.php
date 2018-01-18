@@ -76,7 +76,7 @@ Route::group(['prefix' => '/error'], function () {
 
 
 Route::group(['prefix' => '/admin'], function () {
-	Route::get('/login', 'AdminController@login');
+	Route::get('/login',['as'=>'loginAdmin', 'uses'=>'AdminController@login']);
 
 });
 Route::get('/themtintuc.html', function() {
@@ -99,7 +99,7 @@ Route::get('/abc', function () {
 });
 
 
-Route::group(['prefix' => '/admin'], function () {
+Route::group(['prefix' => '/admin', 'middleware' => 'admin'], function () {
 	Route::get('/', ['as' => 'admin', 'uses' => 'AdminController@pageAdmin']);
 	Route::get('/banner.html', ['as' => 'quanlybanner', 'uses' => 'AdminController@pageBanner']);
 	Route::get('/banner-form.html/{value}', ['as' => 'add.banner', 'uses' => 'AdminController@pageAddBanner']);
@@ -125,7 +125,7 @@ Route::group(['prefix' => '/admin'], function () {
 
 });
 Route::get('/themsanpham.html', function() {
-    return view('admin.themsanpham');
+	return view('admin.themsanpham');
 });
 
 // Route::get('/suatintuc.html', function(){
