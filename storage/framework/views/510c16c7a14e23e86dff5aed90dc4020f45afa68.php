@@ -24,9 +24,9 @@
 
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="info-box">
-               <a href="danhsachmenu.html">  <span class="info-box-icon bg-red"><i class="fa fa-bars"></i></span></a>
+               <a href="<?php echo e(route('danhsachmenu')); ?>">  <span class="info-box-icon bg-red"><i class="fa fa-bars"></i></span></a>
                 <div class="info-box-content">
-                  <a href="danhsachmenu.html"><h3>Menu</h3></a>
+                  <a href="<?php echo e(route('danhsachmenu')); ?>"><h3>Menu</h3></a>
 
                 </div><!-- /.info-box-content -->
               </div><!-- /.info-box -->
@@ -37,9 +37,9 @@
 
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="info-box">
-                <a href="danhsachsanpham.html">  <span class="info-box-icon bg-green"><i class="fa fa-building-o"></i></span></a>
+                <a href="<?php echo e(route('danhsachsanpham')); ?>">  <span class="info-box-icon bg-green"><i class="fa fa-building-o"></i></span></a>
                 <div class="info-box-content">
-                  <a href="danhsachsanpham.html"><h3>Sản phẩm</h3></a>
+                  <a href="<?php echo e(route('danhsachsanpham')); ?>"><h3>Sản phẩm</h3></a>
                 </div><!-- /.info-box-content -->
               </div><!-- /.info-box -->
             </div><!-- /.col -->
@@ -54,9 +54,9 @@
             </div><!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="info-box">
-                <a href="hoadon.html">  <span class="info-box-icon bg-orange"><i class="fa fa-files-o"></i></span></a>
+                <a href="<?php echo e(route('danhsachdonhang')); ?>">  <span class="info-box-icon bg-orange"><i class="fa fa-files-o"></i></span></a>
                 <div class="info-box-content">
-                  <a href="hoadon.html"><h3>Hóa đơn</h3></a>
+                  <a href="<?php echo e(route('danhsachdonhang')); ?>"><h3>Hóa đơn</h3></a>
                 </div><!-- /.info-box-content -->
               </div><!-- /.info-box -->
             </div><!-- /.col -->
@@ -70,9 +70,9 @@
             </div><!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="info-box">
-                <a href="#">  <span class="info-box-icon bg-purple"><i class="icon ion-compose"></i></span></a>
+                <a href="<?php echo e(route('quanlytintuc')); ?>">  <span class="info-box-icon bg-purple"><i class="icon ion-compose"></i></span></a>
                 <div class="info-box-content">
-                  <a href="#"><h3>Tin tức</h3></a>
+                  <a href="<?php echo e(route('quanlytintuc')); ?>"><h3>Tin tức</h3></a>
                 </div><!-- /.info-box-content -->
               </div><!-- /.info-box -->
             </div><!-- /.col -->
