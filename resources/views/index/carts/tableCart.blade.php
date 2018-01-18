@@ -91,14 +91,15 @@
 												<strong>Tổng cộng:</strong>
 											</td>
 											<td class="text_right" colspan="2">
-												<span id="tongtien" class="tongtien" style="display:block;color:red;font-weight:bold;">{{ Cart::total() }} VNĐ</span>
+												<span id="tongtien" class="tongtien" style="display:block;color:red;font-weight:bold;">{{ Cart::total() }} VNĐ ({{ Cart::total1()*0.000044}}$)</span>
 											</td>
 										</tr>
+										<input type="hidden" id="process" name="process" value="1">
 									</tbody>
 								</table>
 								<input id="addOrder" type="submit" name="submit_cart" value="Mua hàng" class="btn3" style="float:right">
 								<a id="nganluong" class="nganluong" target="_blank" href="https://www.nganluong.vn/button_payment.php?receiver=trongitnlu@gmail.com&product_name=camera&price=200&return_url=google.com&comments='ngoncom'"><img src="https://www.nganluong.vn/css/newhome/img/button/pay-lg.png"border="0" /></a>
-								<a id="apaypal" href="javascript::void(0)" onclick="openRequestedPopup('{{url('gio-hang/paypal')}}/MDH_{{ time() }}/{{ Cart::total1()}}')">
+								<a id="apaypal" href="javascript::void(0)" onclick="openRequestedPopup('{{url('gio-hang/paypal')}}/MDH_{{ time() }}/{{ Cart::total1()*0.000044}}')">
 									<img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" align="left" style="margin-right:7px;">
 								</a>
 							</td>

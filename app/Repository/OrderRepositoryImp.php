@@ -32,9 +32,11 @@ class OrderRepositoryImp implements OrderRepository
 		$order->name_customer = $req->fullname;
 		$order->phone_number = $req->phone;
 		$order->address = $req->ship_address;
-		$order->id_process = 1;
+		$order->id_process = $req->process;
 		$order->email = $req->email;
 		$order->id_user = $req->id_user;
+		if($req->process!=1)
+			$order->active = 1;
 		try {
 			$sale = $sale_off->getSaleOffAdmin($req->key_sales_off);
 			if($sale!=null){
