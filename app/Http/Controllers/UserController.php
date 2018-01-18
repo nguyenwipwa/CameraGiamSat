@@ -73,6 +73,29 @@ class UserController extends Controller
 		return response()->json(['error'=>$validator->errors()->all()]);
 		
 	}
+	public function loginAdmin(Request $req){
+		$validator = Validator::make($req->all(),
+			[
+				'email' => 'required|email',
+				'password' => 'required',
+			],
+			[
+				'email.required' => 'Bạn chưa nhập Email! ',
+				'email.email' => 'Bạn chưa nhập đúng email! ',
+				'password.required' => 'Bạn chưa nhập mật khẩu! ',
+			]
+		);
+		if ($validator->passes()) {
+			if (Auth::attempt(['email' => $req->email, 'password' => $req->password, 'active' => 1, 'id_role'=>2])) {
+            // Authentication passed...
+				return redirect(route('admin'));
+			}else{
+				return redirect(route('loginAdmin'))->with('status','Tài đăng nhập sai');
+			}
+		}
+		return redirect(route('loginAdmin'))->with('status',implode(" ",$validator->errors()->all()));
+		
+	}
 
 	public function addUser(Request $req) {
 		$validator = Validator::make($req->all(), 

@@ -6,6 +6,8 @@ interface AdminRepository{
 	public function getListSalesOff();
 	public function getSalesOffByID($id);
 	public function saveSalesOff($req);
+	public function viewCategory($id);
+	public function addCategory($req);
 
 }
 

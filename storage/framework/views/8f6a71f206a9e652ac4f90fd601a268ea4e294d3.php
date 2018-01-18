@@ -1,10 +1,5 @@
 <?php $__env->startSection('script'); ?>
-<script src="<?php echo e(asset('resources/views/admin/js/danhsachmenu.js')); ?>" type="text/javascript"></script>
-<script src="<?php echo e(asset('resources/views/admin/js/functionmenu.js')); ?>" type="text/javascript"></script>
-<script src="<?php echo e(asset('resources/views/admin/js/jquery.quicksearch.js')); ?>" type="text/javascript"></script>
-<link href="<?php echo e(asset('resources/views/admin/css/danhsachmenu.css')); ?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo e(asset('resources/views/admin/css/stylesheet.css')); ?>" rel="stylesheet" type="text/css" />
-<link href="<?php echo e(asset('resources/views/admin/bootstrap/css/bootstrap.css')); ?>" rel="stylesheet" type="text/css" />
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
 
@@ -20,25 +15,29 @@
 </script>
 <div id="content">
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="page-header">
         <div class="container-fluid">
-          <div class="pull-right"><a href="http://localhost/opencart/admin/index.php?route=news/category/add&amp;user_token=R94rZ1nsVBrQ2iH5qTwXVAs0dr0LuFak" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Thêm"><i class="fa fa-plus"></i></a> <a href="http://localhost/opencart/admin/index.php?route=news/category/repair&amp;user_token=R94rZ1nsVBrQ2iH5qTwXVAs0dr0LuFak" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Xây dựng lại"><i class="fa fa-refresh"></i></a>
-            <button type="button" data-toggle="tooltip" title="" class="btn btn-danger" onclick="confirm('Xóa/gỡ cài đặt không thể hoàn tác! Bạn có chắc bạn muốn làm điều này?') ? $('#form-category').submit() : false;" data-original-title="Xoá"><i class="fa fa-trash-o"></i></button>
+          <div class="pull-right">
+            <button type="submit" form="form-coupon" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Lưu"><i class="fa fa-save"></i></button>
+            <a href="<?php echo e(route('danhsachmenu')); ?>" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Trở về"><i class="fa fa-reply"></i></a></div>
+            <h1>Quản lý danh mục</h1>
+            <ul class="breadcrumb">
+              <li><a href="#">Quản lý Menu</a></li>
+              <li><a href="<?php echo e(route('danhsachmenu')); ?>">Danh sách Menu</a></li>
+            </ul>
           </div>
-          <h1>Các danh mục</h1>
-          <ul class="breadcrumb">
-            <li><a href="http://localhost/opencart/admin/index.php?route=common/dashboard&amp;user_token=R94rZ1nsVBrQ2iH5qTwXVAs0dr0LuFak">Trang chủ</a></li>
-            <li><a href="http://localhost/opencart/admin/index.php?route=news/category&amp;user_token=R94rZ1nsVBrQ2iH5qTwXVAs0dr0LuFak">Các danh mục</a></li>
-          </ul>
         </div>
-      </div>
-    </section>
+      </section>
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+        <?php if(session('status')): ?>
+        <div class="alert alert-success">
+          <?php echo e(session('status')); ?>
 
+        </div>
+        <?php endif; ?>
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title"><i class="fa fa-list"></i> Danh sách danh mục</h3>
@@ -66,7 +65,7 @@
                       </td>
                       <td class="text-left"><?php echo e($category->name); ?></td>
                       <td class="text-right"><?php echo e($category->id_root); ?></td>
-                      <td class="text-right"><a href="" data-toggle="tooltip" title="" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+                      <td class="text-right"><a href="<?php echo e(route('edit.category',[$category->id])); ?>" data-toggle="tooltip" title="" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
                         <button type="button" data-toggle="tooltip" title="" class="btn btn-danger" onclick="confirm('Xóa/gỡ cài đặt không thể hoàn tác! Bạn có chắc bạn muốn làm điều này?') ? $('#form-category').submit() : false;" data-original-title="Xoá"><i class="fa fa-trash-o"></i></button>
                       </td>
                     </tr>
@@ -87,7 +86,6 @@
           </div>
         </div>
       </div>
-
     </section><!-- /.content -->
   </div>
 </div><!-- /.content-wrapper -->
