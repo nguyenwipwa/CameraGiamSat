@@ -149,32 +149,30 @@
         <tr>
           <td class="text-left">Mã sản phẩm</td>
           <td class="text-left">Tên sản phẩm</td>
+          <td class="text-right">Ảnh SP</td>
           <td class="text-right">Số lượng</td>
           <td class="text-right">Đơn vị giá</td>
           <td class="text-right">Tổng cộng</td>
         </tr>
       </thead>
       <tbody>
-
+        @foreach($list_detail as $orderDetail)
+        @php 
+        $product = $orderDetail->getProduct()
+        @endphp
         <tr>
           <td class="text-left"><a href="">SP{{$product->id}}</a> </td>
           <td class="text-left">{{$product->name}}</td>
+          <td class="text-left" style="text-align: center"><img style="width: 50px; height: 50px" src="{{asset('public/images/san-pham/'.$product->img)}}"></td>
           <td class="text-right">{{$order_detail->quatity}}</td>
-          <td class="text-right">{{$order_detail->unit_price}}</td>
-          <td class="text-right">{{$order->total}}</td>
+          <td class="text-right">{{number_format($order_detail->unit_price)}}</td>
+          <td class="text-right">{{number_format($order_detail->unit_price*$order_detail->quatity)}} đ</td>
         </tr>
+        @endforeach
         <tr>
-          <td colspan="4" class="text-right">Sub-Total</td>
-          <td class="text-right">{{$order->total}}</td>
+          <td colspan="5" class="text-right text-bold">Sub-Total</td>
+          <td class="text-right text-bold">{{number_format($order->total)}} đ</td>
         </tr>
-        {{-- <tr>
-          <td colspan="4" class="text-right">Flat Shipping Rate</td>
-          <td class="text-right">5 đ</td>
-        </tr>
-        <tr>
-          <td colspan="4" class="text-right">Total</td>
-          <td class="text-right">9,000,005 đ</td>
-        </tr> --}}
       </tbody>
 
     </table>
@@ -224,7 +222,7 @@
       </div>
       <br>
 
-     {{--  <div class="text-right">
+      {{--  <div class="text-right">
         <button id="button-history" data-loading-text="Đang tải..." class="btn btn-primary"><i class="fa fa-plus-circle"></i> Thêm lịch sử</button>
       </div> --}}
     </div>
@@ -271,15 +269,21 @@
 
               <tr>
                 <td>Mã hóa đơn: </td>
-                <td><span id="mahoadon">{{$order->id}}</span></td>
+                <td><span id="mahoadon">{{$order->code_order}}</span></td>
+                <td>Địa chỉ: </td>
+                <td><span id="mahoadon">{{$order->address}}</span></td>
               </tr>
               <tr>
                 <td>Tên người dùng: </td>
                 <td><span id="tennguoidung">{{$order->name_customer}}</span></td>
+                <td>Số điện thoại: </td>
+                <td><span id="tennguoidung">{{$order->phone_number}}</span></td>
               </tr>
               <tr>
                 <td>Tên tài khoản: </td>
                 <td><span id="tentaikhoan">{{$order->email}}</span></td>
+                <td>Ngày khởi tạo: </td>
+                <td><span id="tentaikhoan">{{$order->created_at}}</span></td>
               </tr>
             </table>
 
@@ -290,28 +294,32 @@
                   <th >Tên sản phẩm</th>
                   <th>Đơn giá (VNĐ)</th>
                   <th>Số lượng</th>
-                  <th>KM (%)</th>
-
                   <th>Tổng tiền (VNĐ)</th>
                 </thead>
                 <tbody>
-                  <tr><td style='width:33%'>{{$product->name}}</td>
+                  @foreach($list_detail as $order_detail1)
+                  @php
+                  $product1 = $order_detail1->getProduct()
+                  @endphp
+                  <tr><td style='width:33%'>{{$product1->name}}</td>
 
-                    <td style='text-align:center'>{{$product->price}}</td>
-                    <td style='text-align:center'>{{$order_detail->quatity}}</td>
-                    <td style='text-align:center'>{{$key->percent or '0'}} </td>
-                    {{-- <td style='text-align:center'>0</td> --}}
-                    <td style='text-align:center'>{{$order->total}}</td>
+                    <td style='text-align:center'>{{number_format($order_detail1->unit_price)}}</td>
+                    <td style='text-align:center'>{{$order_detail1->quatity}}</td>
+                    <!-- <td style='text-align:center'>{{$key->percent or '0'}} </td> -->
+                    <td style='text-align:center'>{{number_format($order_detail1->quatity*$order_detail1->unit_price)}}</td>
                   </tr>
+                  @endforeach
                 </tbody>
               </table>
             </fieldset>
             <table  style="width:100%">
-
+              <tr>
+                <td >Khuyến mãi(%)</td>
+                <td style="text-align:right"><span id="thanhtien" >{{$key->percent or '0'}}</span></td>
+              </tr>
               <tr>
                 <td >Thành Tiền</td>
-
-                <td style="text-align:right"><span id="thanhtien" >{{$order->total}}</span></td>
+                <td style="text-align:right"><span id="thanhtien" >{{number_format($order->total)}}</span></td>
               </tr>
             </table>
 

@@ -201,13 +201,13 @@ class AdminController extends Controller
 		$order = Order::find($id);
 
 		$order_detail = (object)OrderDetail::where('id_order',$order->id)->get()->toArray()[0];
-		$product = (object)DB::select('SELECT * FROM product where id = ?',[$order_detail->id_product])[0];
+		$list_detail = OrderDetail::where('id_order', $id)->get();
 		$process = (object)Process::where('id', $order->id_process)->select('process', 'info')->get()->toArray()[0];
 		// var_dump($process->process);
 		$user = (object)User::where('id',$order->id_user)->get()->toArray()[0];
 		$key = $order->getSalesOff();
 		
-		return view('admin.chitietdonhang',['order'=>$order, 'order_detail'=>$order_detail,'product'=>$product,'process'=>$process,'user'=>$user,'key'=>$key]);
+		return view('admin.chitietdonhang',['order'=>$order, 'order_detail'=>$order_detail,'list_detail'=>$list_detail,'process'=>$process,'user'=>$user,'key'=>$key]);
 	}
 	function pageSuaDonHang($id){
 		$order = Order::find($id);

@@ -149,25 +149,30 @@
         <tr>
           <td class="text-left">Mã sản phẩm</td>
           <td class="text-left">Tên sản phẩm</td>
+          <td class="text-right">Ảnh SP</td>
           <td class="text-right">Số lượng</td>
           <td class="text-right">Đơn vị giá</td>
           <td class="text-right">Tổng cộng</td>
         </tr>
       </thead>
       <tbody>
-
+        <?php $__currentLoopData = $list_detail; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $orderDetail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <?php 
+        $product = $orderDetail->getProduct()
+        ?>
         <tr>
           <td class="text-left"><a href="">SP<?php echo e($product->id); ?></a> </td>
           <td class="text-left"><?php echo e($product->name); ?></td>
+          <td class="text-left" style="text-align: center"><img style="width: 50px; height: 50px" src="<?php echo e(asset('public/images/san-pham/'.$product->img)); ?>"></td>
           <td class="text-right"><?php echo e($order_detail->quatity); ?></td>
-          <td class="text-right"><?php echo e($order_detail->unit_price); ?></td>
-          <td class="text-right"><?php echo e($order->total); ?></td>
+          <td class="text-right"><?php echo e(number_format($order_detail->unit_price)); ?></td>
+          <td class="text-right"><?php echo e(number_format($order_detail->unit_price*$order_detail->quatity)); ?> đ</td>
         </tr>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         <tr>
-          <td colspan="4" class="text-right">Sub-Total</td>
-          <td class="text-right"><?php echo e($order->total); ?></td>
+          <td colspan="5" class="text-right text-bold">Sub-Total</td>
+          <td class="text-right text-bold"><?php echo e(number_format($order->total)); ?> đ</td>
         </tr>
-        
       </tbody>
 
     </table>
@@ -217,7 +222,7 @@
       </div>
       <br>
 
-     
+      
     </div>
     <div class="tab-pane" id="tab-additional">                     
       <div class="table-responsive">
@@ -262,15 +267,21 @@
 
               <tr>
                 <td>Mã hóa đơn: </td>
-                <td><span id="mahoadon"><?php echo e($order->id); ?></span></td>
+                <td><span id="mahoadon"><?php echo e($order->code_order); ?></span></td>
+                <td>Địa chỉ: </td>
+                <td><span id="mahoadon"><?php echo e($order->address); ?></span></td>
               </tr>
               <tr>
                 <td>Tên người dùng: </td>
                 <td><span id="tennguoidung"><?php echo e($order->name_customer); ?></span></td>
+                <td>Số điện thoại: </td>
+                <td><span id="tennguoidung"><?php echo e($order->phone_number); ?></span></td>
               </tr>
               <tr>
                 <td>Tên tài khoản: </td>
                 <td><span id="tentaikhoan"><?php echo e($order->email); ?></span></td>
+                <td>Ngày khởi tạo: </td>
+                <td><span id="tentaikhoan"><?php echo e($order->created_at); ?></span></td>
               </tr>
             </table>
 
@@ -281,28 +292,32 @@
                   <th >Tên sản phẩm</th>
                   <th>Đơn giá (VNĐ)</th>
                   <th>Số lượng</th>
-                  <th>KM (%)</th>
-
                   <th>Tổng tiền (VNĐ)</th>
                 </thead>
                 <tbody>
-                  <tr><td style='width:33%'><?php echo e($product->name); ?></td>
+                  <?php $__currentLoopData = $list_detail; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $order_detail1): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                  <?php
+                  $product1 = $order_detail1->getProduct()
+                  ?>
+                  <tr><td style='width:33%'><?php echo e($product1->name); ?></td>
 
-                    <td style='text-align:center'><?php echo e($product->price); ?></td>
-                    <td style='text-align:center'><?php echo e($order_detail->quatity); ?></td>
-                    <td style='text-align:center'><?php echo e(isset($key->percent) ? $key->percent : '0'); ?> </td>
-                    
-                    <td style='text-align:center'><?php echo e($order->total); ?></td>
+                    <td style='text-align:center'><?php echo e(number_format($order_detail1->unit_price)); ?></td>
+                    <td style='text-align:center'><?php echo e($order_detail1->quatity); ?></td>
+                    <!-- <td style='text-align:center'><?php echo e(isset($key->percent) ? $key->percent : '0'); ?> </td> -->
+                    <td style='text-align:center'><?php echo e(number_format($order_detail1->quatity*$order_detail1->unit_price)); ?></td>
                   </tr>
+                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
               </table>
             </fieldset>
             <table  style="width:100%">
-
+              <tr>
+                <td >Khuyến mãi(%)</td>
+                <td style="text-align:right"><span id="thanhtien" ><?php echo e(isset($key->percent) ? $key->percent : '0'); ?></span></td>
+              </tr>
               <tr>
                 <td >Thành Tiền</td>
-
-                <td style="text-align:right"><span id="thanhtien" ><?php echo e($order->total); ?></span></td>
+                <td style="text-align:right"><span id="thanhtien" ><?php echo e(number_format($order->total)); ?></span></td>
               </tr>
             </table>
 
