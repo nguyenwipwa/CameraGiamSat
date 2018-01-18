@@ -26,7 +26,7 @@
     <ul class="sidebar-menu">
       <li class="header">MENU QUẢN LÝ</li>
       <li class="treeview">
-        <a href="index.html">
+        <a href="{{ route('admin') }}">
           <i class="fa fa-home"></i> <span>Trang chủ</span>
         </a>
 

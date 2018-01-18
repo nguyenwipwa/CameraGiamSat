@@ -77,6 +77,8 @@ Route::group(['prefix' => '/error'], function () {
 
 Route::group(['prefix' => '/admin'], function () {
 	Route::get('/login',['as'=>'loginAdmin', 'uses'=>'AdminController@login']);
+	Route::post('/login',['as'=>'login.admin.post', 'uses'=>'UserController@loginAdmin']);
+
 
 });
 Route::get('/themtintuc.html', function() {
@@ -104,7 +106,6 @@ Route::group(['prefix' => '/admin', 'middleware' => 'admin'], function () {
 	Route::get('/banner.html', ['as' => 'quanlybanner', 'uses' => 'AdminController@pageBanner']);
 	Route::get('/banner-form.html/{value}', ['as' => 'add.banner', 'uses' => 'AdminController@pageAddBanner']);
 	Route::get('/danhsachmenu.html', ['as' => 'danhsachmenu', 'uses' => 'AdminController@pageMenu']);
-	Route::get('/index.html', ['as' => 'admin', 'uses' => 'AdminController@pageAdmin']);
 	Route::get('/danhsachsanpham.html', ['as' => 'danhsachsanpham', 'uses' => 'AdminController@pageSanPham']);
 	Route::get('/themsanpham.html', ['as' => 'themsanpham', 'uses' => 'AdminController@viewThemSanPham']);
 	Route::post('/themsanpham.html', ['as' => 'themsanpham', 'uses' => 'AdminController@addSanPham']);
@@ -122,6 +123,7 @@ Route::group(['prefix' => '/admin', 'middleware' => 'admin'], function () {
 	Route::get('/suadonhang.html', ['as' => 'suadonhang', 'uses' => 'AdminController@pageSuaDonHang']);
 	Route::get('/form-danh-muc.html/{id}', ['as' => 'edit.category', 'uses' => 'AdminController@pageFormCategory']);
 	Route::post('/addCategory', ['as' => 'add.category', 'uses' => 'AdminController@postAddCategory']);
+	Route::get('/logout', ['as' => 'logout.admin', 'uses' => 'AdminController@logoutAdmin']);
 
 });
 Route::get('/themsanpham.html', function() {

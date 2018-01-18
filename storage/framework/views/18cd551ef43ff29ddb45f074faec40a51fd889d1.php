@@ -23,12 +23,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="contact-form">
 			<div class="signin">
 				<?php if(session('status')): ?>
-				<div class="alert alert-success">
+				<div class="alert alert-success" style="color: red; ">
 					<?php echo e(session('status')); ?>
 
 				</div>
 				<?php endif; ?>
-				<form>
+				<form action="<?php echo e(route('login.admin.post')); ?>" method="post">
 					<?php echo e(csrf_field()); ?>
 
 					<input name="email" type="email" class="user" placeholder="Email"  />

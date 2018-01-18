@@ -15,8 +15,13 @@ use App\Model\Order;
 use Illuminate\Support\Facades\Session;
 use DB;
 use App\Repository\AdminRepository;
+use Auth;
 class AdminController extends Controller
 {
+	function logoutAdmin(){
+		Auth::logout();
+		return redirect(route('loginAdmin'));
+	}
 	function postAddCategory(Request $req, AdminRepository $rep){
 		if($rep->addCategory($req))
 			return redirect(route('danhsachmenu'))->with('status', 'Thao tác thành công!');

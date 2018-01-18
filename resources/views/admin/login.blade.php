@@ -23,11 +23,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="contact-form">
 			<div class="signin">
 				@if (session('status'))
-				<div class="alert alert-success">
+				<div class="alert alert-success" style="color: red; ">
 					{{ session('status') }}
 				</div>
 				@endif
-				<form>
+				<form action="{{ route('login.admin.post') }}" method="post">
 					{{ csrf_field() }}
 					<input name="email" type="email" class="user" placeholder="Email"  />
 					<input name="password" type="password" class="pass" placeholder="Password" />

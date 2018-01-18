@@ -80,20 +80,20 @@ class UserController extends Controller
 				'password' => 'required',
 			],
 			[
-				'email.required' => 'Bạn chưa nhập Email',
-				'email.email' => 'Bạn chưa nhập đúng email',
-				'password.required' => 'Bạn chưa nhập mật khẩu',
+				'email.required' => 'Bạn chưa nhập Email! ',
+				'email.email' => 'Bạn chưa nhập đúng email! ',
+				'password.required' => 'Bạn chưa nhập mật khẩu! ',
 			]
 		);
 		if ($validator->passes()) {
 			if (Auth::attempt(['email' => $req->email, 'password' => $req->password, 'active' => 1, 'id_role'=>2])) {
             // Authentication passed...
-				return response()->json(['success'=>'Đăng nhập thành công']);
+				return redirect(route('admin'));
 			}else{
-				return response()->json(['error'=>['Tài khoản hoặc mật khẩu sai']]);
+				return redirect(route('loginAdmin'))->with('status','Tài đăng nhập sai');
 			}
 		}
-		return response()->json(['error'=>$validator->errors()->all()]);
+		return redirect(route('loginAdmin'))->with('status',implode(" ",$validator->errors()->all()));
 		
 	}
 
