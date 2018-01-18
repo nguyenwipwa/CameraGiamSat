@@ -15,6 +15,7 @@ use Cart;
 use App\Model\News;
 use App\Model\NewsDetail;
 use App\Model\Slider;
+use App\Model\SlideCategory;
 use App\User;
 use Auth;
 class PageController extends Controller {
@@ -170,7 +171,8 @@ class PageController extends Controller {
 		$contact = Contact::all();
 		$slider = Slider::getListSlider();
 		// $product = Category::where('id_category', 10)->get();
-		$slides = DB::select('SELECT category.*, slide.img FROM slide INNER JOIN category ON slide.id_category = category.id');
+		$slides = DB::select('SELECT category.*, slide.img FROM slide INNER JOIN category ON slide.id_category = category.id and slide.status=1');
+		// $slides = SlideCategory::all();
 		//   	var_dump($users);
 		return view('index', ['category' => $category, 'contact' => $contact, 'slides' => $slides, 'slider'=>$slider, 'thanhPho'=> $thanhPho]);
 	}
