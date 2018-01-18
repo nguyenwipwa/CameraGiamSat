@@ -12,6 +12,9 @@ use App\Model\News;
 use App\Model\NewsDetail;
 use App\Model\OrderDetail;
 use App\Model\Order;
+use App\Model\Process;
+use App\User;
+use App\ThanhPho;
 use Illuminate\Support\Facades\Session;
 use DB;
 use App\Repository\AdminRepository;
@@ -119,6 +122,8 @@ class AdminController extends Controller
 		$new_dicription->save();
 		Session::flash('message', 'Thêm thành công');
 		return redirect()->route('quanlytintuc');
+		
+
 		// ->with(['flash_level'=>'success','flash_message'=>'Thêm thành công!']);
 	}
 	function viewThemTinTuc(){
@@ -167,10 +172,48 @@ class AdminController extends Controller
 
 		$order_detail = (object)OrderDetail::where('id_order',$order->id)->get()->toArray()[0];
 		$product = (object)DB::select('SELECT * FROM product where id = ?',[$order_detail->id_product])[0];
+		$process = (object)Process::where('id', $order->id_process)->select('process', 'info')->get()->toArray()[0];
+		// var_dump($process->process);
+		$user = (object)User::where('id',$order->id_user)->get()->toArray()[0];
+		$key = $order->getSalesOff();
 		
-		return view('admin.chitietdonhang',['order'=>$order, 'order_detail'=>$order_detail,'product'=>$product]);
+		return view('admin.chitietdonhang',['order'=>$order, 'order_detail'=>$order_detail,'product'=>$product,'process'=>$process,'user'=>$user,'key'=>$key]);
 	}
-	function pageSuaDonHang(){
-		return view('admin.suadonhang');
+	function pageSuaDonHang($id){
+		$order = Order::find($id);
+
+		$order_detail = (object)OrderDetail::where('id_order',$order->id)->get()->toArray()[0];
+		$product = (object)DB::select('SELECT * FROM product where id = ?',[$order_detail->id_product])[0];
+		$process = Process::all();
+		// var_dump($process->process);
+		$user = (object)User::where('id',$order->id_user)->get()->toArray()[0];
+		// $id = 
+		$id = (object)DB::select('SELECT id_thanhpho FROM address WHERE id_user  = ?' ,[$user->id])[0];
+		$thanhpho =(object)DB::select('SELECT name FROM thanhpho where id = ?',[$id->id_thanhpho])[0];
+		$allproduct = Product::all();
+		$process2 = (object)Process::where('id', $order->id_process)->select('id','process', 'info')->get()->toArray()[0];
+		// echo $id->id_thanhpho;
+		// var_dump($id);
+
+
+		return view('admin.suadonhang',['order'=>$order, 'order_detail'=>$order_detail,'product'=>$product,'process'=>$process,'process2'=>$process2,'user'=>$user,'thanhpho'=>$thanhpho, 'allproduct'=>$allproduct]);
+	}
+	function suaDonHang($id, Request $request){
+		// $order = Order::find($id);
+		// $order->code_order = $request->code_order;
+		// $order->name_customer = $request->firstname;
+		// $order->id_process = $request->process;
+		// $order->save();
+
+		// $order_detail = OrderDetail::find($id);
+		// echo $request->code_order;
+
+		// var_dump($order);
+		$order = DB::table('order')
+		->where('id', $id)
+		->update(['id_process' => $request->process]);
+		// echo $request->process;
+		// echo $id;
+		return redirect()->back();
 	}
 }

@@ -119,12 +119,13 @@ Route::group(['prefix' => '/admin'], function () {
 	Route::post('/phieugiamgia-form.html', ['as' => 'phieugiamgia.add', 'uses' => 'AdminController@saveSalesOff']);
 	Route::get('/danhsachdonhang.html', ['as' => 'danhsachdonhang', 'uses' => 'AdminController@pageDonHang']);
 	Route::get('/chitietdonhang.html/{id}', ['as' => 'chitietdonhang', 'uses' => 'AdminController@pageChiTietDonHang']);
-	Route::get('/suadonhang.html', ['as' => 'suadonhang', 'uses' => 'AdminController@pageSuaDonHang']);
+	Route::get('/viewsuadonhang.html/{id}', ['as' => 'suadonhang', 'uses' => 'AdminController@pageSuaDonHang']);
+	Route::post('/suadonhang.html/{id}', ['as' => 'suadonhang1', 'uses' => 'AdminController@suaDonHang']);
 
 
 });
 Route::get('/themsanpham.html', function() {
-    return view('admin.themsanpham');
+	return view('admin.themsanpham');
 });
 
 // Route::get('/suatintuc.html', function(){

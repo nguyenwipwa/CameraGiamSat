@@ -11,7 +11,7 @@ class Order extends Model
 	protected $table = "order";
 	public $timestamps = true;
 	public function getSalesOff() {
-		// return $this->hasOne('App\Model\SaleOff', 'key_sales_off', 'key');
+		// return $this->hasOne('App\Model\SaleOff', 'key', 'key_sales_off');
 		return SaleOff::where('key', $this->key_sales_off)->first();
 	}
 	public function getProcess() {

@@ -12,13 +12,10 @@
      <div class="page-header">
       <div class="container-fluid">
         <div class="pull-right">
-          <a href="" target="_blank" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="In hóa đơn">
+          <a onclick="printhd()" target="_blank"  title="" class="btn btn-info" data-original-title="In hóa đơn">
             <i class="fa fa-print"></i>
           </a> 
-          <a href="" target="_blank" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="In danh sách vận chuyển">
-            <i class="fa fa-truck"></i>
-          </a>
-          <a href="" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Sửa">
+          <a href="{{url('/admin/viewsuadonhang.html/'.$order->id)}}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Sửa">
             <i class="fa fa-pencil"></i>
           </a>
           <a href="" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Trở về">
@@ -27,8 +24,8 @@
         </div>
         <h1>Đơn hàng</h1>
         <ul class="breadcrumb">
-          <li><a href="http://localhost:81/opencart/admin/index.php?route=common/dashboard&amp;user_token=LRLhUr6HXulMIMPm8PxCIoxiwTLSHiq5">Trang chủ</a></li>
-          <li><a href="http://localhost:81/opencart/admin/index.php?route=sale/order&amp;user_token=LRLhUr6HXulMIMPm8PxCIoxiwTLSHiq5&amp;sort=o.order_id&amp;order=ASC">Đơn hàng</a></li>
+          <li><a href="">Trang chủ</a></li>
+          <li><a href="">Đơn hàng</a></li>
         </ul>
       </div>
     </div>
@@ -101,23 +98,24 @@
           <table class="table">
             <tbody>
               <tr>
-                <td>Hoá đơn</td>
-                <td id="invoice" class="text-right">INV-2017-001</td>
+                <td>Mã hoá đơn</td>
+                <td id="invoice" class="text-right">{{$order->code_order}}</td>
                 <td style="width: 1%;" class="text-center">             
                  <button disabled="disabled" class="btn btn-success btn-xs"><i class="fa fa-refresh"></i></button>
                </td>
              </tr>
              <tr>
-              <td>Điểm thưởng:</td>
-              <td class="text-right">0</td>
+              <td>Mã giảm giá:</td>
+              <td class="text-right">{{$order->key_sale_off == null ? " Không có " : $order->key_sale_off}}</td>
               <td class="text-center">                 
                <button disabled="disabled" class="btn btn-success btn-xs"><i class="fa fa-plus-circle"></i></button>
              </td>
            </tr>
            <tr>
-            <td>Liên kết:
+            <td>Tiến trình: 
             </td>
-            <td class="text-right">0 đ</td>
+            <td class="text-right">{{$process->process}}</td>
+            
             <td class="text-center">                 
              <button disabled="disabled" class="btn btn-success btn-xs"><i class="fa fa-plus-circle"></i></button>
            </td>
@@ -149,34 +147,34 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <td class="text-left">Sản phẩm</td>
-          <td class="text-left">Mẫu</td>
+          <td class="text-left">Mã sản phẩm</td>
+          <td class="text-left">Tên sản phẩm</td>
           <td class="text-right">Số lượng</td>
           <td class="text-right">Đơn vị giá</td>
           <td class="text-right">Tổng cộng</td>
         </tr>
       </thead>
       <tbody>
-    
+
         <tr>
-          <td class="text-left"><a href="http://localhost:81/opencart/admin/index.php?route=catalog/product/edit&amp;user_token=LRLhUr6HXulMIMPm8PxCIoxiwTLSHiq5&amp;product_id=47">HP LP3065</a> </td>
-          <td class="text-left">Product 21</td>
-          <td class="text-right">1</td>
-          <td class="text-right">9,000,000 đ</td>
-          <td class="text-right">9,000,000 đ</td>
+          <td class="text-left"><a href="">SP{{$product->id}}</a> </td>
+          <td class="text-left">{{$product->name}}</td>
+          <td class="text-right">{{$order_detail->quatity}}</td>
+          <td class="text-right">{{$order_detail->unit_price}}</td>
+          <td class="text-right">{{$order->total}}</td>
         </tr>
         <tr>
           <td colspan="4" class="text-right">Sub-Total</td>
-          <td class="text-right">9,000,000 đ</td>
+          <td class="text-right">{{$order->total}}</td>
         </tr>
-        <tr>
+        {{-- <tr>
           <td colspan="4" class="text-right">Flat Shipping Rate</td>
           <td class="text-right">5 đ</td>
         </tr>
         <tr>
           <td colspan="4" class="text-right">Total</td>
           <td class="text-right">9,000,005 đ</td>
-        </tr>
+        </tr> --}}
       </tbody>
 
     </table>
@@ -225,144 +223,112 @@
         </div>
       </div>
       <br>
-      <fieldset>
-        <legend>Add Order History</legend>
-        <form class="form-horizontal">
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-order-status">Tình trạng đơn hàng</label>
-            <div class="col-sm-10">
-              <select name="order_status_id" id="input-order-status" class="form-control">
 
-
-
-
-                <option value="7">Canceled</option>
-
-
-
-
-                <option value="9">Canceled Reversal</option>
-
-
-
-
-                <option value="13">Chargeback</option>
-
-
-
-
-                <option value="5">Complete</option>
-
-
-
-
-                <option value="8">Denied</option>
-
-
-
-
-                <option value="14">Expired</option>
-
-
-
-
-                <option value="10">Failed</option>
-
-
-
-
-                <option value="1" selected="selected">Pending</option>
-
-
-
-
-                <option value="15">Processed</option>
-
-
-
-
-                <option value="2">Processing</option>
-
-
-
-
-                <option value="11">Refunded</option>
-
-
-
-
-                <option value="12">Reversed</option>
-
-
-
-
-                <option value="3">Shipped</option>
-
-
-
-
-                <option value="16">Voided</option>
-
-
-
-
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-override"><span data-toggle="tooltip" title="" data-original-title="If the customers order is being blocked from changing the order status due to an anti-fraud extension enable override.">Override</span></label>
-            <div class="col-sm-10">
-              <div class="checkbox">
-                <input type="checkbox" name="override" value="1" id="input-override">
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-notify">Thông báo cho khách hàng</label>
-            <div class="col-sm-10">
-              <div class="checkbox">
-                <input type="checkbox" name="notify" value="1" id="input-notify">
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-comment">Bình luận</label>
-            <div class="col-sm-10">
-              <textarea name="comment" rows="8" id="input-comment" class="form-control"></textarea>
-            </div>
-          </div>
-        </form>
-      </fieldset>
-      <div class="text-right">
+     {{--  <div class="text-right">
         <button id="button-history" data-loading-text="Đang tải..." class="btn btn-primary"><i class="fa fa-plus-circle"></i> Thêm lịch sử</button>
+      </div> --}}
+    </div>
+    <div class="tab-pane" id="tab-additional">                     
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <td colspan="2">Browser</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Địa chỉ IP:</td>
+              <td>::1</td>
+            </tr>
+            <tr>
+              <td>Tên tài khoản đại lý:</td>
+              <td>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.108 Safari/537.36</td>
+            </tr>
+            <tr>
+              <td>Chấp nhận ngôn ngữ:</td>
+              <td>vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5</td>
+            </tr>
+          </tbody>
+
+        </table>
       </div>
     </div>
-    <div class="tab-pane" id="tab-additional">                                     <div class="table-responsive">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <td colspan="2">Browser</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Địa chỉ IP:</td>
-            <td>::1</td>
-          </tr>
-          <tr>
-            <td>Tên tài khoản đại lý:</td>
-            <td>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.108 Safari/537.36</td>
-          </tr>
-          <tr>
-            <td>Chấp nhận ngôn ngữ:</td>
-            <td>vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5</td>
-          </tr>
-        </tbody>
 
-      </table>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog" style="width:55%">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Chi tiết hóa đơn </h4>
+          </div>
+          <div class="modal-body">
+            <div> <p><strong>3TP Camera Store</strong></p></div>
+            <table>
+
+              <tr>
+                <td>Mã hóa đơn: </td>
+                <td><span id="mahoadon">{{$order->id}}</span></td>
+              </tr>
+              <tr>
+                <td>Tên người dùng: </td>
+                <td><span id="tennguoidung">{{$order->name_customer}}</span></td>
+              </tr>
+              <tr>
+                <td>Tên tài khoản: </td>
+                <td><span id="tentaikhoan">{{$order->email}}</span></td>
+              </tr>
+            </table>
+
+            <fieldset>
+              <legend>Thông tin sản phẩm</legend>
+              <table class="table" id="tbsp">
+                <thead>
+                  <th >Tên sản phẩm</th>
+                  <th>Đơn giá (VNĐ)</th>
+                  <th>Số lượng</th>
+                  <th>KM (%)</th>
+
+                  <th>Tổng tiền (VNĐ)</th>
+                </thead>
+                <tbody>
+                  <tr><td style='width:33%'>{{$product->name}}</td>
+
+                    <td style='text-align:center'>{{$product->price}}</td>
+                    <td style='text-align:center'>{{$order_detail->quatity}}</td>
+                    <td style='text-align:center'>{{$key->percent or '0'}} </td>
+                    {{-- <td style='text-align:center'>0</td> --}}
+                    <td style='text-align:center'>{{$order->total}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </fieldset>
+            <table  style="width:100%">
+
+              <tr>
+                <td >Thành Tiền</td>
+
+                <td style="text-align:right"><span id="thanhtien" >{{$order->total}}</span></td>
+              </tr>
+            </table>
+
+
+          </div>
+          <div class="modal-footer">
+
+            <button type="button" class="btn btn-default" onClick="printhd()">In hóa đơn</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Thoát</button>
+
+          </div>
+        </div>
+
+      </div>
     </div>
+
   </div>
-</div>
 </div>
 </div>
 </div>
@@ -376,6 +342,19 @@
 </div>
 
 </div>
+<script type="text/javascript">
+  function printhd(){
+
+    var mywindow = window.open('', 'PRINT', 'height=600,width=800');
+    mywindow.document.write($(".modal-header").html());
+    mywindow.document.write($(".modal-body").html());
+    mywindow.document.close();
+    mywindow.print();
+    mywindow.close();
+
+    return true;  
+  }
+</script>
 <link href="{{asset('resources/views/admin/bootstrap.css')}}" rel="stylesheet"/>
 <link href="{{asset('resources/views/admin/css/codemirror.css')}}" rel="stylesheet"/>
 <link href="{{asset('resources/views/admin/css/monokai.css')}}" rel="stylesheet"/>
