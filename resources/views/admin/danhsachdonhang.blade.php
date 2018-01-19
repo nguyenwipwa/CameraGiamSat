@@ -23,10 +23,10 @@
             <button type="submit" form="form-product" formaction="http://localhost/opencart/admin/index.php?route=catalog/product/copy&amp;user_token=R94rZ1nsVBrQ2iH5qTwXVAs0dr0LuFak" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Sao chép"><i class="fa fa-copy"></i></button>
             <button type="button" form="form-product" formaction="http://localhost/opencart/admin/index.php?route=catalog/product/delete&amp;user_token=R94rZ1nsVBrQ2iH5qTwXVAs0dr0LuFak" data-toggle="tooltip" title="" class="btn btn-danger" onclick="confirm('Xóa/gỡ cài đặt không thể hoàn tác! Bạn có chắc bạn muốn làm điều này?') ? $('#form-product').submit() : false;" data-original-title="Xoá"><i class="fa fa-trash-o"></i></button>
           </div>
-          <h1>Quản lý sản phẩm</h1>
+          <h1>Quản lý đơn hàng</h1>
           <ul class="breadcrumb">
             <li><a href="http://localhost/opencart/admin/index.php?route=common/dashboard&amp;user_token=R94rZ1nsVBrQ2iH5qTwXVAs0dr0LuFak">Trang chủ</a></li>
-            <li><a href="http://localhost/opencart/admin/index.php?route=catalog/product&amp;user_token=R94rZ1nsVBrQ2iH5qTwXVAs0dr0LuFak">Quản lý sản phẩm </a></li>
+            <li><a href="http://localhost/opencart/admin/index.php?route=catalog/product&amp;user_token=R94rZ1nsVBrQ2iH5qTwXVAs0dr0LuFak">Quản lý Đơn hàng </a></li>
           </ul>
         </div>
       </div>
@@ -38,7 +38,7 @@
             </div>
             <div class="panel-body">
               <div class="form-group">
-                <label class="control-label" for="input-name">Tên sản phẩm</label>
+                <label class="control-label" for="input-name">Tên đơn hàng</label>
                 <input type="text" name="filter_name" value="" placeholder="Tên sản phẩm" id="input-name" class="form-control" autocomplete="off"><ul class="dropdown-menu"></ul>
               </div>
               <div class="form-group">
@@ -71,7 +71,7 @@
         <div class="col-md-9 col-md-pull-3 col-sm-12">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h3 class="panel-title"><i class="fa fa-list"></i> Danh sách sản phẩm</h3>
+              <h3 class="panel-title"><i class="fa fa-list"></i> Danh sách đơn hàng</h3>
             </div>
             <div class="panel-body">
               <form action="http://localhost/opencart/admin/index.php?route=catalog/product/delete&amp;user_token=R94rZ1nsVBrQ2iH5qTwXVAs0dr0LuFak" method="post" enctype="multipart/form-data" id="form-product">

@@ -124,6 +124,9 @@ Route::group(['prefix' => '/admin', 'middleware' => 'admin'], function () {
 	Route::post('/xoaphieugiamgia', ['as' => 'xoa.giamgia', 'uses' => 'AdminController@deleteGiamGia']);
 	Route::get('danhsachUser',['as'=>'danhsachUser','uses'=> 'UserController@getDanhSach']);
 	Route::post('/danhsachUser', ['as' => 'themUser1', 'uses' => 'UserController@postThem']);
+	Route::get('/donhangspam.html', ['as' => 'donhangspam', 'uses' => 'AdminController@viewDonHangSpam']);
+	Route::get('/xoadonhangspam.html/{id}', ['as' => 'xoadonhangspam', 'uses' => 'AdminController@xoaDonHangSpam']);
+	Route::post('/xoaAll.html', ['as' => 'xoaall', 'uses' => 'AdminController@xoaAll']);
 
 	Route::get('/danhsachUser/{id}', ['as' => 'suaUser', 'uses' => 'UserController@getSua']);
 	Route::post('/danhsachUser/{id}', ['as' => 'suaUser1', 'uses' => 'UserController@postSua']);

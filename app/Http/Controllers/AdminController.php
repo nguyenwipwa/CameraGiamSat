@@ -251,4 +251,26 @@ class AdminController extends Controller
 		// echo $id;
 		return redirect()->back();
 	}
+
+	function viewDonHangSpam(){
+		$listOrders =  Order::where('active', 0)->get();
+
+		return view('admin.danhsachdonhangspam',['listOrders'=>$listOrders]);
+	}
+	function xoaDonHangSpam($id){
+		$order = Order::find($id);
+		$order->delete();
+		return redirect()->back();
+	}
+	function xoaAll(Request $request){
+		// $order = Order::find($request->check);
+		// $order->delete();
+		// return redirect()->back();
+		$order = DB::table('order')->whereIn('id',$request->selected);
+		$order->delete();
+		// return json_encode($order);
+		return redirect()->back();
+		
+
+	}
 }
