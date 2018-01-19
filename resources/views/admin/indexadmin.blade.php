@@ -49,7 +49,7 @@
               <div class="info-box">
                <a href="danhsachUser.html">  <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span></a>
                 <div class="info-box-content">
-                  <a href="danhsachUser.html"><h3>Thành Viên</h3></a>
+                  <a href="{{ route('danhsachUser') }}"><h3>Thành Viên</h3></a>
 
                 </div><!-- /.info-box-content -->
               </div><!-- /.info-box -->
