@@ -38,7 +38,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 	</div>
 	<div class="footer">
-		<p>Copyright &copy; 2015 Cosmo Login Form. All Rights Reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+		<!-- <p>Copyright &copy; 2015 Cosmo Login Form. All Rights Reserved | Design by <a href="http://w3layouts.com">NLU</a></p> -->
 	</div>
 </body>
 </html>

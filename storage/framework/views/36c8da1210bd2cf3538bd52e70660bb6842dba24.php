@@ -92,13 +92,10 @@
                   <label class="col-sm-2 control-label" for="input-status">Trạng thái</label>
                   <div class="col-sm-10">
                     <select name="status" id="input-status" class="form-control">
-                      <?php if($product->status==1): ?>
-                      <option value="1" selected="selected">Kích hoạt</option>
-                      <option value="0">Vô hiệu hóa</option>
-                      <?php else: ?>
-                      <option value="1" >Kích hoạt</option>
-                      <option value="0" selected="selected">Vô hiệu hóa</option>
-                      <?php endif; ?>
+                      
+                      <option value="1" <?php echo e($product->status==1 ? "selected" : " "); ?>>Kích hoạt</option>
+                      <option value="0" <?php echo e($product->status!=1 ? "selected" : " "); ?>>Vô hiệu hóa</option>
+                      
                     </select>
                   </div>
                 </div>

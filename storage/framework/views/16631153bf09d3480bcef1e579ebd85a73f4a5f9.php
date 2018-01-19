@@ -33,7 +33,7 @@
       </li>
       <li class="treeview" >
         <a href="#m2">
-          <i class="fa fa-building"></i> <span>Quản lí Menu</span> <i class="fa fa-angle-left pull-right"></i>
+          <i class="fa fa-building"></i> <span>Quản lý Menu</span> <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu collapse" id="m2">
           <li><a href="<?php echo e(route('danhsachmenu')); ?>"><i class="fa fa-circle-o"></i> Danh sách menu</a></li>
@@ -42,7 +42,7 @@
       </li>
       <li class="treeview" id="m3">
         <a href="#">
-          <i class="fa fa-table nav_icon"></i> <span>Quản lí sản phẩm</span> <i class="fa fa-angle-left pull-right"></i>
+          <i class="fa fa-table nav_icon"></i> <span>Quản lý sản phẩm</span> <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
           <li><a href="<?php echo e(route('danhsachsanpham')); ?>"><i class="fa fa-circle-o"></i> Tất cả sản phẩm</a></li>
@@ -67,7 +67,7 @@
           <span class="fa fa-angle-left pull-right"></span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="<?php echo e(route('danhsachdonhang')); ?>"><i class="fa fa-circle-o"></i> Quản lí hóa đơn</a></li>
+          <li><a href="<?php echo e(route('danhsachdonhang')); ?>"><i class="fa fa-circle-o"></i> Quản lý hóa đơn</a></li>
           <li><a href="<?php echo e(route('donhangspam')); ?>"><i class="fa fa-circle-o"></i> Đơn hàng spam</a></li>
                 <!--<li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
                 <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
