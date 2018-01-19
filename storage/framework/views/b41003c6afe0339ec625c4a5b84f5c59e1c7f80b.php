@@ -92,7 +92,7 @@
 									</div>
 								</form>
 								<div class="row">
-									<div class="col-sm-6 text-left"></div>
+									<div class="col-sm-6 text-left">Hiển thị từ 1 đến 19 của 19 (1 trang)</div>
 									<div class="col-sm-6 text-right"><?php echo e($listNews->render()); ?></div>
 								</div>
 							</div>
